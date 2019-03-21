@@ -4103,7 +4103,7 @@ setTimeout(function(){
 	
 	sieditarclinica=false;
 	siescribir=false;
-
+alert(888);
 	setTimeout(function(){
 	siescribir=false;
 
@@ -5753,13 +5753,14 @@ var adontogramax=[];
 var afcaries=[];
 
 function llamafireparacaries(){
-
+	gefecha();
 		firebase.database().ref().child("odontologo").child("uno").child("pacientes").child("puno").child("odontogramageneral").
-		child("2019").child("03").child("20190321").once("value", function(snapshot) {
+		child("2019").child("03").child(fechacfecha).once("value", function(snapshot) {
 	
 			adontogramax=[];
 			adontogramax=snapshot.val();
-			console.log("aca   "+snapshot.val());
+		
+
 for(var i in adontogramax){
 	
 
@@ -5952,7 +5953,7 @@ Aconcaries[thiss.id].sp.kill();
   
   
 	firebase.database().ref().child("odontologo").child("uno").child("pacientes").child("puno").child("odontogramageneral").
-		child("2019").child("03").child("20190320").child("Caries").child(thiss.idfire).remove();
+		child("2019").child("03").child(fechacfecha).child("Caries").child(thiss.idfire).remove();
 	
 	document.getElementById("idpaneleliminar").style.display="none";
 	
