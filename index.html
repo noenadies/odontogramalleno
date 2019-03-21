@@ -6513,11 +6513,11 @@ setTimeout(function(){
 
 	cidemail=cidemail+1;
 			 if(losemailA[cidemail]!=null){
-		
-				emailparaquien=losemailA[cidemail];
+		try {
+			emailparaquien=losemailA[cidemail];
 
-				document.getElementById('h4email').innerHTML = "entra  "+cidemail+"  "+emailparaquien;
-		
+document.getElementById('h4email').innerHTML = "entra  "+cidemail+"  "+emailparaquien;
+
 
 stmensaleemail = document.getElementById('iddmesemail').value;
 
@@ -6526,6 +6526,10 @@ stmensaleemail = document.getElementById('iddmesemail').value;
 emailparaquien=losemailA[cidemail];
 
 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+		} catch (error) {
+			
+		}
+			
 			 }
 
 },200);
