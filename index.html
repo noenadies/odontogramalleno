@@ -775,13 +775,32 @@ list-style-type: none;
 }
 
 
-#idbotonera{
-
-
+#idbtcerrarmenubotonera{
+position: relative;
+left: 0%;
+height: 30px;
+width: 30px;
+top: 0%;
+background-color: #ffffff;
+color: #00aeff;
+font-size: 13px;
+border: 5px solid #00aeff;
+border-radius: 40px 40px 40px 40px;
 
 }
 
+#idbtguardarenfiremenubotonera{
+	position: relative;
+left: 0%;
+height: 30px;
+width: 30px;
+top: 0%;
+background-color: #ffffff;
+color: #00aeff;
+font-size: 13px;
+border: 5px solid #00aeff;
 
+}
 
 			</style>
 		</head>
@@ -794,7 +813,8 @@ list-style-type: none;
 <div id="idmenubotonera">
 
 
-
+<button onclick="fcerrarmenulatedercho();" id="idbtcerrarmenubotonera">X</button>
+<button onclick="guardarfire();" id="idbtguardarenfiremenubotonera">Guardar</button>
 
 	<button  onclick="ocultabotonera();" class="accordion">Section 1</button>
 
