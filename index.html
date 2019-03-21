@@ -999,6 +999,42 @@ z-index: 790;
 }
 
 
+#idsplasodontorgramam{
+
+position: absolute;
+top: 0%;
+left: 0%;
+height: 100%;
+width: 100%;
+background-color: #000000;
+opacity: 1;
+z-index: 20;
+}
+
+#idpspalsodontorgramma{
+position: absolute;
+top: 50%;
+left: 50%;
+height: 50%;
+width: 50%;
+background-color: #000000;
+opacity: 1;
+transform: translate(-50%,-50%);
+font-size: 50px;
+margin: auto;
+text-align: center;
+padding: 4px;
+
+color: #00aeff;
+}
+
+
+
+
+
+
+
+
 		</style>
 		</head>
 		<body>
@@ -1461,13 +1497,18 @@ z-index: 790;
 
 
 
+//escribeaca
 
 
 
 
 
+<div id="idsplasodontorgramam">
 
-
+	<p id="idpspalsodontorgramma">CARGANDO ....</p>
+	
+	
+	</div>
 
 
 
@@ -2810,7 +2851,7 @@ z-index: 790;
 		  //  document.getElementById("divodontograma").style.display="block";
 		  //  document.getElementById("idmenueleimirobjetos").style.display="block";
 			arrayvfpahser=snapshot.val();
-	
+			document.getElementById("idsplasodontorgramam").style.display="none";
 			iniciaphaser();
 	  
 	
@@ -3535,6 +3576,8 @@ z-index: 790;
 //	cread("nn1",0.4+0.1,0.2,"01");
 	llamafireparacaries();
 	
+
+
 	}
 	
 	
