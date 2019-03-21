@@ -6508,7 +6508,7 @@ var losemailA=[];
 		 showResult: function (result) { // dejava
 			document.getElementById('h4email').innerHTML = cidemail;
 			 cidemail=cidemail+1;
-			 if((parseInt(losemailA.length)- cidemail)>1){
+			 if(losemailA[cidemail]!=null){
 		
 				emailparaquien=losemailA[cidemail];
 
@@ -6517,15 +6517,11 @@ var losemailA=[];
 
 stmensaleemail = document.getElementById('iddmesemail').value;
 
-if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
-if(emailparaquien!=null){
-//javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
-	}
+
+
+emailparaquien=losemailA[cidemail];
 
 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
-
-
-
 
 
 
@@ -7146,7 +7142,10 @@ document.getElementById("idmenulateralzquierdo").style.display="none";
 
 var 	losemail;
 var indiceteemail=0;
-function traescorreos(){alert(3333333);
+function traescorreos(){
+	
+
+	
 		firebase.database().ref().child("nemail").once("value", function(snapshot) {
 	
 		
@@ -7164,10 +7163,18 @@ losemailA.push(losemail[i]);
 //sendToJava2 ("enviaremail",losemail[0],"c");
 
 emailparaquien=losemailA[cidemail];
+/*
+console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
+cidemail= cidemail+1;
+emailparaquien=losemailA[cidemail];
+
+console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
+cidemail= cidemail+1;
+emailparaquien=losemailA[cidemail];
 
 console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
 
-
+*/
 		 stmensaleemail = document.getElementById('iddmesemail').value;
 
 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
