@@ -941,7 +941,7 @@ border-radius: 40px 40px 40px 40px;
 		<div class="container">
 
 			<h4 id="h4email">aca </h4>
-				<label class="cllabelemail" for="uname"><b>Username</b></label>
+				<label class="cllabelemail" for="uname"><b>Para</b></label>
 				<input id="iddestinatarioemail"  class="clinpemail" type="text" placeholder="Para" name="uname" required>
 		  
 				<label class="cllabelemail" for="psw"><b>Mensaje</b></label>
@@ -5844,17 +5844,22 @@ if(arrsteditensme[2]=="b"){
 
 // se conecta con java
 
-
-
+var emailparaquien="ing.giovanni.rodriguez@gmail.com";
+var stmensaleemail="";
 function sendToJava2 (n,a,c) {
          
 		 javaConnector.toLowerCase(n,a,c);
 	 };
 	 function sendToJava () {
-		 var s = document.getElementById('iddestinatarioemail').value;
-		 javaConnector.toLowerCase(s,"","");
+	 stmensaleemail = document.getElementById('iddmesemail').value;
+
+		 emailparaquien=document.getElementById('iddestinatarioemail').value;
+		 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
+		 javaConnector.toLowerCase(emailparaquien,stmensaleemail ,"");
 		// document.getElementById('h4email').innerHTML = "result";
 //sendToJava2 (arrp[i].n,arrp[i].a,arrp[i].c); 
+
+
 
 
 	 }
