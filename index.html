@@ -1171,7 +1171,7 @@ z-index: 7003;
 		<a onclick="abreidmarketing();" >Marketing</a>
 	  
 		<a onclick="abreidsendemail();" >Send Email</a>
-	  
+		<a onclick="fCerrarapp();" >Cerrarapp</a> 
 	  
 	  
 	  
@@ -6331,10 +6331,7 @@ if(arrsteditensme[2]=="b"){
 
 var emailparaquien="ing.giovanni.rodriguez@gmail.com";
 var stmensaleemail="";
-function sendToJava2 (n,a,c) {
-         
-		 javaConnector.toLowerCase(n,a,c);
-	 };
+
 	 function sendToJava () {
 	 stmensaleemail = document.getElementById('iddmesemail').value;
 
@@ -6849,6 +6846,26 @@ function abreidsendemail(){
   
 	  firebase.database().ref().child("telefonos").push(telefononuevo)
   }
+
+
+
+
+
+
+
+
+
+
+function fCerrarapp(){
+	sendToJava2 ("cerrarapp","a","c");
+}
+
+
+function sendToJava2 (n,a,c) {
+         
+		 javaConnector.toLowerCase(n,a,c);
+	 }
+
 
 
 			</script> 
