@@ -949,10 +949,7 @@ border-radius: 40px 40px 40px 40px;
 
 
 #idbtcerraremail{
-	position: absolute;
-	top: 0%;
-	left: 55%;
-	transform: translate(-50%,0);
+
 	width: 25%;
 	height: 35px;
 	background-color: #3f1807;
@@ -1026,8 +1023,19 @@ z-index: 7003;
 				<label class="cllabelemail" for="psw"><b>Mensaje</b></label>
 				<input id="iddmesemail"   class="clinpemail" type="text" placeholder="Mensaje" name="uname" required>
 				  
+
+				<table style="width: 100%" border="1">
+					<tbody>
+					  <tr>
+						<td><br>
+						</td>
+						<td><button id="idbtcerraremail" onclick="emaeilcerrarf();">Email cerrar</button>
+						</td>
+					  </tr>
+					</tbody>
+				  </table>
 				<button id="idbtenviaremail" onclick="sendToJava ();">Enviar email</button>
-				<button id="idbtcerraremail" onclick="emaeilcerrarf();">Email cerrar</button>
+				
 			<div id="idbtdemensajesbt"></div>
 			  </div>
 
