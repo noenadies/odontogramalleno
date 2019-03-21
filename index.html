@@ -928,7 +928,27 @@ border-radius: 40px 40px 40px 40px;
 	height: 100%;
 }
 
-			</style>
+#idbtenviaremail{
+
+	position: relative;
+	top: 0%;
+	left: 50%;
+	transform: translate(-50%,0);
+	width: 30%;
+	height: 35px;
+	background-color: #3f1807;
+	color: #ffffff;
+	opacity: 1;
+
+}	
+
+
+
+
+
+
+
+		</style>
 		</head>
 		<body>
 	
@@ -940,14 +960,14 @@ border-radius: 40px 40px 40px 40px;
 
 		<div class="container">
 
-			<h4 id="h4email">aca </h4>
+			<h4 id="h4email">Email  </h4>
 				<label class="cllabelemail" for="uname"><b>Para</b></label>
 				<input id="iddestinatarioemail"  class="clinpemail" type="text" placeholder="Para" name="uname" required>
 		  
 				<label class="cllabelemail" for="psw"><b>Mensaje</b></label>
 				<input id="iddmesemail"   class="clinpemail" type="text" placeholder="Mensaje" name="uname" required>
 				  
-				<button onclick="sendToJava ();">Login</button>
+				<button id="idbtenviaremail" onclick="sendToJava ();">Enviar email</button>
 			
 			  </div>
 
