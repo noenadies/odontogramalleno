@@ -53,23 +53,49 @@
 					}
 	
 	
-		#idpmensaje{
-	position: absolute;
-	left: 2%;
+		.clidpmensaje{
+	position: relative;
+	left: 0%;
 	top: 0%;
-	width: 90%;
+	width: 100%;
 
-	font-size: 50px;
+	font-size: 20px;
 	color: #0f4755;
 	z-index:3;
-	height: 40px;
+	height: 20px;
 	padding: 2px;
 	margin: auto;
 	text-align: center;
 	opacity: 1;
 		}
 	
+		.clidpmensaje2{border: 5px none #1C6EA4;
+	position: relative;
+	left: 0%;
+	top: 0%;
+	width: 50%;
+
+	font-size: 20px;
+	color: #000000;
+	z-index:3;
+	height: 20px;
+	padding: 2px;
+	margin: auto;
+	text-align: center;
+	opacity: 1;
+		}
 	
+
+		.clstd{
+position: relative;
+width: 8.333333333%;
+
+border: 5px none #1C6EA4;
+
+		}
+	
+
+
 	#phaser-example{
 		position: absolute;
 		top:10%;
@@ -799,8 +825,29 @@ background-color: #ffffff;
 color: #00aeff;
 font-size: 13px;
 border: 5px solid #00aeff;
+text-align: center;
+padding: 1px;
+margin: auto;
 
 }
+
+.cltabbt{
+position: relative;
+top: 50%;
+left: 50%;
+width: 100%;
+height: 100%;
+transform: translate(-50%,-50%);
+background-color: #00aeff;
+font-size: 12px;
+
+}
+
+
+
+
+
+
 
 			</style>
 		</head>
@@ -814,17 +861,92 @@ border: 5px solid #00aeff;
 
 
 <button onclick="fcerrarmenulatedercho();" id="idbtcerrarmenubotonera">X</button>
-<button onclick="guardarfire();" id="idbtguardarenfiremenubotonera">Guardar</button>
+<button onclick="guardarfire();" id="idbtguardarenfiremenubotonera">&#128190;</button>
 
 	<button  onclick="ocultabotonera();" class="accordion">Section 1</button>
 
 
 	<div id="idbotonera" class="panel">
 	 
+
+		<table style="width: 100%" border="1">
+			<tbody>
+			  <tr>
+				<td>
+
+				  <table style="width: 100%; border: 5px none #1C6EA4;" border="1">
+					<tbody style=" border: 5px none #1C6EA4;">
+					  <tr >
+						<td class="clstd"><button onclick="fidbtmoverdrag();" class="cltabbt">&#10148;</button>
+						</td>
+						<td class="clstd"><button onclick="fsieditarclinica();" class="cltabbt">&#128736;</button>
+						</td>
+						<td class="clstd"><button onclick="guardarfire();"  class="cltabbt">&#128190;</button>
+						</td>
+						<td class="clstd"><button class="cltabbt">&#9744;</button>
+						</td>
+						<td class="clstd"><button class="cltabbt">&#9744;</button>
+						</td>
+						<td class="clstd"><button class="cltabbt">&#9744;</button>
+						</td>
+					  </tr>
+					  <tr>
+						<td class="clstd"><button onclick="fsieliminarx();" class="cltabbt">&#9746;</button>
+						</td>
+						<td class="clstd"><button class="cltabbt">sc+</button>
+						</td>
+						<td class="clstd"><button class="cltabbt">sc-</button>
+						</td>
+						<td class="clstd"><button  class="cltabbt">&#9744; </button>
+						</td>
+						<td class="clstd"><button class="cltabbt">&#9744;</button>
+						</td>
+						<td class="clstd"><button  class="cltabbt">&#9744;</button>
+						</td>
+					  </tr>
+					</tbody>
+				  </table>
+				  <table style="width: 100%" border="1">
+					<tbody>
+					  <tr>
+						<td>A:</h6><p class="clidpmensaje" id="idpeda">acccccc</p>
+						</td>
+						<td>	<h6>B:</h6><p class="clidpmensaje" id="idpedb">bcccccccc</p>
+						</td>
+					  </tr>
+					  <tr>
+						<td><p class="clidpmensaje2" id="idpmensaje">ok</p>
+						</td>
+					
+					  </tr>
+					</tbody>
+				  </table>
+				  <br>
+				</td>
+				<td>
+				</td>
+			  </tr>
+			</tbody>
+		  </table>
+
+
+
 		
+
 	
-	
-<h2>ODONTOGRAMA</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+<h4>ODONTOGRAMA</h4>
 
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
@@ -1380,7 +1502,7 @@ function myFunction() {
 	
 	
 	<div id="idmenulateralzquierdo">
-		<p id="idpmensaje"></p>
+		
 	
 	<button onclick="fcerrarmenulatedercho();" id="idbtcerramenulatederecho">X</button>
 	
@@ -4944,7 +5066,7 @@ var afcaries=[];
 function llamafireparacaries(){
 
 		firebase.database().ref().child("odontologo").child("uno").child("pacientes").child("puno").child("odontogramageneral").
-		child("2019").child("03").child("20190320").once("value", function(snapshot) {
+		child("2019").child("03").child("20190321").once("value", function(snapshot) {
 	
 			adontogramax=[];
 			adontogramax=snapshot.val();
@@ -5341,7 +5463,12 @@ var spfAfroncontruircaries;
 function fAfroncontruircaries(thiss){
 
 	spfAfroncontruircaries=thiss;	
-escribep(spfAfroncontruircaries.dientenum+"<br>"+spfAfroncontruircaries.editext1+"  "+spfAfroncontruircaries.editext2);
+escribep(spfAfroncontruircaries.dientenum);
+
+document.getElementById("idpeda").innerHTML=spfAfroncontruircaries.editext1;
+document.getElementById("idpedb").innerHTML=spfAfroncontruircaries.editext2;
+
+
 
 if(sieliminar){
 
