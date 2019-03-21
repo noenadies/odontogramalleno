@@ -6528,7 +6528,7 @@ emailparaquien=losemailA[cidemail];
 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 			 }
 
-},6000);
+},200);
 
 
 
@@ -7157,7 +7157,7 @@ function traescorreos(){
 
 	
 		firebase.database().ref().child("nemail").once("value", function(snapshot) {
-	
+			losemailA=[]
 		
 			losemail=snapshot.val();
 	
@@ -7170,28 +7170,14 @@ losemailA.push(losemail[i]);
   }
 
   cidemail=0;
-//sendToJava2 ("enviaremail",losemail[0],"c");
 
 emailparaquien=losemailA[cidemail];
-/*
-console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
-cidemail= cidemail+1;
-emailparaquien=losemailA[cidemail];
 
-console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
-cidemail= cidemail+1;
-emailparaquien=losemailA[cidemail];
-
-console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
-
-*/
 		 stmensaleemail = document.getElementById('iddmesemail').value;
 
 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
 if(emailparaquien!=null){
 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
-
-//console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
 
 
 
@@ -7199,9 +7185,6 @@ javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 else{
 
 }
-//javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
-
-
 
 
 
