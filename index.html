@@ -6506,13 +6506,13 @@ var cidemail=0;
 var losemailA=[];
 	 var jsConnector = {// regresa de java 
 		 showResult: function (result) { // dejava
-			 document.getElementById('h4email').innerHTML = result;
+			document.getElementById('h4email').innerHTML = cidemail;
 			 cidemail=cidemail+1;
 			 if(losemailA.length- cidemail>1){
 		
 				emailparaquien=losemail[cidemail];
 
-
+				document.getElementById('h4email').innerHTML = "entra  "+cidemail+"  "+emailparaquien;
 		
 
 stmensaleemail = document.getElementById('iddmesemail').value;
@@ -7177,7 +7177,7 @@ javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 
 }
 else{
-	
+
 }
 //javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 
