@@ -999,36 +999,6 @@ z-index: 790;
 }
 
 
-
-#idsplasodontorgramam{
-
-position: absolute;
-top: 0%;
-left: 0%;
-height: 100%;
-width: 100%;
-background-color: #000000;
-opacity: 1;
-z-index: 8;
-}
-
-#idpspalsodontorgramma{
-position: absolute;
-top: 50%;
-left: 50%;
-height: 50%;
-width: 50%;
-background-color: #000000;
-opacity: 1;
-transform: translate(-50%,-50%);
-color: #00aeff;
-font-size: 40px;
-padding: 2px;
-margin: auto;
-text-align: center;
-
-}
-
 		</style>
 		</head>
 		<body>
@@ -1547,9 +1517,9 @@ text-align: center;
 										  <tr>
 											<td class="clstd"><button onclick="fsieliminarx();" class="cltabbt">&#9746;</button>
 											</td>
-											<td  onclick="fidbtcalarxobjs();"   class="clstd"><button class="cltabbt">sc+</button>
+											<td class="clstd"><button class="cltabbt">sc+</button>
 											</td>
-											<td onclick="fidbtcalarxobjs2();" class="clstd"><button class="cltabbt">sc-</button>
+											<td class="clstd"><button class="cltabbt">sc-</button>
 											</td>
 											<td class="clstd"><button  class="cltabbt">&#9744; </button>
 											</td>
@@ -1563,7 +1533,7 @@ text-align: center;
 									  <table style="width: 100%" border="1">
 										<tbody>
 										  <tr>
-											<td>A:</h6><p class="clidpmensaje" id="idpeda">A</p>
+											<td>A:</h6><p class="clidpmensaje" id="idpeda"></p>
 											</td>
 											<td>	<h6>B:</h6><p class="clidpmensaje" id="idpedb">B</p>
 											</td>
@@ -2320,12 +2290,7 @@ text-align: center;
 
 
 
-								<div id="idsplasodontorgramam">
 
-									<p id="idpspalsodontorgramma">CARGANDO ....</p>
-									
-									
-									</div>
 
 
 
@@ -3569,9 +3534,6 @@ text-align: center;
 	
 //	cread("nn1",0.4+0.1,0.2,"01");
 	llamafireparacaries();
-
-
-	document.getElementById("idsplasodontorgramam").style.display="none";
 	
 	}
 	
@@ -3654,15 +3616,15 @@ console.log(thiss.soyelenarray);
 
 function mueveleft(){
 
-	document.getElementById("idmenubotonera").style.position="absolute";
+//	document.getElementById("idmenulateralzquierdo").style.position="absolute";
 
-document.getElementById("idmenubotonera").style.left=String(vw*0.79)+"px";	
+//document.getElementById("idmenulateralzquierdo").style.left=String(vw*0.79)+"px";	
 }
 
 function muevederecha(){
-	document.getElementById("idmenubotonera").style.position="absolute";
+//	document.getElementById("idmenulateralzquierdo").style.position="absolute";
 
-document.getElementById("idmenubotonera").style.left=String(vw*0)+"px";	
+//document.getElementById("idmenulateralzquierdo").style.left=String(vw*0)+"px";	
 }
 
 
@@ -5791,14 +5753,13 @@ var adontogramax=[];
 var afcaries=[];
 
 function llamafireparacaries(){
-	gefecha();
+
 		firebase.database().ref().child("odontologo").child("uno").child("pacientes").child("puno").child("odontogramageneral").
-		child("2019").child("03").child(fechacfecha).once("value", function(snapshot) {
+		child("2019").child("03").child("20190321").once("value", function(snapshot) {
 	
 			adontogramax=[];
 			adontogramax=snapshot.val();
-		
-
+			console.log("aca   "+snapshot.val());
 for(var i in adontogramax){
 	
 
@@ -5991,7 +5952,7 @@ Aconcaries[thiss.id].sp.kill();
   
   
 	firebase.database().ref().child("odontologo").child("uno").child("pacientes").child("puno").child("odontogramageneral").
-		child("2019").child("03").child(fechacfecha).child("Caries").child(thiss.idfire).remove();
+		child("2019").child("03").child("20190320").child("Caries").child(thiss.idfire).remove();
 	
 	document.getElementById("idpaneleliminar").style.display="none";
 	
