@@ -6508,7 +6508,7 @@ var losemailA=[];
 		 showResult: function (result) { // dejava
 			document.getElementById('h4email').innerHTML = cidemail;
 			 cidemail=cidemail+1;
-			 if(losemailA.length- cidemail>1){
+			 if((parseInt(parselosemailA.length)- cidemail)>1){
 		
 				emailparaquien=losemail[cidemail];
 
@@ -6518,9 +6518,11 @@ var losemailA=[];
 stmensaleemail = document.getElementById('iddmesemail').value;
 
 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
-if(emailparaquien!=null){javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );}
+if(emailparaquien!=null){
+//	javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+	}
 
-
+javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 
 
 
@@ -7158,19 +7160,19 @@ losemailA.push(losemail[i]);
 	  indiceteemail=indiceteemail+1;
   }
 
-  cidemail=1;
+  cidemail=0;
 //sendToJava2 ("enviaremail",losemail[0],"c");
 
 emailparaquien=losemailA[cidemail];
 
-//onsole.log("emailparaquien   " + emailparaquien);
+console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
 
 
 		 stmensaleemail = document.getElementById('iddmesemail').value;
 
 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
 if(emailparaquien!=null){
-javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+//javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 
 
 
