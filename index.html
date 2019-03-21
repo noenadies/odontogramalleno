@@ -1079,6 +1079,12 @@ color: #00aeff;
 						<td><button id="idbtcerraremail" onclick="emaeilcerrarf();">Cerrar</button>
 						</td>
 					  </tr>
+					  <tr>
+						<td>
+						</td>
+						<td><button id="idbttraeremail" onclick="traescorreos();">Traer email</button>
+						</td>
+					  </tr>
 					</tbody>
 				  </table>
 				
@@ -6491,17 +6497,45 @@ var stmensaleemail="";
 		 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 		// document.getElementById('h4email').innerHTML = "result";
 //sendToJava2 (arrp[i].n,arrp[i].a,arrp[i].c); 
-document.getElementById("idbtenviaremail").disabled = true;
+//document.getElementById("idbtenviaremail").disabled = true;
 
 
 
 	 }
-
+var cidemail=0;
+var losemailA=[];
 	 var jsConnector = {// regresa de java 
-		 showResult: function (result) {
+		 showResult: function (result) { // dejava
 			 document.getElementById('h4email').innerHTML = result;
-			 document.getElementById("idbtenviaremail").disabled =false;
-		 }
+			 cidemail=cidemail+1;
+			 if(losemailA.length- cidemail>1){
+		
+				emailparaquien=losemail[cidemail];
+
+
+		
+
+stmensaleemail = document.getElementById('iddmesemail').value;
+
+if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
+if(emailparaquien!=null){javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );}
+
+
+
+
+
+
+
+
+
+			 }
+		//	 for(var i in losemail){console.log(i+"   "+ losemail[i])
+
+//sendToJava2 ("cerrarapp","a","c");
+}
+	
+
+		
 	 };
 
 	 function getJsConnector() {
@@ -7080,7 +7114,7 @@ if(vidcelularcn!=""){firebase.database().ref().child("telefonos").push(vidcelula
 if(videmailcn !=""){firebase.database().ref().child("nemail").push(videmailcn);}
 
 if(vidnamecn !=""){firebase.database().ref().child("nname").push(vidnamecn );}
-alert(vidnamecn +"    "+vidcelularcn+"   "+ videmailcn);
+
 
 //3133656275 subeafirebasertelefono
 
@@ -7104,6 +7138,50 @@ document.getElementById("elpaneldeodontograma").style.display="none";
 
 
 document.getElementById("idmenulateralzquierdo").style.display="none";
+
+
+
+
+var 	losemail;
+
+function traescorreos(){alert(3333333);
+		firebase.database().ref().child("nemail").once("value", function(snapshot) {
+	
+		
+			losemail=snapshot.val();
+	
+  for(var i in losemail){
+
+	  losemailA.push(losemail[i]);
+  }
+
+  cidemail=0;
+//sendToJava2 ("enviaremail",losemail[0],"c");
+
+emailparaquien=losemail[cidemail];
+
+
+		
+
+		 stmensaleemail = document.getElementById('iddmesemail').value;
+
+if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
+javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+
+
+
+
+
+
+
+
+
+		  }, function (errorObject) {
+			console.log("The read failed: " + errorObject.code);
+		  });
+	
+	  }
+
 
 
 
