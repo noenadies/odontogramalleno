@@ -1,0 +1,5599 @@
+
+<html>
+    
+	<!-- Mirrored from examples.phaser.io/embed.php?f=box2d/car+on+terrain.js&v=2.2.2.box2d by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 02 Nov 2018 04:09:24 GMT -->
+	<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+	<head>
+			<meta charset="UTF-8" />
+			<title>Phaser Example Runner</title>
+			<meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+	 
+			<script src="phaser.min.js" type="text/javascript"></script>
+			<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+			<style>
+	
+	
+				body {width: 100%;
+					height: 100%;
+					margin: 0px;
+					padding: 0px;
+					font-family: Arial;
+					font-size: 14px;
+					background-color: #ffffff;
+
+				}
+				#idtext{
+	z-index: 3;
+	position: absolute;
+	top: 90px;
+	left: 15px;
+				}
+				#phaser-example{
+	z-index: 2;
+	  width: 100%;
+					height: 100%;          }
+					#idbt{
+						position: absolute;
+						top: 12px;
+						left: 370px;
+					}
+						#idbt2{
+						position: absolute;
+						top: 12px;
+						left: 499px;
+					}
+	
+	
+					#idpa{
+						position: absolute;
+						top: 50%;
+						left: 80%;
+						z-index: 12;
+					}
+	
+	
+		#idpmensaje{
+	position: absolute;
+	left: 2%;
+	top: 0%;
+	width: 90%;
+
+	font-size: 50px;
+	color: #0f4755;
+	z-index:3;
+	height: 40px;
+	padding: 2px;
+	margin: auto;
+	text-align: center;
+	opacity: 1;
+		}
+	
+	
+	#phaser-example{
+		position: absolute;
+		top:10%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		z-index:1;
+		background-color: #ffffff;
+	}
+	
+	
+	
+	#idmenulateralderecho{
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 50%;
+	height: 50%;
+	transform:translate(-50%,-50%);
+	background-color: #ffffff;
+	opacity: 0.8;
+	z-index: 500;
+	
+	
+	}
+	#idhallazgoydescrip{
+	
+		position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 65%;
+	background-color: #ffffff;
+	opacity:0. 9;
+	z-index: 500;
+	
+	overflow-y: scroll;
+	}
+	
+	
+	
+	
+	
+	
+	#idhallazgoydescrip2{
+		position: absolute;
+	top:68%;
+	left: 0%;
+	width: 100%;
+	height: 29%;
+
+	opacity:1;
+	z-index: 500;
+	background-color: #b7c1ca;
+	overflow-y: scroll;
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	#idmenulateralzquierdo{
+	
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 20%;
+		height: 100%;
+		background-color: #b7c1ca;
+		opacity: 0.8;
+		z-index: 500;
+	
+	
+	}
+	
+	
+	#idbtcerramenulatederecho{
+		position: absolute;
+		top: 1%;
+		left: 85%;
+	
+		background-color: #ffffff;
+		opacity: 0.8;
+		z-index: 500;
+		font-size: 33px;
+	color: #000000;
+	}
+	#idbtcerramenulatederecho:hover{
+	
+		background-color: dodgerblue;
+	}
+	
+	
+	
+	#idmenucarasdeldiente{
+		position: absolute;
+		top: 25%;
+		left: 0%;
+		width: 100%;
+		height: 30%;
+		background-color: #26accc;
+	
+	}
+	
+	
+	#idb1carasmenuladerechof4{
+		position: absolute;
+		top: 50%;
+		left: 0%;
+		transform: translate(0,-50%);
+		width: 20%;
+		height: 25%;
+		border-radius: 50%;
+	
+	}
+
+
+	#idfobjEscribir{
+
+		position: absolute;
+		top: 10%;
+		left: 0%;
+		transform: translate(0,0%);
+		width: 20%;
+		height: 25%;
+		border-radius: 50%;
+	}
+
+
+
+
+
+
+	
+	#idb1carasmenuladerechofc{
+		position: absolute;
+		top: 50%;
+		left: 40%;
+		transform: translate(0,-50%);
+		width: 20%;
+		height: 25%;
+		border-radius: 50%;
+	}
+	#idb1carasmenuladerechof2{
+		position: absolute;
+		top: 50%;
+		left: 80%;
+		transform: translate(0,-50%);
+		width: 20%;
+		height: 25%;
+		border-radius: 50%;
+	}
+	
+	#idb1carasmenuladerechof1{
+		position: absolute;
+		top: 14%;
+		left: 40%;
+		transform: translate(0,-50%);
+		width: 20%;
+		height: 25%;
+		border-radius: 50%;
+	}
+	
+	#idb1carasmenuladerechof3{
+		position: absolute;
+		top: 86%;
+		left: 40%;
+		transform: translate(0,-50%);
+		width: 20%;
+		height: 25%;
+		border-radius: 50%;
+	}
+	
+	
+	
+	
+	#idb1carasmenuladerechomenuD{
+	
+		position: absolute;
+		top: 86%;
+		left: 70%;
+		transform: translate(0,-50%);
+		width: 20%;
+		height: 25%;
+	
+		background-color: #ff008c;
+	}
+	
+	
+	
+	
+	
+	#idb1carasmenuladerechomenuD:hover{
+	
+	
+	background-color: #1ffc95;
+	}
+	
+	
+	
+	
+	
+	
+	.lbdehalalzago{
+	
+		color: #b1b0b0
+	}
+	
+	.clinputhallazago {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		height: 20px;
+	  }
+	  
+	  /* Set a style for all buttons */
+	 .clbthallazgos {
+		background-color: #b7c1ca;
+		color: rgb(0, 0, 0);
+		padding: 14px 20px;
+		margin: 8px 0;
+		border: none;
+		cursor: pointer;
+		width: 100%;
+		height: 20px;
+		padding: 2px;
+		text-align: center;
+		margin: auto;
+	  }
+	  .clbthallazgos:hover {
+		opacity: 0.8;
+	  }
+	  
+	  /* Extra styles for the cancel button */
+	  .cancelbtn {
+		width: auto;
+		padding: 10px 18px;
+		background-color: #f44336;
+	  }
+	  
+	  /* Center the image and position the close button */
+	  .imgcontainer {
+		text-align: center;
+		margin: 24px 0 12px 0;
+		position: relative;
+	  }
+	  
+	  img.avatar {
+		width: 40%;
+		border-radius: 50%;
+	  }
+	  
+	  .container {
+		padding: 16px;
+		
+	  }
+	  
+	  span.psw {
+		float: right;
+		padding-top: 16px;
+	  }
+	  
+	  /* The Modal (background) */
+	  .modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+	
+		padding-top: 60px;
+		background-color: #ffffff;
+		opacity: 1;
+	  }
+	  
+	  /* Modal Content/Box */
+	  .modal-content {
+		background-color: #d3b671;
+		margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+		border: 1px solid #888;
+		width: 80%; /* Could be more or less, depending on screen size */
+		opacity: 1;
+	  }
+	  
+	  /* The Close Button (x) */
+	  .close {
+		position: absolute;
+		right: 25px;
+		top: 0;
+		color: #000;
+		font-size: 35px;
+		font-weight: bold;
+	  }
+	  
+	  .close:hover,
+	  .close:focus {
+		color: red;
+		cursor: pointer;
+	  }
+	  
+	  /* Add Zoom Animation */
+	  .animate {
+		-webkit-animation: animatezoom 0.6s;
+		animation: animatezoom 0.6s
+	  }
+	  
+	  @-webkit-keyframes animatezoom {
+		from {-webkit-transform: scale(0)} 
+		to {-webkit-transform: scale(1)}
+	  }
+		
+	  @keyframes animatezoom {
+		from {transform: scale(0)} 
+		to {transform: scale(1)}
+	  }
+	  
+	  /* Change styles for span and cancel button on extra small screens */
+	  @media screen and (max-width: 300px) {
+		span.psw {
+		   display: block;
+		   float: none;
+		}
+		.cancelbtn {
+		   width: 100%;
+		}
+	  }
+	
+	
+	
+	
+	
+	#idpaneleliminar{
+	
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		height: 100%;
+		background-color: #ffffff;
+		opacity: 0.9;
+		z-index: 550;
+	}
+	
+	
+	
+	#idpmenueliminar{
+	
+		position: absolute;
+		top: 10%;
+		left: 30%;
+		width: 100%;
+		height: 100%;
+		background-color: #c7ccd2;
+		opacity: 0.9;
+		color: #ffffff;
+		font-size: 14px;
+	}
+	
+	#idbtmeneliminarceliminar{
+	
+		position: absolute;
+		top: 50%;
+		left: 30%;
+		width: 80px;
+		height: 40px;
+		background-color: #c7ccd2;
+		opacity: 0.9;
+		color: #ffffff;
+		font-size: 14px;
+		z-index: 551;
+	
+	}
+	
+	#idbtmeneliminarcancelar{
+		position: absolute;
+		top: 50%;
+		left: 60%;
+		width: 80px;
+		height: 40px;
+		background-color: #00522c;
+		opacity: 0.9;
+		color: #ffffff;
+		font-size: 14px;
+		z-index: 551;
+	}
+	
+	#idbtmeneliminarcancelar:hover{
+		background-color: #1ffc95;
+	}
+	
+	
+	#idbtmeneliminarceliminar:hover{
+	
+		background-color: #ff000d;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	#idbtmoverdrag{
+		position: absolute;
+		top: 80%;
+		left: 10%;
+		width: 80px;
+		height: 40px;
+		background-color: #00522c;
+		opacity: 0.9;
+		color: #ffffff;
+		font-size: 14px;
+		z-index: 551;
+	}
+	
+	
+	#idbtcalarxobjs{
+		position: absolute;
+		top: 90%;
+		left: 85%;
+		width: 30px;
+		height: 30px;
+		background-color: #9effd2;
+		opacity: 0.9;
+		color: #000000;
+		font-size: 10px;
+		z-index: 551;
+		border-radius: 50%;
+		padding: 1px;
+		margin: auto;
+		text-align: center;
+		
+	}
+	
+	
+	#idbtcalarxobjs2{
+		position: absolute;
+		top: 90%;
+		left: 70%;
+		width: 30px;
+		height: 30px;
+		background-color: #9effd2;
+		opacity: 0.9;
+		color: #000000;
+		font-size: 10px;
+		z-index: 551;
+		border-radius: 50%;
+		padding: 1px;
+		margin: auto;
+		text-align: center;
+		
+	}
+	
+
+	#idbtcalarxobjsx{
+		position: absolute;
+		top: 90%;
+		left: 5%;
+		width: 30px;
+		height: 30px;
+		background-color: #9effd2;
+		opacity: 0.9;
+		color: #000000;
+		font-size: 10px;
+		z-index: 551;
+		border-radius: 50%;
+		padding: 1px;
+		margin: auto;
+		text-align: center;
+		
+	}
+	
+
+
+
+	
+	#iddivescribemalobueno{
+		position: absolute;
+		top: 111%;
+		left: 0%;
+		width: 100%;
+		height: 40px;
+		background-color: #c7ccd2;
+		z-index: 700;
+	}
+	#idinputextophaser{
+	
+	
+		position: absolute;
+		left:0%;
+		top: 50%;
+		transform: translate(0%,-50%);
+		width: 100%;
+		font-size: 14px;
+	border-radius: 3;
+	background-color: #fff;
+	color: rgb(255, 0, 0);
+
+
+	border: 5px solid #1C6EA4;
+border-radius: 40px 40px 40px 40px;
+	}
+	
+	#idbteditphaser{
+		position: absolute;
+		top: 50%;
+		left: 90%;
+		transform: translate(0%,-50%);
+		width: 30px;
+		height: 30px;
+		background-color: #9effd2;
+		opacity: 0.9;
+		color: #c7ccd2;
+		font-size: 10px;
+		z-index: 551;
+		border-radius: 50%;
+		padding: 1px;
+		margin: auto;
+		text-align: center;
+	
+	}
+	  
+	#idbteditphaser:hover{
+	
+		background-color: #00aeff;
+	
+		
+	}  
+	  
+	 #mitablaarriba{
+		 position: absolute;top: 1%;
+		 left: 0%;
+		 width: 100%;
+		 height: 70px;
+		 z-index: 6;
+	 } 
+	  
+
+.clinputables{
+
+width: 3%;
+height: 20px;
+transform: translate(-50%,0%);
+background-color: #ffffff;
+font-size: 12px;
+border: 5px solid #51bdd6;
+color: #e2009e;
+}
+
+
+
+
+
+#mitablaabajo{
+
+	position: absolute;top: 85%;
+		 left: 0%;
+		 width: 100%;
+		 height: 70px;
+		 z-index: 6;
+
+
+}
+
+
+
+#idmediosarriba{
+
+	position: absolute;top: 31%;
+		 left:0%;
+		 width: 100%;
+		 height: 17px;
+		 z-index: 6;
+background-color: #ffffff;
+}
+
+
+
+#idmediosabajo{
+
+
+	position: absolute;top: 68%;
+		 left:0%;
+		 width: 100%;
+		 height: 17px;
+		 z-index: 6;
+background-color: #ffffff;
+
+}
+
+
+
+
+#idmenubotonera{
+
+
+position:  absolute;
+top: 0%;
+left: 79%;
+width: 20%;
+background-color: #444;
+opacity: 0.9;
+z-index: 7;
+height: 100%;
+
+}
+
+
+
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel{
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+
+
+
+#climgbotonera{}
+
+
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 1px;
+  text-decoration: none;
+  font-size: 13px;
+  color: black;
+  display: block;
+  height: 20px;
+  text-align: center
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+
+}
+
+#iddivbotonera{
+
+width: 100%;
+height: 30%;
+overflow-y: scroll;
+list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+
+#idbotonera{
+
+
+
+}
+
+
+
+			</style>
+		</head>
+		<body>
+	
+	
+
+
+
+<div id="idmenubotonera">
+
+
+
+
+	<button  onclick="ocultabotonera();" class="accordion">Section 1</button>
+
+
+	<div id="idbotonera" class="panel">
+	 
+		
+	
+	
+<h2>ODONTOGRAMA</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<div id="iddivbotonera">
+
+<ul id="myUL">
+  <li><a  href="#" onclick="creadientempAPARATOORTODÓNTICOFIJO();">APARATO ORTODONTICO FIJO</a> </li>
+  <li><a href="#"  onclick="creacariestemp();" >CARIES</a></li>
+  <li><a href="#"  onclick="creadientempCONTACTOABIERTO();" >CONTACTO ABIERTO</a></li>
+
+  <li><a href="#"  onclick="creadientempCOMPROMISODEFURCA();" >COMPROMISO DE FURCA</a></li>
+  <li><a href="#"  onclick="creadientempCORONADEFINITIVA();" >CORONA DEFINITIVA</a></li>
+  <li><a href="#"  onclick="creadientempCORONATEMPORAL();" >CORONA TEMPORAL</a></li>
+  <li><a href="#"  onclick="creadientempDIASTEMA();" >DIASTEMA</a></li>
+  <li><a href="#"  onclick="creadientestraidoazul();" >DIENTE EXTRAIDO</a></li>
+
+  <li><a href="#"  onclick="creadienteimpactadoazulrojoh();" >DIENTE IMPACTADO</a></li>
+
+  <li><a href="#"  onclick="creaedentulototaltemp();" >EDENTULO</a></li>
+  <li><a href="#"  onclick="creadientempEXTRACCIONINDICADA();" >EXTRACCION INDICADA</a></li>
+  <li><a href="#"  onclick="creadientempEXTRUSIÓN();" >EXTRUSION</a></li>
+  <li><a href="#"  onclick="creadientempFRACTURA();" >FRACTURA</a></li>
+  <li><a href="#"  onclick="creadientempGIROVERSION();" >GIROVERSION</a></li>
+
+  <li><a href="#"  onclick="creadientempIMPLANTE();" >IMPLANTE</a></li>
+
+  <li><a href="#"  onclick="creadientempINTRUSION();" >INTRUSION</a></li>
+  <li><a href="#"  onclick="creadientempMACRODONCIA();" >MACRODONCIA</a></li>
+
+
+  <li><a href="#"  onclick="creadientempMICRODONCIA();" >MICRODONCIA</a></li>
+
+
+  <li><a href="#"  onclick="creadientempMIGRACION();" >MIGRACION</a></li>
+   <li><a href="#"  onclick="creadientempMIGRACION();" >MIGRACION</a></li>
+
+  <li><a href="#"  onclick="creadientempMOVILIDAD();" >MOVILIDAD</a></li>
+
+  <li><a href="#"  onclick="creadientempOBTURACIONCONAMALGAMA();" >OBTURACION CON AMALGAMA</a></li>
+
+
+
+  <li><a href="#"  onclick="creadientempOBTURACIONCONRESINA();" >OBTURACION CON RESINA</a></li>
+
+
+  <li><a href="#"  onclick="readientempOBTURACIÓNTEMPORAL();" >OBTURACIÓN TEMPORA</a></li>
+
+
+  <li><a href="#"  onclick="creadientempPUENTEFIJO();" >PUENTE FIJO</a></li>
+
+
+
+  <li><a href="#"  onclick="creadientempREMANENTERADICULAR();" >REMANENTE RADICULAR</a></li>
+
+
+
+  <li><a href="#"  onclick="creadientempRESTAURACIONDESBORDANTE();" >RESTAURACION DESBORDANTE</a></li>
+
+
+
+
+  <li><a href="#"  onclick="creadientempSUPERFICIEDESGASTADA();" >SUPERFICIE DESGASTADA</a></li>
+
+
+
+
+
+
+  <li><a href="#"  onclick="creadientempSUPERNUMERARIO();" >SUPERNUMERARIO</a></li>
+
+
+  <li><a href="#"  onclick="creadientempTRATAMIENTODECONDUCTOS();" >TRATAMIENTO DE CONDUCTOS</a></li>
+
+
+
+
+  <li><a href="#"  onclick="creadientempTRANSPOSICIÓNDENTAL();" >TRANSPOSICIÓN DENTAl</a></li>
+
+
+
+
+
+
+
+
+  <li><a href="#">Billy</a></li>
+  <li><a href="#">Bob</a></li>
+
+  <li><a href="#">Calvin</a></li>
+  <li><a href="#">Christina</a></li>
+  <li><a href="#">Cindy</a></li>
+</ul>
+
+</div>
+
+<script>document.getElementById("idbotonera").style.display="none";
+var bolmostrarbotonera=true;
+function ocultabotonera();{
+	if(bolmostrarbotonera){document.getElementById("idbotonera").style.display="block";
+	bolmostrarbotonera=false;}
+	else{	document.getElementById("idbotonera").style.display="none";
+	bolmostrarbotonera=true;}
+
+}
+
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+	
+	</div>
+
+
+
+
+
+</div>
+
+
+
+
+<script>
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+	
+	for (i = 0; i < acc.length; i++) {
+	  acc[i].addEventListener("click", function() {
+		this.classList.toggle("active");
+		var panel = this.nextElementSibling;
+		if (panel.style.display === "block") {
+		  panel.style.display = "none";
+		} else {
+		  panel.style.display = "block";
+		}
+	  });
+	}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="mitablaarriba">
+	
+
+		
+		<input  name="18a" onclick="thisnameedites(this);" id="id18a" class="clinputables" style="position: absolute;top:20%;left: 2.959280303030303%; " type="text" placeholder="18A">
+	  
+	  <input  name="18b" onclick="thisnameedites(this);"id="id18b" class="clinputables" style="position: absolute;top:70%;left: 2.959280303030303%; " type="text" placeholder="18B">
+	  
+	  
+	  
+	  <input  name="17a" onclick="thisnameedites(this);"id="id17a" class="clinputables" style="position: absolute;top:20%;left: 9.216044372294373%; " type="text" placeholder="17A">
+	  
+	  <input  name="17b" onclick="thisnameedites(this);"id="id17b" class="clinputables" style="position: absolute;top:70%;left: 9.216044372294373%; " type="text" placeholder="17B">
+	  
+	  
+	  <input  name="16a" onclick="thisnameedites(this);"id="id16a" class="clinputables" style="position: absolute;top:20%;left: 15.472808441558442%; " type="text" placeholder="16A">
+	  
+	  <input  name="16b" onclick="thisnameedites(this);"id="id16b" class="clinputables" style="position: absolute;top:70%;left: 15.472808441558442%; " type="text" placeholder="16B">
+	  
+	  
+	  
+	  <input  name="15a" onclick="thisnameedites(this);"id="id15a" class="clinputables" style="position: absolute;top:20%;left: 21.72957251082251%; " type="text" placeholder="15A">
+	  
+	  <input  name="15b" onclick="thisnameedites(this);"id="id15b" class="clinputables" style="position: absolute;top:70%;left: 21.72957251082251%; " type="text" placeholder="15B">
+	  
+	  
+	  
+	  <input  name="14a" onclick="thisnameedites(this);"id="id14a" class="clinputables" style="position: absolute;top:20%;left: 27.98633658008658%; " type="text" placeholder="14A">
+	  
+	  <input  name="14b" onclick="thisnameedites(this);"id="id14b" class="clinputables" style="position: absolute;top:70%;left: 27.98633658008658%; " type="text" placeholder="14B">
+	  
+	  
+	  
+	  <input  name="13a" onclick="thisnameedites(this);"id="id13a" class="clinputables" style="position: absolute;top:20%;left: 34.24310064935065%; " type="text" placeholder="13A">
+	  
+	  <input  name="13b" onclick="thisnameedites(this);"id="id13b" class="clinputables" style="position: absolute;top:70%;left: 34.24310064935065%; " type="text" placeholder="13B">
+	  
+	  
+	  
+	  
+	  <input  name="12a" onclick="thisnameedites(this);" name="12a"  onkeypress="thisnameedites(this);" id="id12a" class="clinputables" style="position: absolute;top:20%;left: 40.49986471861472%; " type="text" placeholder="12A">
+	  
+	  <input  name="12b" onclick="thisnameedites(this);"  name="12b"  onkeypress="thisnameedites(this);" id="id12b" class="clinputables" style="position: absolute;top:70%;left: 40.49986471861472%; " type="text" placeholder="12B">
+	  
+	  <input  name="11a" onclick="thisnameedites(this);"id="id11a" class="clinputables" style="position: absolute;top:20%;left: 46.756628787878785%; " type="text" placeholder="11A">
+	  
+	  <input  name="11b" onclick="thisnameedites(this);"id="id11b" class="clinputables" style="position: absolute;top:70%;left: 46.756628787878785%; " type="text" placeholder="11B">
+	  
+	  
+	  <input  name="21a" onclick="thisnameedites(this);"id="id21a" class="clinputables" style="position: absolute;top:20%;left: 53.01339285714286%; " type="text" placeholder="21A">
+	  
+	  <input  name="21b" onclick="thisnameedites(this);"id="id21b" class="clinputables" style="position: absolute;top:70%;left: 53.01339285714286%; " type="text" placeholder="21B">
+	  
+	  
+	  
+	  
+	  <input  name="22a" onclick="thisnameedites(this);"id="id22a" class="clinputables" style="position: absolute;top:20%;left: 59.27015692640693%; " type="text" placeholder="22A">
+	  
+	  <input  name="22b" onclick="thisnameedites(this);"id="id22b" class="clinputables" style="position: absolute;top:70%;left: 59.27015692640693%; " type="text" placeholder="22B">
+	  
+	  
+	  <input  name="23a" onclick="thisnameedites(this);"id="id23a" class="clinputables" style="position: absolute;top:20%;left: 65.52692099567099%; " type="text" placeholder="23A">
+	  
+	  <input  name="23b" onclick="thisnameedites(this);"id="id23b" class="clinputables" style="position: absolute;top:70%;left: 65.52692099567099%; " type="text" placeholder="23B">
+	  
+	  
+	  
+	  
+	  <input  name="24a" onclick="thisnameedites(this);"id="id24a" class="clinputables" style="position: absolute;top:20%;left: 71.78368506493507%; " type="text" placeholder="24A">
+	  
+	  <input  name="24b" onclick="thisnameedites(this);"id="id24b" class="clinputables" style="position: absolute;top:70%;left: 71.78368506493507%; " type="text" placeholder="24B">
+	  
+	  
+	  
+	  
+	  <input  name="25a" onclick="thisnameedites(this);"id="id25a" class="clinputables" style="position: absolute;top:20%;left: 78.04044913419913%; " type="text" placeholder="25A">
+	  
+	  <input  name="25b" onclick="thisnameedites(this);"id="id25b" class="clinputables" style="position: absolute;top:70%;left: 78.04044913419913%; " type="text" placeholder="25B">
+	  
+	  
+	  <input  name="26a" onclick="thisnameedites(this);"id="id26a" class="clinputables" style="position: absolute;top:20%;left: 84.29721320346321%; " type="text" placeholder="26A">
+	  
+	  <input  name="26b" onclick="thisnameedites(this);"id="id26b" class="clinputables" style="position: absolute;top:70%;left: 84.29721320346321%; " type="text" placeholder="26B">
+	  
+	  
+	  
+	  
+	  
+	  
+	  <input  name="27a" onclick="thisnameedites(this);"id="id27a" class="clinputables" style="position: absolute;top:20%;left: 90.55397727272727%; " type="text" placeholder="27A">
+	  
+	  <input  name="27b" onclick="thisnameedites(this);"id="id27b" class="clinputables" style="position: absolute;top:70%;left: 90.55397727272727%; " type="text" placeholder="27B">
+	  
+	  
+	  <input  name="28a" onclick="thisnameedites(this);"id="id28a" class="clinputables" style="position: absolute;top:20%;left: 96.81074134199134%; " type="text" placeholder="28A">
+	  
+	  <input  name="28ba" onclick="thisnameedites(this);"id="id28b" class="clinputables" style="position: absolute;top:70%;left: 96.81074134199134%; " type="text" placeholder="28B">
+	  
+	  
+	  
+	  
+	  
+	  
+
+
+
+
+	</div>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="mitablaabajo">
+	
+		<input  name="48a" onclick="thisnameedites(this);"id="id48a" class="clinputables" style="position: absolute;top:20%;left: 2.959280303030303%; " type="text" placeholder="48A">
+    
+    <input  name="48b" onclick="thisnameedites(this);"id="id48b" class="clinputables" style="position: absolute;top:70%;left: 2.959280303030303%; " type="text" placeholder="48B">
+    
+    
+    
+    <input  name="47a" onclick="thisnameedites(this);"id="id47a" class="clinputables" style="position: absolute;top:20%;left: 9.216044372294373%; " type="text" placeholder="47A">
+    
+    <input  name="47b" onclick="thisnameedites(this);"id="id47b" class="clinputables" style="position: absolute;top:70%;left: 9.216044372294373%; " type="text" placeholder="47B">
+    
+    
+    <input  name="46a" onclick="thisnameedites(this);"id="id46a" class="clinputables" style="position: absolute;top:20%;left: 15.472808441558442%; " type="text" placeholder="46A">
+    
+    <input  name="46b" onclick="thisnameedites(this);"id="id46b" class="clinputables" style="position: absolute;top:70%;left: 15.472808441558442%; " type="text" placeholder="46B">
+    
+    
+    
+    <input  name="45a" onclick="thisnameedites(this);"id="id45a" class="clinputables" style="position: absolute;top:20%;left: 21.72957251082251%; " type="text" placeholder="45A">
+    
+    <input  name="45b" onclick="thisnameedites(this);"id="id45b" class="clinputables" style="position: absolute;top:70%;left: 21.72957251082251%; " type="text" placeholder="45B">
+    
+    
+    
+    <input  name="44a" onclick="thisnameedites(this);"id="id44a" class="clinputables" style="position: absolute;top:20%;left: 27.98633658008658%; " type="text" placeholder="44A">
+    
+    <input  name="44b" onclick="thisnameedites(this);"id="id44b" class="clinputables" style="position: absolute;top:70%;left: 27.98633658008658%; " type="text" placeholder="44B">
+    
+    
+    
+    <input  name="43a" onclick="thisnameedites(this);"id="id43a" class="clinputables" style="position: absolute;top:20%;left: 34.24310064935065%; " type="text" placeholder="43A">
+    
+    <input  name="43b" onclick="thisnameedites(this);"id="id43b" class="clinputables" style="position: absolute;top:70%;left: 34.24310064935065%; " type="text" placeholder="43B">
+    
+    
+    
+    
+    <input  name="42a" onclick="thisnameedites(this);"id="id42a" class="clinputables" style="position: absolute;top:20%;left: 40.49986471861472%; " type="text" placeholder="42A">
+    
+    <input  name="42b" onclick="thisnameedites(this);"id="id42b" class="clinputables" style="position: absolute;top:70%;left: 40.49986471861472%; " type="text" placeholder="42B">
+    
+    <input  name="41a" onclick="thisnameedites(this);"id="id41a" class="clinputables" style="position: absolute;top:20%;left: 46.756628787878785%; " type="text" placeholder="41A">
+    
+    <input  name="41b" onclick="thisnameedites(this);"id="id41b" class="clinputables" style="position: absolute;top:70%;left: 46.756628787878785%; " type="text" placeholder="41B">
+    
+    
+    <input  name="31a" onclick="thisnameedites(this);"id="id31a" class="clinputables" style="position: absolute;top:20%;left: 53.01339285714286%; " type="text" placeholder="31A">
+    
+    <input  name="31b" onclick="thisnameedites(this);"id="id31b" class="clinputables" style="position: absolute;top:70%;left: 53.01339285714286%; " type="text" placeholder="31B">
+    
+    
+    
+    
+    <input  name="32a" onclick="thisnameedites(this);"id="id32a" class="clinputables" style="position: absolute;top:20%;left: 59.27015692640693%; " type="text" placeholder="32A">
+    
+    <input  name="32b" onclick="thisnameedites(this);"id="id32b" class="clinputables" style="position: absolute;top:70%;left: 59.27015692640693%; " type="text" placeholder="32B">
+    
+    
+    <input  name="33a" onclick="thisnameedites(this);"id="id33a" class="clinputables" style="position: absolute;top:20%;left: 65.52692099567099%; " type="text" placeholder="33A">
+    
+    <input  name="33b" onclick="thisnameedites(this);"id="id33b" class="clinputables" style="position: absolute;top:70%;left: 65.52692099567099%; " type="text" placeholder="33B">
+    
+    
+    
+    
+    <input  name="34a" onclick="thisnameedites(this);"id="id34a" class="clinputables" style="position: absolute;top:20%;left: 71.78368506493507%; " type="text" placeholder="34A">
+    
+    <input  name="34b" onclick="thisnameedites(this);"id="id34b" class="clinputables" style="position: absolute;top:70%;left: 71.78368506493507%; " type="text" placeholder="34B">
+    
+    
+    
+    
+    <input  name="35a" onclick="thisnameedites(this);"id="id35a" class="clinputables" style="position: absolute;top:20%;left: 78.04044913419913%; " type="text" placeholder="35A">
+    
+    <input  name="35b" onclick="thisnameedites(this);"id="id35b" class="clinputables" style="position: absolute;top:70%;left: 78.04044913419913%; " type="text" placeholder="35B">
+    
+    
+    <input  name="36a" onclick="thisnameedites(this);"id="id36a" class="clinputables" style="position: absolute;top:20%;left: 84.29721320346321%; " type="text" placeholder="36A">
+    
+    <input  name="36b" onclick="thisnameedites(this);"id="id36b" class="clinputables" style="position: absolute;top:70%;left: 84.29721320346321%; " type="text" placeholder="36B">
+    
+    
+    
+    
+    
+    
+    <input  name="37a" onclick="thisnameedites(this);"id="id37a" class="clinputables" style="position: absolute;top:20%;left: 90.55397727272727%; " type="text" placeholder="37A">
+    
+    <input  name="37b" onclick="thisnameedites(this);"id="id37b" class="clinputables" style="position: absolute;top:70%;left: 90.55397727272727%; " type="text" placeholder="37B">
+    
+    
+    <input  name="38a" onclick="thisnameedites(this);"id="id38a" class="clinputables" style="position: absolute;top:20%;left: 96.81074134199134%; " type="text" placeholder="38A">
+    
+    <input  name="38b" onclick="thisnameedites(this);"id="id38b" class="clinputables" style="position: absolute;top:70%;left: 96.81074134199134%; " type="text" placeholder="38B">
+    
+    
+    
+    
+  
+	
+	
+		
+		
+		
+		
+		
+		
+			</div>
+		
+
+
+
+
+
+
+
+<div id="idmediosarriba">
+
+
+
+
+
+	<input  name="55aa" onclick="thisnameedites(this);"id="id55a" class="clinputables" style="position: absolute;top:0%;left: 21.72957251082251%; " type="text" placeholder="55A">
+
+
+	<input  name="54a" onclick="thisnameedites(this);"id="id54a" class="clinputables" style="position: absolute;top:0%;left: 27.98633658008658%; " type="text" placeholder="54A">
+	
+	
+	
+	<input  name="53a" onclick="thisnameedites(this);"id="id53a" class="clinputables" style="position: absolute;top:0%;left: 34.24310064935065%; " type="text" placeholder="53A">
+	
+	
+	
+	
+	<input  name="52a" onclick="thisnameedites(this);"id="id52a" class="clinputables" style="position: absolute;top:0%;left: 40.49986471861472%; " type="text" placeholder="52A">
+	
+	
+	<input  name="51a" onclick="thisnameedites(this);"id="id51a" class="clinputables" style="position: absolute;top:0%;left: 46.756628787878785%; " type="text" placeholder="51A">
+	
+	
+	
+	<input  name="61a" onclick="thisnameedites(this);"id="id61a" class="clinputables" style="position: absolute;top:0%;left: 53.01339285714286%; " type="text" placeholder="61A">
+	
+	
+	
+	
+	<input  name="62a" onclick="thisnameedites(this);"id="id62a" class="clinputables" style="position: absolute;top:0%;left: 59.27015692640693%; " type="text" placeholder="62A">
+	
+	
+	<input  name="63a" onclick="thisnameedites(this);"id="id63a" class="clinputables" style="position: absolute;top:0%;left: 65.52692099567099%; " type="text" placeholder="63A">
+	
+	
+	
+	<input  name="64a" onclick="thisnameedites(this);"id="id64a" class="clinputables" style="position: absolute;top:0%;left: 71.78368506493507%; " type="text" placeholder="64A">
+	
+	
+	
+	<input  name="65a" onclick="thisnameedites(this);"id="id65a" class="clinputables" style="position: absolute;top:0%;left: 78.04044913419913%; " type="text" placeholder="65A">
+	
+	
+
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="idmediosabajo">
+
+
+
+
+
+	<input  name="85a" onclick="thisnameedites(this);"id="id85a" class="clinputables" style="position: absolute;top:0%;left: 21.72957251082251%; " type="text" placeholder="85A">
+
+
+	<input  name="84a" onclick="thisnameedites(this);"id="id84a" class="clinputables" style="position: absolute;top:0%;left: 27.98633658008658%; " type="text" placeholder="84A">
+	
+	
+	
+	<input  name="83a" onclick="thisnameedites(this);"id="id83a" class="clinputables" style="position: absolute;top:0%;left: 34.24310064935065%; " type="text" placeholder="83A">
+	
+	
+	
+	
+	<input  name="82a" onclick="thisnameedites(this);"id="id82a" class="clinputables" style="position: absolute;top:0%;left: 40.49986471861472%; " type="text" placeholder="82A">
+	
+	
+	<input  name="81a" onclick="thisnameedites(this);"id="id81a" class="clinputables" style="position: absolute;top:0%;left: 46.756628787878785%; " type="text" placeholder="81A">
+	
+	
+	
+	<input  name="71a" onclick="thisnameedites(this);"id="id71a" class="clinputables" style="position: absolute;top:0%;left: 53.01339285714286%; " type="text" placeholder="71A">
+	
+	
+	
+	
+	<input  name="72a" onclick="thisnameedites(this);"id="id72a" class="clinputables" style="position: absolute;top:0%;left: 59.27015692640693%; " type="text" placeholder="72A">
+	
+	
+	<input  name="73a" onclick="thisnameedites(this);"id="id73a" class="clinputables" style="position: absolute;top:0%;left: 65.52692099567099%; " type="text" placeholder="73A">
+	
+	
+	
+	<input  name="74a" onclick="thisnameedites(this);"id="id74a" class="clinputables" style="position: absolute;top:0%;left: 71.78368506493507%; " type="text" placeholder="74A">
+	
+	
+	
+	<input  name="75a" onclick="thisnameedites(this);"id="id75a" class="clinputables" style="position: absolute;top:0%;left: 78.04044913419913%; " type="text" placeholder="75A">
+	
+	
+
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	<div id="idpaneleliminar">
+	
+	
+	<button onclick="fmenueliminarcancela();" id="idbtmeneliminarcancelar">Cancelar</button>
+	<button onclick="fmenueliminarelimina();"  id="idbtmeneliminarceliminar">Eliminar</button>
+	<p id="idpmenueliminar">Herramienta Para eliminar </p>
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div id="idmenulateralzquierdo">
+		<p id="idpmensaje"></p>
+	
+	<button onclick="fcerrarmenulatedercho();" id="idbtcerramenulatederecho">X</button>
+	
+	<div id="idmenucarasdeldiente">
+
+
+			<button onclick="fobjEscribir();"  id="idfobjEscribir">Escribir</button>
+	
+		<button onclick="imprimir();"  id="idb1carasmenuladerechof4">Imprimir</button>
+	<button onclick="fsieliminarx();"  id="idb1carasmenuladerechofc">Eliminar</button>
+	<button  onclick="fsieditarclinica();"  id="idb1carasmenuladerechof2">Editar</button>
+	<button  onclick="fidbtmoverdrag();"  id="idb1carasmenuladerechof1">Mover</button>
+	<button onclick="fonclif3();" id="idb1carasmenuladerechof3">F3</button>
+
+	<button onclick="guardarfire();" id="idbtcalarxobjsx"class="clbthallazgos" >subir</button>
+	
+	<button onclick="fidbtcalarxobjs();" id="idbtcalarxobjs"class="clbthallazgos" >+</button>
+	<button onclick="fidbtcalarxobjs2();" id="idbtcalarxobjs2"class="clbthallazgos" >-</button>
+	<div id="iddivescribemalobueno">
+	
+		<input id="idinputextophaser">
+		<button onclick="fokphaser();" id="idbteditphaser" >ok</button>
+		
+		</div>
+		
+
+	</div>
+	
+	
+	<div id="idhallazgoydescrip2">
+		<div id="id01" class="modal2">
+	  
+			<div class="modal-content animate" >
+			  <div class="imgcontainer">
+			
+			  </div>
+		  
+			  <div class="container"><br><br>
+				
+			
+				<button onclick="creacariestemp();" class="clbthallazgos" >Caries</button><br><br>
+				<button onclick="creaedentulototaltemp();" class="clbthallazgos" >EDENTULO</button><br><br>
+				<button onclick="creadientestraidoazul();" class="clbthallazgos" >Diente Extraido</button><br><br>
+	
+				<button onclick="creadienteimpactadoazulrojoh();" class="clbthallazgos" >Diente Impactado</button><br><br>
+				<button onclick="creadientempEXTRACCIONINDICADA();" class="clbthallazgos" >EXTRACCION INDICADA</button><br><br>
+				<button onclick="creadientempREMANENTERADICULAR();" class="clbthallazgos" >REMANENTE RADICULAR</button><br><br>
+				<button onclick="creadientempOBTURACIONCONAMALGAMA();" class="clbthallazgos" >OBTURACION CON AMALGAMA</button><br><br>
+				<button onclick="creadientempOBTURACIONCONRESINA();" class="clbthallazgos" >OBTURACION CON RESINA</button>
+				<button onclick="creadientempOBTURACIÓNTEMPORAL();" class="clbthallazgos" >OBTURACIÓN TEMPORAL</button>
+				<button onclick="creadientempRESTAURACIONDESBORDANTE();" class="clbthallazgos" >RESTAURACION DESBORDANTE</button>
+				<button onclick="creadientempFRACTURA();" class="clbthallazgos" >FRACTURA</button>
+				<button onclick="creadientempCONTACTOABIERTO();" class="clbthallazgos" >CONTACTO ABIERTO</button>
+				<button onclick="creadientempDIASTEMA();" class="clbthallazgos" >DIASTEMA</button>
+				<button onclick="creadientempSUPERFICIEDESGASTADA();" class="clbthallazgos" >SUPERFICIE DESGASTADA</button>
+				<button onclick="creadientempINTRUSION();" class="clbthallazgos" >INTRUSION</button>
+				<button onclick=" creadientempEXTRUSIÓN();" class="clbthallazgos" >EXTRUSIÓN</button>
+				<button onclick="creadientempGIROVERSION();" class="clbthallazgos" >GIROVERSION</button>
+				<button onclick="creadientempMIGRACION();" class="clbthallazgos" >MIGRACION</button>
+				<button onclick="creadientempTRANSPOSICIÓNDENTAL();" class="clbthallazgos" >TRANSPOSICIÓN DENTAl</button>
+				<button onclick="creadientempSUPERNUMERARIO();" class="clbthallazgos" >SUPERNUMERARIO</button>
+				<button onclick="creadientempCOMPROMISODEFURCA();" class="clbthallazgos" >COMPROMISO DE FURCA</button>
+				<button onclick="creadientempMACRODONCIA();" class="clbthallazgos" >MACRODONCIA</button>
+				<button onclick="creadientempMICRODONCIA();" class="clbthallazgos" >MICRODONCIA</button>
+				<button onclick="creadientempMOVILIDAD();" class="clbthallazgos" >MOVILIDAD</button>
+				<button onclick="creadientempIMPLANTE();" class="clbthallazgos" >IMPLANTE</button>
+				<button onclick="creadientempTRATAMIENTODECONDUCTOS();" class="clbthallazgos" >TRATAMIENTO DE CONDUCTOS</button>
+				<button onclick="creadientempCORONATEMPORAL();" class="clbthallazgos" >CORONA TEMPORAL</button>
+				<button onclick="creadientempCORONADEFINITIVA();" class="clbthallazgos" >CORONA DEFINITIVA</button>
+				<button onclick="creadientempPUENTEFIJO();" class="clbthallazgos" >PUENTE FIJO</button>
+				<button onclick="creadientempAPARATOORTODÓNTICOFIJO();" class="clbthallazgos" >APARATO ORTODÓNTICO FIJO</button>
+			
+			  </div>
+			 
+	
+			  
+				 
+			 
+			</div>
+		  </div>
+	
+	
+	</div>
+	
+	</div>
+	
+	<div id="idmenulateralderecho"><button onclick="fonclimenuD();" id="idb1carasmenuladerechomenuD">Menu D</button>
+	
+	<div id="idhallazgoydescrip">
+		<div id="id01" class="modal2">
+	  
+			<div class="modal-content animate" >
+			  <div class="imgcontainer">
+				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+			
+			  </div>
+		  
+			  <div class="container"><br><br>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+				<label class="lbdehalalzago" for="uname"><b>Username</b></label>
+				<input class="clinputhallazago" type="text" placeholder="Enter Username" name="uname" required>
+		  
+			
+				<button class="clbthallazgos" >Login</button>
+	
+				
+			
+			  </div>
+		  
+		
+			  
+			</div>
+		  </div>
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		</div>
+	
+	
+
+			
+			
+	
+			<div id="phaser-example"></div>
+	
+			<script type="text/javascript">
+			
+	
+	//minumero  3229375628
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function fcerrarmenulatedercho(){
+		document.getElementById("idmenulateralderecho").style.display="none";
+		document.getElementById("idmenulateralzquierdo").style.display="none";
+	}
+	
+	
+	
+	
+	// variables
+	
+	
+	
+	
+	
+	var arraytempPUENTEFIJO=[];
+	var sptempPUENTEFIJO;
+	var bolsptempPUENTEFIJO=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempCORONADEFINITIVA=[];
+	var sptempCORONADEFINITIVA;
+	var bolsptempCORONADEFINITIVA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempCORONATEMPORAL=[];
+	var sptempCORONATEMPORAL;
+	var bolsptempCORONATEMPORAL=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempTRATAMIENTODECONDUCTOS=[];
+	var sptempTRATAMIENTODECONDUCTOS;
+	var bolsptempTRATAMIENTODECONDUCTOS=false;
+	
+	
+	
+	
+	
+	
+	var arraytempIMPLANTE=[];
+	var sptempIMPLANTE;
+	var bolsptempIMPLANTE=false;
+	
+	
+		
+	var arraytempMOVILIDAD=[];
+	var sptempMOVILIDAD;
+	var bolsptempMOVILIDAD=false;
+	
+	
+	
+		
+	
+	var arraytempMICRODONCIA=[];
+	var sptempMICRODONCIA;
+	var bolsptempMICRODONCIA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempMACRODONCIA=[];
+	var sptempMACRODONCIA;
+	var bolsptempMACRODONCIA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempCOMPROMISODEFURCA=[];
+	var sptempCOMPROMISODEFURCA;
+	var bolsptempCOMPROMISODEFURCA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempSUPERNUMERARIO=[];
+	var sptempSUPERNUMERARIO;
+	var bolsptempSUPERNUMERARIO=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempTRANSPOSICIÓNDENTAL=[];
+	var sptempTRANSPOSICIÓNDENTAL;
+	var bolsptempTRANSPOSICIÓNDENTAL=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempMIGRACION=[];
+	var sptempMIGRACION;
+	var bolsptempMIGRACION=false;
+	
+	
+	
+		
+	
+	
+	
+	
+	var arraytempGIROVERSION=[];
+	var sptempGIROVERSION;
+	var bolsptempGIROVERSION=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempEXTRUSIÓN=[];
+	var sptempEXTRUSIÓN;
+	var bolsptempEXTRUSIÓN=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempINTRUSION=[];
+	var sptempINTRUSION;
+	var bolsptempINTRUSION=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempSUPERFICIEDESGASTADA=[];
+	var sptempSUPERFICIEDESGASTADA;
+	var bolsptempSUPERFICIEDESGASTADA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempOBTURACIÓNTEMPORAL=[];
+	var sptempOBTURACIÓNTEMPORAL;
+	var bolsptempOBTURACIÓNTEMPORAL=false;
+	
+	
+	
+	var arraytempCONTACTOABIERTO=[];
+	var sptempCONTACTOABIERTO;
+	var bolsptempCONTACTOABIERTO=false;
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	var arraytempDIASTEMA=[];
+	var sptempDIASTEMA;
+	var bolsptempDIASTEMA=false;
+	
+	
+	
+	
+	
+	var arraytempFRACTURA=[];
+	var sptempFRACTURA;
+	var bolsptempFRACTURA=false;
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempOBTURACIONCONRESINA=[];
+	var sptempOBTURACIONCONRESINA;
+	var bolsptempOBTURACIONCONRESINA=false;
+	
+	
+	
+	
+	
+	var arraytempOBTURACIONCONAMALGAMA=[];
+	var bolarraytempOBTURACIONCONAMALGAMA=false;
+	var sptempOBTURACIONCONAMALGAMA;
+	
+	
+	
+	
+	
+	
+	
+	
+	var arraytempREMANENTERADICULAR=[];
+	var bolarraytempREMANENTERADICULAR=false;
+	var sptempREMANENTERADICULAR;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var sptempEXTRACCIONINDICADA;
+	var bolarrayempEXTRACCIONINDICADA=false;
+	var arrayempEXTRACCIONINDICADA=[];
+	
+	
+	
+	
+	
+	
+	
+	
+	var sptempcreadienteimpactadoazullinehroja;
+	
+	var arraytempcreadienteimpactadoazullinehroja=[];
+	var bolsoytempcreadienteimpactadoazullinehroja=false;
+	
+	
+	
+	var tempcreadientestraidoazu;
+	
+	
+	
+	var arraytempcreadientestraidoazul=[];
+	var bolsoytempdientestraidoazul=true;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var vactivodiente;
+	
+	var bolsoytempedentutempsp1a=false;
+	var tempdieteeduntulo;
+	
+	
+	
+	
+	
+	
+	
+	var bolsoytempcaries=false;
+	
+	
+	var scalatempedentutempsp1a=0.1;
+	var arrayedentutempsp1atemp=[]; 
+	var tempedentutempsp1a;
+	
+	
+	
+	
+	
+	
+	var edentutempsp1a;
+	var edentutempsp2a;
+	var lineedentulotempazul;
+	var midedentutempspa;
+	
+	
+	
+	
+	var  bolecisteedetulo=false;
+	
+	
+	var tempthiss;
+	
+	
+	var arraytempcaries=[];
+	
+	
+	var tempposition={x:0,y:0};
+	
+	
+	
+	var tempdiete;
+	
+			var vw=window.innerWidth*0.77/0.77;
+	var  vh=window.innerHeight*0.8/0.8;
+	//console.log(window.innerWidth +"   "+vw);
+	var sptempmovercaries;
+	var game;
+	
+	var vsube;
+	var subiocualquiera=false;
+	
+	
+		var eliminarcualquierobjetos=false;
+		var  linearojav;
+		var arraylineasverticalroja=[];
+	var fondoborar;
+	var handle1;
+	var handle2;
+	var line1;
+	var dpx=vw/2;
+	var dpy=vh/2;
+	var spd;
+	var arrayspd=[];
+	var dientposx=sc*35;
+	var deltadientposx=sc*37;
+	var sc=vw/1182.72;
+	
+	var idxdientes1=0;
+	
+	var arrarylineasvertrojassp=[];
+	
+	var elpunto="";
+	 elpunto.x=0;
+	elpunto.y=0;
+	
+	
+	
+	var boleliminarlinearojavertical=false;
+	
+	var idobjlineverticalrojaelimina="";
+	var bolcrealineavertivalroja=false;
+	var soydelostemplinerojaverti=false;
+	
+	var arrlieansrojas=[];
+	
+	var idxbtncrearlineroja=0;
+	var bolcrearlinerojaverti=false;
+	
+	var splineaverticalrojatemp;
+	var  cauntosobjslienavertirojacreado=0;
+	var estocadodiente1lienarojaveti=false;
+	var arrayvfpahser=[];
+	
+	
+	
+	function iniciabody(){
+	
+	   
+	var config = {
+	apiKey: "AIzaSyDDeEsPxBYxzisg4GDOpmYbHBLvIw6L_IY",
+	authDomain: "mejorvargaslleras-4fd2e.firebaseapp.com",
+	databaseURL: "https://mejorvargaslleras-4fd2e.firebaseio.com",
+	projectId: "mejorvargaslleras-4fd2e",
+	storageBucket: "mejorvargaslleras-4fd2e.appspot.com",
+	messagingSenderId: "912759721594"
+	};
+	firebase.initializeApp(config);
+	traesolounavesphaser();
+	
+	
+	   
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	  function traesolounavesphaser(){
+		firebase.database().ref().child("phaser").once("value", function(snapshot) {
+	
+		   arrayspd=[];
+			arrayvfpahser=[];
+			todoiniciadenuenvo();
+		  //  document.getElementById("divodontograma").style.display="block";
+		  //  document.getElementById("idmenueleimirobjetos").style.display="block";
+			arrayvfpahser=snapshot.val();
+	
+			iniciaphaser();
+	  
+	
+		  }, function (errorObject) {
+			console.log("The read failed: " + errorObject.code);
+		  });
+	
+	  }
+	// sino hay internet
+	 /* arrayspd=[];
+			arrayvfpahser=[];
+	
+	  todoiniciadenuenvo();
+	
+	  iniciaphaser();
+	*/
+	
+	  function iniciaphaser(){
+	
+	
+	 game = new Phaser.Game(vw, vh, Phaser.CANVAS, 'phaser-example', { preload: preload2,create: create2, update: update2, render: render2 });
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function pareload(){location.reload();}
+	function iniciatodo(){
+		truckBody.x=0;
+		truckBody.y=90;
+		rd.x=0;
+		ri.y=-44;
+		ri.x=0;
+		rd.y=-44;
+		
+	}
+	
+	
+	function llama2(thiss){
+		escribpsi(thiss.id);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function todoiniciadenuenvo(){
+		// solo iables 
+	
+	
+	
+	
+	 arraytempPUENTEFIJO=[];
+	 bolsptempPUENTEFIJO=false;
+	
+	
+	
+	
+	
+	
+	
+	 arraytempCORONADEFINITIVA=[];
+		 bolsptempCORONADEFINITIVA=false;
+		
+		
+		
+	
+	
+	 arraytempCORONATEMPORAL=[];
+	
+	 bolsptempCORONATEMPORAL=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	arraytempTRATAMIENTODECONDUCTOS=[];
+	
+	bolsptempTRATAMIENTODECONDUCTOS=false;
+	
+	
+	
+	
+	
+	 arraytempIMPLANTE=[];
+	 bolsptempIMPLANTE=false;
+	
+	
+		
+	arraytempMOVILIDAD=[];
+	
+	 bolsptempMOVILIDAD=false;
+	
+	
+	
+		
+	
+	
+	arraytempMICRODONCIA=[];
+	
+	 bolsptempMICRODONCIA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 arraytempMACRODONCIA=[];
+	
+	 bolsptempMACRODONCIA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	 arraytempCOMPROMISODEFURCA=[];
+	
+	 bolsptempCOMPROMISODEFURCA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	 arraytempSUPERNUMERARIO=[];
+	
+	 bolsptempSUPERNUMERARIO=false;
+	
+	
+	
+	
+	
+	
+	
+	 arraytempTRANSPOSICIÓNDENTAL=[];
+	
+	 bolsptempTRANSPOSICIÓNDENTAL=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 arraytempMIGRACION=[];
+	
+	 bolsptempMIGRACION=false;
+	
+	
+	
+		
+	
+	
+	arraytempGIROVERSION=[];
+	
+	 bolsptempGIROVERSION=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	arraytempEXTRUSIÓN=[];
+	
+	 bolsptempEXTRUSIÓN=false;
+	
+	
+	
+	
+	
+	arraytempINTRUSION=[];
+	
+	bolsptempINTRUSION=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 arraytempSUPERFICIEDESGASTADA=[];
+	
+	bolsptempSUPERFICIEDESGASTADA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 arraytempOBTURACIÓNTEMPORAL=[];
+	
+	 bolsptempOBTURACIÓNTEMPORAL=false;
+	
+	
+	arraytempCONTACTOABIERTO=[];
+	
+	bolsptempCONTACTOABIERTO=false;
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	 arraytempDIASTEMA=[];
+	
+	 bolsptempDIASTEMA=false;
+	
+	
+	
+		 arraytempFRACTURA=[];
+	
+	bolsptempFRACTURA=false;
+	
+	
+	
+		
+	arraytempOBTURACIONCONAMALGAMA=[];
+	 bolarraytempOBTURACIONCONAMALGAMA=false;
+	
+	
+	
+	
+	
+	arraytempOBTURACIONCONRESINA=[];
+	
+	 bolsptempOBTURACIONCONRESINA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	arraytempOBTURACIONCONAMALGAMA=[];
+	 bolarraytempOBTURACIONCONAMALGAMA=false;
+	
+	
+	
+	arraytempREMANENTERADICULAR=[];
+	 bolarraytempREMANENTERADICULAR=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 bolarrayempEXTRACCIONINDICADA=false;
+	 arrayempEXTRACCIONINDICADA=[];
+	
+	
+	
+	
+	
+	
+	
+	
+		 arraytempcreadienteimpactadoazullinehroja=[];
+	 bolsoytempcreadienteimpactadoazullinehroja=false;
+	
+	
+	
+	
+	
+	
+	 arraytempcreadientestraidoazul=[];
+	bolsoytempdientestraidoazul=false;
+	
+	
+	
+		bolsoytempedentutempsp1a=false;
+	
+	bolsoytempcaries=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 scalatempedentutempsp1a=1;
+	 arrayedentutempsp1atemp=[]; 
+	
+	
+	
+	
+	
+	
+	
+	
+	  bolecisteedetulo=false;
+	
+	
+	
+	
+	
+		tempposition={x:0,y:0};
+	
+	arraytempcaries=[];
+	
+	
+	
+		 vsube;
+	 subiocualquiera=false;
+	
+	
+	
+	
+	
+	   vw=window.innerWidth*0.77/0.77;
+	 vh=window.innerHeight*0.8/0.8;
+	//console.log(window.innerWidth +"   "+vw);
+	
+	
+	boleliminarlinearojavertical=false;
+	
+	idobjlineverticalrojaelimina="";
+	bolcrealineavertivalroja=false;
+	soydelostemplinerojaverti=false;
+	
+	arrlieansrojas=[];
+	
+	idxbtncrearlineroja=0;
+	bolcrearlinerojaverti=false;
+	
+	splineaverticalrojatemp;
+	 cauntosobjslienavertirojacreado=0;
+	estocadodiente1lienarojaveti=false;
+	
+	
+	
+	
+	
+	
+		arrayvfpahser=[];
+		arrayvfpahser=[];
+		eliminarcualquierobjetos=false;
+		 linearojav;
+		arraylineasverticalroja=[];
+	fondoborar;
+	handle1;
+	handle2;
+	line1;
+	dpx=vw/2;
+	dpy=vh/2;
+	spd;
+	arrayspd=[];
+	dientposx=sc*35;
+	deltadientposx=sc*37;
+	sc=vw/1182.72;
+	
+	idxdientes1=0;
+	
+	arrarylineasvertrojassp=[];
+	
+	elpunto="";
+	elpunto.x=0;
+	elpunto.y=0;
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	var huesi1;
+	
+	
+	function preload2() {
+	
+	//game.physics.startSystem(Phaser.Physics.ARCADE);
+	game.load.image('d', 'diente.png');
+	
+	game.load.image('lineavroja', 'lineav.png');
+	
+	
+	game.load.image('caries', 'caries.png');
+	game.load.image('edentuloazul', 'edentuloazul.png');
+	
+	
+	
+	game.load.image('activodiente', 'activodiente.png');
+	
+	game.load.image('dienteausente', 'dienteausente.png');
+	
+	
+	game.load.image('dienteausenteimpactado', 'dienteausenteimpactado.png');
+	
+	
+	
+	game.load.image('EXTRACCIONINDICADA', 'EXTRACCIONINDICADA.png');
+	
+	
+	game.load.image('REMANENTERADICULAR', 'REMANENTERADICULAR.png');
+	
+	game.load.image('OBTURACIONCONAMALGAMA', 'OBTURACIONCONAMALGAMA.png');
+	game.load.image('OBTURACIONCONAMALGAMAR', 'OBTURACIONCONAMALGAMAR.png');
+	
+	game.load.image('OBTURACIONCONRESINA', 'OBTURACIONCONRESINA.png');
+	
+	
+	game.load.image('OBTURACIÓNTEMPORAL', 'OBTURACIÓNTEMPORAL.png');
+	
+	
+	
+	
+	game.load.image('RESTAURACIONDESBORDANTE', 'RESTAURACIONDESBORDANTE.png');
+	
+	
+	
+	
+	
+	game.load.image('FRACTURA', 'FRACTURA.png');
+	
+	game.load.image('CONTACTOABIERTO', 'CONTACTOABIERTO.png');
+	
+	
+	
+	
+	
+	game.load.image('DIASTEMA', 'DIASTEMA.png');
+	
+	game.load.image('SUPERFICIEDESGASTADA', 'SUPERFICIEDESGASTADA.png');
+	
+	
+	
+	
+	game.load.image('INTRUSION', 'INTRUSION.png');
+	
+	game.load.image('EXTRUSIÓN', 'EXTRUSIÓN.png');
+	
+	
+	
+	
+	
+	
+	game.load.image('GIROVERSION', 'GIROVERSION.png');
+	
+	
+	
+	
+	
+	game.load.image('MIGRACION', 'MIGRACION.png');
+	
+	
+	
+	
+	
+	
+	game.load.image('TRANSPOSICIÓNDENTAL', 'TRANSPOSICIÓNDENTAL.png');
+	
+	
+	
+	
+	
+	
+	
+	game.load.image('SUPERNUMERARIO', 'SUPERNUMERARIO.png');
+	
+	
+	
+	
+	game.load.image('COMPROMISODEFURCA', 'COMPROMISODEFURCA.png');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	game.load.image('MACRODONCIA', 'MACRODONCIA.png');
+	
+	game.load.image('MICRODONCIA', 'MICRODONCIA.png');
+	
+	
+	
+	
+	
+	
+	
+	
+	game.load.image('MOVILIDAD', 'MOVILIDAD.png');
+	
+	
+	
+	
+	game.load.image('IMPLANTE', 'IMPLANTE.png');
+	
+	
+	
+	
+	
+	
+	
+	game.load.image('TRATAMIENTODECONDUCTOS', 'TRATAMIENTODECONDUCTOSazul.png');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	game.load.image('CORONATEMPORAL', 'CORONATEMPORAL.png');
+	
+	
+	
+	
+	game.load.image('CORONADEFINITIVA', 'CORONADEFINITIVA.png');
+	
+	
+	
+	
+	
+	
+	game.load.image('PUENTEFIJO', 'PUENTEFIJO.png');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	game.load.image('APARATOORTODÓNTICOFIJO', 'APARATOORTODÓNTICOFIJO.png');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	function create2() {
+	
+	
+	game.stage.backgroundColor = "#ffffff";
+	
+	creleinemove();
+	
+	
+	 vactivodiente = game.add.sprite(vw*0.5,vh/2, 'activodiente');
+	
+	
+	
+	 vactivodiente.anchor.set(0.5);
+	
+	 vactivodiente.scale.set(sc*1.9);
+	
+	
+	try {    escribep("");
+	
+	
+	for(var i in arrayvfpahser["dientes1"]){
+
+
+	cread(i, parseFloat(arrayvfpahser["dientes1"][i].posx), parseFloat(arrayvfpahser["dientes1"][i].posy),parseFloat(arrayvfpahser["dientes1"][i].diente));
+	
+	
+		}
+	
+		
+	 
+	
+	
+		for(var i in arrayvfpahser["lineaverticalroja"]){
+
+
+
+
+		creadlineavertroja(i, parseFloat(arrayvfpahser["lineaverticalroja"][i].posx),
+		 parseFloat(arrayvfpahser["lineaverticalroja"][i].posy,arrayvfpahser["lineaverticalroja"][i].diente));
+	
+	
+		escribep("dentro del for");
+	
+	}
+	
+	
+	} catch (error) {
+		escribep("noexisteerror");
+	}
+	
+	
+	
+	
+	
+// sin no hay intenret	cread("nn",0.4,0.2,"0");
+	
+//	cread("nn1",0.4+0.1,0.2,"01");
+	llamafireparacaries();
+	
+	}
+	
+	
+	
+	
+	
+	var idcorre=0;
+	var rotavactivodiente=0;
+	function update2() {
+		rotavactivodiente=rotavactivodiente+0.1;
+		vactivodiente.ratiton=rotavactivodiente;
+	
+
+	
+	
+	}
+	
+	function render2() {
+	
+		
+	
+	}
+	
+	function escribep(st){
+		//document.getElementById("idptitulo").innerHTML=st;
+		document.getElementById("idpmensaje").innerHTML=st;
+	}
+	
+	
+	function fd1(thiss){
+	
+
+	
+
+
+		vactivodiente.x=thiss.x;
+		vactivodiente.y=thiss.y;
+	
+		document.getElementById("idmenulateralzquierdo").style.display="block";
+	  escribep(thiss.dientenum);
+	  var vsube={posx:thiss.x/vw,posy:thiss.y/vh,iddiente:thiss.id};
+	
+	 tempdiete=thiss;
+	
+
+	froncontruircaries();
+
+console.log(thiss.soyelenarray);
+	switch(thiss.soyelenarray) {
+  case 0:mueveleft()
+    // code block
+    break;
+  case 1:mueveleft()
+    // code block
+    break;
+
+	case 2:mueveleft()
+    // code block
+    break;
+	case 36:mueveleft()
+    // code block
+    break;	
+
+	case 37:mueveleft()
+    // code block
+    break;
+	case 38:mueveleft()
+    // code block
+    break;
+
+  default:muevederecha();
+  break;
+    // code block
+}
+
+	
+	}
+
+
+function mueveleft(){
+
+	document.getElementById("idmenulateralzquierdo").style.position="absolute";
+
+document.getElementById("idmenulateralzquierdo").style.left=String(vw*0.79)+"px";	
+}
+
+function muevederecha(){
+	document.getElementById("idmenulateralzquierdo").style.position="absolute";
+
+document.getElementById("idmenulateralzquierdo").style.left=String(vw*0)+"px";	
+}
+
+
+	
+	// crela la linea grilla
+	
+	function creleinemove(){/*
+		handle1 = game.add.sprite(vw/2, vh*0, 'd', 0);
+		handle1.anchor.set(0.5);
+		handle1.inputEnabled = true;
+		handle1.input.enableDrag(true);
+	
+		handle2 = game.add.sprite(vw/2, vh*1, 'd', 0);
+		handle2.anchor.set(0.5);
+		handle2.inputEnabled = true;
+		handle2.input.enableDrag(true);
+	
+		line1 = new Phaser.Line(handle1.x, handle1.y, handle2.x, handle2.y);*/
+	
+	}
+	
+	
+	//  fin crela la linea grilla
+	
+	// crea en phaser verdadero liena  rojavertical
+	
+	function creadlineavertroja(i,porcenx,porceny){// creya  a los dientes 
+		arrarylineasvertrojassp.push({spd:game.add.sprite(vw*porcenx,porceny*vh, 'lineavroja'),id: arrarylineasvertrojassp.length});
+		arrarylineasvertrojassp[arrarylineasvertrojassp.length-1].spd.id=i;
+		arrarylineasvertrojassp[arrarylineasvertrojassp.length-1].spd.anchor.set(0.5);
+		arrarylineasvertrojassp[arrarylineasvertrojassp.length-1].spd.scale.set(sc);
+		arrarylineasvertrojassp[arrarylineasvertrojassp.length-1].spd.inputEnabled = true;
+	
+	  arrarylineasvertrojassp[arrarylineasvertrojassp.length-1].spd.input.useHandCursor = true;
+	   arrarylineasvertrojassp[arrarylineasvertrojassp.length-1].spd.events.onInputDown.add(flineasverticalroja, this);
+	
+	
+	}
+	
+	// fin // crea en phaser verdadero liena  rojavertical
+	
+	
+	
+	
+	
+	
+	// crea  los dientes 
+	
+	function cread(i,porcenx,porceny,dientenum){
+		arrayspd.push({spd:game.add.sprite(vw*porcenx,vh*porceny, 'd'),id: arrayspd.length});
+		arrayspd[arrayspd.length-1].spd.id=i;
+		//arrayspd[arrayspd.length-1].spd.diente=dientex;
+		arrayspd[arrayspd.length-1].spd.anchor.set(0.5);
+		arrayspd[arrayspd.length-1].spd.scale.set(sc);
+		arrayspd[arrayspd.length-1].spd.inputEnabled = true;
+	
+		arrayspd[arrayspd.length-1].spd.input.useHandCursor = true;
+		arrayspd[arrayspd.length-1].spd.events.onInputDown.add(fd1, this);
+		
+		arrayspd[arrayspd.length-1].spd.soyelenarray=arrayspd.length-1;
+		arrayspd[arrayspd.length-1].spd.dientenum=dientenum;
+	
+
+	/*	arrayspd[ arrayspd.length-1].sp.addChild(game.make.text( arrayspd[ arrayspd.length-1].sp.width*0.5,
+		-arrayspd[arrayspd.length-1].sp.height*0.1, 
+		"aca", 
+	   { font: "Bold 9px Arial", fill: '#000000' })).anchor.set(0.5);
+	 
+	 
+	 */
+
+
+
+	
+	  //arrayspd[arrayspd.length-1].spd.input.enableDrag(true);
+	
+	   // console.log(arrayspd[arrayspd.length-1].spd.width);
+	  //  console.log(arrayspd[arrayspd.length-1].spd.scale+" "+vw+" "+ 1152+"  "+sc);
+	 
+	}
+	
+	
+	
+	function vbtci_onDown(){
+	  escribep(huesi1.id);/*
+	  var vsube={posx:thiss.x/vw,posy:thiss.y/vh,iddiente:thiss.id};
+	
+	
+	
+	if(bolcrealineavertivalroja){
+		arrlieansrojas[arrlieansrojas.length-1].sp.position=thiss.position; 
+	
+		estocadodiente1lienarojaveti=true;
+		arrlieansrojas[arrlieansrojas.length-1].sp.enhueso=true;
+		arrlieansrojas[arrlieansrojas.length-1].sp.estehueso=thiss.id;
+		arrlieansrojas[arrlieansrojas.length-1].sp.subeafire=  vsube;
+		bolcrealineavertivalroja=false;
+	}
+	*/
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	// fin // crea  los dientes 
+	
+	
+	
+	// sube informacion  a  firebase
+	
+	
+	function sube(){
+	
+	
+	for(var i in arrlieansrojas){
+	if(arrlieansrojas[i].sp.enhueso){
+	
+		firebase.database().ref().child("phaser").child("lineaverticalroja").push(arrlieansrojas[i].sp.subeafire);
+		subiocualquiera=true;
+	}
+	}
+	
+	
+	
+	if(subiocualquiera){ document.getElementById("divodontograma").style.display="none"; subiocualquiera=false; arrayspd=[];game.destroy();
+	traesolounavesphaser();
+	
+	}
+	
+	
+	
+	}
+	
+	
+	// fin   sube informacion  a  firebase
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//find e funciones  phaser
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// finaliza  firebase 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// inicia createmp caries()
+	
+	var sieliminar=false;
+	console.log(vh);
+	var siarrastrar=true;
+	
+	var sieditarclinica=false;
+	
+	function fidbtmoverdrag(){
+		siarrastrar=true;
+	
+		sieditarclinica=false;
+		sieliminar=false;
+		siescribir=false;
+
+
+
+sieditarclinica=false;
+
+
+	
+
+setTimeout(function(){
+
+	siarrastrar=false;
+  siescribir=false;
+
+  sieliminar=false;
+    siarrastrar=false;
+  
+  sieditarclinica=false;
+
+},7000);
+
+
+
+
+	}
+	
+	function fsieditarclinica(){
+	siarrastrar=false;
+	
+	sieditarclinica=true;
+	sieliminar=false;
+	}
+	
+	
+	
+	function fsieliminarx(){/*
+		sieliminar=true;
+		siarrastrar=false;
+	
+	sieditarclinica=false;*/
+	document.getElementById("idpaneleliminar").style.display="block";
+	}
+	function creacariestemp(){
+
+	vicaries=true;
+	viobjetosprite='caries';
+
+	}
+	
+	
+	
+	function eliminalinetemprolja2(thiss){
+	// esto es oara escalar
+	bolsoyEDÉNTULO=false;
+	// fin de escalar
+	
+	bolsoytempcreadienteimpactadoazullinehroja=false;
+	bolsoytempdientestraidoazul=false;
+	
+	//fpp
+	
+	bolsoytempcaries=true;
+	
+	
+	
+	
+	
+	
+	bolsptempAPARATOORTODÓNTICOFIJO=false;
+	
+	
+	
+	
+	
+	bolsptempPUENTEFIJO=false;
+	
+	
+	bolsptempCORONADEFINITIVA=false;
+	
+	bolsptempCORONATEMPORAL=false;
+	
+	bolsptempTRATAMIENTODECONDUCTOS=false;
+	
+	
+	
+	
+	bolsptempIMPLANTE=false;
+	
+	
+	bolsptempMOVILIDAD=false;
+	
+	
+	
+	bolsptempMICRODONCIA=false;
+	
+	
+	
+	
+	
+	
+	bolsptempMACRODONCIA=false;
+	bolsptempMACRODONCIA=false;
+	
+	
+	
+	
+	
+	
+	bolsptempCOMPROMISODEFURCA=false;
+	
+	
+	
+	
+	
+	bolsptempSUPERNUMERARIO=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	bolsptempTRANSPOSICIÓNDENTAL=false;
+	
+	
+	
+	
+	
+	bolsptempMIGRACION=false;
+	
+	
+	
+	
+	bolsptempGIROVERSION=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	bolsptempEXTRUSIÓN=false;
+	
+	
+	
+	
+	
+	bolsptempINTRUSION=false;
+	
+	
+	
+	
+	
+	
+	bolsptempSUPERFICIEDESGASTADA=false;
+	bolsptempDIASTEMA=false;
+	
+	
+	
+	
+	
+	
+	bolsptempCONTACTOABIERTO=false;
+	
+	
+	bolsptempFRACTURA=false;
+	
+	
+	
+	bolsptempRESTAURACIONDESBORDANTE=false;
+	
+	
+	bolsptempOBTURACIÓNTEMPORAL=false;
+	
+	
+	bolsptempOBTURACIONCONRESINA=false;
+	
+	
+	bolarraytempOBTURACIONCONAMALGAMA=false;
+	
+	
+	
+		bolarraytempREMANENTERADICULAR=false;
+	bolarrayempEXTRACCIONINDICADA=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	bolsoytempedentutempsp1a=false;
+	
+	
+	
+	
+	
+	if(siarrastrar){ siarrastrsi();}
+	
+	if(sieditarclinica){sieditarlo(thiss);}
+	if(sieliminar){
+		siiraeliminar(thiss);
+	}
+	
+	
+	
+	vactivodiente.x=arrayspd[thiss.estoyconeldienteenarray].spd.x;
+	vactivodiente.y=arrayspd[thiss.estoyconeldienteenarray].spd.y;
+	
+	}
+	
+	
+	
+	
+	
+	
+	function siarrastrsi(){
+	
+	}
+	
+	function  siiraeliminar(thiss){
+		document.getElementById("idpaneleliminar").style.display="block";
+		
+		
+		tempthiss=thiss;
+	
+	
+	
+	}
+	
+	
+	
+	
+	function sieditarlo(thiss){
+		document.getElementById("idmenulateralderecho").style.display="block";
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// todo lo del panel d e menueliminar
+	
+	function fmenueliminarcancela(){
+	
+		document.getElementById("idpaneleliminar").style.display="none";
+	}
+	
+	
+	
+	function fmenueliminarelimina(thiss){
+	
+	
+		sieliminar=true;
+		siarrastrar=false;
+	
+	sieditarclinica=false;
+	siescribir=false;
+
+	setTimeout(function(){
+	siescribir=false;
+
+	sieliminar=false;
+    siarrastrar=false;
+  
+  sieditarclinica=false;
+
+},7000);
+
+
+
+	document.getElementById("idpaneleliminar").style.display="none";
+	
+	
+	
+	
+	//pff
+	
+	
+	
+	//eliminaciondelosqueviendeedefire();
+
+	}
+	
+	
+	
+	
+	
+	// fin del panel de menu eliminar
+	
+	
+	
+	
+	
+	// ejecuta funciones
+	
+	//document.getElementById("divodontograma").style.display="none";
+	
+	
+	
+	
+	
+	
+	
+	
+	fonclimenuD()
+	
+	idb1carasmenuladerechomenuD
+	//menud  izquierdo funciones
+	var cambifonclimenuD=true;
+	function fonclimenuD(){
+	if(cambifonclimenuD){document.getElementById("idmenulateralderecho").style.display="none"; cambifonclimenuD=false;}
+	else{document.getElementById("idmenulateralderecho").style.display="block";
+	cambifonclimenuD=true; }
+	
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	//  fin menud  izquierdo funciones
+	
+	
+	
+	
+	
+	// creando edentulo total
+	
+	 bolecisteedetulo=false;
+	
+	 
+	
+	function creaedentulototaltemp(){
+		vicaries=true;
+  viobjetosprite='edentuloazul';
+	
+	
+	
+	
+	
+	
+	
+	}
+	var sptempedentutempsp1a;
+	
+	function eliminatempedentutempsp1a(thissx){ 
+	
+	// esto es oara escalar
+	bolsoyEDÉNTULO=true;
+	// fin de escalar
+	
+	
+	//fpp 
+	
+	
+	bolsoytempedentutempsp1a=true;
+	
+	
+	
+	
+	bolsptempAPARATOORTODÓNTICOFIJO=false;
+	
+	bolsptempPUENTEFIJO=false;
+	
+	
+	
+	
+	bolsptempCORONADEFINITIVA=false;
+	
+	
+	
+	
+	
+	
+	
+	bolsptempCORONATEMPORAL=false;
+	
+	
+	
+	
+	
+	bolsptempTRATAMIENTODECONDUCTOS=false;
+	
+	
+	
+	bolsptempIMPLANTE=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	bolsptempMOVILIDAD=false;
+	bolsptempMICRODONCIA=false;
+	
+	
+	bolsptempMACRODONCIA=false;
+	
+	bolsptempCOMPROMISODEFURCA=false;
+	
+	
+	
+	
+	
+	
+	bolsptempSUPERNUMERARIO=false;
+	
+	bolsptempTRANSPOSICIÓNDENTAL=false;
+	
+	bolsptempMIGRACION=false;
+	
+	
+	bolsptempGIROVERSION=false;
+	
+	
+	
+	
+	
+	
+	
+	bolsptempEXTRUSIÓN=false;
+	
+	bolsptempINTRUSION=false;
+	
+	
+	
+	
+	
+	
+	bolsptempSUPERFICIEDESGASTADA=false;
+	
+	bolsptempDIASTEMA=false;
+	
+	
+	
+	bolsptempCONTACTOABIERTO=false;
+	
+	
+	
+	bolsptempFRACTURA=false;
+	
+	
+	
+	
+	
+	bolsptempRESTAURACIONDESBORDANTE=false;
+	
+	
+	
+	
+	bolsptempOBTURACIÓNTEMPORAL=false;
+	
+	bolsptempOBTURACIONCONRESINA=false;
+	
+	bolarraytempOBTURACIONCONAMALGAMA=false;
+	bolarrayempEXTRACCIONINDICADA=false;
+	
+	
+	bolsoytempcreadienteimpactadoazullinehroja=false;
+	
+	bolsoytempdientestraidoazul=false;
+		tempedentutempsp1a=thissx;
+		bolsoytempcaries=false;
+	
+	
+		if(siarrastrar){ siarrastrsi(thissx);}
+	
+		if(sieditarclinica){sieditarlo(thissx);}
+		if(sieliminar){
+			siiraeliminar(thissx);
+		}
+		
+		vactivodiente.x=arrayspd[thissx.estoyconeldienteenarray].spd.x;
+	vactivodiente.y=arrayspd[thissx.estoyconeldienteenarray].spd.y;
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	function fscalaedentutempsp1amas (){
+	
+		scalatempedentutempsp1a=scalatempedentutempsp1a+0.1;
+	}
+	
+	function fscalaedentutempsp1amenos(){
+	
+	scalatempedentutempsp1a=scalatempedentutempsp1a-0.1;
+	}
+	
+	
+	
+	function siexisteedentulotempupdate(){
+		if(bolecisteedetulo){
+		
+	
+	
+	
+	
+			}
+	}
+	
+	
+	
+	var bolsoyEDÉNTULO=false;
+
+
+
+
+
+
+
+	function fidbtcalarxobjs2(){
+
+
+if(spfAfroncontruircaries==null){}
+
+else{
+		if(spfAfroncontruircaries.mellamo=='edentuloazul'){Afroncontruircaries[spfAfroncontruircaries.id].sp.scale.
+set(Afroncontruircaries[spfAfroncontruircaries.id].sp.scale.x-1,Afroncontruircaries[spfAfroncontruircaries.id].sp.scale.y);
+
+		}
+
+}
+	
+
+	}
+
+	function fidbtcalarxobjs(){
+
+
+if(spfAfroncontruircaries==null){}
+
+else{ //var spscalaletras=spfAfroncontruircaries.getChildAt(0);
+//	spfAfroncontruircaries.getChildAt(0).text="";
+
+//	spfAfroncontruircaries.removeChildAt(0);
+		if(spfAfroncontruircaries.mellamo=='edentuloazul'){Afroncontruircaries[spfAfroncontruircaries.id].sp.scale.
+set(Afroncontruircaries[spfAfroncontruircaries.id].sp.scale.x+1,Afroncontruircaries[spfAfroncontruircaries.id].sp.scale.y);
+
+
+
+////Afroncontruircaries[spfAfroncontruircaries.id].sp.getChildAt(0).scale.set(
+//0.2,0.2 );
+
+
+
+
+/*
+Afroncontruircaries[spfAfroncontruircaries.id].sp.addChild(game.make.text( Afroncontruircaries[ spfAfroncontruircaries.id].sp.width*0.5,
+	 Afroncontruircaries[spfAfroncontruircaries.id].sp.height*-0.6, 
+	 Afroncontruircaries[spfAfroncontruircaries.id].sp.iniciales+Afroncontruircaries[spfAfroncontruircaries.id].sp.escribebuenmalo, 
+	{ font: "Bold 9px Arial", fill: '#000000' })).anchor.set(0.5);
+
+*/
+
+}
+
+}
+
+
+
+
+	
+	
+		   
+		//okk
+	}
+	
+	
+	
+	
+	//  fin  creando edentulo total
+	
+	
+	
+	
+	
+	
+	
+	
+	//ok
+	function creadientestraidoazul(){
+	
+	
+		vicaries=true;
+  viobjetosprite='dienteausente';	
+		
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	// fin  crea dientre estraidoazul
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//  fin  creando edentulo total
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	function creadientestraidoazul2(){
+	
+		
+		arraytempcreadientestraidoazul.push({sp:game.add.sprite(tempdiete.x-(tempposition.x), tempdiete.y+(tempposition.y), 'dienteausente')});
+	
+	
+	
+	
+	
+	
+	arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.anchor.set(0.5);
+	  
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.scale.set(sc);
+	
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.id=arraytempcreadientestraidoazul.length-1;
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.anchor.set(0.5);
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.scale.set(sc);
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.inputEnabled = true;
+	
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.input.useHandCursor = true;
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.events.onInputDown.add(farraytempcreadientestraidoazul, this);
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.enhueso=true;
+	
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.estehueso="tengo hueso";
+	
+	
+	  sptempmovercaries=arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp;
+	
+	
+	  arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.inputEnabled = true;
+	
+	
+	arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.input.enableDrag(true);
+	
+	
+	
+	
+	
+	
+	arraytempcreadientestraidoazul[arraytempcreadientestraidoazul.length-1].sp.estoyconeldienteenarray=tempdiete.soyelenarray;
+	
+	
+	
+	
+	 bolsoytempdientestraidoazul=true;
+	
+		bolsoytempcaries=false;
+	
+	bolsoytempedentutempsp1a=false;
+	
+	
+	
+	}
+	
+	
+	function farraytempcreadientestraidoazul2(thiss){
+	// esto es oara escalar
+	bolsoyEDÉNTULO=false;
+	// fin de escalar
+	
+	
+	//fpp
+	
+	
+	
+	
+	bolsptempTRATAMIENTODECONDUCTOS=false;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	bolsptempAPARATOORTODÓNTICOFIJO=false;
+	
+	
+	bolsptempPUENTEFIJO=false;
+	
+	
+	bolsptempCORONADEFINITIVA=false;
+	
+	
+	
+	
+	
+	
+	bolsptempCORONATEMPORAL=false;
+	
+	
+	bolsptempIMPLANTE=false;
+	bolsptempMOVILIDAD=false;
+	
+	bolsptempGIROVERSION=false;
+	
+	
+	bolsptempMICRODONCIA=false;
+	
+	
+	bolsptempMACRODONCIA=false;
+	
+	
+	
+	
+	bolsptempCOMPROMISODEFURCA=false;
+	
+	bolsptempSUPERNUMERARIO=false;
+	bolsptempTRANSPOSICIÓNDENTAL=false;
+	
+	bolsptempMIGRACION=false;
+	
+	bolsptempSUPERFICIEDESGASTADA=false;
+	
+	
+	
+	bolsptempEXTRUSIÓN=false;
+	bolsptempINTRUSION=false;
+	
+	bolsptempDIASTEMA=false;
+	
+	bolsptempCONTACTOABIERTO=false;
+	
+	
+	bolsptempRESTAURACIONDESBORDANTE=false;
+	bolsptempFRACTURA=false;
+	
+	
+	
+	
+	bolsptempOBTURACIONCONRESINA=false;
+	
+	bolsptempOBTURACIÓNTEMPORAL=false;
+	
+	
+	
+	
+	
+	bolarraytempOBTURACIONCONAMALGAMA=false;
+	
+	bolarrayempEXTRACCIONINDICADA=false;
+	tempcreadientestraidoazu =thiss;
+	bolarraytempREMANENTERADICULAR=false;
+	
+	bolsoytempcreadienteimpactadoazullinehroja=false;
+	
+	
+	
+	
+	 bolsoytempdientestraidoazul=true;
+	
+		bolsoytempcaries=false;
+	
+	bolsoytempedentutempsp1a=false;
+	
+	
+	if(siarrastrar){ siarrastrsi();}
+	
+	if(sieditarclinica){sieditarlo(thiss);}
+	if(sieliminar){
+		siiraeliminar(thiss);
+	}
+	
+	
+	
+	vactivodiente.x=arrayspd[thiss.estoyconeldienteenarray].spd.x;
+	vactivodiente.y=arrayspd[thiss.estoyconeldienteenarray].spd.y;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	// fin  crea dientre estraidoazul
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//  creando diente imactado azullinerojahorizontal total
+	
+	
+	
+	
+	
+	
+	
+	function creadienteimpactadoazulrojoh(){
+	
+		vicaries=true;
+  viobjetosprite='dienteausenteimpactado';
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	function farraytempcreadientinpactadazullirol(thiss){
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	//
+	//  fin  creando diente imactado azullinerojahorizontal total
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//ok
+	
+	
+	
+	
+	//  creando farrayempEXTRACCIONINDICADA
+	
+	
+	
+	
+	
+	function creadientempEXTRACCIONINDICADA(){
+	
+		
+	
+		vicaries=true;
+  viobjetosprite='EXTRACCIONINDICADA';
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	//
+	//  fin farrayempEXTRACCIONINDICADA
+	
+	
+	
+	
+	//  creando farrayempEXTRACCIONINDICADA
+	
+	
+	
+	
+	function creadientempREMANENTERADICULAR(){
+	
+
+		
+		vicaries=true;
+  viobjetosprite='REMANENTERADICULAR';
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	//OBTURACIONCONAMALGAMA
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//  creadientempOBTURACIONCONAMALGAMA()
+	
+	var arraytexttempOBTURACIONCONAMALGAMA=[];
+	
+	var sttexttempOBTURACIONCONAMALGAMA="OA->"
+	function creadientempOBTURACIONCONAMALGAMA(){
+	
+		
+		
+	
+
+	
+		vicaries=true;
+  viobjetosprite='OBTURACIONCONAMALGAMA';
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//  fin creadientempOBTURACIONCONAMALGAMA()
+	
+	
+	
+	//OBTURACIONCONRESINA
+	
+	
+	//  creaOBTURACIONCONRESINA()
+	
+	
+var arraytexttempOBTURACIONCONRESINA=[];
+
+var sttexttempOBTURACIONCONRESINA="OR->";
+	
+	function creadientempOBTURACIONCONRESINA(){
+		vicaries=true;
+  viobjetosprite='OBTURACIONCONRESINA';
+	
+	}
+	
+	
+
+	
+	
+	
+	//OBTURACIÓNTEMPORAL
+	
+	
+	
+	
+	
+	//OBTURACIONCONRESINA
+	
+	
+	// ccreadientempOBTURACIÓNTEMPORAL()
+	
+	
+	
+	
+		
+		
+		
+		
+	
+		function creadientempOBTURACIÓNTEMPORAL(){
+		
+			
+			vicaries=true;
+  viobjetosprite='OBTURACIÓNTEMPORAL';
+	}
+	
+	
+	
+	
+	
+	
+	// fin creadientempOBTURACIÓNTEMPORAL()
+	
+	
+	
+	
+	
+	//RESTAURACIONDESBORDANTE
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempRESTAURACIONDESBORDANTE()
+	
+	var arraytempRESTAURACIONDESBORDANTE=[];
+	var sptempRESTAURACIONDESBORDANTEL;
+	var bolsptempRESTAURACIONDESBORDANTE=false;
+	
+	
+	
+		
+		
+		
+		
+	
+		function creadientempRESTAURACIONDESBORDANTE(){
+			vicaries=true;
+  viobjetosprite='RESTAURACIONDESBORDANTE';
+			
+		
+	
+	}
+	
+	
+
+	
+	
+	// fin creadientempRESTAURACIONDESBORDANTE()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempFRACTURA()
+	
+	
+		
+		
+		
+	
+		function creadientempFRACTURA(){
+		
+			vicaries=true;
+  viobjetosprite='FRACTURA';	
+			
+		}
+	
+	
+
+	
+	
+	
+	// fin creadientempCONTACTOABIERTO()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+	
+		function creadientempCONTACTOABIERTO(){
+		
+			vicaries=true;
+  viobjetosprite='CONTACTOABIERTO';	
+			
+	
+	
+	}
+	
+	
+	
+	// fin creadientempDIASTEMA()
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+	
+		function creadientempDIASTEMA(){
+		
+			
+			vicaries=true;
+  viobjetosprite='DIASTEMA';	
+}
+
+
+	
+	
+	// fin creadientempDIASTEMA()
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempSUPERFICIEDESGASTADA()
+	
+		
+	var arraytexttempSUPERFICIEDESGASTADA=[];
+var sttexttempSUPERFICIEDESGASTADA="SD->"
+		
+		
+	
+		function creadientempSUPERFICIEDESGASTADA(){
+		
+			
+			vicaries=true;
+  viobjetosprite='SUPERFICIEDESGASTADA';			
+	
+	
+	}
+	
+
+
+	
+	
+	// fin ccreadientempSUPERFICIEDESGASTADA()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempINTRUSION()
+	
+		
+	
+		
+		
+	
+		function creadientempINTRUSION(){
+		
+			vicaries=true;
+  viobjetosprite='INTRUSION';	
+		}
+	
+	
+
+	
+	
+	// fin creadientempINTRUSION()
+	
+	
+	
+	
+	
+	
+	//creadientempEXTRUSIÓN()
+	
+		
+	
+	
+		
+		
+	
+		function creadientempEXTRUSIÓN(){
+		
+			vicaries=true;
+  viobjetosprite='EXTRUSIÓN';		
+	}
+	
+
+
+	
+	// fin creadientempEXTRUSIÓN()
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempGIROVERSION()
+		
+	
+	
+		
+		
+	
+		function creadientempGIROVERSION(){
+		
+			
+					vicaries=true;
+  viobjetosprite='GIROVERSION';	
+	
+
+	}
+	
+
+
+	
+	// fin creadientempGIROVERSION()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempMIGRACION()
+		
+	
+		
+	
+		function creadientempMIGRACION(){
+		
+				
+			vicaries=true;
+  viobjetosprite='MIGRACION';			
+			
+
+	
+	}
+	
+	
+	
+	// fin creadientempGIROVERSION()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempTRANSPOSICIÓNDENTAL()
+		
+	
+	
+		
+		
+	
+		function creadientempTRANSPOSICIÓNDENTAL(){
+		
+			
+			vicaries=true;
+  viobjetosprite='TRANSPOSICIÓNDENTAL';			
+				
+	
+	
+	}
+	
+	
+	
+	// fin creadientempTRANSPOSICIÓNDENTAL()
+	
+	
+	
+	
+	
+	
+	
+	//creadientempSUPERNUMERARIO()
+		
+	
+	
+		
+		
+	
+		function creadientempSUPERNUMERARIO(){
+		
+			
+			vicaries=true;
+  viobjetosprite='SUPERNUMERARIO';
+	
+	}
+	
+
+
+	
+	// fin creadientempTRANSPOSICIÓNDENTAL()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempCOMPROMISODEFURCA()
+		
+	
+	
+		
+		
+	
+		function creadientempCOMPROMISODEFURCA(){
+		
+			
+					
+			vicaries=true;
+  viobjetosprite='COMPROMISODEFURCA';
+	
+
+	
+	}
+
+
+
+	
+	
+	// fin creadientempCOMPROMISODEFURCA()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempMACRODONCIA()
+		
+	var arraytempMACRODONCIA=[];
+	var sptempMACRODONCIA;
+	var bolsptempMACRODONCIA=false;
+	
+	
+	
+		
+		
+	
+		function creadientempMACRODONCIA(){
+		
+				
+			vicaries=true;
+  viobjetosprite='MACRODONCIA';		
+			
+				
+	
+	}
+	
+	
+	
+	
+	// fin creadientempMACRODONCIA()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempMICRODONCIA()
+		
+	
+	
+		
+		
+	
+		function creadientempMICRODONCIA(){
+		
+						
+			vicaries=true;
+  viobjetosprite='MICRODONCIA';			
+			
+		
+	}
+	
+	
+	
+	// fin  creadientempMICRODONCIA()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempMOVILIDAD()
+	
+		
+	
+		function creadientempMOVILIDAD(){
+		
+			
+			vicaries=true;
+  viobjetosprite='MOVILIDAD';			
+	
+	
+	}
+	
+	
+	
+	// fin  creadientempMOVILIDAD()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempIMPLANTE()
+		
+	
+	
+		
+		
+	
+		function creadientempIMPLANTE(){
+			vicaries=true;
+  viobjetosprite='IMPLANTE';	
+
+
+	
+	}
+	
+	
+	
+	
+	
+	// fin  creadientempIMPLANTE()
+	
+	
+	
+	
+	
+	
+	
+	//creadientempTRATAMIENTODECONDUCTOS()
+		
+	
+	
+	
+	var sttexttempTRATAMIENTODECONDUCTOS="TC-PC-PP";
+	var arraytexttempTRATAMIENTODECONDUCTOS=[];
+		
+	
+		function creadientempTRATAMIENTODECONDUCTOS(){
+		
+			vicaries=true;
+  viobjetosprite='TRATAMIENTODECONDUCTOS';		
+			
+
+	
+	}
+	
+
+	
+	
+	// fin  creadientempTRATAMIENTODECONDUCTOS()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempCORONATEMPORAL()
+		
+	
+	
+		
+		
+	
+		function creadientempCORONATEMPORAL(){
+		
+				vicaries=true;
+  viobjetosprite='CORONATEMPORAL';		
+			
+
+
+	}
+	
+
+	
+	
+	// fin  creadientempCORONATEMPORAL()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempCORONADEFINITIVA()
+		
+	
+		
+		
+	
+		function creadientempCORONADEFINITIVA(){
+		
+			
+			vicaries=true;
+  viobjetosprite='CORONADEFINITIVA';		
+				
+
+	}
+	
+	
+	
+	
+	
+	
+	// fin 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//creadientempPUENTEFIJO()
+		
+	
+	
+	
+		
+		
+	
+		function creadientempPUENTEFIJO(){
+		
+			
+			vicaries=true;
+  viobjetosprite='PUENTEFIJO';			
+	
+	
+	
+	}
+	
+	
+	
+	// fin creadientempPUENTEFIJO()
+	
+	
+	
+	
+	
+	
+	
+	
+
+		function creadientempAPARATOORTODÓNTICOFIJO(){
+		
+			
+			vicaries=true;
+  viobjetosprite='APARATOORTODÓNTICOFIJO';	
+
+
+	
+	}
+	
+
+
+
+	
+	function fupdatearraytexttempAPARATOORTODÓNTICOFIJO(){
+	
+	
+	}
+	
+	
+	// fin creadientempAPARATOORTODÓNTICOFIJO()
+	
+	
+	function fokphaser(){
+
+
+
+	}
+	
+
+	function wr1(st){
+
+		document.getElementById("idinputextophaser").value=st;
+	}
+	
+
+
+
+	var nodecaries;
+
+
+var vxp="";
+var vyp="";
+var vcualtextura="";
+var vcualdiente="";
+var vcualsprite= "";
+var vfiretexto="";
+var vprocedimiento="";
+
+var fechatoday ="";
+var fechadd ="";
+var fechamm ="";
+var fechayyyy ="";
+var fechacfecha="";
+
+var vtyp=0;
+var vtxp=0;
+var veditexa="";
+ var veditexb="";
+ var vcualdientearrary=0;
+ var vftextoedi2="";
+  var vftextoedi1="";
+
+var vscaleinciial= 0;
+ var vscalefirex= 0;
+
+function gefecha(){
+
+	fechatoday = new Date();
+	fechadd = String(fechatoday.getDate()).padStart(2, '0');
+	fechamm = String(fechatoday.getMonth() + 1).padStart(2, '0'); //January is 0!
+	fechayyyy = fechatoday .getFullYear();
+	fechacfecha=String(fechayyyy)+String(fechamm)+String(fechadd);
+
+
+}
+
+
+
+function creoquepuedosubrfire(festeodontologo,felpaciente){
+
+	gefecha();
+
+
+	for(var i in Afroncontruircaries){
+  
+  if(Afroncontruircaries[i].sp.enhueso){
+  
+  
+   vxp=    Afroncontruircaries[i].sp.x/vw;
+   vyp=  Afroncontruircaries[i].sp.y/vh;
+   vcualtextura= Afroncontruircaries[i].sp.cualtextura;
+   vcualdiente=Afroncontruircaries[i].sp.cualdiente;
+   vcualsprite=  Afroncontruircaries[i].sp.cualsprite;
+  vfiretexto= Afroncontruircaries[i].sp.firetexto;
+   vprocedimiento= Afroncontruircaries[i].sp.procedimiento;
+
+
+
+
+   vcualtextura=Afroncontruircaries[ i].sp.cualtextura;
+   vcualdiente= Afroncontruircaries[ i].sp.cualdiente;
+   vcualsprite= Afroncontruircaries[ i].sp.cualsprite;
+   vfiretexto=  Afroncontruircaries[ i].sp.firetexto;
+   vprocedimiento= Afroncontruircaries[ i].sp.procedimiento;
+
+ vcualdientearrary= Afroncontruircaries[i].sp.cualdientearrary;
+
+
+  vtxp= Afroncontruircaries[ i].sp.txp;
+   vtyp=Afroncontruircaries[ i].sp.typ;
+
+
+ vscaleinciial= Afroncontruircaries[i].sp.scaleinicialx;
+ vscalefirex= ( ((Afroncontruircaries[ i].sp.scale.x*vw)/(vscaleinciial*vw))-(Afroncontruircaries[i].sp.scaleinicialx))/sc;
+
+
+ veditexa=Afroncontruircaries[i].sp.editexta;
+  veditexb= Afroncontruircaries[i].sp.editextb;
+
+
+   vftextoedi2=Afroncontruircaries[i].sp.editext2;
+   vftextoedi1=Afroncontruircaries[i].sp.editext1;
+
+
+
+  nodecaries={fxp:vxp,fyp:vyp,fcualtextura:vcualtextura,fcualdiente:vcualdiente,fcualsprite:vcualsprite,
+  ffiretexto:vfiretexto,fprocedimiento:vprocedimiento,fecha:fechacfecha,ftyp:vtyp,ftxp:vtxp,fscalefirex:vscalefirex
+  ,fveditexb:veditexb,fveditexa:veditexa,ftextoedi1:vftextoedi1,ftextoedi2:vftextoedi2,
+  fcualdientearrary:vcualdientearrary};
+  
+  
+  firebase.database().ref().child("odontologo").child("uno").child("pacientes").
+  child("puno").child("odontogramageneral").child(fechayyyy).child(fechamm).child(fechacfecha).child("Caries").push(nodecaries);
+  
+	
+  }
+  
+	}
+
+//alfire
+
+	
+}
+
+
+function guardarfire(){
+
+
+	creoquepuedosubrfire("uno","puno");
+
+}
+
+var adontogramax=[];
+var afcaries=[];
+
+function llamafireparacaries(){
+
+		firebase.database().ref().child("odontologo").child("uno").child("pacientes").child("puno").child("odontogramageneral").
+		child("2019").child("03").child("20190320").once("value", function(snapshot) {
+	
+			adontogramax=[];
+			adontogramax=snapshot.val();
+			console.log("aca   "+snapshot.val());
+for(var i in adontogramax){
+	
+
+if(i=="Caries"){
+	for(var ii in adontogramax[i]){
+
+
+
+
+contruircaries(adontogramax[i][ii].fxp,adontogramax[i][ii].fyp,adontogramax[i][ii].fcualtextura,ii,
+adontogramax[i][ii].fcualsprite,adontogramax[i][ii].ffiretexto,adontogramax[i][ii].fcualdiente,
+adontogramax[i][ii].ftxp,adontogramax[i][ii].ftyp,adontogramax[i][ii].fscalefirex
+,adontogramax[i][ii].fveditexa,adontogramax[i][ii].fveditexb,adontogramax[i][ii].ftextoedi1,adontogramax[i][ii].ftextoedi2
+,adontogramax[i][ii].fcualdientearrary);
+
+
+}
+
+
+}
+
+}
+
+
+
+	
+	
+		  }, function (errorObject) {
+			console.log("The read failed: " + errorObject.code);
+		  });
+	
+	  }
+
+
+
+
+var Aconcaries=[];
+var spAconcaries;
+var Aconcariestexttext=[];
+function contruircaries(xp,yp,texturax,ifire,cualsprite,textfire,fcualdiente,ftx,fty,sfscalefire
+,editexta,editextb,meseditexta,meseditextb,numdiente){
+
+	
+	Aconcaries.push({sp:game.add.sprite(xp*vw, yp*vh, String(texturax))});
+    
+    
+    
+    
+    
+    
+    Aconcaries[ Aconcaries.length-1].sp.anchor.set(0.5);
+     
+  
+
+	Aconcaries[ Aconcaries.length-1].sp.idfire=ifire;
+     
+    Aconcaries[ Aconcaries.length-1].sp.id= Aconcaries.length-1;
+    Aconcaries[ Aconcaries.length-1].sp.anchor.set(0.5);
+    Aconcaries[ Aconcaries.length-1].sp.scale.set(sc+sfscalefire*sc,sc);
+    Aconcaries[ Aconcaries.length-1].sp.inputEnabled = true;
+     
+    Aconcaries[ Aconcaries.length-1].sp.input.useHandCursor = true;
+
+   
+	//Aconcaries[ Aconcaries.length-1].sp.input.enableDrag(true);
+
+
+
+
+	Aconcaries[ Aconcaries.length-1].sp.textfire=textfire;
+
+	Aconcaries[ Aconcaries.length-1].sp.fcualdiente=fcualdiente;
+
+    Aconcaries[ Aconcaries.length-1].sp.events.onInputDown.add(fAconcaries, this);
+    Aconcaries[ Aconcaries.length-1].sp.enhueso=true;
+	Aconcaries[ Aconcaries.length-1].sp.sepuedeescribir="si";
+    Aconcaries[ Aconcaries.length-1].sp.estehueso="tengo hueso";
+
+	spAconcaries=Aconcaries[ Aconcaries.length-1].sp;
+
+
+
+	Aconcaries[Aconcaries.length-1].sp.iniciales="";
+
+	Aconcaries[Aconcaries.length-1].sp.tienetexto=true;
+	Aconcaries[Aconcaries.length-1].sp.taxtaltura=Aconcaries[Aconcaries.length-1].sp.height*-0.7;
+/*
+if(cualsprite="caries"){Aconcaries[Aconcaries.length-1].sp.iniciales="C->";
+Aconcaries[Aconcaries.length-1].sp.taxtaltura=Aconcaries[Aconcaries.length-1].sp.height*0.7;
+
+*/
+
+
+Aconcaries[ Aconcaries.length-1].sp.numdiente=numdiente;
+
+
+
+
+if(editexta==""){}
+else{
+	Aconcaries[Aconcaries.length-1].sp.editexta=editexta;
+	Aconcaries[Aconcaries.length-1].sp.meseditexta=meseditexta;
+	defireescrieesitext(editexta,meseditexta);
+
+}
+if(editextb==""){}
+else{
+	Aconcaries[Aconcaries.length-1].sp.editextb=editextb;
+	Aconcaries[Aconcaries.length-1].sp.meseditextb=meseditextb;
+	defireescrieesitext(editextb,meseditextb);
+
+
+}
+
+
+
+
+
+
+
+
+	
+
+
+
+
+/*
+
+
+	if(Aconcaries[ Aconcaries.length-1].sp.textfire==""){	Aconcaries[ Aconcaries.length-1].sp.addChild(game.make.text( Aconcaries[ Aconcaries.length-1].sp.width,
+	-Aconcaries[ Aconcaries.length-1].sp.height*0.7, Aconcaries[ Aconcaries.length-1].sp.textfire, 
+	{ font: "Bold 9px Arial", fill: '#000000' })).anchor.set(0.5);}
+	else{
+		Aconcaries[ Aconcaries.length-1].sp.addChild(game.make.text( Aconcaries[ Aconcaries.length-1].sp.width*0.5,
+		Aconcaries[Aconcaries.length-1].sp.taxtaltura, Aconcaries[Aconcaries.length-1].sp.iniciales+Aconcaries[ Aconcaries.length-1].sp.textfire, 
+	{ font: "Bold 9px Arial", fill: '#000000' })).anchor.set(0.5);
+
+	}
+	
+*/
+
+
+
+
+	Aconcariestexttext.push({text: game.add.text(vw*ftx,vh*fty, textfire,  {  font: "Bold 9px Arial", fill: '#000000' }) } );
+
+	Aconcariestexttext[Aconcariestexttext.length-1].text.anchor.set(0.5);
+	
+	Aconcaries[ Aconcaries.length-1].sp.idtext=Aconcariestexttext.length-1;
+	
+	
+	
+	
+	
+
+}
+
+
+
+
+function defireescrieesitext(st,valo){
+	document.getElementById(st).value=valo;
+}
+var siescribir=false;
+
+function fAconcaries(thiss){
+
+	spAconcaries=thiss;
+if(sieliminar){
+document.getElementById("idpaneleliminar").style.display="block";
+
+  
+Aconcaries[thiss.id].sp.kill();
+    Aconcaries[thiss.id].sp.enhueso=false;
+    
+    Aconcaries[thiss.id].sp.estehueso=" no tengo hueso";
+    
+    
+    
+    
+    Aconcaries[thiss.id].sp.kill();
+    Aconcaries[thiss.id].sp.enhueso=false;
+    
+    Aconcaries[thiss.id].sp.estehueso=" no tengo hueso";
+    
+    
+
+  
+    //arraytexttempAPARATOORTODÓNTICOFIJO[thiss.idecuentratexto].text.text="";
+  
+  
+	firebase.database().ref().child("odontologo").child("uno").child("pacientes").child("puno").child("odontogramageneral").
+		child("2019").child("03").child("20190320").child("Caries").child(thiss.idfire).remove();
+	
+	document.getElementById("idpaneleliminar").style.display="none";
+	
+	
+	sieliminar=false;
+	
+
+
+
+
+
+}
+if(siescribir){
+
+	if(thiss.sepuedeescribir=="si"){
+	//	thiss.getChildAt(0).text=document.getElementById("idinputextophaser").value;
+		
+		  
+		Aconcariestexttext[spAconcaries.idtext].text.text=
+		spAconcaries.iniciales+""+spAconcaries.textfire ;
+		
+		
+		
+		}
+	else {alert("no se puede escribir")}
+	
+	siescribir=false;
+}
+
+
+	
+vactivodiente.x=arrayspd[thiss.numdiente].spd.x;
+	vactivodiente.y=arrayspd[thiss.numdiente].spd.y;
+
+
+
+
+
+
+
+}
+function eliminaciondelosqueviendeedefire(){
+
+}
+
+
+
+
+var Afroncontruircaries=[];
+var spAconcaries;
+var vicaries=false;
+var viobjetosprite="caries";
+var  Afroncontruircariestext=[];
+function froncontruircaries(){
+
+    
+ //PRIN
+    
+ 
+ if(vicaries){
+    Afroncontruircaries.push({sp:game.add.sprite(tempdiete.x-(tempposition.x), tempdiete.y+(tempposition.y), viobjetosprite)});
+    vicaries=false;
+
+
+
+     
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.anchor.set(0.5);
+     
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.scale.set(sc);
+	
+	//Afroncontruircaries[ Afroncontruircaries.length-1].sp.idfire=ifire;
+	  
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.id= Afroncontruircaries.length-1;
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.anchor.set(0.5);
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.scale.set(sc);
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.inputEnabled = true;
+	  
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.input.useHandCursor = true;
+	
+	
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.input.enableDrag(false);
+	
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.input.draggable  = true;
+	
+
+	//Afroncontruircaries[ Afroncontruircaries.length-1].sp.textfire=textfire;
+	
+	//Afroncontruircaries[ Afroncontruircaries.length-1].sp.fcualdiente=fcualdiente;
+	
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.events.onInputDown.add(fAfroncontruircaries, this);
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.enhueso=true;
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.sepuedeescribir="si";
+	 Afroncontruircaries[ Afroncontruircaries.length-1].sp.estehueso="tengo hueso";
+	
+//	spAfroncontruircaries=Afroncontruircaries[ Afroncontruircaries.length-1].sp;
+
+
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.coneldienteid=tempdiete.soyelenarray;
+
+
+	
+	Afroncontruircaries[Afroncontruircaries.length-1].sp.iniciales="";
+	
+	Afroncontruircaries[Afroncontruircaries.length-1].sp.tienetexto=true;
+	Afroncontruircaries[Afroncontruircaries.length-1].sp.taxtaltura=Afroncontruircaries[Afroncontruircaries.length-1].sp.height*-0.7;
+	
+	if(viobjetosprite=="caries"){Afroncontruircaries[Afroncontruircaries.length-1].sp.iniciales="";
+	Afroncontruircaries[Afroncontruircaries.length-1].sp.taxtaltura=Afroncontruircaries[Afroncontruircaries.length-1].sp.height*0.7;
+	}
+	
+	if(viobjetosprite=="edentuloazul"){Afroncontruircaries[Afroncontruircaries.length-1].sp.iniciales="";
+	Afroncontruircaries[Afroncontruircaries.length-1].sp.taxtaltura=Afroncontruircaries[Afroncontruircaries.length-1].sp.height*0.7;
+	}
+
+
+
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.scalaextra=0;
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.mellamo=viobjetosprite;
+	//desde
+	
+	
+	
+
+	
+	
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.escribebuenmalo="BE";
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.editext1="";
+	Afroncontruircaries[ Afroncontruircaries.length-1].sp.editext2="";
+
+
+
+Afroncontruircariestext.push({text: game.add.text(tempdiete.x,tempdiete.y-tempdiete.height*0.3, "",  {  font: "Bold 9px Arial", fill: '#000000' }) } );
+
+Afroncontruircariestext[Afroncontruircariestext.length-1].text.anchor.set(0.5);
+
+Afroncontruircaries[ Afroncontruircaries.length-1].sp.idtext=Afroncontruircariestext.length-1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.cualtextura=viobjetosprite;
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.cualdiente=tempdiete.id;
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.dientenum=tempdiete.dientenum;
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.cualdientearrary=tempdiete.soyelenarray;
+   
+
+
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.cualsprite=viobjetosprite;
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.firetexto="";
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.procedimiento="np porcedimiento";
+
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.txp=Afroncontruircariestext[Afroncontruircariestext.length-1].text.x/vw;
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.typ=Afroncontruircariestext[Afroncontruircariestext.length-1].text.y/vh;
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.scaleinicialx=Afroncontruircaries[ Afroncontruircaries.length-1].sp.scale.x;
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.scalefirex=0;
+
+
+
+
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.editexta="";
+   Afroncontruircaries[ Afroncontruircaries.length-1].sp.editextb="";
+
+  } 
+      
+
+    
+    
+
+
+    
+    
+ //mx 
+    
+
+
+
+
+
+}
+
+
+
+
+
+var spfAfroncontruircaries;
+function fAfroncontruircaries(thiss){
+
+	spfAfroncontruircaries=thiss;	
+escribep(spfAfroncontruircaries.dientenum+"<br>"+spfAfroncontruircaries.editext1+"  "+spfAfroncontruircaries.editext2);
+
+if(sieliminar){
+
+
+
+Afroncontruircaries[thiss.id].sp.kill();
+Afroncontruircaries[thiss.id].sp.enhueso=false;
+
+Afroncontruircaries[thiss.id].sp.estehueso=" no tengo hueso";
+
+
+
+
+
+
+
+
+sieliminar=false;
+setTimeout(function (){
+
+},1000);
+
+
+
+
+
+
+}
+if(siescribir){
+
+if(thiss.sepuedeescribir=="si"){
+	
+	Afroncontruircariestext[spfAfroncontruircaries.idtext].text.text=
+	spfAfroncontruircaries.iniciales+""+document.getElementById("idinputextophaser").value.toUpperCase() ;
+	Afroncontruircaries[spfAfroncontruircaries.id].sp.firetexto=document.getElementById("idinputextophaser").value.toUpperCase() ;
+
+
+//	thiss.getChildAt(0).text=document.getElementById("idinputextophaser").value;
+
+//alert(document.getElementById("idinputextophaser").value);
+}
+else {alert("no se puede escribir")}
+
+siescribir=false;
+}
+
+
+if(siarrastrar){
+
+	thiss.input.enableDrag(true);
+}
+
+
+
+
+
+	
+vactivodiente.x=arrayspd[thiss.coneldienteid].spd.x;
+	vactivodiente.y=arrayspd[thiss.coneldienteid].spd.y;
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function fobjEscribir(){
+	siescribir=true;
+
+	sieliminar=false;
+    siarrastrar=false;
+  
+  sieditarclinica=false;
+  siarrastrar=false;
+  setTimeout(function(){
+
+	siarrastrar=false;
+	siescribir=false;
+  
+	sieliminar=false;
+	  siarrastrar=false;
+	
+	sieditarclinica=false;
+  
+  },7000);
+
+//	document.getElementById("idinputextophaser").display.style="block";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//document.getElementById("idinputextophaser").display.style="block";
+	iniciabody();
+	
+	document.getElementById("idpaneleliminar").style.display="none";
+	
+	
+	
+	
+	document.getElementById("idmenulateralderecho").style.display="none";
+	
+	
+	
+	function imprimir(){
+		window.print();
+	}
+	
+	
+	
+	function fid12a(){if(Afroncontruircaries==null){}else{	for(var i in Afroncontruircaries){
+	
+		if(spfAfroncontruircaries!=null){	if(spfAfroncontruircaries.dientenum=="12"){
+			spfAfroncontruircaries.editext1=document.getElementById("id12a").value;
+		}}
+		
+	
+}}			}
+
+
+function fid12b(){if(Afroncontruircaries==null){}else{	for(var i in Afroncontruircaries){
+	
+	if(spfAfroncontruircaries!=null){	if(spfAfroncontruircaries.dientenum=="12"){
+		spfAfroncontruircaries.editext2=document.getElementById("id12b").value;
+	}}
+	
+
+	
+}}			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	var steditensme="";
+	var arrsteditensme=[];
+function thisnameedites(thiss){
+	steditensme=thiss.name;
+	arrsteditensme=steditensme.split("");
+	steditensme=	steditensme.replace("a", "");
+	steditensme=	steditensme.replace("b", "");
+
+
+{if(Afroncontruircaries==null){}
+else{
+		for(var i in Afroncontruircaries){
+if(spfAfroncontruircaries!=null){
+	
+
+if(arrsteditensme[2]=="a"){
+	if(spfAfroncontruircaries.dientenum==steditensme){
+		Afroncontruircaries[ spfAfroncontruircaries.id].sp.editext1=document.getElementById(thiss.id).value;
+		setTimeout(function(){Afroncontruircaries[ spfAfroncontruircaries.id].sp.editext1=document.getElementById(thiss.id).value;},1000);
+		Afroncontruircaries[ spfAfroncontruircaries.id].sp.editexta=thiss.id;
+	}
+}
+
+if(arrsteditensme[2]=="b"){
+
+
+	if(spfAfroncontruircaries.dientenum==steditensme){
+		Afroncontruircaries[ spfAfroncontruircaries.id].sp.editext2=document.getElementById(thiss.id).value;
+		setTimeout(function(){Afroncontruircaries[ spfAfroncontruircaries.id].sp.editext2=document.getElementById(thiss.id).value;},1000);
+
+		Afroncontruircaries[ spfAfroncontruircaries.id].sp.editextb=thiss.id;
+		
+	}
+}
+
+
+
+
+
+/*
+	if(spfAfroncontruircaries.dientenum==steditensme){
+
+		if((steditensme+"b")==(spfAfroncontruircaries.dientenum+"b")){
+		
+			spfAfroncontruircaries.editext2=document.getElementById("id12b").value;
+
+		}
+
+		if((steditensme+"a")==(spfAfroncontruircaries.dientenum+"a")){
+			spfAfroncontruircaries.editext1=document.getElementById("id12a").value;
+		}
+	
+	}}
+	*/
+
+	
+}
+
+
+
+
+}			}
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+}
+
+			</script>
+	
+		</body>
+	
+	<!-- Mirrored from examples.phaser.io/embed.php?f=box2d/car+on+terrain.js&v=2.2.2.box2d by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 02 Nov 2018 04:09:26 GMT -->
+	</html>
+	
