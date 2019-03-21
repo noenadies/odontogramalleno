@@ -6507,7 +6507,11 @@ var losemailA=[];
 	 var jsConnector = {// regresa de java 
 		 showResult: function (result) { // dejava
 			document.getElementById('h4email').innerHTML = cidemail;
-			 cidemail=cidemail+1;
+
+setTimeout(function(){
+
+
+	cidemail=cidemail+1;
 			 if(losemailA[cidemail]!=null){
 		
 				emailparaquien=losemailA[cidemail];
@@ -6522,11 +6526,17 @@ stmensaleemail = document.getElementById('iddmesemail').value;
 emailparaquien=losemailA[cidemail];
 
 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
-
-
-
-
 			 }
+
+},6000);
+
+
+
+
+
+
+
+			 
 		//	 for(var i in losemail){console.log(i+"   "+ losemail[i])
 
 //sendToJava2 ("cerrarapp","a","c");
@@ -7179,9 +7189,9 @@ console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
 
 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
 if(emailparaquien!=null){
-javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+//javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
 
-
+console.log("emailparaquien   " + emailparaquien+ "    " +losemailA.length);
 
 
 
