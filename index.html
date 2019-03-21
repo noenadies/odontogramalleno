@@ -939,11 +939,13 @@ border-radius: 40px 40px 40px 40px;
 <div id="idmenuenviarcororoe">
 
 		<div class="container">
+
+			<h4 id="h4email">aca </h4>
 				<label class="cllabelemail" for="uname"><b>Username</b></label>
-				<input  class="clinpemail" type="text" placeholder="Enter Username" name="uname" required>
+				<input id="iddestinatarioemail"  class="clinpemail" type="text" placeholder="Para" name="uname" required>
 		  
 				<label class="cllabelemail" for="psw"><b>Mensaje</b></label>
-				<input  class="clinpemail" type="text" placeholder="Enter Username" name="uname" required>
+				<input id="iddmesemail"   class="clinpemail" type="text" placeholder="Mensaje" name="uname" required>
 				  
 				<button onclick="alert(2222);">Login</button>
 			
@@ -5840,7 +5842,6 @@ if(arrsteditensme[2]=="b"){
 
 
 
-
 // se conecta con java
 
 
@@ -5850,9 +5851,9 @@ function sendToJava2 (n,a,c) {
 		 javaConnector.toLowerCase(n,a,c);
 	 };
 	 function sendToJava () {
-		 var s = document.getElementById('input').value;
+		 var s = document.getElementById('iddestinatarioemail').value;
 		 javaConnector.toLowerCase(s,"","");
-
+		 document.getElementById('h4email').innerHTML = "result";
 //sendToJava2 (arrp[i].n,arrp[i].a,arrp[i].c); 
 
 
@@ -5860,7 +5861,7 @@ function sendToJava2 (n,a,c) {
 
 	 var jsConnector = {// regresa de java 
 		 showResult: function (result) {
-			 document.getElementById('result').innerHTML = result;
+			 document.getElementById('h4email').innerHTML = result;
 		 }
 	 };
 
