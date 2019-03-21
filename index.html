@@ -844,17 +844,114 @@ font-size: 12px;
 }
 
 
+#enviarcorreo{
+position: absolute;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+background-color: #000;
+z-index: 770;
+}
+
+#idmenuenviarcororoe{
+position: absolute;
+top: 50%;
+left: 50%;
+width: 40%;
+transform: translate(-50%,-50%);
+height: 50%;
+background-color: #c09769;
+
+display: flex ;
+flex-direction: column ;
+flex-wrap: wrap ;
+justify-content: space-around ;
+align-items: center ;
+align-content: flex-start ;
 
 
 
 
+border: 5px solid #1C6EA4;
+border-radius: 40px 40px 40px 40px;
+opacity: 0.7;
+
+}
+
+
+/* Full-width input fields */
+.clinpemail {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+
+	border: 5px solid #1C6EA4;
+border-radius: 40px 40px 40px 40px;
+  }
+  
+  /* Set a style for all buttons */
+  .buttonemailes {
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+  }
+  
+  .buttonemailes:hover {
+	opacity: 0.8;
+  }
+  
+  /* Extra styles for the cancel button */
+
+  /* Center the image and position the close button */
+
+
+  
+  .container {
+	padding: 16px;
+
+  }
+
+
+#idfondoemail{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+}
 
 			</style>
 		</head>
 		<body>
 	
 	
+<div id="enviarcorreo">
+		<img id="idfondoemail" src="fondoemail.jpg" alt="">
 
+<div id="idmenuenviarcororoe">
+
+		<div class="container">
+				<label class="cllabelemail" for="uname"><b>Username</b></label>
+				<input  class="clinpemail" type="text" placeholder="Enter Username" name="uname" required>
+		  
+				<label class="cllabelemail" for="psw"><b>Mensaje</b></label>
+				<input  class="clinpemail" type="text" placeholder="Enter Username" name="uname" required>
+				  
+				<button onclick="alert(2222);">Login</button>
+			
+			  </div>
+
+
+</div>
+</div>
 
 
 <div id="idmenubotonera">
@@ -5733,6 +5830,175 @@ if(arrsteditensme[2]=="b"){
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+// se conecta con java
+
+
+
+function sendToJava2 (n,a,c) {
+         
+		 javaConnector.toLowerCase(n,a,c);
+	 };
+	 function sendToJava () {
+		 var s = document.getElementById('input').value;
+		 javaConnector.toLowerCase(s,"","");
+
+//sendToJava2 (arrp[i].n,arrp[i].a,arrp[i].c); 
+
+
+	 }
+
+	 var jsConnector = {// regresa de java 
+		 showResult: function (result) {
+			 document.getElementById('result').innerHTML = result;
+		 }
+	 };
+
+	 function getJsConnector() {
+		 return jsConnector;
+	 };
+
+
+
+
+
+/*
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.application.Application;
+import javafx.concurrent.Worker;
+import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import netscape.javascript.JSObject;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+public class Main extends Application {
+	
+	
+    private JavaConnector javaConnector = new JavaConnector();
+	
+	
+    private JSObject javascriptConnector;
+	
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			BorderPane root = new BorderPane();
+			
+			
+			   WebView webView = new WebView();
+		        final WebEngine webEngine = webView.getEngine();
+
+		        // set up the listener
+		        webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+		            if (Worker.State.SUCCEEDED == newValue) {
+		                // set an interface object named 'javaConnector' in the web engine's page
+		                JSObject window = (JSObject) webEngine.executeScript("window");
+		                window.setMember("javaConnector", javaConnector);
+
+		                // get the Javascript connector object. 
+		                javascriptConnector = (JSObject) webEngine.executeScript("getJsConnector()");
+		            }
+		        });
+			
+		        Scene scene = new Scene(webView, 300, 150);
+		        primaryStage.setScene(scene);
+		        primaryStage.show();
+
+		        // now load the page
+		        webEngine.load(
+		        		"https://noenadies.github.io/JAVALEEJAVSCRIP/");
+			
+			
+			
+		
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	
+	
+	
+	
+	   public class JavaConnector {
+	        /**
+	         * called when the JS side wants a String to be converted.
+	         *
+	         * @param value
+	         *         the String to convert
+	         */
+/*			 public void toLowerCase(String value,String a, String c) {
+	            if (null != value) {
+	                javascriptConnector.call("showResult", 77777);
+	          
+	                jo(value,a, c);
+	            
+	            }
+	        }
+	    }
+	   ArrayList<Main.Persona> al=new ArrayList<Main.Persona>();
+	//ArrayList<Main.Persona> miar=ArrayList<Main.Persona>;
+	   public void  jo(String value,String a, String c) {
+		  JOptionPane.showConfirmDialog(null,value);
+		 //  al.add(new Persona(value, a, c));
+		
+		 //  al.forEach((ap)->System.out.println(ap.nombre+"  "+ap.apellido+"  "+ap.cedula));
+	   }
+	
+	public  class Persona {
+		String nombre="";
+		String apellido="";
+		String cedula="";
+		public Persona(String n, String a, String c) {
+			// TODO Auto-generated constructor stub
+			
+			this.nombre=n;
+			this.apellido=a;
+			this.cedula=c;
+			
+		}
+	}
+	
+	
+}
+
+*/
+
+
+
+
+
+
+
+
+
 
 			</script>
 	
