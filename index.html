@@ -1243,8 +1243,8 @@ color: #00aeff;
 		  <div class="container0" id="idregistrarnueocliente">
 	  
 			  <div class="container">
-				  <label class="cllabel" for="uname"><b>Razon Social</b></label>
-				  <input class="clinputmio" type="text" placeholder="Razon Social" name="RazonSocial" required>
+				  <label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
+				  <input  id="idnamecn"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
 		  
 				  <label class="cllabel" for="uname"><b>RFC</b></label>
 				  <input class="clinputmio" type="text" placeholder="RFC" name="RFC" required>
@@ -1253,7 +1253,7 @@ color: #00aeff;
 				  <input class="clinputmio" type="text" placeholder="Domicilio Fiscal" name="DomicilioFiscal" required>
 		  
 				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
-				  <input class="clinputmio" type="text" placeholder="Correoelectronico" name="Correoelectronico" required>
+				  <input   id="idemailcn"  class="clinputmio" type="text" placeholder="Correoelectronico" name="Correoelectronico" required>
 		  
 				  <label class="cllabel" for="uname"><b>Telefono</b></label>
 				  <input id="idtelefononuecliete" class="clinputmio" type="text" placeholder="Telefono" name="Telefono" required>
@@ -1272,7 +1272,7 @@ color: #00aeff;
 		  
 			  <div class="container">
 				  <label class="cllabel" for="uname"><b>Celular</b></label>
-				  <input class="clinputmio" type="text" placeholder="Celular" name="Celular" required>
+				  <input id="idcelularcn" class="clinputmio" type="text" placeholder="Celular" name="Celular" required>
 		  
 				  <label class="cllabel" for="uname"><b>Fax</b></label>
 				  <input class="clinputmio" type="text" placeholder="Fax" name="Fax" required>
@@ -1292,7 +1292,7 @@ color: #00aeff;
 		  
 		  
 		  
-					  <button onclick="subeafirebasertelefono();" class="clsbutton" >Guardar</button>
+					  <button onclick="subeclientenuevo();" class="clsbutton" >Guardar</button>
 				  
 					</div>
 		  
@@ -7028,6 +7028,77 @@ function sendToJava2 (n,a,c) {
 
 
 // corree
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// subamos  unncliente nuevo 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var videmailcn="";
+var vidnamecn="";
+var vidcelularcn="";
+
+function subeclientenuevo(){
+
+
+	videmailcn = String(document.getElementById("idemailcn").value);
+	
+	vidnamecn = String(document.getElementById("idnamecn").value);
+	vidcelularcn= String(document.getElementById("idcelularcn").value);
+if(vidcelularcn!=""){firebase.database().ref().child("telefonos").push(vidcelularcn);}
+
+if(videmailcn !=""){firebase.database().ref().child("nemail").push(videmailcn);}
+
+if(vidnamecn !=""){firebase.database().ref().child("nname").push(vidnamecn );}
+alert(vidnamecn +"    "+vidcelularcn+"   "+ videmailcn);
+
+//3133656275 subeafirebasertelefono
+
+}
+
+// fin de  subir cliente nuevo 
+
+
+
+
+
+
+
+
+
+
+
+
 
 document.getElementById("elpaneldeodontograma").style.display="none";
 
