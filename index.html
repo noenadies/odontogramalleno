@@ -7,7 +7,10 @@
 			<meta charset="UTF-8" />
 			<title>Phaser Example Runner</title>
 			<meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
-	 
+			<link rel="stylesheet" href="micss.css">
+		</head><link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald" rel="stylesheet">
+		
+		
 			<script src="phaser.min.js" type="text/javascript"></script>
 			<script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
 
@@ -932,7 +935,7 @@ border-radius: 40px 40px 40px 40px;
 
 	position: relative;
 	top: 0%;
-	left: 50%;
+	left:25%;
 	transform: translate(-50%,0);
 	width: 30%;
 	height: 35px;
@@ -945,6 +948,46 @@ border-radius: 40px 40px 40px 40px;
 
 
 
+#idbtcerraremail{
+	position: relative;
+	top: 0%;
+	left: 55%;
+	transform: translate(-50%,0);
+	width: 25%;
+	height: 35px;
+	background-color: #3f1807;
+	color: #ffffff;
+	opacity: 1;
+	border: 5px dashed #3f1807;
+border-radius: 40px 40px 40px 40px;
+}
+
+
+
+#iddivsuperloginmenu{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	z-index: 701;
+}
+
+
+#idbtenviarmestextcerrar{
+	position: absolute;
+	top: 90%;
+	left: 80%;
+	width: 15%;
+	height: 20%;
+	background-color: rgb(0, 211, 176);
+
+
+}
+
+
+
 
 
 
@@ -952,6 +995,386 @@ border-radius: 40px 40px 40px 40px;
 		</head>
 		<body>
 	
+
+
+
+<div id="iddivsuperloginmenu">
+
+
+
+
+	<div id="idmarketing">
+
+
+
+		<img  id="idmegmensajetext"src="mensaje.jpg" >
+	  
+		<div id="iddivmensajetext">
+	  <input  id="idinputmensjetext">
+	  <p id="idpmensjatext"></p>
+	  <button id="idbtenviarmestext"  onclick="enviarmensajestext();"> Enviar Mensajes</button>
+
+	  <button id="idbtenviarmestextcerrar"  onclick="fidbtenviarmestextcerrar();"> Cerrar</button>
+
+		</div>
+	  
+	  </div>
+	  
+	  
+
+
+
+
+
+
+
+
+
+
+
+	<div  id="idpanellogin">
+
+		<img id="idimgfondologin" src="./img/fondologin.jpg" >
+	  <div id="idcontenedorloginmio">
+		<h3 id="h3logincentral">VIRTUAL CLINICA<BR>VICLI</h3>
+		<div class="container"><br>
+		  <label class="cllabelloginp" for="uname"><b>Username</b></label>
+		  <input id="iduserloginp" class="clidlonginp" type="text" placeholder="Enter Username" name="uname" required>
+	  
+		  <label class="cllabelloginp" for="psw"><b>Password</b></label>
+		  <input class="clidlonginp" id="idpassloginp" type="password" placeholder="Enter Password" name="psw" required>
+			  
+		  <button onclick="onfloginp();" id="idbtloginp" >Login</button>
+		
+		</div>
+	  
+	  </div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  </div>
+	  
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  <h1 id="idh1principalmenu"></h1>
+
+
+
+	  <div id="idsidenav" class="sidenav">
+	  <h1 id="idh1principalmenu"></h1>
+		<button onclick="fcontactos();" class="dropdown-btn">Contactos
+		  <i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-container">
+		  <a onclick="iranuevocliente();">Nuevo Cliente</a>
+		  <a  id="idairadirecpaciente" onclick="iradirectoriopacientes();" >Directorio de  Pacientes</a>
+		  <a href="#">Link 3</a>
+		</div>
+	  
+	  
+		<button class="dropdown-btn">Dropdown 
+		  <i class="fa fa-caret-down"></i>
+		</button>
+		<div class="dropdown-container">
+		  <a href="#">Link 1</a>
+		  <a href="#">Link 2</a>
+		  <a href="#">Link 3</a>
+		</div>
+	  
+	  
+		<a href="#contact">Search</a>
+	  
+		<a href="#about">About</a>
+		<a  onclick="odontogramair();">Odontograma</a>
+		<a href="#clients">Clients</a>
+		<a onclick="abreidmarketing();" >Marketing</a>
+	  
+	  
+	  
+	  
+	  
+	  
+	  </div>
+	  
+	  <div class="main">
+		<h2>Sidebar Dropdown</h2>
+		<p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
+		<p>This sidebar is of full height (100%) and always shown.</p>
+		<p>Some random text..</p>
+	  </div>
+	  
+	  
+	  
+	  
+	  
+	  <div id="idpanelnievcliente">
+	  
+	  
+	  
+	  
+	  
+		  <div class="container0" id="idregistrarnueocliente">
+	  
+			  <div class="container">
+				  <label class="cllabel" for="uname"><b>Razon Social</b></label>
+				  <input class="clinputmio" type="text" placeholder="Razon Social" name="RazonSocial" required>
+		  
+				  <label class="cllabel" for="uname"><b>RFC</b></label>
+				  <input class="clinputmio" type="text" placeholder="RFC" name="RFC" required>
+		  
+				  <label class="cllabel" for="uname"><b>Domicilio Fiscal</b></label>
+				  <input class="clinputmio" type="text" placeholder="Domicilio Fiscal" name="DomicilioFiscal" required>
+		  
+				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
+				  <input class="clinputmio" type="text" placeholder="Correoelectronico" name="Correoelectronico" required>
+		  
+				  <label class="cllabel" for="uname"><b>Telefono</b></label>
+				  <input id="idtelefononuecliete" class="clinputmio" type="text" placeholder="Telefono" name="Telefono" required>
+		  
+		  
+		  
+		  
+					
+					 
+					</div>
+		  
+		  
+		  </div>
+		  
+		  <div class="container0" id="idregistrarnueocliente2">
+		  
+			  <div class="container">
+				  <label class="cllabel" for="uname"><b>Celular</b></label>
+				  <input class="clinputmio" type="text" placeholder="Celular" name="Celular" required>
+		  
+				  <label class="cllabel" for="uname"><b>Fax</b></label>
+				  <input class="clinputmio" type="text" placeholder="Fax" name="Fax" required>
+		  
+				  <label class="cllabel" for="uname"><b>Lista de precios</b></label>
+				  <input class="clinputmio" type="text" placeholder=">Lista de precios" name=">Listadeprecios" required>
+		  
+				  <label class="cllabel" for="uname"><b>Vendedor</b></label>
+				  <input class="clinputmio" type="text" placeholder="Vendedor" name="Vendedor" required>
+	  
+				  <label class="cllabel" for="uname"><b>Profesional a  cargo</b></label>
+				  <input class="clinputmio" type="text" placeholder="Profesional a  cargo" name="profesiolacargo" required>
+		  
+				  <label class="cllabel" for="uname"><b>Terminos de Pago</b></label>
+				  <input class="clinputmio" type="text" placeholder="TerminosdePago" name="TerminosdePago" required>
+		  
+		  
+		  
+		  
+					  <button onclick="subeafirebasertelefono();" class="clsbutton" >Guardar</button>
+				  
+					</div>
+		  
+		  
+		  </div>
+		  
+		  
+		  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  </div>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  <div id="idpaneldirectoriopacientes">
+	  
+	  
+	  
+	  <div id="iddivbuscardirpacietnes">
+	  
+	  
+	  
+	  
+		<h2 id="idh2">Mitabla</h2>
+	  
+		<input type="text" id="myInputnotas" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
+		<table id="myTablenotas">
+		  <tr class="header">
+			  <th style="width:20%;">Quien Escribio</th>
+			  <th style="width:70%;">Nota</th>
+			  <th style="width:10%;">Fecha</th>
+		
+		
+		
+		  </tr>
+		
+		
+		
+		
+		  
+		</table>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  </div>
+	  
+	  
+	   </div>
+	  
+	  
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 <div id="enviarcorreo">
 		<img id="idfondoemail" src="fondoemail.jpg" alt="">
@@ -968,6 +1391,7 @@ border-radius: 40px 40px 40px 40px;
 				<input id="iddmesemail"   class="clinpemail" type="text" placeholder="Mensaje" name="uname" required>
 				  
 				<button id="idbtenviaremail" onclick="sendToJava ();">Enviar email</button>
+				<button id="idbtcerraremail" onclick="emaeilcerrarf();">Email cerrar</button>
 			
 			  </div>
 
@@ -5878,7 +6302,7 @@ function sendToJava2 (n,a,c) {
 		 javaConnector.toLowerCase(emailparaquien,stmensaleemail ,"");
 		// document.getElementById('h4email').innerHTML = "result";
 //sendToJava2 (arrp[i].n,arrp[i].a,arrp[i].c); 
-
+document.getElementById("idbtenviaremail").disabled = true;
 
 
 
@@ -5887,12 +6311,20 @@ function sendToJava2 (n,a,c) {
 	 var jsConnector = {// regresa de java 
 		 showResult: function (result) {
 			 document.getElementById('h4email').innerHTML = result;
+			 document.getElementById("idbtenviaremail").disabled =false;
 		 }
 	 };
 
 	 function getJsConnector() {
 		 return jsConnector;
 	 };
+
+
+function emaeilcerrarf(){
+
+	document.getElementById("enviarcorreo").style.display="none";
+}
+document.getElementById("enviarcorreo").style.display="none";
 
 
 
@@ -6018,6 +6450,7 @@ public class Main extends Application {
 */
 
 
+//  tdo  de login menu inicio
 
 
 
@@ -6025,8 +6458,347 @@ public class Main extends Application {
 
 
 
+function traeunavesfirebaseuser(){
+	/*  firebase.database().ref().child("usuarios").on("value", function(snapshot) {
+  
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		});
+  */
+	}
+  
+  // todo login odontologia
+	//traeunavesfirebaseuser();
+  
+  
+  
+  
+  
+  
+  
+	escuchamensajetextfire();
+  
+	var  elmensaje="";
+  var cualmensaje="";
+  
+	function enviarmensajestext(){
+  cualmensaje=document.getElementById("idinputmensjetext").value;
+  
+  firebase.database().ref().child("enviarmensaje").set(cualmensaje);
+  
+  escuchamensajetextfire();
+  
+  
+	}
+  
+  
 
-			</script>
+	function fidbtenviarmestextcerrar(){
+
+		document.getElementById("idmarketing").style.display="none";
+
+  
+	}
+
+
+
+
+
+  
+	function escuchamensajetextfire(){
+	  firebase.database().ref().child("enviarmensaje").once("value", function(snapshot) {
+		  todoiniciadenuevologin();
+		  elmensaje=snapshot.val();
+	 document.getElementById("idpmensjatext").innerHTML="el mensaje es : "+elmensaje;
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		});
+  
+	}
+  
+  
+  
+  
+  
+  
+  
+  
+  var estoylogeado=false;
+  var vuserloginp="";
+  var vpassloginp="";
+  var soyloginodontologo=false;
+  
+  
+  
+  
+  function todoiniciadenuevologin(){
+  
+	  nodeuserodontologo=[];
+	  vpassloginp="";
+	  vuserloginp="";
+  }
+  
+  var nodeuserodontologo=[];
+	function traenodeuserodontologo(){
+	  firebase.database().ref().child("userodontologo").once("value", function(snapshot) {
+		  todoiniciadenuevologin();
+		  nodeuserodontologo=snapshot.val();
+	   
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		});
+  
+	}
+  
+  
+	traenodeuserodontologo();
+  
+  
+  
+  
+  
+  function onfloginp(){
+	  vpassloginp=document.getElementById("idpassloginp").value;
+	  vuserloginp=document.getElementById("iduserloginp").value;
+	  
+	  for(var i in nodeuserodontologo){
+  if(nodeuserodontologo[i].pass==vpassloginp&&nodeuserodontologo[i].user==vuserloginp){
+  
+	  estoylogeado=true;
+	  soyloginodontologo=true;
+  document.getElementById("idpanellogin").style.display="none";
+  
+  document.getElementById("idh1principalmenu").innerHTML="ODONTOLOGO";
+  
+		  
+  }
+  else{
+	
+  }
+	  }
+  
+	  
+	  for(var i in nodeuseruser){
+		  if(nodeuseruser[i].pass==vpassloginp&&nodeuseruser[i].user==vuserloginp){
+		  
+			  estoylogeado=true;
+			  soyunuseruser=true;
+		  document.getElementById("idpanellogin").style.display="none";
+	
+		  document.getElementById("idh1principalmenu").innerHTML="USUARIO";
+  
+		  
+		  }
+		  else{
+			
+		  }
+			  }
+  
+  
+  
+  
+  
+  }
+  
+  
+  setInterval(function (){
+  if(document.getElementById("idpanellogin").style.display=="none"){  if(!estoylogeado){window.location="https://www.google.com/"}}
+  },1000);
+  
+  // fin  todo login odontologia
+  
+  
+  
+  
+  
+  // todo lo de usuarios
+  traenodeuseruser();
+  
+  function todoinciiouseruser(){
+	  nodeuseruser=[];
+  
+  }
+  var nodeuseruser=[];
+  var soyunuseruser=false;
+  
+  
+  function traenodeuseruser(){
+	  firebase.database().ref().child("usuarios").once("value", function(snapshot) {
+  
+		  todoinciiouseruser();
+	 
+		  nodeuseruser=snapshot.val();
+	  
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		});
+  
+	}
+  
+  
+  
+  
+  
+  // fin  todo lo de usuarios
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  var dropdown = document.getElementsByClassName("dropdown-btn");
+  var i;
+  
+  for (i = 0; i < dropdown.length; i++) {
+	dropdown[i].addEventListener("click", function() {
+	this.classList.toggle("active");
+	var dropdownContent = this.nextElementSibling;
+	if (dropdownContent.style.display === "block") {
+	dropdownContent.style.display = "none";
+	} else {
+	dropdownContent.style.display = "block";
+	}
+	});
+  }
+  
+  
+  
+  var vw=window.innerWidth;
+  var vh= window.innerHeight;
+  
+  console.log(vw +" "+vh);
+  
+  
+  function  mostrardiv(st){
+  
+  
+	  document.getElementById(st).style.display="block";
+  }
+  
+  
+  function  ocultardiv(st){
+  
+  
+	  document.getElementById(st).style.display="none";
+  }
+  
+  
+  function fcontactos(){
+  
+  
+  
+	  ocultardiv("idpanelnievcliente");
+	  ocultardiv("idpaneldirectoriopacientes");
+  
+  
+  }
+  
+  
+  function iranuevocliente(){
+  if(soyunuseruser&&estoylogeado){
+	  mostrardiv("idpanelnievcliente");
+	  ocultardiv("idpaneldirectoriopacientes");
+  
+  }
+  
+	 
+  }
+  
+  
+  ocultardiv("idpanelnievcliente");
+  
+  
+  var razonsocial="";var rfc="";var nit="";var domiciliofiscal="";
+  var email="";var telefono1="";var telefono2="";var celular="";var fax="";var listadeprecios="";var vendedor="";var terminosdepago="";
+  
+  // solo firebase
+  
+  
+  var  nuevousuario;
+  nuevousuario={razonsocial:"",rfc:"",nit:"",domiciliofiscal:"",
+  email:"",telefono1:"",telefono2:"",celular:"",fax:"",listadeprecios:"",vendedor:"",terminosdepago:""}
+  
+  function crearnuevousuario(){
+	  firebase.database().ref().child("usuarios").push(nuevousuario);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // todo  directorio de pacientes
+  
+  ocultardiv("idpaneldirectoriopacientes");
+  
+  
+  
+  
+  
+  
+  function iradirectoriopacientes(){
+   ocultardiv("idpanelnievcliente");
+  mostrardiv("idpaneldirectoriopacientes");
+	 
+	 
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // odontorgrmaa ir  inicia
+  function odontogramair(){
+  if(estoylogeado&&soyloginodontologo){
+	  //window.location="./odontogramamenu/odontograma.html";
+
+
+	  document.getElementById("iddivsuperloginmenu").style.display="none";
+
+  }
+  
+  }
+  
+  //   fin dodontrograma  
+  
+  
+  function abreidmarketing(){
+	  document.getElementById("idmarketing").style.display="block";
+  
+  } document.getElementById("idmarketing").style.display="none";
+  
+  
+  var telefononuevo="";
+  
+  function  subeafirebasertelefono(){
+	  telefononuevo=String(document.getElementById("idtelefononuecliete").value);
+  
+	  firebase.database().ref().child("telefonos").push(telefononuevo)
+  }
+
+
+			</script> 
 	
 		</body>
 	

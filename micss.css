@@ -1,0 +1,732 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: "Lato", sans-serif;
+    background: #1E1E2F;
+    background: -moz-linear-gradient(-45deg, #1E1E2F 0%, #1C1C27 50%, #1D1D23 100%);
+    background: -webkit-linear-gradient(-45deg, #1E1E2F 0%, #1C1C27 50%, #1D1D23 100%);
+    background: linear-gradient(135deg, #1E1E2F 0%, #1C1C27 50%, #1D1D23 100%);
+  }
+  
+
+
+
+
+
+
+
+#idmarketing{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+ 
+  z-index: 360;
+
+}
+
+
+
+#idmegmensajetext{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+
+ 
+  z-index: 360;
+
+}
+
+
+
+#iddivmensajetext{
+  position: absolute;
+  top: 30%;
+  left: 1%;
+  width: 37%;
+  height: 45%;
+background-color: #09b4d5;
+ opacity: 0.5;
+  z-index: 361;
+}
+
+
+
+#idpanellogin{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(197, 197, 197);
+ 
+  z-index: 300;
+ 
+
+}
+
+#idinputmensjetext{
+
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 90%;
+  height: 20px;
+  border-radius: 20%;
+  background-color: #000000;
+  color: #ffffff;
+font-size: 15px;
+ opacity:1;
+  z-index: 361;
+}
+
+
+
+#idbtenviarmestext{
+
+  position: absolute;
+  top: 49%;
+  left: 30%;
+  width: 40%;
+  height: 50px;
+  border-radius: 20%;
+  background-color: #f5f9fa;
+  color: #000000;
+font-size: 15px;
+ opacity: 1;
+  z-index: 361;
+}
+
+#idbtenviarmestext:hover{
+
+  background-color: #09b4d5;
+}
+
+
+
+
+
+
+
+#idpmensjatext{
+
+position: absolute;
+top: 80%;
+left: 30%;
+width: 40%;
+height: 50px;
+border-radius: 20%;
+
+color: #000000;
+font-size: 15px;
+opacity: 1;
+z-index: 361;
+}
+
+
+
+
+
+
+
+
+
+#idimgfondologin{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height:100%;
+  width:100%;
+  z-index: 301;
+ 
+}
+
+
+#idcontenedorloginmio{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  width:298px;
+  height: 55.0206%;
+  background-color:#eee9f0;
+  opacity: 0.8;
+  z-index: 302;
+
+  border: 5px solid #0b6379;
+  border-radius: 5%;
+  -webkit-box-shadow: 5px 5px 50px 5px #000000; 
+  box-shadow: 5px 5px 50px 5px #000000;
+
+}
+
+
+
+#h3logincentral{
+  position: absolute;
+  top:2%;
+  left: 0%;
+  width: 100%;
+color: #09b4d5;
+font-size: 20px;
+z-index: 302;
+padding: 2px;
+text-align: center;
+margin: auto;
+}
+
+
+
+
+
+
+
+
+
+#idpanelnievcliente{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+
+  background: #1E1E2F;
+  background: -moz-linear-gradient(-45deg, #1E1E2F 0%, #1C1C27 50%, #1D1D23 100%);
+  background: -webkit-linear-gradient(-45deg, #1E1E2F 0%, #1C1C27 50%, #1D1D23 100%);
+  background: linear-gradient(135deg, #1E1E2F 0%, #1C1C27 50%, #1D1D23 100%);
+
+  z-index: 3;
+}
+
+
+
+.clidlonginp {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+
+#idbtloginp{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+  background-color: #08afd6;
+}
+
+#idbtloginp:hover{
+
+  background-color: #6ac3d7;
+}
+
+.cllabelloginp{
+
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+color: #000;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Fixed sidenav, full height */
+  .sidenav {
+ 
+
+
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  
+    font-size: 11px;
+
+    background-color: #1E8BF8;
+    background-color: -moz-linear-gradient(top, #1E8BF8 0%, #2774f6 50%, #3358F4 100%);
+    background-color: -webkit-linear-gradient(top, #1E8BF8 0%, #2774f6 50%, #3358F4 100%);
+    background-color: linear-gradient(to bottom, #1E8BF8 0%, #2774f6 50%, #3358F4 100%);
+
+
+    position: absolute;
+    top:10%;
+    left: 22px;
+    height: 80%;
+    width: 100px;
+
+
+border-radius: 3%;
+
+color: #fbfbff;
+
+  }
+
+
+#idh1principalmenu{
+
+  position: absolute;
+  top: 2%;
+  left: 1%;
+  color: #ffffff;
+  font-size: 22px;
+
+}
+
+
+
+
+
+
+  .sidenav:hover{
+
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  
+    font-size: 11px;
+
+    background-color: #1E8BF8;
+    background-color: -moz-linear-gradient(top, #1E8BF8 0%, #2774f6 50%, #3358F4 100%);
+    background-color: -webkit-linear-gradient(top, #1E8BF8 0%, #2774f6 50%, #3358F4 100%);
+    background-color: linear-gradient(to bottom, #1E8BF8 0%, #2774f6 50%, #3358F4 100%);
+
+
+    position: absolute;
+    top:10%;
+    left: 22px;
+    height: 80%;
+    width: 150px;
+
+transition: 1s;
+-moz-border-radius: 6px 6px 6px 6px ;
+-webkit-border-radius:6px 6px 6px 6px ;
+border-radius: 6px 6px 6px 6px ;
+
+color: #fbfbff;
+
+  }
+
+
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    font-size: 11px;
+
+    color: #fbfbff;
+
+  }
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdown-btn:hover {
+    color: #fbfbff;
+    font-size: 11px;
+  }
+  
+  /* Main content */
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+    font-size: 11px;
+  }
+  
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color:#1d8cf8;
+    color: #fbfbff;
+    font-size: 11px;
+  }
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    background-color: #27293d;
+    padding-left: 8px;
+    font-size: 11px;
+  }
+  
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+    font-size: 11px;
+  }
+  
+  /* Some media queries for responsiveness */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  
+    
+  }
+
+
+  #idregistrarnueocliente{
+
+    position: absolute;
+    top:10%;
+    left:155.0px;
+    height: 60%;
+    width:40%;
+background-color:#27293d;
+-moz-border-radius: 6px 6px 6px 6px ;
+-webkit-border-radius:6px 6px 6px 6px ;
+border-radius: 6px 6px 6px 6px ;
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  body {font-family: Arial, Helvetica, sans-serif;}
+
+  /* Full-width input fields */
+ .clinputmio {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #2b3553;
+    box-sizing: border-box;
+    background-color: #27293d;
+    font-size: 13px;
+
+    color: #c5d3da;
+  }
+
+
+
+
+.clinputmio:hover{
+
+    border: 2px solid #1d8cf8;
+
+}
+
+
+
+
+
+.cllabel{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 25px;
+  letter-spacing: 0.6px;
+  word-spacing: 2px;
+  color: #aaa7a3;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+font-size: 11px;
+}
+
+
+
+
+  
+  /* Set a style for all buttons */
+  .clsbutton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+
+
+    background: #BE53F0;
+    background: -moz-linear-gradient(45deg, #BE53F0 0%, #D450D9 50%, #de4ecd 100%);
+    background: -webkit-linear-gradient(45deg, #BE53F0 0%, #D450D9 50%, #de4ecd 100%);
+    background: linear-gradient(45deg, #BE53F0 0%, #D450D9 50%, #de4ecd 100%);
+
+
+
+
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  /* Center the image and position the close button */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+     /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  .container0{
+
+    overflow-y:auto;
+  }
+
+.container0::-webkit-scrollbar {
+  background: #27293d;
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+	background: #1d8cf8;
+	border-radius: 5px;
+}
+
+
+
+
+
+#idregistrarnueocliente2{
+  position: absolute;
+  top:10%;
+  left:55%;
+  height: 60%;
+  width:40%;
+background-color:#27293d;
+-moz-border-radius: 6px 6px 6px 6px ;
+-webkit-border-radius:6px 6px 6px 6px ;
+border-radius: 6px 6px 6px 6px ;
+
+
+}
+
+#idsidenav{
+
+  z-index: 40;
+}
+
+
+
+
+#idpaneldirectoriopacientes{
+
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+
+background-color: #f44336;
+  z-index: 3;
+
+
+}
+
+#iddivbuscardirpacietnes{
+  position: absolute;
+  top:10%;
+  left:155.0px;
+  height: 60%;
+  width:40%;
+background-color:#27293d;
+-moz-border-radius: 6px 6px 6px 6px ;
+-webkit-border-radius:6px 6px 6px 6px ;
+border-radius: 6px 6px 6px 6px ;
+}
+
+#myInputnotas {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTablenotas {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+
+  overflow: scroll;
+}
+
+#myTablenotas th, #myTablenotas td {
+
+}
+
+#myTablenotas tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTablenotas tr.header, #myTablenotas tr:hover {
+  background-color: #f1f1f1;
+}
+
