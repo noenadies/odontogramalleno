@@ -1003,6 +1003,59 @@ border-radius: 40px 40px 40px 40px;
 
 
 
+
+
+
+
+
+
+
+	
+	<div id="enviarcorreo">
+		<img id="idfondoemail" src="fondoemail.jpg" alt="">
+
+<div id="idmenuenviarcororoe">
+
+		<div class="container">
+
+			<h4 id="h4email">Email  </h4>
+				<label class="cllabelemail" for="uname"><b>Para</b></label>
+				<input id="iddestinatarioemail"  class="clinpemail" type="text" placeholder="Para" name="uname" required>
+		  
+				<label class="cllabelemail" for="psw"><b>Mensaje</b></label>
+				<input id="iddmesemail"   class="clinpemail" type="text" placeholder="Mensaje" name="uname" required>
+				  
+				<button id="idbtenviaremail" onclick="sendToJava ();">Enviar email</button>
+				<button id="idbtcerraremail" onclick="emaeilcerrarf();">Email cerrar</button>
+			
+			  </div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<div id="idmarketing">
 
 
@@ -1107,7 +1160,7 @@ border-radius: 40px 40px 40px 40px;
 		<a href="#clients">Clients</a>
 		<a onclick="abreidmarketing();" >Marketing</a>
 	  
-		<a onclick="abreidmarketing();" >Send Email</a>
+		<a onclick="abreidsendemail();" >Send Email</a>
 	  
 	  
 	  
@@ -1375,29 +1428,7 @@ border-radius: 40px 40px 40px 40px;
 
 
 
-	
-<div id="enviarcorreo">
-		<img id="idfondoemail" src="fondoemail.jpg" alt="">
 
-<div id="idmenuenviarcororoe">
-
-		<div class="container">
-
-			<h4 id="h4email">Email  </h4>
-				<label class="cllabelemail" for="uname"><b>Para</b></label>
-				<input id="iddestinatarioemail"  class="clinpemail" type="text" placeholder="Para" name="uname" required>
-		  
-				<label class="cllabelemail" for="psw"><b>Mensaje</b></label>
-				<input id="iddmesemail"   class="clinpemail" type="text" placeholder="Mensaje" name="uname" required>
-				  
-				<button id="idbtenviaremail" onclick="sendToJava ();">Enviar email</button>
-				<button id="idbtcerraremail" onclick="emaeilcerrarf();">Email cerrar</button>
-			
-			  </div>
-
-
-</div>
-</div>
 
 
 <div id="idmenubotonera">
@@ -6788,6 +6819,18 @@ function traeunavesfirebaseuser(){
   
   } document.getElementById("idmarketing").style.display="none";
   
+
+
+
+function abreidsendemail(){
+	document.getElementById("enviarcorreo").style.display="block";
+
+}
+
+
+
+
+
   
   var telefononuevo="";
   
