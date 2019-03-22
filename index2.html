@@ -1,0 +1,3608 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+
+
+h1{
+  font-family: helvetica;
+  font-size:2.5rem ;
+  color:black;
+  position: relative;
+  top:80px;
+  z-index: -1;
+}
+#canvas {
+  display:block;
+  margin:5vh auto;
+  border-radius:50%;
+  box-shadow: 0 5px 14px black;
+  position: absolute;
+  top: 70%;
+  left: 75%;
+  z-index: 1;
+
+}
+
+
+
+
+
+
+
+
+
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion2 {
+  background-color: #eee;
+  color: rgb(21, 159, 194);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+
+
+
+
+.accordion3{
+
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 33%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+
+}
+
+
+
+
+.accordion4 {
+  background-color: #eee;
+  color: rgb(21, 159, 194);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+
+
+
+
+
+
+
+
+
+.accordion4:hover {
+	background-color:#2a90bf;
+  opacity: 0.4;
+  color: black
+}
+
+
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+
+
+.active, .accordion4:hover {
+  background-color: #ccc; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+
+#idmenulateral{
+  width: 14%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 10;
+  height: 100%;
+}
+.clw{
+
+  width: 100%;
+  background-color: rgba(190, 199, 199, 0.13);
+  opacity: 0.4;
+  color: black;
+  text-align: center;
+  font-size: 17px;
+  height: 70px;;
+}
+
+#idpacpregvot{
+  position: absolute;
+  top: -3.8%;
+  left: 15%;
+  background-color: #444;
+  opacity: 0.9;
+  z-index: 12;
+  width: 83%;
+  height: 90%;;
+}
+#idbutcerrarmaplatlngopen{
+	-moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+  position: absolute;
+  top: 76%;
+  left: 30%;
+ 
+  opacity: 0.9;
+  z-index: 12;
+  width: 50px;
+  height: 50px;
+font-size: 10px;
+border-radius: 50%;
+text-align: center;
+padding: 1px;
+margin: auto;
+}
+
+
+#idpanelreferidos{
+
+  position: absolute;
+  top: 8%;
+  left: 15%;
+  background-color: rgb(5, 5, 5);
+  opacity: 0.95;
+  z-index: 12;
+  width: 83%;
+  height: 90%;;
+
+}
+
+
+#idpanelbuscarvotantes{
+
+position: absolute;
+top: 8%;
+left: 15%;
+background-color: rgb(0, 0, 0);
+opacity: 0.89;
+z-index: 12;
+width: 83%;
+height: 90%;;
+
+}
+
+
+
+.clpacpregvot {
+
+ color:#4794D3;
+ width:300px;
+ margin:90px auto;
+
+ -webkit-animation: flipinx 1s linear 2s 1 normal ;
+ animation: flipinx 1s linear 2s 1 normal ;
+}
+
+
+@-webkit-keyframes flipinx {
+  0%{
+	opacity: 0;
+	-webkit-transform: perspective(400px) rotateY(0deg);
+	transform: perspective(400px) rotateY(90deg);
+  }
+  40%{
+	-webkit-transform: perspective(400px) rotateY(0deg);
+	transform: perspective(400px) rotateY(-10deg);
+  }
+  70%{
+	-webkit-transform: perspective(400px) rotateY(0deg);
+	transform: perspective(400px) rotateY(10deg);
+  }
+  100%{
+	opacity: 1;
+	-webkit-transform: perspective(400px) rotateY(0deg);
+	transform: perspective(400px) rotateY(0deg);
+  }
+}
+
+@keyframes flipinx {
+  0%{
+	opacity: 0;
+	transform: perspective(400px) rotateY(90deg);
+  }
+  40%{
+	transform: perspective(400px) rotateY(-10deg);
+  }
+  70%{
+	transform: perspective(400px) rotateY(10deg);
+  }
+  100%{
+	opacity: 1;
+	transform: perspective(400px) rotateY(0deg);
+  }
+}
+
+
+.ideditexregvotan{
+  position: relative;
+  top:0px;
+  left: 15px;
+  height: 100%;
+  background-color: #2a90bf;
+  opacity: 7;
+  width: 80%;
+  font-size: 17px;
+  color: rgb(0, 0, 0)
+}
+
+
+.ideditexregvotanref{
+  position: relative;
+  top:0px;
+  left: 15px;
+
+  background-color: #e5e7e7;
+  opacity: 7;
+  width: 70%;
+  font-size: 17px;
+  color: rgb(0, 0, 0);
+  border: 5px double rgba(28,110,164,0.16);
+
+
+text-shadow: #080606 1px 1px 0;
+color: #2e0101;
+
+
+}
+
+
+
+
+
+
+#idedtnm1{
+  position: relative;
+  top: 1%;
+  left: 3%;
+  width: 96%;
+
+}
+
+#iddiv1nam{
+  display: flex;
+  background-color: bisque;
+}
+
+
+#idpacpregvot3{
+
+  position: absolute;
+  top: 15.4%;
+  left: 50%;
+  background-color: rgb(226, 224, 224);
+  opacity: 0.9;
+  z-index: 12;
+  width: 20%;
+  height: 90%;;
+  z-index: 14;
+}
+
+#idbtfirebase{
+
+  -moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+	background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+	background-color:#33bdef;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+
+
+
+
+}
+
+
+
+#idmenuaddreferidos{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #444;
+  opacity: 0.7;
+  z-index: 15;
+}
+
+#idaddreferf{
+
+position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 35%;
+  height: 80%;
+  background-color: rgb(255, 255, 255);
+  opacity: 1;
+  z-index: 15;
+  overflow-y: scroll;
+
+}
+
+
+
+#idaddvotante{
+
+position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 35%;
+  height: 80%;
+  background-color: rgb(255, 255, 255);
+  opacity: 1;
+  z-index: 15;
+  overflow-y: scroll;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#myUL2{
+position: relative;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+
+}
+
+
+
+
+
+
+
+
+#iddbuscaref{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 45%;
+  height: 100%;
+  background-color: rgb(158, 158, 158);
+  opacity: 1;
+  z-index: 15;
+  overflow-y: scroll;
+}
+
+
+
+#iddbusvotante{
+
+position: absolute;
+top: 0%;
+left: 15.1%;
+width: 45%;
+height: 100%;
+background-color: rgb(158, 158, 158);
+opacity: 1;
+z-index: 15;
+overflow-y: scroll;
+}
+
+
+
+
+
+
+
+
+
+
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+
+
+
+
+
+
+
+#myInputvotantes {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myULvotantes {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+
+}
+
+#myULvotantes li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myULvotantes li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+
+
+
+
+#idbtcerrarmodalregis{
+
+  position: absolute;
+  top:2%;
+  left: 90%;
+  z-index: 13;
+}
+
+
+
+#idbtregismodalregis{
+
+  position: absolute;
+  top:2%;
+  left:70%;
+  z-index: 13;
+
+}
+
+
+
+
+
+
+
+
+#divregrefder{
+
+
+}
+
+#divregrefder:hover {
+opacity: 1;
+}
+
+
+
+#idbtregiref{
+
+  position: absolute;
+  top: 3%;
+  left: 80%;
+background-color: rgb(84, 99, 94);
+border-radius: 50%;
+}
+
+#idquepaso{
+  position:  absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  font-size: 33px;
+  background-color: #020a0e;
+  opacity: 0.9;
+  z-index: 16;
+
+}
+
+#idh3{
+
+  position:  absolute;
+  top: 35%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+
+text-align: center;
+  z-index: 16;
+  color: #ffffff;
+ 
+}
+
+
+
+#idbtquepasocerrar{
+
+  position:  absolute;
+  top: 5%;
+  left: 30%;
+  width: 90px;
+  height:  90px;
+
+text-align: center;
+  z-index: 16;
+  color: #ffffff;
+background-color: #019ad2;
+}
+
+
+
+
+
+
+
+
+
+#idbtborrar{
+
+  position:  absolute;
+  top: 70%;
+  left: 2%;
+  z-index: 22;
+}
+
+
+
+
+
+
+
+
+#logocamp{
+
+position: absolute;
+top:-0.4%;
+left: 100%;
+z-index: 14;
+width: 120px;
+height: 60px;
+z-index: 0;
+}
+
+
+#idimgbody{
+  position: absolute;
+top:6%;
+left: 23%;
+
+width: 70%;
+height:60%;
+z-index: -1;
+}
+
+
+
+
+
+#idpaneordenartodo{
+
+  position: absolute;
+  top:8.3%;
+  left: 15.3%;
+  background-color: #019ad2;
+  opacity: 0.8;
+  width: 85%;
+  height: 92%;
+  z-index: 21;
+}
+
+
+.clbtbtorde{
+
+-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+
+  width: 23%;
+}
+
+
+#idbtordeporpuesto{
+position: absolute;
+top:3%;
+left: 0%;
+
+}
+
+#idbtordeporlider{
+position: absolute;
+top:10%;
+left: 0%;
+
+}
+
+#idbtordepordirecc{
+position: absolute;
+top:17%;
+left: 0%;
+
+}
+
+#idmensaje{
+
+  position: absolute;top:0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: #020a0e;
+  opacity: 0.9;
+  z-index: 21;
+}
+
+
+#idpmensaje{
+
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  width: 60%;
+  text-align: center;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px;color: #29bbff;
+  font-size:27px;
+}
+
+
+
+
+.myButtonmensaje{
+	-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+.myButtonmensaje:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
+	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0688fa', endColorstr='#2dabf9',GradientType=0);
+	background-color:#0688fa;
+}
+.myButtonmensaje:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+#idbtmensajeaceptar{
+
+position: absolute;
+top: 80%;
+left: 35%;
+
+}
+
+
+#fidbtmensajecancelar{
+  position: absolute;
+top: 80%;
+left:55%;
+
+}
+
+
+
+
+
+
+#idpanelpuedoabrircrud{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: #0688fa;
+  width: 100%;
+  height: 100%;
+z-index: 43;
+
+
+
+-moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	-webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
+	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-webkit-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-o-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:-ms-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2dabf9', endColorstr='#0688fa',GradientType=0);
+	background-color:#2dabf9;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+
+
+
+
+
+
+
+}
+
+
+
+#idinputpuedoabririnombre{
+
+  position: absolute;
+  top: 40%;
+  left: 45%;
+
+}
+
+
+
+#idinputpuedoabriripass{
+
+  position: absolute;
+  top: 50%;
+  left: 45%;
+
+}
+
+.clputpuedoabririnombre{
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.clputpuedoabririnombre:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+	background:-moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:-ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+	background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+	background-color:#f6f6f6;
+}
+.clputpuedoabririnombre:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+#idpabrirpanelcrud{
+
+  position:absolute;
+  top: 25%;
+  left: 54%;
+  text-align: center;
+   font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+
+
+
+
+
+
+
+
+#idinputpuedoabririBTok{
+
+  position: absolute;
+  top: 69%;
+  left: 54%;
+  width: 10%;
+
+}
+
+
+#idlabepnombre{
+  position: absolute;
+  top: 40%;
+  left: 40%;
+
+}
+
+#idlabeppass{
+
+  position: absolute;
+  top: 50%;
+  left: 40%;
+}
+
+
+
+
+
+
+
+
+#idfaltomap{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 44;
+  width: 100%;
+height: 100%;
+  background-color: #000000;
+}
+
+#map{
+
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 45;
+  width: 100%;
+height: 100%;
+  background-color: #000000;
+}
+
+#floating-panel {
+        position: absolute;
+        top: 20%;
+        left: 3%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        z-index: 46;
+        width:60%;
+        height: 20%;
+        opacity: 0.7;
+      }
+#address{
+
+  width: 100%;
+}
+
+
+      #idbutcerrarmaplatlng{
+        -moz-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f29c93;
+	box-shadow:inset 0px 1px 0px 0px #f29c93;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+	background:-moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:-ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100',GradientType=0);
+	background-color:#fe1a00;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #d83526;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+
+position: absolute;
+top: 5%;
+left: 83%;
+width: 70px;
+font-size: 14px;
+z-index: 65;
+text-align: center;
+padding: 1px;
+margin: auto;
+      }
+
+
+
+
+#idbutcerrarmaplatlngop1{
+position: absolute;
+top: 70%;
+left: 2%;
+width: 60px;
+height: 30px;
+background-color: #0688fa;
+color: #ffffff;
+font-size: 9px;
+text-align: left;
+
+}
+
+#idbutcerrarmaplatlngop2{
+  position: absolute;
+top: 70%;
+left: 30%;
+width: 60px;
+height: 30px;
+background-color: #0688fa;
+color: #ffffff;
+font-size: 9px;
+text-align: center;
+
+
+}
+
+#submit{
+  position: absolute;
+top: 30%;
+left: 40%;
+width: 100px;
+height: 30px;
+background-color: #000000;
+color: #ffffff;
+font-size: 9px;
+text-align: center;
+opacity: 1;
+}
+
+
+#address{
+
+  position: absolute;
+top: 3%;
+left: 0%;
+width: 100%;
+
+background-color: #000000;
+color: #ffffff;
+font-size:16px;
+text-align: center;
+opacity: 1;
+
+
+}
+
+#idpdesarrollado{
+
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; 
+
+
+
+  position: absolute;
+  top: 76%;
+  left: 0%;
+  width: 100%;
+  height: 200px;
+
+
+
+
+
+  
+  background-color: #ffffff;
+  font-size: 17px;
+  color: #ffffff;
+  z-index: -2;
+
+}
+
+
+
+#idpanelemail{
+position: absolute;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
+background-color: #000000;
+z-index: 200;
+opacity: 1;
+
+
+}
+
+
+#menuevioemail{
+
+  position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+width: 39%;
+height: 50%;
+background-color: #e1e2e7;
+z-index: 200;
+opacity: 0.7;
+border: 5px solid #6f7fa0;
+border-radius: 38px 40px 40px 40px;
+
+}
+
+
+
+
+
+
+
+.inputemailsed {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+  border: 5px solid #1C6EA4;
+border-radius: 38px 40px 40px 40px;
+}
+
+/* Set a style for all buttons */
+.buttonemailsed {
+  background-color: #192570;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 15%;
+}
+
+.containeremailsed {
+  padding: 16px;
+}
+
+
+#idemailmenuderecho{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%,-50%);
+  width: 45%;
+  height: 70%;
+  background-color: #0688fa;
+  z-index: 200;
+  opacity: 1;
+  border: 5px solid #1C6EA4;
+  border-radius: 38px 40px 40px 40px;
+  
+}
+
+
+#idimgemailf{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 199;
+
+
+}
+
+
+
+
+
+
+
+
+
+</style>   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+<link rel="stylesheet" href="css/style.css">
+
+<script src="jquery-3.3.1.min.js"></script>
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBJZNbNmUQekatLuc2NnXUBedh5hzLvRm0",
+    authDomain: "electoralempity.firebaseapp.com",
+    databaseURL: "https://electoralempity.firebaseio.com",
+    projectId: "electoralempity",
+    storageBucket: "electoralempity.appspot.com",
+    messagingSenderId: "366446292235"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+  
+  
+  <div id="idpanelemail">
+      emalfondo
+
+      <img id="idimgemailf" src="emalfondo.jpg" >
+
+
+<div id="menuevioemail">
+
+
+
+    <div class="container"><h4 id="h4email">Email  </h4><br>
+        <label for="uname"><b>Email</b></label>
+        <input id="iddestinatarioemail" class="inputemailsed" type="text" placeholder="Email" name="email" required>
+  
+        <label for="psw"><b>Mensaje</b></label>
+        <input id="iddmesemail" class="inputemailsed" type="text" placeholder="mensaje" name="mensaje" required>
+
+        
+          
+        <button onclick="sendToJava();" class="buttonemailsed">enviar uno</button>
+        <button onclick="cerraremailpanel();" class="buttonemailsed">cancelar</button>
+        <button onclick="traescorreos()" class="buttonemailsed">enviar todos</button>
+       
+      </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  <p id="idpdesarrollado"> 
+
+</p>
+
+  
+  <div id="idfaltomap">
+
+<button id="idbutcerrarmaplatlng" onclick="fidbutcerrarmaplatlng();">Cerrar</button>
+      <div id="floating-panel">
+          <input id="address" type="textbox" value="Sydney, NSW">  <br>  <br>
+          <input id="submit" type="button" value="Geocode"><br><br>
+        <dv> <button id="idbutcerrarmaplatlngop1" onclick="fidbutcerrarmaplatlngop1();">Direccion</button>
+          <button id="idbutcerrarmaplatlngop2" onclick="fidbutcerrarmaplatlngop2();">Puesto</button>
+        
+        </dv>  
+        </div>
+        <div id="map"></div>
+
+
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <dic id="idpanelpuedoabrircrud"> <p id="idpabrirpanelcrud"> CRUD USER</p>
+  <label id="idlabepnombre" for="male">User:</label><input class="clputpuedoabririnombre" id="idinputpuedoabririnombre" type="text"  value="" placeholder="user">
+  <label id="idlabeppass" for="male">Pass:</label><input class="clputpuedoabririnombre" id="idinputpuedoabriripass" type="password"  value="" placeholder="pass">
+  <button class="clputpuedoabririnombre" id="idinputpuedoabririBTatras"  onclick="fabrircrudatrasl();" >Atras</button>
+  <button class="clputpuedoabririnombre" id="idinputpuedoabririBTok"  onclick="fabrircrudreal();">Ok</button>
+</dic>
+
+  <div id="idmensaje"> <p id="idpmensaje">mensaje  aca</p> <button class="myButtonmensaje" id="idbtmensajeaceptar" onclick="fidbtmensajeaceptar()">Aceptar</button>
+  
+    <button class="myButtonmensaje" id="fidbtmensajecancelar" onclick="fidbtmensajecancelar()">Cancelar</button>
+  
+  </div>
+
+  <img id="idimgbody" src="http://holatn.com/wp-content/uploads/2014/05/noticia.jpg"  >
+
+      <canvas id="canvas" width="200" height="200"></canvas>
+
+
+
+
+<div id="idquepaso"><h3 id="idh3">registrando</h3>
+<button id="idbtquepasocerrar" onclick="fbtquepasocerrar();">ok</button>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="idpaneordenartodo">
+
+ <button id="idbtordeporpuesto" class="clbtbtorde" onclick="fidbtordeporpuesto();" >Ordenar Todo por  Puesto</button>
+ <button id="idbtordeporlider" class="clbtbtorde" onclick="fidbtordeporlider();" >Ordenar Todo por Lider</button>
+ <button id="idbtordepordirecc" class="clbtbtorde" onclick="fidbtordepordirecc();" >Ordenar Todo por Direccion</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="idpacpregvot" class="clpacpregvot" >
+
+  <div  class="accordion3" >
+    <div>
+
+        <label for="other">Primer Nombre</label>  <br>
+        <input class="ideditexregvotan" type="text" id="idedtnm1" placeholder="Primer Nombre"><br>
+        <label for="other">Segundo Nombre</label>
+        <input  class="ideditexregvotan" type="text" id="idedtnm2" placeholder="Segundo Nombre"><br>
+        <label for="other">Primer Apellido </label>
+        <input  class="ideditexregvotan" type="text" id="idedtap1" placeholder="Primer Apellido"> <br>
+        <label for="other">Segundo Apellido</label>
+        <input class="ideditexregvotan" type="text" id="idedtap2" placeholder="Segundo Apellido"> <br>
+        <label for="other">Cedula</label><br>
+        <input class="ideditexregvotan" type="text" id="idedtced" placeholder="Cedula">      <br> 
+        <label for="other">Departamento</label>  <br>
+        <input class="ideditexregvotan" type="text" id="idedtdep" placeholder="Departamento"> <br>
+        <label for="other">Municipio</label><br>
+        <input class="ideditexregvotan" type="text" id="idedtmun" placeholder="Municipio">
+        <br>
+        <label for="other">Puesto</label><br>
+        <input class="ideditexregvotan" type="text" id="idedtpt" placeholder="Puesto">
+        <br>
+        <label for="other">Direccion</label><br>
+        <input class="ideditexregvotan" type="text" id="idedtdr" placeholder="Direccion">
+        <br>
+        <label for="other">Mesa</label><br>
+        <input class="ideditexregvotan" type="text" id="idedtmesa" placeholder="Mesa">
+        <br>
+        <label for="other">Fecha inscripcion cc</label>
+        <input class="ideditexregvotan" type="text" id="idedtfch" placeholder="Fecha de inscripcion">
+
+
+        <br>      <br>     
+        <label for="other">Celular</label> <br>
+        <input class="ideditexregvotan" type="text" id="idedtcelular" placeholder="Celular">
+        <br>
+        <label for="other">Email</label> <br>
+        <input class="ideditexregvotan" type="text" id="idedtemail" placeholder="Email">
+        <br>
+        <label for="other">Facesbook</label> <br>
+        <input class="ideditexregvotan" type="text" id="idedtfaces" placeholder="Facesbook">
+        <br>
+        <input class="ideditexregvotan" type="text" id="idlng" placeholder="lng">
+        <br>
+        <input class="ideditexregvotan" type="text" id="idlat" placeholder="lat">
+
+        <button id="idbutcerrarmaplatlngopen" onclick="fidbutcerrarmaplatlngopen();">Ubicar</button>
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+
+<div id="idpacpregvot3" class="clpacpregvot2x" >
+
+  <div  class="accordion4" >
+    <div>
+        <br><br><br><br>
+        <label for="other">Lideres</label>
+        <input class="ideditexregvotan" type="text" id="idedtreferido" placeholder="Lider"><br>
+        <label for="other">id Ref</label><br>
+        <input class="ideditexregvotan" type="text" id="idedtidreferido" placeholder="id"><br>
+
+
+
+        <label for="other">Nota al Usuario</label>
+        <input class="ideditexregvotan" type="text" id="idedtntusuario" placeholder="Nota al Usuario"><br>
+        <label for="other">Nota al Lider</label>
+        <input  class="ideditexregvotan" type="text" id="idedtntreferido" placeholder="Nota al Lider"><br><br><br><br>
+        <button id="idbtfirebase" onclick="getvalores();" > Guardar votante </button>
+        <button id="idbtfirebase2" onclick="fabrirrreferidos();" >Lideres </button>
+        <button id="idbtfirebase3" onclick="limpia();" > Nuevo votante </button>
+    
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+
+
+
+
+<div id="idmenulateral" >
+<h2>ELECCIONES</h2> <img id="logocamp" src="https://cdn.colombia.com/sdi/2018/11/26/desde-cuando-colombia-adopta-su-actual-bandera-688445.jpg" >
+
+
+
+
+
+
+
+
+<button class="accordion">Registrar</button>
+<div class="panel">
+    <div class="accordion2" id="idbtregistrarvotantes" onclick="fregvotantes();"> registrar Votantes</div>
+
+    
+ </div>
+
+
+
+
+
+
+
+
+<button onclick="fsecc2();" class="accordion">Lideres</button>
+<div class="panel">
+
+    <div class="accordion2" id="iddivregistrarreferido" onclick="fabrirrreferidos();"> registrar Lideres</div>
+
+</div>
+
+<button class="accordion">Buscar Votantes</button>
+<div class="panel">
+
+    <div class="accordion2" id="iddivregistrarreferido" onclick="fabrirbuscarvotante();"> Buscar Votantes</div>
+
+</div>
+
+<button class="accordion">Enviar mensajes</button>
+<div class="panel">
+
+    <div class="accordion2" id="iddivregistrarreferido" onclick="fenviarmensajes();"> Enviar mensajes</div>
+
+</div>
+
+<button class="accordion">Imprimir</button>
+<div class="panel">
+
+    <div class="accordion2" id="idprinttodoordenado" onclick="fidprinttodoordenado();"> Imprimir todo</div>
+
+</div>
+
+
+<button class="accordion">Mapa</button>
+<div class="panel">
+
+    <div class="accordion2" id="idprinttmapa" onclick="fidprinttmapa();">Mapa</div>
+
+</div>
+
+
+<button class="accordion">Como vamos</button>
+<div class="panel">
+
+    <div class="accordion2" id="idprinttmapa" onclick="fcomovamos();">Como vamos</div>
+
+</div>
+
+
+<button class="accordion">CRUD</button>
+<div class="panel">
+
+    <div class="accordion2" id="idprinttmapa" onclick="fccrud()">CRUD</div>
+
+</div>
+
+<button class="accordion">Send Email</button>
+<div class="panel">
+
+    <div class="accordion2" id="idprinttmapa" onclick="openemailpanel();">Send Email</div>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+<div id="idpanelreferidos">
+
+<div id="idaddreferf" >
+
+
+
+  
+
+   <div  id="divregrefder"><h2> Registrar Lider</h2> <button id="idbtregiref" onclick="registrarnuevoreferido();" >Guardar</button>
+      <br>
+      <input class="ideditexregvotanref" type="text" id="idnreftenota"  placeholder="Nota" title="Nota">
+      <br><br>      <input class="ideditexregvotanref" type="text" id="idnrefnm"  placeholder="Nombre Completo" title="Nombre completo"><br><br>
+      <input class="ideditexregvotanref" type="text" id="idnreftcedula"  placeholder="Cedula" title="Cedula">    
+      <br><br> 
+      
+      <input class="ideditexregvotanref" type="text" id="idnreftecelu"  placeholder="Telefono Celular" title="Telefono Celular">
+            
+            <br>
+            <br>   <input class="ideditexregvotanref" type="text" id="idnrefteEmai"  placeholder="Email" title="Email"><br><br>
+            <input class="ideditexregvotanref" type="text" id="idnreftedir"  placeholder="Direccion" title="Direccion"><br><br>
+            <input class="ideditexregvotanref" type="text" id="idnreftefaces"  placeholder="Facebook" title="Facebook"><br><br>
+            <input class="ideditexregvotanref" type="text" id="idnrefteCiudad"  placeholder="Ciudad" title="Ciudad"><br><br>
+    </div>
+      
+      
+
+
+
+
+
+
+
+  </div>
+<div id="iddbuscaref" >
+  
+
+  
+  <h2>Buscar Lider</h2>
+
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+  
+  <ul id="myUL">
+   
+
+  </ul>
+  
+  <script>
+  function myFunction() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+          a = li[i].getElementsByTagName("a")[0];
+          txtValue = a.textContent || a.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              li[i].style.display = "";
+          } else {
+              li[i].style.display = "none";
+          }
+      }
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="idpanelbuscarvotantes" >
+
+
+
+  
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ <div id="iddbusvotante" >
+   
+ 
+   
+   <h2>Buscar Votante</h2>
+ 
+   <input type="text" id="myInputvotantes" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+   
+   <ul id="myULvotantes">
+    
+ 
+   </ul>
+   
+   <script>
+   function myFunction() {
+       var input, filter, ul, li, a, i, txtValue;
+       input = document.getElementById("myInput");
+       filter = input.value.toUpperCase();
+       ul = document.getElementById("myUL");
+       li = ul.getElementsByTagName("li");
+       for (i = 0; i < li.length; i++) {
+           a = li[i].getElementsByTagName("a")[0];
+           txtValue = a.textContent || a.innerText;
+           if (txtValue.toUpperCase().indexOf(filter) > -1) {
+               li[i].style.display = "";
+           } else {
+               li[i].style.display = "none";
+           }
+       }
+   }
+   </script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ </div>
+ </div>
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+ document.getElementById("idpacpregvot").style.display="none";
+
+ //document.getElementsByTagName('input');
+ //document.getElementById('nuip').value='1119886131';
+
+
+
+document.getElementById("idpacpregvot3").style.display="none";
+
+
+
+document.getElementById("idpanelreferidos").style.display="none";
+
+document.getElementById("idquepaso").style.display="none";
+
+
+document.getElementById("idpanelbuscarvotantes").style.display="none";
+
+document.getElementById("idpaneordenartodo").style.display="none";
+
+
+
+
+
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+
+
+
+function fregvotantes(){
+
+  //document.getElementById("idpacpregvot").classList.remove("clpacpregvot");
+
+ // document.getElementById("idpacpregvot").style.width=String(window.innerWidth*0.83)+"px";
+ document.getElementById("idpacpregvot").style.display="block";
+ 
+ document.getElementById("idpacpregvot").classList.add("clpacpregvot");
+ document.getElementById("idpacpregvot3").style.display="block";
+
+ document.getElementById("idpanelreferidos").style.display="none";
+ //document.getElementById("iddbusvotante").style.display="none";
+ 
+ document.getElementById("idpanelbuscarvotantes").style.display="none";
+ document.getElementById("idpaneordenartodo").style.display="none";
+
+}
+
+
+function  fsecc2(){  document.getElementById("idpacpregvot").classList.remove("clpacpregvot");
+
+  document.getElementById("idpacpregvot").style.display="none";
+
+  document.getElementById("idpacpregvot3").style.display="none";
+
+  document.getElementById("idpaneordenartodo").style.display="none";
+
+}
+
+
+
+function limpia(){
+
+
+  setval("idedtnm1");
+	setval("idedtnm2");
+	setval("idedtap1");
+  setval("idedtap2");
+  setval("idedtced");
+  setval("idedtdep");
+	setval("idedtmun");
+  setval("idedtpt");
+ nombre="";
+ setval("idedtdr");
+ setval("idedtmesa");
+ setval("idedtfch");
+ setval("idedtemail");
+ setval("idedtcelular");
+ setval("idedtfaces");
+ setval("idedtfch");
+ setval("idedtidreferido");
+ setval("idedtreferido");
+ setval("idedtntusuario");
+ setval("idedtntreferido");
+
+
+
+setval("idlat");
+setval("idlng");
+
+
+
+
+
+
+
+}
+function listo(){
+//	getvalores();
+	setTimeout(function(){
+  //  window.location.reload();
+	limpia();
+},100);
+}
+
+
+
+
+
+var  persona;
+	
+var nm1="";
+var nm2="";
+var ap1="";
+var ap2="";
+var cedula="";
+var dep="";
+var muni="";
+var puest="";
+var nombre=nm1+nm2+ap1+ap2;
+ var direcci="";
+ var mesa="";
+ var fecha="";
+ var email="";
+ var celular="";
+ var celular="";
+ var faces="";
+ var faces="";
+ var ntusuario="";
+ var ntreferido="";
+ var referido="";
+ var idref="";
+ var vlat="";
+var vlng="";
+
+var objplazalatlng;
+
+
+
+
+
+function getval(st){
+return	document.getElementById(st).value;
+}
+function setval(st){
+document.getElementById(st).value="";
+}
+
+
+
+
+
+
+function getvalores2(){
+
+   nm1="111";
+  nm2="1111";
+   ap1="1111";
+   ap2="111";
+  cedula="1111";
+ dep="11111";
+ muni="111111";
+nombre=nm1+nm2+ap1+ap2;
+  direcci="111";
+  mesa="111111";
+ fecha="1111111";
+ email="111111111";
+ celular="111111";
+   celular="1111";
+ faces="11111111";
+ faces="1111";
+  ntusuario="11111111";
+ ntreferido="11111";
+ referido="";
+ idref="111111";
+  
+  
+  
+//llenaregistro();
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getvalores(){
+ nm1=getval("idedtnm1");
+ nm2=getval("idedtnm2");
+ ap1=getval("idedtap1");
+ ap2=getval("idedtap2");
+ cedula=String(getval("idedtced"));
+
+ dep=getval("idedtdep");
+ muni=getval("idedtmun");
+ puest=getval("idedtpt");
+ nombre=nm1+" "+nm2+" "+ap1+" "+ap2;
+ direcci=getval("idedtdr");
+ mesa=getval("idedtmesa");
+  fecha=getval("idedtfch");
+email=getval("idedtemail");
+ celular=String(getval("idedtcelular"));
+
+
+ vlat=getval("idlat");
+vlng=getval("idlng");
+
+
+ faces=getval("idedtfaces");
+ ntusuario=getval("idedtntusuario");
+ ntreferido=getval("idedtntreferido");
+ referido=getval("idedtreferido");
+ idref=getval("idedtidreferido");
+llenaregistro();
+
+
+}
+
+var vunallamdaalnodote=[];
+var vunallamdaalnodovo=[];
+var vunallamdaalnodopl=[];
+var bollvo=false;
+var bollte=false;
+var bollpl=false;
+function funallamadalnodovo(nodo){
+  firebase.database().ref().child(String(nodo)).on("value", function(snapshot) {
+  //  vunallamdaalnodovo=[];
+    vunallamdaalnodovo=snapshot.val();
+    bollvo=true;
+
+
+
+
+ funallamadalnodopl("plazaslatlng");//estoy
+}, function (errorObject) {
+ // console.log("The read failed: " + errorObject.code);
+});
+}
+
+function funallamadalnodote(nodo){
+  firebase.database().ref().child(String(nodo)).on("value", function(snapshot) {
+    vunallamdaalnodote=[];
+    vunallamdaalnodote=snapshot.val();
+    bollte=true;
+ //console.log("viene de  fire una llamada alnodo  te");   
+ //console.log(vunallamdaalnodote);
+
+ funallamadalnodovo("votantes");
+ 
+ 
+}, function (errorObject) {
+ // console.log("The read failed: " + errorObject.code);
+});
+}
+function funallamadalnodopl(nodo){
+  firebase.database().ref().child(String(nodo)).on("value", function(snapshot) {
+  //  vunallamdaalnodopl=[];
+    bollpl=true;
+    vunallamdaalnodopl=snapshot.val();
+ //console.log("viene de  fire una llamada alnodo  pl");   
+// console.log(vunallamdaalnodopl);
+ fdecadena();
+
+ 
+ // console.log(321);
+
+}, function (errorObject) {
+ // console.log("The read failed: " + errorObject.code);
+});
+}
+
+
+var estacedula=false;
+var intcedula=1;
+
+
+
+var bolyacedula=false;
+
+var nobooexisteplaza=false;
+
+var boolsilatylng=false;
+
+var boolsicedula=false;
+var boolsinombre=false;
+var boolsicelular=false;
+var boolreferido=false;
+
+function fdecadena(){
+  estacedula=false;
+intcedula=1;
+
+
+
+bolyacedula=false;
+
+ nobooexisteplaza=false;
+ boolsilatylng=false;
+
+ boolsicedula=false;
+boolsinombre=false;
+ boolsicelular=false;
+ boolreferido=false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+  if(vlng>0){
+    vlng=String(parseFloat(vlng)*-1);
+  }
+  else{
+   
+  }
+  objplazalatlng=[];
+  if(bollvo&&bollpl&&bollte){
+
+    persona={nombre:nombre,cedula:cedula,departamento:dep,municipio:muni,puesto:puest,
+    direccion:direcci,mesa:mesa,fechainsc:fecha, referido:referido,movil:String(celular),email:email,facebook:faces,
+    referido:referido,idreferido:idref,notauser:ntusuario,notareferido:ntreferido,lat:vlat,lng:vlng};
+    objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest};
+   // console.log("ya");
+   // console.log(objplazalatlng);
+
+    stringmensajes="";
+
+
+
+for(var i  in vunallamdaalnodote){
+
+if(vunallamdaalnodote[i]==celular){ stringmensajes= stringmensajes+"existe un telefono asi "}
+else{   
+  if(vunallamdaalnodote[i]==""){}
+  else{    if(celular.length==10){       //  objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
+
+vunallamdaalnodote=[];} else{stringmensajes=stringmensajes+"<br> "+"ese no es un numero de celular"}
+
+
+}
+    
+
+
+}
+
+}
+
+
+ estacedula=false;
+
+for(var i in vunallamdaalnodovo){
+
+  intcedula=parseInt(vunallamdaalnodovo[i].cedula)/parseInt(cedula)-1;
+
+  if(vunallamdaalnodovo[i].cedula===cedula&&!estacedula){
+   estacedula=true;
+    
+    stringmensajes=stringmensajes+" <br>"+ "ya  tenenmos esa  cedula registrada ";bolyacedula=true;}
+
+
+
+  if(vunallamdaalnodovo[i].cedula!==cedula&&!estacedula){
+ //   objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
+stringmensajes="Aceptar para subir la informacion"
+bolyacedula=false;
+//console.log("aca  "+cedula+"  " +vunallamdaalnodovo[i].cedula);
+  }
+ 
+}
+
+
+direcci=String(direcci);
+
+for(var i  in vunallamdaalnodopl){
+if(vunallamdaalnodopl[i].direccion==direcci){
+ // console.log("llamando booexixtemplaza");
+
+//console.log(booexixtemplaza);
+
+booexixtemplaza=true;  
+ //console.log("nobooexisteplaza "+  booexixtemplaza);
+ 
+ 
+ }
+else{ booexixtemplaza=false;   // objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}
+
+
+//console.log("nobooexisteplaza "+  booexixtemplaza);
+
+}
+
+//if(){booexixtemplaza=false}
+
+}
+
+boolsipuedosubir=true;
+
+if(String(celular)!=""){celular=String(celular);if(celular.length==10){boolsicelular=false;}
+else{ stringmensajes=stringmensajes+" falta  el celular, ";boolsicelular=true}}
+
+if(String(puest)==""){stringmensajes=stringmensajes+ " falta el puesto, "}
+if(String(cedula)==""){stringmensajes=stringmensajes+" falta la cedula, " ;boolsicedula=true} 
+else{boolsicedula=false;}
+if(String( direcci)==""){stringmensajes=stringmensajes+" falta la direccion, "} 
+if(String(referido)==""){stringmensajes=stringmensajes+" falta el Lider , "; boolreferido=true;} 
+else{
+  boolreferido=false;
+}
+
+if(String(mesa)==""){stringmensajes=stringmensajes+" falta la mesa, ";} 
+
+if(String(nombre)==""){stringmensajes=stringmensajes+" falta el nombre, ";boolsinombre=true} 
+else{boolsinombre=false;}
+
+if(String(vlng)=="" ||String(vlat)==""){stringmensajes=stringmensajes+"  falta Latitud y longitud  ";boolsilatylng=true} 
+else{
+  boolsilatylng=false;
+}
+
+
+document.getElementById("idmensaje").style.display="block";
+document.getElementById("idbtmensajeaceptar").style.display="block";
+
+
+
+
+if(boolsicelular||boolsicedula||boolsilatylng||boolsinombre||boolreferido){document.getElementById("idbtmensajeaceptar").style.display="none";}
+//else{document.getElementById("idbtmensajeaceptar").style.display="block";}
+escribeidpmensaje(stringmensajes);
+
+  }
+
+
+
+  bollvo=false;
+ bollpl=false;
+ bollte=false;
+
+}
+
+
+
+var stringmensajes="";
+var booexixtemplaza=false;
+function elquesubefirebasesivotante(){
+  firebase.database().ref().child("telefonos").push(String(celular));
+firebase.database().ref().child("votantes").push(persona);
+
+firebase.database().ref().child("votantes").push(email);//estoy
+alert("nobooexisteplaz11 "+ booexixtemplaza);
+console.log("que sube  "+booexixtemplaza);
+if(!booexixtemplaza){  objplazalatlng={direccion:direcci,lat:vlat,lng:vlng,puesto:puest}; console.log(objplazalatlng);
+
+
+
+firebase.database().ref().child("plazaslatlng").push( objplazalatlng);
+
+alert("subio");
+}
+
+listo();
+boolsipuedosubir=false;
+booexixtemplaza=true;
+}
+
+function llenaregistro(){//nombre,cedula,dept,muni,puest,direcci,mesa, fecha,referido,emeail,faces,idref){
+  persona={nombre:nombre,cedula:cedula,departamento:dep,municipio:muni,puesto:puest,
+    direccion:direcci,mesa:mesa,fechainsc:fecha, referido:referido,movil:String(celular),email:email,facebook:faces,
+    referido:referido,idreferido:idref,notauser:ntusuario,notareferido:ntreferido,lat:vlat,lng:vlng};
+  
+    stringmensajes="";
+  funallamadalnodote("telefonos");
+
+
+    
+
+  
+}
+
+var personaref="";
+
+function llenarreferido(){//nombre,cedula,dept,muni,puest,direcci,mesa, fecha,referido,emeail,faces,idref){
+personaref={nombre:nombre,cedula:cedula,departamento:dep,municipio:muni,puesto:puest,
+direccion:direcci,mesa:mesa,fechainsc:fecha, referido:referido,movil:celular,email:email,facebook:faces,referido:referido,idreferido:idref};
+firebase.database().ref().child("votantes").push(persona);
+
+firebase.database().ref().child("telefonos").push(String(celular));
+
+}
+
+
+
+
+
+
+
+
+
+
+// la varieble general es  elnodo d e referidos
+var general;
+
+
+
+
+
+
+
+
+var nodehijo="referidos";
+var generalkey;
+traerdef(nodehijo);
+
+
+function traerdef(stnode){ 
+  firebase.database().ref().child(String(stnode)).
+  once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) 
+    || 'Anonymous';  general=snapshot.val();//generalkey=snapshot.key;
+ generalkey=snapshot.key;
+
+ for(var i in general){
+
+  //console.log("key "+snapshot+"       lnok     "+general[i].nm);
+ }
+
+    iteracrea();
+  });
+
+}
+
+var nodenumreferid="numeroreferidos";
+var intnumreferido=0;
+function traenumreferidos(stnode){
+  firebase.database().ref().child(String(stnode)).
+  once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) 
+    || 'Anonymous';
+    
+      intnumreferido=snapshot.val();
+      
+
+  });
+}
+
+var unaves=0;
+
+firebase.database().ref().child("referidos").on("child_added", function(data, prevChildKey) {
+   //var newPlayer = data.val();
+  // console.log("prevChildKey: " + prevChildKey);
+idrefnuevo=prevChildKey;
+
+//console.log(idrefnuevo);
+
+try {
+  firebase.database().ref().child("referidos").child(String(idrefnuevo)).child("id").set(idrefnuevo);
+} catch (error) {
+ // console.log(error.getval);
+}
+
+if(unaves>1){   firebase.database().ref().child("referidos").child(String(idrefnuevo)).child("id").set(idrefnuevo);}
+unaves=unaves+1;
+});
+
+
+
+
+var cambio=0;
+
+var varestructura1="";
+
+
+var solokeysnoticia=[];
+var  idkeysnoticias=0;
+
+function iteracrea(){
+
+
+varestructura1="";
+
+
+
+
+
+//, megusta:general[iter].likes
+//var mikey= Object.keys(general);
+
+
+/*
+for(var iter in general){
+solokeysnoticia.push({idk:idkeysnoticias, keyfire:mikey[idkeysnoticias]});
+console.log("mikey "+solokeysnoticia[idkeysnoticias].keyfire);
+idkeysnoticias=idkeysnoticias+1;
+}*/
+
+
+
+	for(var itera in general){
+
+//megusta:general[itera].likes
+
+
+varestructura1="<li><a   onclick="+'edit(this);'+"    id="+String(general[itera].id) +">"+String(general[itera].nm)+"</a></li>";
+
+
+
+//general[itera].likes
+
+
+$("#myUL").prepend(varestructura1);
+
+$('#myUL').click(function(){
+   // alert($(this).attr('id'));
+  })
+
+
+
+
+
+}
+
+
+}
+
+
+
+
+
+var varestructraevotantes="";
+var vtraevotantes;
+function traevotantes(){
+
+
+varestructraevotantes="";
+
+
+	for(var itera in vtraevotantes){
+
+//megusta:general[itera].likes
+
+
+varestructraevotantes="<li><a   onclick="+'edit(this);'+"    id="+String(vtraevotantes[itera].id) +">"+
+String(vtraevotantes[itera].nombre)+
+"</a></li>";
+
+
+
+//general[itera].likes
+
+
+$("#myUL").prepend(varestructura1);
+
+$('#myUL').click(function(){
+   // alert($(this).attr('id'));
+  })
+
+
+
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+//general[itera].likes
+
+
+
+
+
+
+
+function edit(st){
+
+//alert(st.innerText);
+document.getElementById('idedtreferido').value=st.innerText;
+document.getElementById('idedtidreferido').value=st.id;
+ document.getElementById("idpanelreferidos").style.display="none";
+
+fquepaso("Selecionado Referido",st.innerText);
+ //idedtidreferido
+
+ fregvotantes();
+}
+
+
+function fquepaso(st,el,esperar){
+
+
+document.getElementById("idquepaso").style.display="block";
+document.getElementById("idh3").innerHTML=st+"<br>"+el;
+setTimeout(function(){
+  if(esperar==1){
+   
+document.getElementById("idh3").innerHTML=="";
+  }
+  else{
+
+    document.getElementById("idquepaso").style.display="none";
+document.getElementById("idh3").innerHTML=="";
+  }
+
+},1000);
+
+
+}
+
+
+
+function fbtquepasocerrar(){
+
+location.reload();
+
+
+}
+
+var ntnweref="";
+var nombrenuevref="";
+var idrefnuevo="";
+var nuerefecelular="";
+var nuevemail="";
+var nuevoface="";
+var dirnuevo="";
+var nuevcedula="0";
+var nuevcedulax=0;
+var nuevoref;
+
+
+var existe=false;
+function gv(st){
+return  document.getElementById(st).value;
+}
+
+function registrarnuevoreferido(){
+
+
+
+  traenumreferidos("numeroreferidos");
+  try {
+    nuevcedulax=(gv("idnreftcedula"))*0;
+   
+    nuevcedulax=(nuevcedulax+2.2)*0;
+   if(nuevcedulax==0){
+    try {
+    nuevcedula=String(gv("idnreftcedula"));for(var i in general){
+if(general[i].cedula==nuevcedula){
+existe=true;fquepaso("existe","",1);
+}else{fquepaso("Guardado","",1);}}
+   } catch (error) {
+    fquepaso("la cedula no es un numero t","",1);
+   }
+   
+   
+   
+
+   }
+   
+   
+   
+   
+
+
+
+
+
+
+
+
+  } catch (error) {
+    
+    fquepaso("nan","",1);
+
+
+
+
+
+
+
+
+
+    
+   // window.reload();
+  }
+
+  
+if(existe==false){ 
+ regirefesi();
+
+}
+
+
+
+
+
+
+}
+var nuevoref1;
+function regirefesi(){
+  
+
+if(nuevcedula!=0){traenumreferidos("numeroreferidos");
+
+nuevoref1=[];
+//setTimeout(function(){
+
+  nombrenuevref=gv("idnrefnm");
+ntnweref=gv("idnreftenota");
+ nuerefecelular=gv("idnreftecelu");
+nuevemail=gv("idnrefteEmai");
+ nuevoface=gv("idnreftefaces");
+ dirnuevo=gv("idnreftedir");
+ 
+
+ nuevoref1={cedula:nuevcedula,id:1,nm:nombrenuevref,notas:ntnweref, celular:nuerefecelular,
+ email:nuevemail,facebook:nuevoface, direccion:dirnuevo}
+
+
+
+  firebase.database().ref().child("numeroreferidos").set(intnumreferido+1);
+  firebase.database().ref().child("referidos").push(nuevoref1);
+  firebase.database().ref().child("telefonos").push(nuerefecelular);
+//  location.reload();
+setTimeout(function(){
+
+  try {
+    romoverfire();
+  } catch (error) {
+    
+  }
+
+  try {
+    addrfire();romoverfire();
+  } catch (error) {
+    
+  }
+ 
+},100);
+
+  //addrfire();
+  //romoverfire();
+//},4000);
+
+
+}// fin de l if
+
+else{fquepaso("La cedula no es un numero ","",1)}
+
+
+}
+
+
+var a={b:1}
+function romoverfire(){
+  firebase.database().ref("referidos").child("a").remove();
+
+}
+function addrfire(){
+  firebase.database().ref().child("referidos").child("a").set(1);
+  //firebase.database().ref().child("referidos").push(a);
+}
+
+function cerrarmodalregisreferido(){
+  document.getElementById("idmenuaddreferidos").style.display="none";
+}
+
+function limpiarregistroreferido(){
+
+
+}
+
+
+
+
+
+
+
+
+
+
+// seccion dos
+
+
+function  fabrirrreferidos(){
+
+document.getElementById("idpacpregvot").style.display="none";
+document.getElementById("idpacpregvot3").style.display="none";
+
+
+document.getElementById("idpacpregvot").classList.remove("clpacpregvot");
+
+document.getElementById("idpanelreferidos").style.display="block";
+document.getElementById("idpanelbuscarvotantes").style.display="none";
+
+}
+
+
+
+function  fabrirbuscarvotante(){
+
+document.getElementById("idpacpregvot").style.display="none";
+document.getElementById("idpacpregvot3").style.display="none";
+
+
+document.getElementById("idpacpregvot").classList.remove("clpacpregvot");
+
+document.getElementById("idpanelreferidos").style.display="none";
+document.getElementById("idpanelbuscarvotantes").style.display="block";
+
+window.location="buscarvotantes.html";
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+var sborar,sboraref;
+firebase.database().ref().child(String("votantes")).
+  once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) 
+    || 'Anonymous';
+    
+      sborar=snapshot.val();
+      
+
+  });
+
+  firebase.database().ref().child(String("votantes")).
+  once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) 
+    || 'Anonymous';
+    
+      sboraref=snapshot.val();
+      
+
+  });
+
+
+function fborrar(){
+
+  for(var i in sborar){
+    if(sborar[i].idreferido=="-LY5_IeaugHxyEYKL-06"){
+    //  console.log(sborar[i].nombre);
+
+}}
+
+window.print();
+}
+
+
+
+function fenviarmensajes(){
+
+  window.location.href="enviarmensajes.html";
+}
+
+
+
+
+function fidprinttodoordenado(){
+document.getElementById("idpaneordenartodo").style.display="block";
+}
+
+
+
+function  menudeordenartodo(){
+
+
+}
+
+function fidbtordeporpuesto(){
+  window.location.href="imprimetodoordenadonodopuesto.html";
+
+}
+function fidbtordeporlider(){
+  window.location.href="imprimetodoordenadonodolider.html";
+
+}
+
+
+
+function fidbtordepordirecc(){
+  window.location.href="imprimetodoordenadonodopuestodireccion.html";
+
+}
+
+
+
+
+
+
+
+function fidprinttmapa(){
+  window.location="elmapa.html";
+}
+
+
+var boolsipuedosubir=false;
+
+setInterval(miudate,1000);
+
+function  miudate(){
+
+
+ // elquesubefirebasesi();
+
+}
+
+document.getElementById("idmensaje").style.display="none";
+function fidbtmensajecancelar(){
+  document.getElementById("idmensaje").style.display="none";
+}
+
+
+function fidbtmensajeaceptar(){
+  elquesubefirebasesivotante();
+  document.getElementById("idmensaje").style.display="none";
+
+}
+
+function escribeidpmensaje(st){
+
+  document.getElementById("idpmensaje").innerHTML=st;
+}
+
+
+
+function fcomovamos(){
+  window.location="comovamoschart.html";
+
+}
+
+var soyadmimin=true;
+function fccrud(){
+
+
+//evalualfirecrud(); 
+window.location="crud.html"
+}
+document.getElementById("idpanelpuedoabrircrud").style.display="none";
+
+
+var puedeabrircrudnombre="";
+var puedeabriricurdpass="";
+function fabrircrudreal(){
+/*
+  puedeabrircrudnombre=document.getElementById("idinputpuedoabririnombre").value;
+  puedeabriricurdpass=document.getElementById("idinputpuedoabriripass").value;
+for(var i in arrayadmin){
+  if(arrayadmin[i].nombre==puedeabrircrudnombre&&arrayadmin[i].clave==puedeabriricurdpass){
+    soyadmimin=true;
+  }
+}*/
+  if(true){
+    soyadmimin=false;
+  window.location="crud.html";
+}
+ 
+}
+
+
+function fabrircrudatrasl(){
+
+  document.getElementById("idpanelpuedoabrircrud").style.display="none";
+}
+
+
+var arrayadmin;
+function evalualfirecrud(){ 
+  firebase.database().ref().child(String("admin")).
+  once('value').then(function(snapshot) {
+    var username = (snapshot.val() && snapshot.val().username) 
+    || 'Anonymous'; 
+ arrayadmin=snapshot.val();
+
+
+ document.getElementById("idpanelpuedoabrircrud").style.display="block";
+  
+  });
+
+}
+
+
+
+
+// solo el mapa  cuando falta la latitud y la longitud
+
+var map ;
+var marker ;
+var markes=[];
+var geocoder ;
+function initMap1() {
+     map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,//4.680791, -74.234279
+          center: {lat: 4.680791, lng: -74.234279}
+        });
+   geocoder = new google.maps.Geocoder();
+
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap) {
+
+      //  addMarker(resultsMap);
+
+
+        clearMarkers();
+
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+
+
+            addMarker(resultsMap,results);
+
+/*
+markes.push({marker:new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location,
+              draggable:true,title:"Puesto De Votacion "
+            })
+      });
+map.setZoom(13);
+    
+      
+            markes[markes.length-1].marker.addListener('dragend', function(e){
+
+          map.setZoom(19);
+          map.setCenter(new google.maps.LatLng(
+            markes[markes.length-1].marker.position.lat(),
+             markes[markes.length-1].marker.position.lng()));
+          });
+   
+          markes[markes.length-1].marker.addListener('click', function(e){
+
+           map.setZoom(19);
+           map.setCenter(new google.maps.LatLng( 
+             markes[markes.length-1].marker.position.lat(),  markes[markes.length-1].marker.position.lng()));
+          });*/
+   
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+var mapamarklat="";
+var mapamarklng="";
+
+function fidbutcerrarmaplatlng(){
+try {  mapamarklat=String( markes[markes.length-1].marker.position.lat());
+  mapamarklng= String( markes[markes.length-1].marker.position.lng());
+  
+} catch (error) {
+  
+}
+
+
+  document.getElementById("idfaltomap").style.display="none";
+  document.getElementById("idlat").value=String(mapamarklat);
+            document.getElementById("idlng").value=String(mapamarklng);
+}
+function fidbutcerrarmaplatlngopen(){
+
+
+
+
+  
+ vtempdepart="";
+vtempmunicpio="";
+ vtempdireccion="";
+ vtemtofdo="";
+
+ vtempuesto="";
+
+  vtempuesto=getempv("idedtpt");
+
+  document.getElementById("idfaltomap").style.display="block";
+  vtempdepart=getempv("idedtdep");
+vtempmunicpio=getempv("idedtmun");
+//vtempdireccion=getempv("idedtdr");
+vtemtofdo="COLOMBIA,"+vtempdepart+" "+vtempmunicpio+" "+  vtempuesto;
+document.getElementById('address').value=vtemtofdo;
+initMap1();
+
+}
+var idmimasrkes=1;
+function addMarker(resultsMap,results1) {
+
+if(markes.length>=2){clearMarkers();markes=[];}
+
+
+if(markes.length==0){
+
+ // geocodeAddress(geocoder, map);
+
+
+  markes.push({marker:new google.maps.Marker({
+              map: resultsMap,
+              position: results1[0].geometry.location,
+              draggable:true,title:"Puesto De Votacion "
+            })
+      });
+map.setZoom(13);
+map.setCenter(new google.maps.LatLng( 
+             markes[markes.length-1].marker.position.lat(),  markes[markes.length-1].marker.position.lng()));
+      
+            markes[markes.length-1].marker.addListener('dragend', function(e){
+
+          map.setZoom(19);
+          map.setCenter(new google.maps.LatLng(
+            markes[markes.length-1].marker.position.lat(),
+             markes[markes.length-1].marker.position.lng()));
+
+         
+
+
+          });
+   
+          markes[markes.length-1].marker.addListener('click', function(e){
+
+           map.setZoom(19);
+           map.setCenter(new google.maps.LatLng( 
+             markes[markes.length-1].marker.position.lat(),  markes[markes.length-1].marker.position.lng()));
+
+   
+
+          });
+
+
+
+
+
+}
+
+
+
+      }
+
+      function clearMarkers() {
+    //    markes[0].marker.setMap(null);
+        for(var i in markes){
+
+          markes[i].marker.setMap(null);
+        }
+        markes=[];
+      }
+
+
+
+
+
+
+
+
+function fidbutcerrarmaplatlngop1(){
+  clearMarkers();
+
+
+
+
+
+
+    
+    vtempdepart="";
+vtempmunicpio="";
+ vtempdireccion="";
+ vtemtofdo="";
+
+ vtempuesto="";
+
+  vtempuesto=getempv("idedtpt");
+
+  document.getElementById("idfaltomap").style.display="block";
+  vtempdepart=getempv("idedtdep");
+vtempmunicpio=getempv("idedtmun");
+vtempdireccion=getempv("idedtdr");
+vtemtofdo="COLOMBIA,"+vtempdepart+" "+vtempmunicpio+" "+  vtempdireccion;
+document.getElementById('address').value=vtemtofdo;
+//initMap1();
+
+geocodeAddress(geocoder, map);
+
+  
+
+}
+
+
+
+function  fidbutcerrarmaplatlngop2(){
+
+  clearMarkers();
+
+
+
+
+
+
+    
+vtempdepart="";
+vtempmunicpio="";
+vtempdireccion="";
+vtemtofdo="";
+
+vtempuesto="";
+
+vtempuesto=getempv("idedtpt");
+
+document.getElementById("idfaltomap").style.display="block";
+vtempdepart=getempv("idedtdep");
+vtempmunicpio=getempv("idedtmun");
+vtempdireccion=getempv("idedtdr");
+vtemtofdo="COLOMBIA,"+vtempdepart+" "+vtempmunicpio+" "+  vtempuesto;
+document.getElementById('address').value=vtemtofdo;
+//initMap1();
+
+geocodeAddress(geocoder, map);
+
+}
+
+
+
+
+
+
+ 
+
+var vtempdepart="";
+var vtempmunicpio="";
+var vtempdireccion="";
+var vtemtofdo="";
+
+var   vtempuesto="";
+function getempv(st){
+ return document.getElementById(st).value;
+}
+
+
+document.getElementById("idfaltomap").style.display="none";
+
+
+
+
+
+///  aca  reloj body
+
+
+
+var sccanvas=0.5;
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+ctx.strokeStyle = '#28d1fa';
+
+ctx.lineWidth = 17*sccanvas;
+ctx.lineCap = 'round';
+ctx.shadowBlur = 15*sccanvas;
+ctx.shadowColor = '#28d1fa';
+
+function degToRad(degree) {
+  var factor = Math.PI/180;
+  return degree*factor;
+}
+ var vw=window.innerWidth;
+ var vh=window.innerHeight;
+function renderTime() {
+  
+  var now = new Date();
+  var today = now.toDateString();
+  var time = now.toLocaleTimeString();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+  var milliseconds = now.getMilliseconds();
+  var newSeconds = seconds+ (milliseconds/1000);
+  
+  // Background
+  gradient = ctx.createRadialGradient(200*sccanvas,200*sccanvas,5*sccanvas,200*sccanvas,200*sccanvas,300*sccanvas);
+  gradient.addColorStop(0,'#09303a');
+  gradient.addColorStop(1, '#000000');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0,0,400*sccanvas,400*sccanvas);
+  
+  // Hours
+  ctx.beginPath();
+  ctx.arc(200*sccanvas, 200*sccanvas, 170*sccanvas, degToRad(270), degToRad((hours*30)-90));
+  ctx.stroke();
+  
+  // Minutes
+   ctx.beginPath();
+  ctx.arc(200*sccanvas, 200*sccanvas, 140*sccanvas, degToRad(270), degToRad((minutes*6)-90));
+  ctx.stroke();
+  // Seconds
+   ctx.beginPath();
+  ctx.arc(200*sccanvas, 200*sccanvas, 110*sccanvas, degToRad(270), degToRad((newSeconds*6)-90));
+  ctx.stroke();
+  // Date 
+  ctx.font = "10px Helvetica";
+  ctx.fillStyle = '#28d1fa';
+  ctx.fillText(today, 140*sccanvas, 200*sccanvas);
+  
+  // Time
+  ctx.font = "7.5px Helvetica";
+  ctx.fillStyle = '#28d1fa';
+  ctx.fillText(time, 140*sccanvas, 230*sccanvas);
+
+  ctx.font = "12px Helvetica";
+  ctx.fillStyle = '#28d1fa';
+  ctx.fillText("Giovanni"+"\n"+"RD", 140*sccanvas*0.5, 230*sccanvas*0.5);
+  ctx.fillText("mobil: 3107686072"+"\n"+"", 140*sccanvas*0.6, 230*sccanvas*1.1);
+  ctx.fillText("Robinson"+"\n"+"RD", 140*sccanvas*0.3, 230*sccanvas*0.7);
+  
+}
+setInterval(renderTime, 40);
+
+
+
+
+
+var emailparaquien="";
+var stmensaleemail="";
+
+	 function sendToJava() {
+	 stmensaleemail = document.getElementById('idmensajeemail').value;
+
+		 emailparaquien=document.getElementById('iddestinatarioemail').value;
+		 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
+		 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+		// document.getElementById('h4email').innerHTML = "result";
+//sendToJava2 (arrp[i].n,arrp[i].a,arrp[i].c); 
+//document.getElementById("idbtenviaremail").disabled = true;
+
+
+
+	 }
+
+
+
+function cerraremailpanel(){
+
+  document.getElementById("idpanelemail").style.display="none";
+}
+
+document.getElementById("idpanelemail").style.display="none";
+
+
+
+
+function openemailpanel(){
+
+document.getElementById("idpanelemail").style.display="block";
+}
+
+
+// se conecta con java
+
+var emailparaquien="ing.giovanni.rodriguez@gmail.com";
+var stmensaleemail="";
+
+	 function sendToJava () {
+	 stmensaleemail = document.getElementById('iddmesemail').value;
+
+		 emailparaquien=document.getElementById('iddestinatarioemail').value;
+		 if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
+		 javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+		// document.getElementById('h4email').innerHTML = "result";
+//sendToJava2 (arrp[i].n,arrp[i].a,arrp[i].c); 
+//document.getElementById("idbtenviaremail").disabled = true;
+
+
+
+	 }
+var cidemail=0;
+var losemailA=[];
+	 var jsConnector = {// regresa de java 
+		 showResult: function (result) { // dejava
+			document.getElementById('h4email').innerHTML = cidemail;
+
+setTimeout(function(){
+
+
+	cidemail=cidemail+1;
+			 if(losemailA[cidemail]!=null){
+		try {
+			emailparaquien=losemailA[cidemail];
+
+document.getElementById('h4email').innerHTML = "entra  "+cidemail+"  "+emailparaquien;
+
+
+stmensaleemail = document.getElementById('iddmesemail').value;
+
+
+
+emailparaquien=losemailA[cidemail];
+
+javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+		} catch (error) {
+			
+		}
+			
+			 }
+
+},2000);
+
+
+
+
+
+
+
+			 
+		//	 for(var i in losemail){console.log(i+"   "+ losemail[i])
+
+//sendToJava2 ("cerrarapp","a","c");
+}
+	
+
+		
+	 };
+
+	 function getJsConnector() {
+		 return jsConnector;
+	 };
+
+
+
+
+   var 	losemail;
+var indiceteemail=0;
+function traescorreos(){
+	
+
+	
+		firebase.database().ref().child("nemail").once("value", function(snapshot) {
+			losemailA=[]
+		
+			losemail=snapshot.val();
+	
+  for(var i in losemail){
+	//indiceteemail
+//	losemailA[]=
+//	losemailA=losemai[];[String(cidemail)];
+losemailA.push(losemail[i]);
+	  indiceteemail=indiceteemail+1;
+  }
+
+
+console.log(losemail);
+  cidemail=0;
+
+emailparaquien=losemailA[cidemail];
+
+		 stmensaleemail = document.getElementById('iddmesemail').value;
+
+if(emailparaquien==""){emailparaquien="ing.giovanni.rodriguez@gmail.com";}
+if(emailparaquien!=null){
+//javaConnector.toLowerCase("enviaremail",emailparaquien,stmensaleemail );
+
+
+
+}
+else{
+
+}
+
+
+
+
+
+
+
+		  }, function (errorObject) {
+			console.log("The read failed: " + errorObject.code);
+		  });
+	
+	  }
+
+
+
+
+/*
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.application.Application;
+import javafx.concurrent.Worker;
+import javafx.scene.Scene;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
+import netscape.javascript.JSObject;
+
+import java.io.File;
+import java.net.URL;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+public class Main extends Application {
+	
+	
+    private JavaConnector javaConnector = new JavaConnector();
+	
+	
+    private JSObject javascriptConnector;
+	
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			BorderPane root = new BorderPane();
+			
+			
+			   WebView webView = new WebView();
+		        final WebEngine webEngine = webView.getEngine();
+
+		        // set up the listener
+		        webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+		            if (Worker.State.SUCCEEDED == newValue) {
+		                // set an interface object named 'javaConnector' in the web engine's page
+		                JSObject window = (JSObject) webEngine.executeScript("window");
+		                window.setMember("javaConnector", javaConnector);
+
+		                // get the Javascript connector object. 
+		                javascriptConnector = (JSObject) webEngine.executeScript("getJsConnector()");
+		            }
+		        });
+			
+		        Scene scene = new Scene(webView, 300, 150);
+		        primaryStage.setScene(scene);
+		        primaryStage.show();
+
+		        // now load the page
+		        webEngine.load(
+		        		"https://noenadies.github.io/JAVALEEJAVSCRIP/");
+			
+			
+			
+		
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+	
+	
+	
+	
+	
+	   public class JavaConnector {
+	        /**
+	         * called when the JS side wants a String to be converted.
+	         *
+	         * @param value
+	         *         the String to convert
+	         */
+/*			 public void toLowerCase(String value,String a, String c) {
+	            if (null != value) {
+	                javascriptConnector.call("showResult", 77777);
+	          
+	                jo(value,a, c);
+	            
+	            }
+	        }
+	    }
+	   ArrayList<Main.Persona> al=new ArrayList<Main.Persona>();
+	//ArrayList<Main.Persona> miar=ArrayList<Main.Persona>;
+	   public void  jo(String value,String a, String c) {
+		  JOptionPane.showConfirmDialog(null,value);
+		 //  al.add(new Persona(value, a, c));
+		
+		 //  al.forEach((ap)->System.out.println(ap.nombre+"  "+ap.apellido+"  "+ap.cedula));
+	   }
+	
+	public  class Persona {
+		String nombre="";
+		String apellido="";
+		String cedula="";
+		public Persona(String n, String a, String c) {
+			// TODO Auto-generated constructor stub
+			
+			this.nombre=n;
+			this.apellido=a;
+			this.cedula=c;
+			
+		}
+	}
+	
+	
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+<script  src=""></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV4ya46Yoag-iGeJb5SUwZ2q1Irx0UjnU&callback=initMap">
+ </script>
+</body>
+</html>
