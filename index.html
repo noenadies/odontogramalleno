@@ -1593,6 +1593,11 @@ left: 15%;
 				  <label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
 				  <input  id="idnclientenombre"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
 		  
+				  <label  class="cllabel" for="uname"><b>TI o Cedula</b></label>
+				  <input  id="idnclientecedula"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
+		  
+
+
 				  <label class="cllabel" for="uname"><b>Fecha  de  nacimiento</b></label>
 				  <input  id="idnclientefechanacimiento" class="clinputmio" type="text" placeholder="Fecha de  nacimiento" name="RFC" required>
 		  
@@ -1633,6 +1638,7 @@ left: 15%;
 					var personanuevlcliente;
 var escribenueclienteregistrisi="";
 					var bollvidnclientenombre=false;
+					var bollvidnclientecedula=false;
 					var bollvidnclientefechanacimiento=false;
 					var bollvidnclientesexo=false;
 					var bollvidnclienteDireccion=false;
@@ -1643,6 +1649,7 @@ var escribenueclienteregistrisi="";
 
 
 					var vidnclientenombre="";
+					var vidnclientecedula="";
 					var vidnclientefechanacimiento="";
 					var vidnclientesexo="";
 					var vidnclienteDireccion="";
@@ -1650,10 +1657,12 @@ var escribenueclienteregistrisi="";
 					var vidnclientecelular="";
 					var vidnclienteContactodeemergencia="";
 					var vidnclientenoContactodeemergencia="";
+
 					function inicitodonuevocienteregistro(){
 
 						escribenueclienteregistrisi="";
 					 bollvidnclientenombre=false;
+					 bollvidnclientecedula=false;
 					 bollvidnclientefechanacimiento=false;
 					 bollvidnclientesexo=false;
 					 bollvidnclienteDireccion=false;				
@@ -1663,6 +1672,7 @@ var escribenueclienteregistrisi="";
 					 bollvidnclientenoContactodeemergencia=false;
 
 						vidnclientenombre="";
+						vidnclientecedula="";
 						vidnclientefechanacimiento="";
 						vidnclientesexo="";
 						vidnclienteDireccion="";
@@ -1675,6 +1685,7 @@ var escribenueclienteregistrisi="";
 
 					function getregistroclientenuevosi(){
 						vidnclientenombre=document.getElementById("idnclientenombre").value;
+						vidnclientecedula=document.getElementById("idnclientecedula").value;
 					vidnclientefechanacimiento=document.getElementById("idnclientefechanacimiento").value;
 					vidnclientesexo=document.getElementById("idnclientesexo").value;
 					vidnclienteDireccion=document.getElementById("idnclienteDireccion").value;
@@ -1685,6 +1696,9 @@ var escribenueclienteregistrisi="";
 
 
 if(vidnclientenombre==""){bollvidnclientenombre=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el nombre";}else{bollvidnclientenombre=true;}
+
+if(vidnclientecedula==""){bollvidnclientecedula=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el nombre";}else{bollvidnclientecedula=true;}
+
 if(vidnclientefechanacimiento==""){bollvidnclientefechanacimiento=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta la Fecha Nacimiento";}else{bollvidnclientefechanacimiento=true;}
 if(vidnclientesexo==""){bollvidnclientesexo=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el sexo ";}else{bollvidnclientesexo=true;}
 if(vidnclienteDireccion==""){bollvidnclienteDireccion=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta la direccion ";}else{bollvidnclienteDireccion=true;}
@@ -1693,20 +1707,6 @@ if(vidnclientecelular==""){ bollvidnclientecelular=false; escribenueclienteregis
 if(vidnclienteContactodeemergencia==""){bollvidnclienteContactodeemergencia=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el Contacto de emergencia";}else{ bollvidnclienteContactodeemergencia=true;}
 if(vidnclientenoContactodeemergencia==""){bollvidnclientenoContactodeemergencia=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el numero  Contacto de emergecia";}else{ bollvidnclientenoContactodeemergencia=true;}
 
-personanuevlcliente={
-
-fvidnclientenombre:vidnclientenombre,
-fvidnclientefechanacimiento:vidnclientenombre,
-					fvidnclientesexo:vidnclientesexo,
-					fvidnclienteDireccion:idnclienteDireccion,
-					fvidnclienteemail:vidnclienteemail,
-					fvidnclientecelular:vidnclientecelular,
-					fvidnclienteContactodeemergencia:vidnclienteContactodeemergencia,
-					fvidnclientenoContactodeemergencia:vidnclientenoContactodeemergencia
-
-
-};
-firebase.database().ref().child("AA").push(personanuevlcliente);
 
 
 					}// fin de  funcion 
@@ -1722,7 +1722,27 @@ function  nuevoclietellamasi(){inicitodonuevocienteregistro();
 
 if(bollvidnclientenombre&&bollvidnclientefechanacimiento&&bollvidnclientesexo&&bollvidnclienteDireccion&&
 bollvidnclienteemail&&bollvidnclientecelular&&bollvidnclienteContactodeemergencia&&bollvidnclientenoContactodeemergencia
-){}
+){
+
+
+	personanuevlcliente={
+
+fvidnclientenombre:vidnclientenombre,
+fvidnclientefechanacimiento:vidnclientenombre,
+fvidnclientecedula:vidnclientecedula,
+					fvidnclientesexo:vidnclientesexo,
+					fvidnclienteDireccion:idnclienteDireccion,
+					fvidnclienteemail:vidnclienteemail,
+					fvidnclientecelular:vidnclientecelular,
+					fvidnclienteContactodeemergencia:vidnclienteContactodeemergencia,
+					fvidnclientenoContactodeemergencia:vidnclientenoContactodeemergencia
+
+
+};
+firebase.database().ref().child("AA").push(personanuevlcliente);
+escribefaltapnuevregistro("Subio");
+
+}else{	escribefaltapnuevregistro(escribenueclienteregistrisi);}
 	console.log(bollvidnclientenombre+"    "+bollvidnclientefechanacimiento+"    "+bollvidnclientesexo+"    "+bollvidnclienteDireccion+"    "+
 	bollvidnclienteemail+"    "+bollvidnclientecelular+"    "+bollvidnclienteContactodeemergencia+"    "+bollvidnclientenoContactodeemergencia
 	);
@@ -1731,7 +1751,7 @@ bollvidnclienteemail&&bollvidnclientecelular&&bollvidnclienteContactodeemergenci
 	vidnclienteemail+"    "+vidnclientecelular+"    "+vidnclienteContactodeemergencia+"    "+vidnclientenoContactodeemergencia
 	);
 
-	escribefaltapnuevregistro(escribenueclienteregistrisi);
+
 
 }
 
