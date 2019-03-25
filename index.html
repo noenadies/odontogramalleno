@@ -1146,6 +1146,15 @@ left: 15%;
 	z-index: 2;
 }
 
+#idh3registropaintefalta{
+position: absolute;
+top:1.5%;
+left: 15%;
+	color: #d550d8;
+	z-index: 2;
+	font-size:9px ;
+}
+
 
 
 
@@ -1179,7 +1188,14 @@ left: 15%;
 
 
 
+#idpHISTORIAMÉDICO{
 
+	position: absolute;
+	top: 40%;
+	left: 60%;
+	color: #d550d8;
+	z-index: 2;
+}
 
 
 
@@ -1569,7 +1585,7 @@ left: 15%;
 	  
 	  
 	  
-	  
+		   <p id="idh3registropaintefalta">Falta</p>
 			<p id="idh3registropainte">REGISTRO PACIENTE </p>
 		  <div class="clidregistrarnueoclientea" id="idregistrarnueoclientea">
 
@@ -1604,9 +1620,116 @@ left: 15%;
 				  <input  id="idnclientenoContactodeemergencia" class="clinputmio" type="text" placeholder="No Contacto de  emergencia" name="Telefono" required>
 		  
 		  
-					
+				  <button onclick="nuevoclietellamasi();" class="clsbutton" >Guardar</button>	
 					 
 					</div>
+
+
+
+
+
+
+					<script>
+					
+var escribenueclienteregistrisi="";
+					var bollvidnclientenombre=false;
+					var bollvidnclientefechanacimiento=false;
+					var bollvidnclientesexo=false;
+					var bollvidnclienteDireccion=false;
+					var bollvidnclienteemail=false;
+					var bollvidnclienteContactodeemergencia=false;
+					var bollvidnclientecelular=false;
+					var bollvidnclientenoContactodeemergencia=false
+
+
+					var vidnclientenombre="";
+					var vidnclientefechanacimiento="";
+					var vidnclientesexo="";
+					var vidnclienteDireccion="";
+					var vidnclienteemail="";
+					var vidnclientecelular="";
+					var vidnclienteContactodeemergencia="";
+					var vidnclientenoContactodeemergencia="";
+					function inicitodonuevocienteregistro(){
+
+						escribenueclienteregistrisi="";
+					 bollvidnclientenombre=false;
+					 bollvidnclientefechanacimiento=false;
+					 bollvidnclientesexo=false;
+					 bollvidnclienteDireccion=false;				
+					 bollvidnclienteemail=false;
+					 bollvidnclientecelular=false;
+					 bollvidnclienteContactodeemergencia=false;
+					 bollvidnclientenoContactodeemergencia=false;
+
+						vidnclientenombre="";
+						vidnclientefechanacimiento="";
+						vidnclientesexo="";
+						vidnclienteDireccion="";
+						vidnclienteemail="";
+						vidnclientecelular="";
+						vidnclienteContactodeemergencia="";
+						vidnclientenoContactodeemergencia="";
+
+					}
+
+					function getregistroclientenuevosi(){
+						vidnclientenombre=document.getElementById("idnclientenombre").value;
+					vidnclientefechanacimiento=document.getElementById("idnclientefechanacimiento").value;
+					vidnclientesexo=document.getElementById("idnclientesexo").value;
+					vidnclienteDireccion=document.getElementById("idnclienteDireccion").value;
+					vidnclienteemail=document.getElementById("idnclienteemail").value;
+					vidnclientecelular=document.getElementById("idnclientecelular").value;
+					vidnclienteContactodeemergencia=document.getElementById("idnclienteContactodeemergencia").value;
+					vidnclientenoContactodeemergencia=document.getElementById("idnclientenoContactodeemergencia").value;
+
+
+if(vidnclientenombre==""){bollvidnclientenombre=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el nombre";}else{bollvidnclientenombre=true;}
+if(vidnclientefechanacimiento==""){bollvidnclientefechanacimiento=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta la Fecha Nacimiento";}else{bollvidnclientefechanacimiento=true;}
+if(vidnclientesexo==""){bollvidnclientesexo=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el sexo ";}else{bollvidnclientesexo=true;}
+if(vidnclienteDireccion==""){bollvidnclienteDireccion=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta la direccion ";}else{bollvidnclienteDireccion=true;}
+if(vidnclienteemail==""){bollvidnclienteemail=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el email";}else{bollvidnclienteemail=true;}
+if(vidnclientecelular==""){ bollvidnclientecelular=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el celular";}else{ bollvidnclientecelular=true;}
+if(vidnclienteContactodeemergencia==""){bollvidnclienteContactodeemergencia=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el Contacto de emergencia";}else{ bollvidnclienteContactodeemergencia=true;}
+if(vidnclientenoContactodeemergencia==""){bollvidnclientenoContactodeemergencia=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el numero  Contacto de emergecia";}else{ bollvidnclientenoContactodeemergencia=true;}
+
+
+
+
+
+					}// fin de  funcion 
+					
+				
+
+
+
+
+function  nuevoclietellamasi(){inicitodonuevocienteregistro();
+	getregistroclientenuevosi();
+
+
+if(bollvidnclientenombre&&bollvidnclientefechanacimiento&&bollvidnclientesexo&&bollvidnclienteDireccion&&
+bollvidnclienteemail&&bollvidnclientecelular&&bollvidnclienteContactodeemergencia&&bollvidnclientenoContactodeemergencia
+){}
+	console.log(bollvidnclientenombre+"    "+bollvidnclientefechanacimiento+"    "+bollvidnclientesexo+"    "+bollvidnclienteDireccion+"    "+
+	bollvidnclienteemail+"    "+bollvidnclientecelular+"    "+bollvidnclienteContactodeemergencia+"    "+bollvidnclientenoContactodeemergencia
+	);
+
+	console.log(vidnclientenombre+"    "+vidnclientefechanacimiento+"    "+vidnclientesexo+"    "+vidnclienteDireccion+"    "+
+	vidnclienteemail+"    "+vidnclientecelular+"    "+vidnclienteContactodeemergencia+"    "+vidnclientenoContactodeemergencia
+	);
+
+	escribefaltapnuevregistro(escribenueclienteregistrisi);
+
+}
+
+
+function escribefaltapnuevregistro(st){
+	document.getElementById("idh3registropaintefalta").innerHTML=st;
+}
+
+					
+					</script>
 		  
 		  
 		  </div>
@@ -1804,7 +1927,7 @@ left: 15%;
 
 
 
-		  <p id="idpHISTORIAMÉDICO">HISTORIA MÉDICO </p>
+		  <p id="idpHISTORIAMÉDICO">HISTORIA MÉDICA </p>
 		  <div class="clidregistrarnueoclientea" id="iidHISTORIAMÉDICOpanel">
 
 			  <div class="container">
