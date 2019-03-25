@@ -1207,162 +1207,6 @@ z-index: 2;
 		</div>
 		
 		
-		
-	<script> 
-	var vidnodontolonombre="";
-	var vidnodontolocedula="";
-	var vidnodontolodireccion="";
-	var vidnodontoloemail="";
-
-	var vidnodontolocelular="";
-	var vidnodontoloprofesion="";
-
-
-	var bolltodonodontologoic=true;
-	var bolltodonodontologon=false;
-	var bolltodonodontologoc=false;
-	var bolltodonodontologod=false;
-	var bolltodonodontologoe=false;
-	var bolltodonodontologoce=false;
-	var bolltodonodontologop=false;
-var escribenodotologo="";
-var vfnodontologo;
-
-var tempregfnodontologo=[];
-
-var hayunacedulaigualnodonto=false;
-
-function nuevoclinuevoodontolog(){
-	vidnodontolonombre="";
-	vidnodontolocedula="";
-	vidnodontolodireccion="";
-	vidnodontoloemail="";
-
-	vidnodontolocelular="";
-	vidnodontoloprofesion="";
-	bolltodonodontologoic=true;
-	bolltodonodontologon=false;
-	bolltodonodontologoc=false;
-	bolltodonodontologod=false;
-	bolltodonodontologoe=false;
-	bolltodonodontologoce=false;
-	bolltodonodontologop=false;
-escribenodotologo="";
-vfnodontologo;
-
-tempregfnodontologo=[];
-
-hayunacedulaigualnodonto=false;
-
-}
-function lalmadofnodontoloffire(){ 
-	firebase.database().ref().child("odontologo"). once("value", function(snapshot) {
-
-	
-
-		tempregfnodontologo=snapshot.val();
-
-console.log(tempregfnodontologo);
-for(var i in tempregfnodontologo){
-if(!hayunacedulaigualnodonto){
-
-	try {
-		console.log(vidnodontolocedula);
-		if(tempregfnodontologo[i].fvidnodontolocedula==vidnodontolocedula){bolltodonodontologoic=true;
-			escribenodotologo="Ya  esta  registrda esa   cedula";hayunacedulaigualnodonto=true;
-		}
-		else{console.log("entra "+tempregfnodontologo[i].fvidnodontolocedula);
-			bolltodonodontologoic=false;
-		
-		}
-
-
-	} catch (error) {
-		
-	}
-
-
-
-}
-
-	
-	}
-
-	subfnodontologo();
-
-});
-}
-
-
-function getvalnuevoodontolog(){
-	nuevoclinuevoodontolog();
-
-	escribenodotologo="";
-
-vidnodontolonombre=document.getElementById("idnodontolonombre").value;
-vidnodontolocedula=document.getElementById("idnodontolocedula").value;
-vidnodontolodireccion=document.getElementById("idnodontolodireccion").value;
-vidnodontoloemail=document.getElementById("idnodontoloemail").value;
-
-vidnodontolocelular=document.getElementById("idnodontolocelular").value;
-vidnodontoloprofesion=document.getElementById("idnodontoloprofesion").value;
-
-if(vidnodontolonombre==""){ bolltodonodontologon=false; escribenodotologo=escribenodotologo+" "+" Falta el nombre,";} 
-else{bolltodonodontologon=true;}
-if(vidnodontolocedula==""){ bolltodonodontologoc=false; escribenodotologo=escribenodotologo+" "+" Falta la cedula ";
-
-} 
-else{bolltodonodontologoc=true;}
-if(vidnodontolodireccion==""){ bolltodonodontologod=false; escribenodotologo=escribenodotologo+" "+" Falta la direccion ";} 
-else{bolltodonodontologod=true;}
-if(vidnodontoloemail==""){ bolltodonodontologoe=false; escribenodotologo=escribenodotologo+" "+" Falta el email";} 
-else{bolltodonodontologoe=true;}
-if(vidnodontolocelular==""){ bolltodonodontologoce=false; escribenodotologo=escribenodotologo+" "+" Falta el celular";} 
-else{bolltodonodontologoce=true;}
-if(vidnodontoloprofesion==""){ bolltodonodontologop=false; escribenodotologo=escribenodotologo+" "+" Falta la profesion";} 
-else{bolltodonodontologop=true;}
-lalmadofnodontoloffire();
-
-}
-
-
-function subfnodontologo(){
-	
-	document.getElementById("idh4nodontologo").innerHTML=escribenodotologo;
-
-	if(bolltodonodontologon&&bolltodonodontologoc&&bolltodonodontologod&&bolltodonodontologoe&&bolltodonodontologoce
-	&&bolltodonodontologop&&!bolltodonodontologoic){
-
-vfnodontologo={fvidnodontolonombre:vidnodontolonombre,
-fvidnodontolocedula:vidnodontolocedula,
-fvidnodontolodireccion:vidnodontolodireccion,
-fvidnodontoloemail:vidnodontoloemail,
-fvidnodontolocelular:vidnodontolocelular,
-fvidnodontoloprofesion:vidnodontoloprofesion
-};
-
-firebase.database().ref().child("odontologo").push(vfnodontologo);
-
-document.getElementById("idnodontolonombre").value="";
-document.getElementById("idnodontolocedula").value="";
-document.getElementById("idnodontolodireccion").value="";
-document.getElementById("idnodontoloemail").value="";
-
-document.getElementById("idnodontolocelular").value="";
-document.getElementById("idnodontoloprofesion").value="";
-document.getElementById("idh4nodontologo").innerHTML="Se creo nuevo Odontologo";
-alert(2);
-	}
-
-else{	console.log(bolltodonodontologon+"   "+bolltodonodontologoc+"   "+bolltodonodontologod+"   "+bolltodonodontologoe+"   "+bolltodonodontologoce
-+"   "+bolltodonodontologop+"   "+!bolltodonodontologoic);
-}
-
-}
-		
-
-	
-	</script>
 	
 	
 	
@@ -7704,6 +7548,223 @@ else{
 document.getElementById("idpanelnuevoodontologo").style.display="none";
 			</script> 
 	
+		
+	<script> 
+			var vidnodontolonombre="";
+			var vidnodontolocedula="";
+			var vidnodontolodireccion="";
+			var vidnodontoloemail="";
+		
+			var vidnodontolocelular="";
+			var vidnodontoloprofesion="";
+		
+		
+			var bolltodonodontologoic=true;
+			var bolltodonodontologon=false;
+			var bolltodonodontologoc=false;
+			var bolltodonodontologod=false;
+			var bolltodonodontologoe=false;
+			var bolltodonodontologoce=false;
+			var bolltodonodontologop=false;
+		var escribenodotologo="";
+		var vfnodontologo;
+		
+		var tempregfnodontologo=[];
+		
+		var hayunacedulaigualnodonto=false;
+		
+		function nuevoclinuevoodontolog(){
+			vidnodontolonombre="";
+			vidnodontolocedula="";
+			vidnodontolodireccion="";
+			vidnodontoloemail="";
+		
+			vidnodontolocelular="";
+			vidnodontoloprofesion="";
+			bolltodonodontologoic=true;
+			bolltodonodontologon=false;
+			bolltodonodontologoc=false;
+			bolltodonodontologod=false;
+			bolltodonodontologoe=false;
+			bolltodonodontologoce=false;
+			bolltodonodontologop=false;
+		escribenodotologo="";
+		vfnodontologo;
+		
+		tempregfnodontologo=[];
+		
+		hayunacedulaigualnodonto=false;
+		
+		}
+		
+		
+		
+		
+		
+		var vfodontonombre="";
+		
+		var vfodontocedula="";
+		var  entracuanto=false;
+		firebase.database().ref().child("odontologo").on("child_added", function(snapshot) {
+		  
+		  //  fllenaidfire(snapshot.key);
+		  alert("evento");
+		if(entracuanto){alert("entracuanto");
+			firebase.database().ref().child("odontologo").child(snapshot.key).once("value", function(snapshot1) {
+		
+				vfodontonombre=snapshot1.val().fvidnodontolonombre;
+				vfodontocedula=snapshot1.val().fvidnodontolocedula;
+		  //  console.log();
+		  console.log("snapshot.key    "+ snapshot.key);
+		if(vfodontocedula!=""&& vfodontonombre!=""){
+		 fllenaidfire(snapshot.key,vfodontonombre,vfodontocedula);
+			setfire(snapshot.key,"idfire",snapshot.key);
+		
+			entracuanto=false;
+		  //  vfodontocedula="";
+			
+		}
+		  });
+		 
+		  
+		}
+		
+		
+		  });
+		
+		
+		
+		
+		
+		var  ab={nombre:"giovanni1",cedula:"12",idfire:"0"}
+		
+		function fllenaidfire(fidfire,fnombre,fcedula){
+		firebase.database().ref().child("odontologosid").push({idfire:fidfire,nombre:fnombre,cedula:fcedula});
+		}
+		
+		function setfire(id1,idfire,st){
+		
+			firebase.database().ref().child("odontologo").child(id1).child(idfire).set(st);
+		}
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		function lalmadofnodontoloffire(){ 
+			firebase.database().ref().child("odontologo"). once("value", function(snapshot) {
+		
+			
+		
+				tempregfnodontologo=snapshot.val();
+		
+		console.log(tempregfnodontologo);
+		for(var i in tempregfnodontologo){
+		if(!hayunacedulaigualnodonto){
+		
+			try {
+				console.log(vidnodontolocedula);
+				if(tempregfnodontologo[i].fvidnodontolocedula==vidnodontolocedula){bolltodonodontologoic=true;
+					escribenodotologo="Ya  esta  registrda esa   cedula";hayunacedulaigualnodonto=true;
+				}
+				else{console.log("entra "+tempregfnodontologo[i].fvidnodontolocedula);
+					bolltodonodontologoic=false;
+				
+				}
+		
+		
+			} catch (error) {
+				
+			}
+		
+		
+		
+		}
+		
+			
+			}
+		
+			subfnodontologo();
+		
+		});
+		}
+		
+		
+		function getvalnuevoodontolog(){
+			nuevoclinuevoodontolog();
+		
+			escribenodotologo="";
+        
+			vidnodontolonombre=document.getElementById("idnodontolonombre").value.toUpperCase() ;
+			vidnodontolocedula=document.getElementById("idnodontolocedula").value.toUpperCase() ;
+			vidnodontolodireccion=document.getElementById("idnodontolodireccion").value.toUpperCase() ;
+			vidnodontoloemail=document.getElementById("idnodontoloemail").value.toUpperCase() ;
+			
+			vidnodontolocelular=document.getElementById("idnodontolocelular").value.toUpperCase() ;
+			vidnodontoloprofesion=document.getElementById("idnodontoloprofesion").value.toUpperCase() ;
+		
+		if(vidnodontolonombre==""){ bolltodonodontologon=false; escribenodotologo=escribenodotologo+" "+" Falta el nombre,";} 
+		else{bolltodonodontologon=true;}
+		if(vidnodontolocedula==""){ bolltodonodontologoc=false; escribenodotologo=escribenodotologo+" "+" Falta la cedula ";
+		
+		} 
+		else{bolltodonodontologoc=true;}
+		if(vidnodontolodireccion==""){ bolltodonodontologod=false; escribenodotologo=escribenodotologo+" "+" Falta la direccion ";} 
+		else{bolltodonodontologod=true;}
+		if(vidnodontoloemail==""){ bolltodonodontologoe=false; escribenodotologo=escribenodotologo+" "+" Falta el email";} 
+		else{bolltodonodontologoe=true;}
+		if(vidnodontolocelular==""){ bolltodonodontologoce=false; escribenodotologo=escribenodotologo+" "+" Falta el celular";} 
+		else{bolltodonodontologoce=true;}
+		if(vidnodontoloprofesion==""){ bolltodonodontologop=false; escribenodotologo=escribenodotologo+" "+" Falta la profesion";} 
+		else{bolltodonodontologop=true;}
+		lalmadofnodontoloffire();
+		
+		}
+		
+		
+		function subfnodontologo(){
+			
+			document.getElementById("idh4nodontologo").innerHTML=escribenodotologo;
+		
+			if(bolltodonodontologon&&bolltodonodontologoc&&bolltodonodontologod&&bolltodonodontologoe&&bolltodonodontologoce
+			&&bolltodonodontologop&&!bolltodonodontologoic){
+		
+		vfnodontologo={fvidnodontolonombre:vidnodontolonombre,
+		fvidnodontolocedula:vidnodontolocedula,
+		fvidnodontolodireccion:vidnodontolodireccion,
+		fvidnodontoloemail:vidnodontoloemail,
+		fvidnodontolocelular:vidnodontolocelular,
+		fvidnodontoloprofesion:vidnodontoloprofesion
+		};
+		entracuanto=true;
+		firebase.database().ref().child("odontologo").push({contactoodontologo:vfnodontologo});
+	
+		document.getElementById("idnodontolonombre").value="";
+		document.getElementById("idnodontolocedula").value="";
+		document.getElementById("idnodontolodireccion").value="";
+		document.getElementById("idnodontoloemail").value="";
+		
+		document.getElementById("idnodontolocelular").value="";
+		document.getElementById("idnodontoloprofesion").value="";
+		document.getElementById("idh4nodontologo").innerHTML="Se creo nuevo Odontologo";
+
+	
+			}
+		
+		else{	console.log(bolltodonodontologon+"   "+bolltodonodontologoc+"   "+bolltodonodontologod+"   "+bolltodonodontologoe+"   "+bolltodonodontologoce
+		+"   "+bolltodonodontologop+"   "+!bolltodonodontologoic);
+		}
+		
+		}
+				
+		
+			
+			</script>
 		</body>
 	
 	<!-- Mirrored from examples.phaser.io/embed.php?f=box2d/car+on+terrain.js&v=2.2.2.box2d by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 02 Nov 2018 04:09:26 GMT -->
