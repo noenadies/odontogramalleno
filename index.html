@@ -1169,13 +1169,30 @@ left: 15%;
 #idhpINFORMACIÓNPADREOTUTOR{
 
 	position: absolute;
-	top: 40%;
+	top: 43%;
 
 
 left: 15%;
 	color: #d550d8;
 	z-index: 2;
 }
+
+
+#idhpINFORMACIÓNPADREOTUTORfalta{
+
+
+	position: absolute;
+	top: 40%;
+
+
+left: 15%;
+	color: #d550d8;
+	z-index: 2;
+	font-size: 9px;
+
+}
+
+
 
 
 
@@ -1743,13 +1760,7 @@ firebase.database().ref().child("AA").push(personanuevlcliente);
 escribefaltapnuevregistro("Subio");
 
 }else{	escribefaltapnuevregistro(escribenueclienteregistrisi);}
-	console.log(bollvidnclientenombre+"    "+bollvidnclientefechanacimiento+"    "+bollvidnclientesexo+"    "+bollvidnclienteDireccion+"    "+
-	bollvidnclienteemail+"    "+bollvidnclientecelular+"    "+bollvidnclienteContactodeemergencia+"    "+bollvidnclientenoContactodeemergencia
-	);
 
-	console.log(vidnclientenombre+"    "+vidnclientefechanacimiento+"    "+vidnclientesexo+"    "+vidnclienteDireccion+"    "+
-	vidnclienteemail+"    "+vidnclientecelular+"    "+vidnclienteContactodeemergencia+"    "+vidnclientenoContactodeemergencia
-	);
 
 
 
@@ -1768,7 +1779,7 @@ function escribefaltapnuevregistro(st){
 
 
 
-
+          <p id="idhpINFORMACIÓNPADREOTUTORfalta">Falta</p>
 		  <p id="idhpINFORMACIÓNPADREOTUTOR">INFORMACIÓN PADRE O TUTOR </p>
 		  <div class="clidregistrarnueoclientea" id="idINFORMACIÓNPADREOTUTOR">
 
@@ -1778,7 +1789,7 @@ function escribefaltapnuevregistro(st){
 		  
 			
 				  <label class="cllabel" for="uname"><b>Sexo</b></label>
-				  <input  id="idnclientesexo" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
+				  <input  id="idnclientesexot" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
 		  
 				  <label class="cllabel" for="uname"><b>Relación de paciente </b></label>
 				  <input  id="idnclienteRelacióndepaciente" class="clinputmio" type="text" placeholder="Relación de paciente" name="Telefono" required>
@@ -1797,7 +1808,7 @@ function escribefaltapnuevregistro(st){
 
 
 				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
-				  <input   id="idnclienteemail"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
+				  <input   id="idnclienteemailt"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
 		  
 				  <label class="cllabel" for="uname"><b>Celular del Tutor </b></label>
 				  <input  id="idnclientecelulartutor" class="clinputmio" type="text" placeholder="Celular Tutor" name="Telefono" required>
@@ -1806,7 +1817,11 @@ function escribefaltapnuevregistro(st){
 				  <label class="cllabel" for="uname"><b>Ocupacion </b></label>
 				  <input  id="idnclienteOcupaciontutor" class="clinputmio" type="text" placeholder="Ocupacion" name="Telefono" required>
 		  
-				 
+				  <button onclick="btidINFORMACIÓNPADREOTUTOR();" class="clsbutton" >Guardar</button>
+				
+
+
+
 					
 					 
 					</div>
@@ -8400,6 +8415,181 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 		
 			
 			</script>
+
+
+
+	
+
+<script>
+		var escribeidINFORMACIÓNPADREOTUTOR="";
+	 var bollvidnclienteresponsabilidadfinanciera=false;
+	 var bollvidnclientesexot=false;
+	 var bollvidnclienteRelacióndepaciente=false;
+	 var bollvidnclienteDireccionE=false;
+	 var bollvidnclienteDireccionC=false;
+	 var bollvidnclienteemailt=false;
+	 var bollvidnclientecelulartutor=false;
+	 var bollvidnclienteOcupaciontutor=false;
+	
+	
+	
+	var vidnclienteresponsabilidadfinanciera="";
+	var vidnclientesexot="";
+	var vidnclienteRelacióndepaciente="";
+	var vidnclienteDireccionE="";
+	var vidnclienteDireccionC="";
+	var vidnclienteemaitl="";
+	var vidnclientecelulartutor="";
+	var vidnclienteOcupaciontutor="";
+	
+	
+	
+	
+	 function inici0getvalidINFORMACIÓNPADREOTUTOR(){
+	bollvidnclienteresponsabilidadfinanciera=false;
+	bollvidnclientesexot=false;
+	bollvidnclienteRelacióndepaciente=false;
+	bollvidnclienteDireccionE=false;
+	bollvidnclienteemailt=false;
+	bollvidnclientecelulartutor=false;
+	bollvidnclienteOcupaciontutor=false;
+	bollvidnclienteDireccionC=false;
+	
+	
+	vidnclienteresponsabilidadfinanciera="";
+	vidnclientesexot="";
+	vidnclienteRelacióndepaciente="";
+	vidnclienteDireccionE="";
+	vidnclienteemailt="";
+	vidnclientecelulartutor="";
+	vidnclienteOcupaciontutor="";
+	vidnclienteDireccionC="";
+	
+	
+	
+	 }
+	function getvalidINFORMACIÓNPADREOTUTOR(){
+	
+		vidnclienteresponsabilidadfinanciera=document.getElementById("idnclienteresponsabilidadfinanciera").value;
+		vidnclientesexot=document.getElementById("idnclientesexot").value;
+		vidnclienteRelacióndepaciente=document.getElementById("idnclienteRelacióndepaciente").value;
+		vidnclienteDireccionE=document.getElementById("idnclienteDireccionE").value;
+		vidnclienteDireccionC=document.getElementById("idnclienteDireccionC").value;
+		vidnclienteemailt=document.getElementById("idnclienteemailt").value;
+		vidnclientecelulartutor=document.getElementById("idnclientecelulartutor").value;
+		vidnclienteOcupaciontutor=document.getElementById("idnclienteOcupaciontutor").value;
+
+		
+	
+	
+	
+	if(vidnclienteresponsabilidadfinanciera==""){bollvidnclienteresponsabilidadfinanciera=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta responsable finaciero "}
+	else{bollvidnclienteresponsabilidadfinanciera=true;}
+	
+	if(vidnclientesexot==""){bollvidnclientesexot=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta el genero "}
+	else{bollvidnclientesexot=true;}
+	
+	if(vidnclienteRelacióndepaciente==""){bollvidnclienteRelacióndepaciente=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta Relacion con el paciente "}
+	else{bollvidnclienteRelacióndepaciente=true;}
+	
+	if(vidnclienteDireccionE==""){bollvidnclienteDireccionE=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta Direccion "}
+	else{bollvidnclienteDireccionE=true;}
+
+	if(vidnclienteDireccionC==""){bollvidnclienteDireccionC=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta Direccion casa "}
+	else{bollvidnclienteDireccionC=true;}
+
+	
+	if(vidnclienteemailt==""){bollvidnclienteemailt=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta Email"}
+	else{bollvidnclienteemailt=true;}
+	
+	
+	if(vidnclientecelulartutor==""){bollvidnclientecelulartutor=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta celular tutor"}
+	else{bollvidnclientecelulartutor=true;}
+	
+	
+	
+	if(vidnclienteOcupaciontutor==""){bollvidnclienteOcupaciontutor=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta ocupacion "}
+	else{bollvidnclienteOcupaciontutor=true;}
+	
+	
+	
+	}
+	function btidINFORMACIÓNPADREOTUTOR(){
+
+
+
+
+	inici0getvalidINFORMACIÓNPADREOTUTOR();
+		getvalidINFORMACIÓNPADREOTUTOR();
+	
+		if(bollvidnclienteresponsabilidadfinanciera&&bollvidnclientesexot&&bollvidnclienteRelacióndepaciente
+		&&bollvidnclienteDireccionE&&bollvidnclienteDireccionC&&bollvidnclienteemailt&&bollvidnclientecelulartutor&&bollvidnclienteOcupaciontutor
+		
+		
+		){
+			fescribeidINFORMACIÓNPADREOTUTOR("subio");
+	
+
+vperINFORMACIÓNPADREOTUTOR={
+
+
+	fvidnclienteresponsabilidadfinanciera:vidnclienteresponsabilidadfinanciera,
+		fvidnclientesexot:vidnclientesexot,
+		fvidnclienteRelacióndepaciente:vidnclienteRelacióndepaciente,
+		fvidnclienteDireccionE:vidnclienteDireccionE,
+		fvidnclienteDireccionC:vidnclienteDireccionC,
+		fvidnclienteemailt:vidnclienteemailt,
+		fvidnclientecelulartutor:vidnclientecelulartutor,
+		fvidnclienteOcupaciontutor:vidnclienteOcupaciontutor
+
+
+
+
+}
+
+
+
+	
+		firebase.database().ref().child("vperINFORMACIÓNPADREOTUTOR").push({fvperINFORMACIÓNPADREOTUTOR:vperINFORMACIÓNPADREOTUTOR});
+
+
+
+	
+		}
+		else{fescribeidINFORMACIÓNPADREOTUTOR(escribeidINFORMACIÓNPADREOTUTOR);}
+	
+	console.log(vidnclienteresponsabilidadfinanciera+"    "+vidnclientesexot+"    "+vidnclienteRelacióndepaciente
+	+"    "+vidnclienteDireccionE+"    "+vidnclienteDireccionC+"    "+vidnclienteemailt+"    "+vidnclientecelulartutor+"    "+vidnclienteOcupaciontutor
+	
+	
+		);
+	
+		console.log(
+		
+			bollvidnclienteresponsabilidadfinanciera+"    "+bollvidnclientesexot+"    "+bollvidnclienteRelacióndepaciente
+			+"    "+bollvidnclienteDireccionE+"    "+bollvidnclienteDireccionC+"    "+bollvidnclienteemailt+"    "+bollvidnclientecelulartutor+"    "+bollvidnclienteOcupaciontutor
+			
+			
+		
+		);
+	}
+	
+	function fescribeidINFORMACIÓNPADREOTUTOR(st){
+		document.getElementById("idhpINFORMACIÓNPADREOTUTORfalta").innerHTML=st;
+	}
+
+
+
+
+	</script>
+
+
+
+
+
+
+
+
 		</body>
 	
 	<!-- Mirrored from examples.phaser.io/embed.php?f=box2d/car+on+terrain.js&v=2.2.2.box2d by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 02 Nov 2018 04:09:26 GMT -->
