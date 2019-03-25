@@ -1062,11 +1062,30 @@ color: #00aeff;
 }
 
 
+#idpanelnuevoodontologo{
+
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	z-index: 800;
+	background-color: #27293d;
+}
+
+
+#idsidenav{
+
+	z-index: 3;
+}
 
 
 
 
 
+#idpanelnievcliente{
+z-index: 2;	
+}
 
 		</style>
 		</head>
@@ -1076,6 +1095,169 @@ color: #00aeff;
 
 
 <div id="iddivsuperloginmenu">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="idpanelnuevoodontologo">
+	  
+	  
+	  
+	  
+	  
+		<div class="container0" id="idregistrarnueocliente">
+	
+			<div class="container">
+				<label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
+				<input  id="idnamecno"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
+		
+				<label class="cllabel" for="uname"><b>RFC</b></label>
+				<input class="clinputmio" type="text" placeholder="RFC" name="RFC" required>
+		
+				<label class="cllabel" for="uname"><b>Domicilio Fiscal</b></label>
+				<input class="clinputmio" type="text" placeholder="Domicilio Fiscal" name="DomicilioFiscal" required>
+		
+				<label class="cllabel" for="uname"><b>Correo electronico</b></label>
+				<input   id="idemailcno"  class="clinputmio" type="text" placeholder="Correoelectronico" name="Correoelectronico" required>
+		
+				<label class="cllabel" for="uname"><b>Telefono</b></label>
+				<input id="idtelefononueclieteo" class="clinputmio" type="text" placeholder="Telefono" name="Telefono" required>
+		
+		
+		
+		
+				  
+				   
+				  </div>
+		
+		
+		</div>
+		
+		<div class="container0" id="idregistrarnueocliente2">
+		
+			<div class="container">
+				<label class="cllabel" for="uname"><b>Celular</b></label>
+				<input id="idcelularcno" class="clinputmio" type="text" placeholder="Celular" name="Celular" required>
+		
+				<label class="cllabel" for="uname"><b>Fax</b></label>
+				<input class="clinputmio" type="text" placeholder="Fax" name="Fax" required>
+		
+				<label class="cllabel" for="uname"><b>Lista de precios</b></label>
+				<input class="clinputmio" type="text" placeholder=">Lista de precios" name=">Listadeprecios" required>
+		
+				<label class="cllabel" for="uname"><b>Vendedor</b></label>
+				<input class="clinputmio" type="text" placeholder="Vendedor" name="Vendedor" required>
+	
+				<label class="cllabel" for="uname"><b>Profesional a  cargo</b></label>
+				<input class="clinputmio" type="text" placeholder="Profesional a  cargo" name="profesiolacargo" required>
+		
+				<label class="cllabel" for="uname"><b>Terminos de Pago</b></label>
+				<input class="clinputmio" type="text" placeholder="TerminosdePago" name="TerminosdePago" required>
+		
+		
+		
+		
+					<button onclick="alert(123);" class="clsbutton" >Guardar</button>
+				
+				  </div>
+		
+		
+		</div>
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1255,6 +1437,16 @@ color: #00aeff;
 		<a href="#clients">Clients</a>
 		<a onclick="abreidmarketing();" >Marketing</a>
 	  
+
+
+		<a onclick="fNuevoOdontologo();" >Nuevo Odontologo</a> 
+
+
+
+
+		<a onclick="fNuevoUser();" >Nuevo User</a> 
+
+
 		<a onclick="abreidsendemail();" >Send Email</a>
 		<a onclick="fCerrarapp();" >Cerrarapp</a> 
 	  
@@ -1536,7 +1728,6 @@ color: #00aeff;
 
 
 
-//escribeaca
 
 
 
@@ -7016,13 +7207,20 @@ var  soyloginadministrador=false;
   if(soyunuseruser&&estoylogeado){
 	  mostrardiv("idpanelnievcliente");
 	  ocultardiv("idpaneldirectoriopacientes");
-  
+	  document.getElementById("idpanelnuevoodontologo").style.display="none";
+	  document.getElementById("enviarcorreo").style.display="none";
+	  document.getElementById("idmarketing").style.display="none";
+	  document.getElementById("elpaneldeodontograma").style.display="none";
   }
   
-
+  
   if(soyloginadministrador&&estoylogeado){
 	  mostrardiv("idpanelnievcliente");
 	  ocultardiv("idpaneldirectoriopacientes");
+	  document.getElementById("idpanelnuevoodontologo").style.display="none";
+	  document.getElementById("enviarcorreo").style.display="none";
+	  document.getElementById("idmarketing").style.display="none";
+	  document.getElementById("elpaneldeodontograma").style.display="none";
   
   }
   
@@ -7117,7 +7315,10 @@ var  soyloginadministrador=false;
   function odontogramair(){
   if(estoylogeado&&soyloginodontologo){
 	  //window.location="./odontogramamenu/odontograma.html";
-
+	  document.getElementById("idpanelnuevoodontologo").style.display="none";
+      document.getElementById("enviarcorreo").style.display="none";
+      document.getElementById("idmarketing").style.display="none";
+      document.getElementById("elpaneldeodontograma").style.display="none";
 
 	  document.getElementById("iddivsuperloginmenu").style.display="none";
 	  document.getElementById("elpaneldeodontograma").style.display="block";
@@ -7177,7 +7378,10 @@ function abreidsendemail(){
 
 
 
-
+function fNuevoOdontologo(){
+	//999
+	
+}
 
 
 
@@ -7330,7 +7534,7 @@ else{
 
 
 
-
+document.getElementById("idpanelnuevoodontologo").style.display="none";
 			</script> 
 	
 		</body>
