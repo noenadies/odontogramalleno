@@ -834,6 +834,39 @@ margin: auto;
 
 }
 
+
+
+
+
+#idbtirmenurenfiremenubotonera{
+
+
+
+	position: relative;
+left: 0%;
+height: 30px;
+width: 30px;
+top: 0%;
+background-color: #ffffff;
+color: #00aeff;
+font-size: 13px;
+border: 5px solid #00aeff;
+text-align: center;
+padding: 1px;
+margin: auto;
+
+
+
+
+}
+
+
+
+
+
+
+
+
 .cltabbt{
 position: relative;
 top: 50%;
@@ -1533,6 +1566,7 @@ color: #00aeff;
 
 					<button onclick="fcerrarmenulatedercho();" id="idbtcerrarmenubotonera">X</button>
 					<button onclick="guardarfire();" id="idbtguardarenfiremenubotonera">&#128190;</button>
+					<button onclick="guardarfire();" id="idbtirmenurenfiremenubotonera">&#128190;</button>
 					
 						<button  onclick="ocultabotonera();" class="accordion">Section 1</button>
 					
@@ -1564,9 +1598,9 @@ color: #00aeff;
 										  <tr>
 											<td class="clstd"><button onclick="fsieliminarx();" class="cltabbt">&#9746;</button>
 											</td>
-											<td class="clstd"><button class="cltabbt">sc+</button>
+											<td class="clstd"><button   onclick="fidbtcalarxobjs();"    class="cltabbt">sc+</button>
 											</td>
-											<td class="clstd"><button class="cltabbt">sc-</button>
+											<td class="clstd"><button  onclick= "fidbtcalarxobjs2();"   class="cltabbt">sc-</button>
 											</td>
 											<td class="clstd"><button  class="cltabbt">&#9744; </button>
 											</td>
@@ -6764,6 +6798,8 @@ function traeunavesfirebaseuser(){
   var soyloginodontologo=false;
   
   
+  var  nodeadministradores=[];
+var  soyloginadministrador=false;
   
   
   function todoiniciadenuevologin(){
@@ -6788,8 +6824,17 @@ function traeunavesfirebaseuser(){
   
 	traenodeuserodontologo();
   
+	function traenodeuseradministrad(){
+	  firebase.database().ref().child("useradministrador").once("value", function(snapshot) {
+		  todoiniciadenuevologin();
+		  nodeadministradores=snapshot.val();
+	   
+		}, function (errorObject) {
+		  console.log("The read failed: " + errorObject.code);
+		});
   
-  
+	}
+	traenodeuseradministrad();
   
   
   function onfloginp(){
@@ -6798,9 +6843,10 @@ function traeunavesfirebaseuser(){
 	  
 	  for(var i in nodeuserodontologo){
   if(nodeuserodontologo[i].pass==vpassloginp&&nodeuserodontologo[i].user==vuserloginp){
-  
+	soyloginadministrador=false;
 	  estoylogeado=true;
 	  soyloginodontologo=true;
+	  soyunuseruser=false;
   document.getElementById("idpanellogin").style.display="none";
   
   document.getElementById("idh1principalmenu").innerHTML="ODONTOLOGO";
@@ -6818,6 +6864,9 @@ function traeunavesfirebaseuser(){
 		  
 			  estoylogeado=true;
 			  soyunuseruser=true;
+			  soyloginadministrador=false;
+			  soyloginodontologo=false;
+
 		  document.getElementById("idpanellogin").style.display="none";
 	
 		  document.getElementById("idh1principalmenu").innerHTML="USUARIO";
@@ -6829,7 +6878,36 @@ function traeunavesfirebaseuser(){
 		  }
 			  }
   
+			  for(var i in nodeadministradores){
+		  if(nodeadministradores[i].pass==vpassloginp&&nodeadministradores[i].user==vuserloginp){
+		  
+			  estoylogeado=true;
+			  soyunuseruser=false;
+
+			  soyloginodontologo=false;
+			  soyloginadministrador=true;
+
+
+		  document.getElementById("idpanellogin").style.display="none";
+	
+		  document.getElementById("idh1principalmenu").innerHTML="ADMINISTRADOR";
   
+		  
+		  }
+		  else{
+			
+		  }
+			  }
+  
+
+
+
+
+
+
+
+
+
   
   
   
@@ -6941,6 +7019,17 @@ function traeunavesfirebaseuser(){
   
   }
   
+
+  if(soyloginadministrador&&estoylogeado){
+	  mostrardiv("idpanelnievcliente");
+	  ocultardiv("idpaneldirectoriopacientes");
+  
+  }
+  
+
+
+
+
 	 
   }
   
@@ -6989,15 +7078,36 @@ function traeunavesfirebaseuser(){
 	 
 	 
   }
+
+
+ document.getElementById("iduserloginp").onpaste = function(e) {
+    e.preventDefault();
+   
+	document.getElementById("iduserloginp").value="esta acción está prohibida y es  delito";
+
+
+  };
   
+ document.getElementById("iduserloginp").oncopy = function(e) {
+    e.preventDefault();
+	document.getElementById("iduserloginp").value="esta acción está prohibida y es  delito";
+  }
+
+
   
+  document.getElementById("idpassloginp").onpaste = function(e) {
+    e.preventDefault();
+   
+	document.getElementById("idpassloginp").value="esta acción está prohibida";
+
+
+  }
   
-  
-  
-  
-  
-  
-  
+ document.getElementById("idpassloginp").oncopy = function(e) {
+    e.preventDefault();
+	document.getElementById("idpassloginp").value="esta acción está prohibida";
+  }
+
   
   
   
@@ -7015,6 +7125,22 @@ function traeunavesfirebaseuser(){
 	  traesolounavesphaser();
 
   }
+
+  if(estoylogeado&&soyloginadministrador){
+	  //window.location="./odontogramamenu/odontograma.html";
+
+
+	  document.getElementById("iddivsuperloginmenu").style.display="none";
+	  document.getElementById("elpaneldeodontograma").style.display="block";
+
+	  traesolounavesphaser();
+
+  }
+
+
+
+
+
   
   }
   
