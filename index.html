@@ -8446,6 +8446,8 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 	
 	
 	 function inici0getvalidINFORMACIÓNPADREOTUTOR(){
+		fescribeidINFORMACIÓNPADREOTUTOR("");
+		escribeidINFORMACIÓNPADREOTUTOR="";
 	bollvidnclienteresponsabilidadfinanciera=false;
 	bollvidnclientesexot=false;
 	bollvidnclienteRelacióndepaciente=false;
@@ -8483,7 +8485,7 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 	
 	
 	
-	if(vidnclienteresponsabilidadfinanciera==""){bollvidnclienteresponsabilidadfinanciera=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta responsable finaciero "}
+	if(vidnclienteresponsabilidadfinanciera==""){bollvidnclienteresponsabilidadfinanciera=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta nombre"}
 	else{bollvidnclienteresponsabilidadfinanciera=true;}
 	
 	if(vidnclientesexot==""){bollvidnclientesexot=false;   escribeidINFORMACIÓNPADREOTUTOR= escribeidINFORMACIÓNPADREOTUTOR+" "+" falta el genero "}
@@ -8517,9 +8519,10 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 	function btidINFORMACIÓNPADREOTUTOR(){
 
 
-
+	
 
 	inici0getvalidINFORMACIÓNPADREOTUTOR();
+
 		getvalidINFORMACIÓNPADREOTUTOR();
 	
 		if(bollvidnclienteresponsabilidadfinanciera&&bollvidnclientesexot&&bollvidnclienteRelacióndepaciente
