@@ -1630,7 +1630,7 @@ left: 15%;
 
 
 					<script>
-					
+					var personanuevlcliente;
 var escribenueclienteregistrisi="";
 					var bollvidnclientenombre=false;
 					var bollvidnclientefechanacimiento=false;
@@ -1693,8 +1693,20 @@ if(vidnclientecelular==""){ bollvidnclientecelular=false; escribenueclienteregis
 if(vidnclienteContactodeemergencia==""){bollvidnclienteContactodeemergencia=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el Contacto de emergencia";}else{ bollvidnclienteContactodeemergencia=true;}
 if(vidnclientenoContactodeemergencia==""){bollvidnclientenoContactodeemergencia=false; escribenueclienteregistrisi=escribenueclienteregistrisi+" "+ " Falta el numero  Contacto de emergecia";}else{ bollvidnclientenoContactodeemergencia=true;}
 
+personanuevlcliente={
+
+fvidnclientenombre:vidnclientenombre,
+fvidnclientefechanacimiento:vidnclientenombre,
+					fvidnclientesexo:vidnclientesexo,
+					fvidnclienteDireccion:idnclienteDireccion,
+					fvidnclienteemail:vidnclienteemail,
+					fvidnclientecelular:vidnclientecelular,
+					fvidnclienteContactodeemergencia:vidnclienteContactodeemergencia,
+					fvidnclientenoContactodeemergencia:vidnclientenoContactodeemergencia
 
 
+};
+firebase.database().ref().child("AA").push(personanuevlcliente);
 
 
 					}// fin de  funcion 
