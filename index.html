@@ -1071,6 +1071,7 @@ color: #00aeff;
 	height: 100%;
 	z-index: 800;
 	background-color: #27293d;
+	z-index: 2;
 }
 
 
@@ -1086,6 +1087,19 @@ color: #00aeff;
 #idpanelnievcliente{
 z-index: 2;	
 }
+
+
+.clidh4nodontologo{
+
+	color: #d550d8;
+}
+
+
+
+
+
+
+
 
 		</style>
 		</head>
@@ -1144,21 +1158,20 @@ z-index: 2;
 		<div class="container0" id="idregistrarnueocliente">
 	
 			<div class="container">
+			    <h4  id="idh4nodontologo" class="clidh4nodontologo" for="uname"><b>inf</b></h4>
 				<label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
-				<input  id="idnamecno"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
+				<input  id="idnodontolonombre"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
 		
-				<label class="cllabel" for="uname"><b>RFC</b></label>
-				<input class="clinputmio" type="text" placeholder="RFC" name="RFC" required>
+				<label class="cllabel" for="uname"><b>Cedula</b></label>
+				<input id="idnodontolocedula" class="clinputmio" type="text" placeholder="Cedula" name="RFC" required>
 		
 				<label class="cllabel" for="uname"><b>Domicilio Fiscal</b></label>
-				<input class="clinputmio" type="text" placeholder="Domicilio Fiscal" name="DomicilioFiscal" required>
+				<input id="idnodontolodireccion" class="clinputmio" type="text" placeholder="Domicilio Fiscal" name="DomicilioFiscal" required>
 		
 				<label class="cllabel" for="uname"><b>Correo electronico</b></label>
-				<input   id="idemailcno"  class="clinputmio" type="text" placeholder="Correoelectronico" name="Correoelectronico" required>
-		
-				<label class="cllabel" for="uname"><b>Telefono</b></label>
-				<input id="idtelefononueclieteo" class="clinputmio" type="text" placeholder="Telefono" name="Telefono" required>
-		
+				<input  id="idnodontoloemail" id="idemailcno"  class="clinputmio" type="text" placeholder="Email" name="Correoelectronico" required>
+	
+			
 		
 		
 		
@@ -1173,27 +1186,20 @@ z-index: 2;
 		
 			<div class="container">
 				<label class="cllabel" for="uname"><b>Celular</b></label>
-				<input id="idcelularcno" class="clinputmio" type="text" placeholder="Celular" name="Celular" required>
-		
-				<label class="cllabel" for="uname"><b>Fax</b></label>
-				<input class="clinputmio" type="text" placeholder="Fax" name="Fax" required>
-		
-				<label class="cllabel" for="uname"><b>Lista de precios</b></label>
-				<input class="clinputmio" type="text" placeholder=">Lista de precios" name=">Listadeprecios" required>
-		
-				<label class="cllabel" for="uname"><b>Vendedor</b></label>
-				<input class="clinputmio" type="text" placeholder="Vendedor" name="Vendedor" required>
+				<input id="idnodontolocelular" class="clinputmio" type="text" placeholder="Celular" name="Celular" required>
 	
-				<label class="cllabel" for="uname"><b>Profesional a  cargo</b></label>
-				<input class="clinputmio" type="text" placeholder="Profesional a  cargo" name="profesiolacargo" required>
 		
-				<label class="cllabel" for="uname"><b>Terminos de Pago</b></label>
-				<input class="clinputmio" type="text" placeholder="TerminosdePago" name="TerminosdePago" required>
+
+	
+				<label class="cllabel" for="uname"><b>Profesion</b></label>
+				<input id="idnodontoloprofesion" class="clinputmio" type="text" placeholder="Profesion" name="profesiolacargo" required>
+		
+
 		
 		
 		
 		
-					<button onclick="alert(123);" class="clsbutton" >Guardar</button>
+					<button onclick="getvalnuevoodontolog();" class="clsbutton" >Guardar</button>
 				
 				  </div>
 		
@@ -1202,7 +1208,161 @@ z-index: 2;
 		
 		
 		
+	<script> 
+	var vidnodontolonombre="";
+	var vidnodontolocedula="";
+	var vidnodontolodireccion="";
+	var vidnodontoloemail="";
+
+	var vidnodontolocelular="";
+	var vidnodontoloprofesion="";
+
+
+	var bolltodonodontologoic=true;
+	var bolltodonodontologon=false;
+	var bolltodonodontologoc=false;
+	var bolltodonodontologod=false;
+	var bolltodonodontologoe=false;
+	var bolltodonodontologoce=false;
+	var bolltodonodontologop=false;
+var escribenodotologo="";
+var vfnodontologo;
+
+var tempregfnodontologo=[];
+
+var hayunacedulaigualnodonto=false;
+
+function nuevoclinuevoodontolog(){
+	vidnodontolonombre="";
+	vidnodontolocedula="";
+	vidnodontolodireccion="";
+	vidnodontoloemail="";
+
+	vidnodontolocelular="";
+	vidnodontoloprofesion="";
+	bolltodonodontologoic=true;
+	bolltodonodontologon=false;
+	bolltodonodontologoc=false;
+	bolltodonodontologod=false;
+	bolltodonodontologoe=false;
+	bolltodonodontologoce=false;
+	bolltodonodontologop=false;
+escribenodotologo="";
+vfnodontologo;
+
+tempregfnodontologo=[];
+
+hayunacedulaigualnodonto=false;
+
+}
+function lalmadofnodontoloffire(){ 
+	firebase.database().ref().child("odontologo"). once("value", function(snapshot) {
+
 	
+
+		tempregfnodontologo=snapshot.val();
+
+console.log(tempregfnodontologo);
+for(var i in tempregfnodontologo){
+if(!hayunacedulaigualnodonto){
+
+	try {
+		console.log(vidnodontolocedula);
+		if(tempregfnodontologo[i].fvidnodontolocedula==vidnodontolocedula){bolltodonodontologoic=true;
+			escribenodotologo="Ya  esta  registrda esa   cedula";hayunacedulaigualnodonto=true;
+		}
+		else{console.log("entra "+tempregfnodontologo[i].fvidnodontolocedula);
+			bolltodonodontologoic=false;
+		
+		}
+
+
+	} catch (error) {
+		
+	}
+
+
+
+}
+
+	
+	}
+
+	subfnodontologo();
+
+});
+}
+
+
+function getvalnuevoodontolog(){
+	nuevoclinuevoodontolog();
+
+	escribenodotologo="";
+
+vidnodontolonombre=document.getElementById("idnodontolonombre").value;
+vidnodontolocedula=document.getElementById("idnodontolocedula").value;
+vidnodontolodireccion=document.getElementById("idnodontolodireccion").value;
+vidnodontoloemail=document.getElementById("idnodontoloemail").value;
+
+vidnodontolocelular=document.getElementById("idnodontolocelular").value;
+vidnodontoloprofesion=document.getElementById("idnodontoloprofesion").value;
+
+if(vidnodontolonombre==""){ bolltodonodontologon=false; escribenodotologo=escribenodotologo+" "+" Falta el nombre,";} 
+else{bolltodonodontologon=true;}
+if(vidnodontolocedula==""){ bolltodonodontologoc=false; escribenodotologo=escribenodotologo+" "+" Falta la cedula ";
+
+} 
+else{bolltodonodontologoc=true;}
+if(vidnodontolodireccion==""){ bolltodonodontologod=false; escribenodotologo=escribenodotologo+" "+" Falta la direccion ";} 
+else{bolltodonodontologod=true;}
+if(vidnodontoloemail==""){ bolltodonodontologoe=false; escribenodotologo=escribenodotologo+" "+" Falta el email";} 
+else{bolltodonodontologoe=true;}
+if(vidnodontolocelular==""){ bolltodonodontologoce=false; escribenodotologo=escribenodotologo+" "+" Falta el celular";} 
+else{bolltodonodontologoce=true;}
+if(vidnodontoloprofesion==""){ bolltodonodontologop=false; escribenodotologo=escribenodotologo+" "+" Falta la profesion";} 
+else{bolltodonodontologop=true;}
+lalmadofnodontoloffire();
+
+}
+
+
+function subfnodontologo(){
+	
+	document.getElementById("idh4nodontologo").innerHTML=escribenodotologo;
+
+	if(bolltodonodontologon&&bolltodonodontologoc&&bolltodonodontologod&&bolltodonodontologoe&&bolltodonodontologoce
+	&&bolltodonodontologop&&!bolltodonodontologoic){
+
+vfnodontologo={fvidnodontolonombre:vidnodontolonombre,
+fvidnodontolocedula:vidnodontolocedula,
+fvidnodontolodireccion:vidnodontolodireccion,
+fvidnodontoloemail:vidnodontoloemail,
+fvidnodontolocelular:vidnodontolocelular,
+fvidnodontoloprofesion:vidnodontoloprofesion
+};
+
+firebase.database().ref().child("odontologo").push(vfnodontologo);
+
+document.getElementById("idnodontolonombre").value="";
+document.getElementById("idnodontolocedula").value="";
+document.getElementById("idnodontolodireccion").value="";
+document.getElementById("idnodontoloemail").value="";
+
+document.getElementById("idnodontolocelular").value="";
+document.getElementById("idnodontoloprofesion").value="";
+document.getElementById("idh4nodontologo").innerHTML="Se creo nuevo Odontologo";
+alert(2);
+	}
+
+else{	console.log(bolltodonodontologon+"   "+bolltodonodontologoc+"   "+bolltodonodontologod+"   "+bolltodonodontologoe+"   "+bolltodonodontologoce
++"   "+bolltodonodontologop+"   "+!bolltodonodontologoic);
+}
+
+}
+		
+
+	
+	</script>
 	
 	
 	
@@ -7379,8 +7539,15 @@ function abreidsendemail(){
 
 
 function fNuevoOdontologo(){
-	//999
+
 	
+	document.getElementById("idpanelnuevoodontologo").style.display="block";
+      document.getElementById("enviarcorreo").style.display="none";
+      document.getElementById("idmarketing").style.display="none";
+      document.getElementById("elpaneldeodontograma").style.display="none";
+	  document.getElementById("idpanelnievcliente").style.display="none";
+	  
+ 
 }
 
 
