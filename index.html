@@ -1085,6 +1085,10 @@ color: #00aeff;
 
 
 #idpanelnievcliente{
+position: absolute;top: 0%;
+left: 0%;
+width: 100%;
+height: 100%;
 z-index: 2;	
 }
 
@@ -1097,8 +1101,72 @@ z-index: 2;
 
 
 
+.clidregistrarnueoclientea{
+position: absolute;
+top: 10%;
+left: 15%;
+width: 35%;
+height: 28%;
+background-color: #27293d;
+overflow-y: scroll;
+}
 
 
+
+#idregistrarnueoclienteb{
+position: absolute;
+top: 10%;
+left: 60%;
+width: 35%;
+height: 28%;
+background-color: #27293d;
+overflow-y: scroll;
+}
+
+
+
+#idpHISTORIADENTAL{
+position: absolute;
+top: 4%;
+left: 60%;
+	color: #d550d8;
+	z-index: 2;
+}
+
+
+
+
+
+
+#idh3registropainte{
+position: absolute;
+top: 4%;
+left: 15%;
+	color: #d550d8;
+	z-index: 2;
+}
+
+
+
+
+
+
+
+#idINFORMACIÓNPADREOTUTOR{
+
+	position: absolute;
+	top: 48%;
+}
+#idhpINFORMACIÓNPADREOTUTOR{
+
+	position: absolute;
+	top: 40%;
+
+
+left: 15%;
+	color: #d550d8;
+	z-index: 2;
+}
 
 
 		</style>
@@ -1155,7 +1223,7 @@ z-index: 2;
 	  
 	  
 	  
-		<div class="container0" id="idregistrarnueocliente">
+		<div  class="container0" id="idregistrarnueocliente">
 	
 			<div class="container">
 			    <h4  id="idh4nodontologo" class="clidh4nodontologo" for="uname"><b>inf</b></h4>
@@ -1482,26 +1550,38 @@ z-index: 2;
 	  
 	  
 	  
-	  
-		  <div class="container0" id="idregistrarnueocliente">
-	  
+			<p id="idh3registropainte">REGISTRO PACIENTE </p>
+		  <div class="clidregistrarnueoclientea" id="idregistrarnueoclientea">
+
 			  <div class="container">
 				  <label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
-				  <input  id="idnamecn"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
+				  <input  id="idnclientenombre"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
 		  
-				  <label class="cllabel" for="uname"><b>RFC</b></label>
-				  <input class="clinputmio" type="text" placeholder="RFC" name="RFC" required>
+				  <label class="cllabel" for="uname"><b>Fecha  de  nacimiento</b></label>
+				  <input  id="idnclientefechanacimiento" class="clinputmio" type="text" placeholder="Fecha de  nacimiento" name="RFC" required>
 		  
-				  <label class="cllabel" for="uname"><b>Domicilio Fiscal</b></label>
-				  <input class="clinputmio" type="text" placeholder="Domicilio Fiscal" name="DomicilioFiscal" required>
+				  <label class="cllabel" for="uname"><b>Sexo</b></label>
+				  <input  id="idnclientesexo" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
 		  
+
+
+				  <label class="cllabel" for="uname"><b>Direccion</b></label>
+				  <input  id="idnclienteDireccion" class="clinputmio" type="text" placeholder="Direccion" name="RFC" required>
+		  
+
+
 				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
-				  <input   id="idemailcn"  class="clinputmio" type="text" placeholder="Correoelectronico" name="Correoelectronico" required>
+				  <input   id="idnclienteemail"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
 		  
-				  <label class="cllabel" for="uname"><b>Telefono</b></label>
-				  <input id="idtelefononuecliete" class="clinputmio" type="text" placeholder="Telefono" name="Telefono" required>
+				  <label class="cllabel" for="uname"><b>Celular paciente </b></label>
+				  <input  id="idnclientecelular" class="clinputmio" type="text" placeholder="Celular" name="Telefono" required>
 		  
 		  
+				  <label class="cllabel" for="uname"><b>Contacto de  emergencia </b></label>
+				  <input  id="idnclienteContactodeemergencia" class="clinputmio" type="text" placeholder="Contacto de  emergencia" name="Telefono" required>
+		  
+				  <label class="cllabel" for="uname"><b>No Contacto de  emergencia </b></label>
+				  <input  id="idnclientenoContactodeemergencia" class="clinputmio" type="text" placeholder="No Contacto de  emergencia" name="Telefono" required>
 		  
 		  
 					
@@ -1510,37 +1590,113 @@ z-index: 2;
 		  
 		  
 		  </div>
-		  
-		  <div class="container0" id="idregistrarnueocliente2">
-		  
+
+
+
+
+		  <p id="idhpINFORMACIÓNPADREOTUTOR">INFORMACIÓN PADRE O TUTOR </p>
+		  <div class="clidregistrarnueoclientea" id="idINFORMACIÓNPADREOTUTOR">
+
 			  <div class="container">
-				  <label class="cllabel" for="uname"><b>Celular</b></label>
-				  <input id="idcelularcn" class="clinputmio" type="text" placeholder="Celular" name="Celular" required>
+				  <label  class="cllabel" for="uname"><b>Nombre </b></label>
+				  <input  id="idnclienteresponsabilidadfinanciera"  class="clinputmio" type="text" placeholder="Responsabilidadfinanciera" name="Nombre" required>
 		  
-				  <label class="cllabel" for="uname"><b>Fax</b></label>
-				  <input class="clinputmio" type="text" placeholder="Fax" name="Fax" required>
+			
+				  <label class="cllabel" for="uname"><b>Sexo</b></label>
+				  <input  id="idnclientesexo" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
 		  
-				  <label class="cllabel" for="uname"><b>Lista de precios</b></label>
-				  <input class="clinputmio" type="text" placeholder=">Lista de precios" name=">Listadeprecios" required>
-		  
-				  <label class="cllabel" for="uname"><b>Vendedor</b></label>
-				  <input class="clinputmio" type="text" placeholder="Vendedor" name="Vendedor" required>
-	  
-				  <label class="cllabel" for="uname"><b>Profesional a  cargo</b></label>
-				  <input class="clinputmio" type="text" placeholder="Profesional a  cargo" name="profesiolacargo" required>
-		  
-				  <label class="cllabel" for="uname"><b>Terminos de Pago</b></label>
-				  <input class="clinputmio" type="text" placeholder="TerminosdePago" name="TerminosdePago" required>
+				  <label class="cllabel" for="uname"><b>Relación de paciente </b></label>
+				  <input  id="idnclienteRelacióndepaciente" class="clinputmio" type="text" placeholder="Relación de paciente" name="Telefono" required>
 		  
 		  
+
+
+				  <label class="cllabel" for="uname"><b>Direccion Empleo</b></label>
+				  <input  id="idnclienteDireccionE" class="clinputmio" type="text" placeholder="Direccion empleo" name="RFC" required>
+		  
+
+
+				  <label class="cllabel" for="uname"><b>Direccion casa</b></label>
+				  <input  id="idnclienteDireccionC" class="clinputmio" type="text" placeholder="Direccion casa" name="RFC" required>
+		  
+
+
+				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
+				  <input   id="idnclienteemail"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
+		  
+				  <label class="cllabel" for="uname"><b>Celular del Tutor </b></label>
+				  <input  id="idnclientecelulartutor" class="clinputmio" type="text" placeholder="Celular Tutor" name="Telefono" required>
 		  
 		  
-					  <button onclick="subeclientenuevo();" class="clsbutton" >Guardar</button>
-				  
+				  <label class="cllabel" for="uname"><b>Ocupacion </b></label>
+				  <input  id="idnclienteOcupaciontutor" class="clinputmio" type="text" placeholder="Ocupacion" name="Telefono" required>
+		  
+				 
+					
+					 
 					</div>
 		  
 		  
 		  </div>
+
+
+
+
+
+		  
+
+
+
+		  <p id="idpHISTORIADENTAL">HISTORIA DENTAL  </p>
+		  <div class="clidregistrarnueoclientea" id="idregistrarnueoclienteb">
+
+			  <div class="container">
+				  <label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
+				  <input  id="idnclientenombre"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
+		  
+				  <label class="cllabel" for="uname"><b>Fecha  de  nacimiento</b></label>
+				  <input  id="idnclientefechanacimiento" class="clinputmio" type="text" placeholder="Fecha de  nacimiento" name="RFC" required>
+		  
+				  <label class="cllabel" for="uname"><b>Sexo</b></label>
+				  <input  id="idnclientesexo" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
+		  
+
+
+				  <label class="cllabel" for="uname"><b>Direccion</b></label>
+				  <input  id="idnclienteDireccion" class="clinputmio" type="text" placeholder="Direccion" name="RFC" required>
+		  
+
+
+				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
+				  <input   id="idnclienteemail"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
+		  
+				  <label class="cllabel" for="uname"><b>Celular paciente </b></label>
+				  <input  id="idnclientecelular" class="clinputmio" type="text" placeholder="Celular" name="Telefono" required>
+		  
+		  
+				  <label class="cllabel" for="uname"><b>Contacto de  emergencia </b></label>
+				  <input  id="idnclienteContactodeemergencia" class="clinputmio" type="text" placeholder="Contacto de  emergencia" name="Telefono" required>
+		  
+				  <label class="cllabel" for="uname"><b>No Contacto de  emergencia </b></label>
+				  <input  id="idnclientenoContactodeemergencia" class="clinputmio" type="text" placeholder="No Contacto de  emergencia" name="Telefono" required>
+		  
+		  
+				  <button onclick="subeclientenuevo();" class="clsbutton" >Guardar</button>
+					 
+					</div>
+		  
+		  
+		  </div>
+
+
+
+
+
+
+
+
+
+		  
 		  
 		  
 		  
