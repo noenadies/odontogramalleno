@@ -1134,6 +1134,15 @@ left: 60%;
 }
 
 
+#idpHISTORIADENTALfalta{
+position: absolute;
+top: 1.5%;
+left: 60%;
+	color: #d550d8;
+	z-index: 2;
+	font-size: 9px;
+
+}
 
 
 
@@ -1208,14 +1217,24 @@ left: 15%;
 #idpHISTORIAMÉDICO{
 
 	position: absolute;
-	top: 40%;
+	top: 43%;
 	left: 60%;
 	color: #d550d8;
 	z-index: 2;
 }
 
 
+#idpHISTORIAMÉDICOfalta{
 
+	position: absolute;
+	top: 40%;
+	left: 60%;
+	color: #d550d8;
+	z-index: 2;
+	font-size: 9px;
+
+
+}
 
 
 
@@ -1836,7 +1855,7 @@ function escribefaltapnuevregistro(st){
 		  
 
 
-
+          <p id="idpHISTORIADENTALfalta">Falta</p>
 		  <p id="idpHISTORIADENTAL">HISTORIA DENTAL  </p>
 		  <div class="clidregistrarnueoclientea" id="idregistrarnueoclienteb">
 
@@ -1919,31 +1938,330 @@ function escribefaltapnuevregistro(st){
 				  <input  id="idnclienterelajadorgas" class="clinputmio" type="text" placeholder="¿Usted tendría algún problema en usar el relajador de gas (óxido nitroso)? " name="Telefono" required>
 		  
 		  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		  
-				  <button onclick="subeclientenuevo();" class="clsbutton" >Guardar</button>
+				  <button onclick="btgethistorialpaciente();" class="clsbutton" >Guardar</button>
+
+
+
+<script>
+
+var bollvidnclientepdentales=false;
+var bollvidnclientecvisidentista=false;
+var bollvidnclientescfuelaultmlimp=false;
+var bollvidnclientequiefuedetista=false;
+
+var bollvidnclientesatisfechultimodent=false;
+var bollvidnclientecepilladiencuantas=false;
+var bollvidnclienteusahilodent=false;
+
+//
+var bollvidnclientesusancsangran=false;
+var bollvidnclientesensibdienfrical=false;
+var bollvidnclientmandcanzada=false;
+var bollvidnclientedolorcabespalhom=false;
+
+
+
+var bollvidnclientetruenmandibula=false;
+var bollvidnclienteapredient=false;
+var bollvidnclienteprotecdiente=false;
+var bollvidnclientedienetesanosblancos=false;
+
+var bollvidnclienterelajadorgas=false;
+
+var bollvidnclientetienemieddent=false;
+
+
+
+var vidnclientepdentales="";
+var vidnclientecvisidentista="";
+var vidnclientescfuelaultmlimp="";
+var vidnclientequiefuedetista="";
+
+var vidnclientesatisfechultimodent="";
+var vidnclientecepilladiencuantas="";
+var vidnclienteusahilodent="";
+
+//
+var vidnclientesusancsangran="";
+var vidnclientesensibdienfrical="";
+var vidnclientmandcanzada="";
+var vidnclientedolorcabespalhom="";
+
+
+
+var vidnclientetruenmandibula="";
+var vidnclienteapredient="";
+var vidnclienteprotecdiente="";
+var vidnclientedienetesanosblancos="";
+
+var vidnclienterelajadorgas="";
+
+
+
+
+
+	
+
+var vidnclientetienemieddent="";
+
+
+
+
+function iniciohistorailclinipaciente(){
+	escribeenphistorialclinicapaciente("");
+	escribehistorialclinpaciente="";
+
+	bollvidnclientepdentales=false;
+	bollvidnclientecvisidentista=false;
+	bollvidnclientescfuelaultmlimp=false;
+	bollvidnclientequiefuedetista=false;
+   
+	bollvidnclientesatisfechultimodent=false;
+	bollvidnclientecepilladiencuantas=false;
+	bollvidnclienteusahilodent=false;
+   
+   //
+	bollvidnclientesusancsangran=false;
+	bollvidnclientesensibdienfrical=false;
+	bollvidnclientmandcanzada=false;
+	bollvidnclientedolorcabespalhom=false;
+   
+   
+   
+	bollvidnclientetruenmandibula=false;
+	bollvidnclienteapredient=false;
+	bollvidnclienteprotecdiente=false;
+	bollvidnclientedienetesanosblancos=false;
+   
+	bollvidnclienterelajadorgas=false;
+   
+	bollvidnclientetienemieddent=false;
+	vidnclientetienemieddent="";
+   
+   
+	vidnclientepdentales="";
+	vidnclientecvisidentista="";
+	vidnclientescfuelaultmlimp="";
+	vidnclientequiefuedetista="";
+   
+	vidnclientesatisfechultimodent="";
+	vidnclientecepilladiencuantas="";
+	vidnclienteusahilodent="";
+   
+   //
+	vidnclientesusancsangran="";
+	vidnclientesensibdienfrical="";
+	vidnclientmandcanzada="";
+	vidnclientedolorcabespalhom="";
+   
+   
+   
+	vidnclientetruenmandibula="";
+	vidnclienteapredient="";
+	vidnclienteprotecdiente="";
+	vidnclientedienetesanosblancos="";
+   
+	vidnclienterelajadorgas="";
+   
+   
+   
+
+
+}
+
+function gethistorialpaciente(){
+
+
+
+ vidnclientepdentales=document.getElementById("idnclientepdentales").value;
+ vidnclientecvisidentista=document.getElementById("idnclientecvisidentista").value;
+ vidnclientescfuelaultmlimp=document.getElementById("idnclientescfuelaultmlimp").value;
+ vidnclientequiefuedetista=document.getElementById("idnclientequiefuedetista").value;
+
+
+ vidnclientesatisfechultimodent=document.getElementById("idnclientesatisfechultimodent").value;
+	vidnclientecepilladiencuantas=document.getElementById("idnclientecepilladiencuantas").value;
+	vidnclienteusahilodent=document.getElementById("idnclienteusahilodent").value;
+
+
+	
+	vidnclientetienemieddent=document.getElementById("idnclientetienemieddent").value;
+
+
+	vidnclientesusancsangran=document.getElementById("idnclientesusancsangran").value;
+	vidnclientesensibdienfrical=document.getElementById("idnclientesensibdienfrical").value;
+	vidnclientmandcanzada=document.getElementById("idnclientmandcanzada").value;
+	vidnclientedolorcabespalhom=document.getElementById("idnclientedolorcabespalhom").value;
+   
+   
+   
+	vidnclientetruenmandibula=document.getElementById("idnclientetruenmandibula").value;
+	vidnclienteapredient=document.getElementById("idnclienteapredient").value;
+	vidnclienteprotecdiente=document.getElementById("idnclienteprotecdiente").value;
+	vidnclientedienetesanosblancos=document.getElementById("idnclientedienetesanosblancos").value;
+   
+	vidnclienterelajadorgas=document.getElementById("idnclienterelajadorgas").value;
+
+
+
+
+
+
+
+
+
+
+
+
+
+	if(vidnclientepdentales==""){ bollvidnclientepdentales=false; 	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"falta ¿Tiene problemas dentales en este momento?";}
+	else{bollvidnclientepdentales=true;}
+	if(vidnclientecvisidentista==""){ bollvidnclientecvisidentista=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"falta ¿Cuándo fue su ultima visita al dentista?";}
+	else{bollvidnclientecvisidentista=true;}
+	if(vidnclientescfuelaultmlimp==""){ bollvidnclientescfuelaultmlimp=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"falta ¿Cuándo fue su ultima visita al dentista?";}
+	else{bollvidnclientescfuelaultmlimp=true;}
+	
+	if(vidnclientequiefuedetista==""){ bollvidnclientequiefuedetista=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"falta ¿Quién fue su último dentista?";}
+	else{ bollvidnclientequiefuedetista=true;}
+	
+	
+	
+	
+	
+	if(vidnclientesatisfechultimodent==""){ bollvidnclientesatisfechultimodent=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"falta ¿Usted está satisfecho con su último dentista? ";}
+	else{ bollvidnclientesatisfechultimodent=true;}
+	
+	if(vidnclientecepilladiencuantas==""){ bollvidnclientecepilladiencuantas=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"falta ¿Cuantas veces al día se cepilla los dientes?";}
+	else{ bollvidnclientecepilladiencuantas=true;}
+	
+	if(vidnclienteusahilodent==""){ bollvidnclienteusahilodent=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"falta ¿Usa hilo dental?";}
+	else{ bollvidnclienteusahilodent=true;}
+	
+	
+	if(vidnclientetienemieddent==""){ bollvidnclientetienemieddent=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Tiene miedo visitar el dentista?";}
+	else{ bollvidnclientetienemieddent=true;}
+	
+
+
+	
+	if(vidnclientesusancsangran==""){ bollvidnclientesusancsangran=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Sus ansillas sangran o se irritan fácilmente?";}
+	else{ bollvidnclientesusancsangran=true;}
+
+	if(vidnclientesensibdienfrical==""){ bollvidnclientesensibdienfrical=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Tiene sensibilidad en los dientes al lo caliente, al frío o al dulce?";}
+	else{ bollvidnclientesensibdienfrical=true;}
+
+	if(vidnclientmandcanzada==""){ bollvidnclientmandcanzada=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Su mandíbula se siente cansada?";}
+	else{ bollvidnclientmandcanzada=true;}
+
+
+	
+	if(vidnclientedolorcabespalhom==""){ bollvidnclientedolorcabespalhom=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Usted tiene dolor de la cabeza, el cuello, los hombros o la espalda?";}
+	else{ bollvidnclientedolorcabespalhom=true;}
+
+
+
+	if(vidnclientetruenmandibula==""){ bollvidnclientetruenmandibula=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Usted le truena la mandíbula al abrir o cerrar la boca?";}
+	else{ bollvidnclientetruenmandibula=true;}
+
+
+	if(vidnclienteapredient==""){ bollvidnclienteapredient=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Usted tiene tendencia de moler o de apretar sus dientes?";}
+	else{ bollvidnclienteapredient=true;}
+
+
+	if(vidnclienteprotecdiente==""){ bollvidnclienteprotecdiente=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Si es así usted usa un Protector de Dientes/Guardia de noche?";}
+	else{ bollvidnclienteapredient=true;}
+
+
+
+   
+	if(vidnclientedienetesanosblancos==""){ bollvidnclientedienetesanosblancos=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Le gustaría mantener sus dientes sanos y blancos?";}
+	else{ bollvidnclientedienetesanosblancos=true;}
+
+
+
+
+	if(vidnclienterelajadorgas==""){ bollvidnclienterelajadorgas=false;	escribehistorialclinpaciente=escribehistorialclinpaciente+" "+"¿Usted tendría algún problema en usar el relajador de gas (óxido nitroso)?";}
+	else{ bollvidnclienterelajadorgas=true;}
+
+
+   
+
+
+
+
+
+
+}
+
+
+function btgethistorialpaciente(){
+	iniciohistorailclinipaciente();
+	gethistorialpaciente();/*
+	if(bollvidnclientepdentales&&bollvidnclientecvisidentista&&bollvidnclientescfuelaultmlimp&&bollvidnclientequiefuedetista&&   
+	bollvidnclientesatisfechultimodent&&bollvidnclientecepilladiencuantas&&bollvidnclienteusahilodent&&bollvidnclientesusancsangran&&
+	bollvidnclientesensibdienfrical&&bollvidnclientmandcanzada&&bollvidnclientedolorcabespalhom&&bollvidnclientetruenmandibula&&
+	bollvidnclienteapredient&&bollvidnclienteprotecdiente&&bollvidnclientedienetesanosblancos&&bollvidnclienterelajadorgas&&
+   	bollvidnclientetienemieddent)*/
+	if(bollvidnclientepdentales&&bollvidnclientecvisidentista){
+
+
+alert(123);
+
+		escribeenphistorialclinicapaciente("subio");
+
+	}
+	else{
+
+		escribeenphistorialclinicapaciente(escribehistorialclinpaciente);
+
+	}
+console.log(
+	
+	bollvidnclientepdentales+"     "+bollvidnclientecvisidentista+"     "+bollvidnclientescfuelaultmlimp+"     "+bollvidnclientequiefuedetista+"     "+   
+	bollvidnclientesatisfechultimodent+"     "+bollvidnclientecepilladiencuantas+"     "+bollvidnclienteusahilodent+"     "+bollvidnclientesusancsangran+"     "+
+	bollvidnclientesensibdienfrical+"     "+bollvidnclientmandcanzada+"     "+bollvidnclientedolorcabespalhom+"     "+bollvidnclientetruenmandibula+"     "+
+	bollvidnclienteapredient+"     "+bollvidnclienteprotecdiente+"     "+bollvidnclientedienetesanosblancos+"     "+bollvidnclienterelajadorgas+"     "+
+   	bollvidnclientetienemieddent
+
+
+
+	);
+
+
+console.log(
+	
+	vidnclientepdentales+"     "+vidnclientecvisidentista+"     "+vidnclientescfuelaultmlimp+"     "+vidnclientequiefuedetista+"     "+   
+	vidnclientesatisfechultimodent+"     "+vidnclientecepilladiencuantas+"     "+vidnclienteusahilodent+"     "+vidnclientesusancsangran+"     "+
+	vidnclientesensibdienfrical+"     "+vidnclientmandcanzada+"     "+vidnclientedolorcabespalhom+"     "+vidnclientetruenmandibula+"     "+
+	vidnclienteapredient+"     "+vidnclienteprotecdiente+"     "+vidnclientedienetesanosblancos+"     "+vidnclienterelajadorgas+"     "+
+   	vidnclientetienemieddent
+
+
+
+	);
+console.log(vidnclientetienemieddent);
+
+}
+
+function escribeenphistorialclinicapaciente(st){
+
+	document.getElementById("idpHISTORIADENTALfalta").innerHTML=st;
+}
+
+</script>
+
+
+
+
+		
+
+
+
+
+
+
+
 					 
 					</div>
 		  
@@ -1973,7 +2291,7 @@ function escribefaltapnuevregistro(st){
 
 
 
-
+          <p id="idpHISTORIAMÉDICOfalta">Falta </p>
 		  <p id="idpHISTORIAMÉDICO">HISTORIA MÉDICA </p>
 		  <div class="clidregistrarnueoclientea" id="iidHISTORIAMÉDICOpanel">
 
@@ -2024,23 +2342,230 @@ function escribefaltapnuevregistro(st){
 				  <label class="cllabel" for="uname"><b>¿Hay otros problemas médicos que debemos estar enterados de ellos? No ¿Si, Explique?  </b></label>
 				  <input  id="idnclienthmotrsprobl" class="clinputmio" type="text" placeholder="¿Su mandíbula se siente cansada? " name="Telefono" required>
 		  
+				  <button onclick="btdHISTORIAMÉDICOpanel();" class="clsbutton" >Guardar</button>
+
+
+
+<script>
+
+
+var bollvidnclientehmnombre=false;
+var bollvidnclientehmnumerocelumedico=false;
+var bollvidnclienteshmDireccion=false;
+var bollvidnclienteshmunmeditrata=false;
+var bollvidnclienteshmustedmedicamento=false;
+var bollvidnclientehmalergiamedimament=false;
+var bollvidnclientealegiametales=false;
+var bollvidnclientehmenferedadesseriasrecient=false;
+var bollvidnclientesustedcirugiasimport=false;
+var bollvidnclienteshmenfermedades=false;
+var bollvidnclienthmotrsprobl=false;
+
+
+
+
+
+var vidnclientehmnombre="";
+var vidnclientehmnumerocelumedico="";
+var vidnclienteshmDireccion="";
+var vidnclienteshmunmeditrata="";
+var vidnclienteshmustedmedicamento="";
+var vidnclientehmalergiamedimament="";
+var vidnclientealegiametales="";
+var vidnclientehmenferedadesseriasrecient="";
+var vidnclientesustedcirugiasimport="";
+var vidnclienteshmenfermedades="";
+var vidnclienthmotrsprobl="";
+
+
+
+
+
+
+
+var stcribeHISTORIAMÉDICOpanel="";
+
+
+function iniciiidHISTORIAMÉDICOpanel(){
+	escripiidHISTORIAMÉDICOpanel("");
+	stcribeHISTORIAMÉDICOpanel="";
+	bollvidnclientehmnombre=false;
+ bollvidnclientehmnumerocelumedico=false;
+ bollvidnclienteshmDireccion=false;
+ bollvidnclienteshmunmeditrata=false;
+ bollvidnclienteshmustedmedicamento=false;
+ bollvidnclientehmalergiamedimament=false;
+ bollvidnclientealegiametales=false;
+ bollvidnclientehmenferedadesseriasrecient=false;
+ bollvidnclientesustedcirugiasimport=false;
+ bollvidnclienteshmenfermedades=false;
+ bollvidnclienthmotrsprobl=false;
+
+
+
+
+
+ vidnclientehmnombre="";
+ vidnclientehmnumerocelumedico="";
+ vidnclienteshmDireccion="";
+ vidnclienteshmunmeditrata="";
+ vidnclienteshmustedmedicamento="";
+ vidnclientehmalergiamedimament="";
+ vidnclientealegiametales="";
+ vidnclientehmenferedadesseriasrecient="";
+ vidnclientesustedcirugiasimport="";
+ vidnclienteshmenfermedades="";
+ vidnclienthmotrsprobl="";
+
+
+
+}
+function getvaliidHISTORIAMÉDICOpanel(){
+
+
+
+ vidnclientehmnombre=document.getElementById("idnclientehmnombre").value;
+ vidnclientehmnumerocelumedico=document.getElementById("idnclientehmnumerocelumedico").value;
+ vidnclienteshmDireccion=document.getElementById("idnclienteshmDirección").value;
+ vidnclienteshmunmeditrata=document.getElementById("idnclienteshmunmeditrata").value;
+ vidnclienteshmustedmedicamento=document.getElementById("idnclienteshmustedmedicamento").value;
+ vidnclientehmalergiamedimament=document.getElementById("idnclientehmalergiamedimament").value;
+ vidnclientealegiametales=document.getElementById("idnclientealegiametales").value;
+ vidnclientehmenferedadesseriasrecient=document.getElementById("idnclientehmenferedadesseriasrecient").value;
+ vidnclientesustedcirugiasimport=document.getElementById("idnclientesustedcirugiasimport").value;
+ vidnclienteshmenfermedades=document.getElementById("idnclienteshmenfermedades").value;
+ vidnclienthmotrsprobl=document.getElementById("idnclienthmotrsprobl").value;
+
+if(vidnclientehmnombre==""){bollvidnclientehmnombre=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+" falta el nombre ";}
+else{bollvidnclientehmnombre=true;}
+
+if(vidnclientehmnumerocelumedico==""){bollvidnclientehmnumerocelumedico=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+" falta el celular del medico";}
+else{bollvidnclientehmnumerocelumedico=true;}
+
+
+if(vidnclienteshmDireccion==""){bollvidnclienteshmDireccion=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+" falta la direccion";}
+else{bollvidnclienteshmDireccion=true;}
+
+
+if(vidnclienteshmunmeditrata==""){bollvidnclienteshmunmeditrata=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+" ¿Un médico le está tratando?";}
+else{bollvidnclienteshmunmeditrata=true;}
+
+
+if(vidnclienteshmustedmedicamento==""){bollvidnclienteshmustedmedicamento=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+" ¿Usted está tomando algún medicamento?";}
+else{bollvidnclienteshmustedmedicamento=true;}
+
+
+if(vidnclientehmalergiamedimament==""){bollvidnclientehmalergiamedimament=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+" ¿Alérgia a algún medicamento?";}
+else{bollvidnclientehmalergiamedimamento=true;}
+
+
+
+if(vidnclientealegiametales==""){bollvidnclientealegiametales=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+" ¿Alérgia a los metales?";}
+else{bollvidnclientealegiametales=true;}
+
+
+
+if(vidnclientehmenferedadesseriasrecient==""){bollvidnclientehmenferedadesseriasrecient=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+"¿Enfermedades serias recientes?";}
+else{bollvidnclientehmenferedadesseriasrecient=true;}
+
+
+
+if(vidnclientesustedcirugiasimport==""){bollvidnclientesustedcirugiasimport=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+"¿Usted ha tenido cirugías importantes?";}
+else{bollvidnclientesustedcirugiasimport=true;}
+
+
+
+
+
+if(vidnclienteshmenfermedades==""){bollvidnclienteshmenfermedades=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+"¿enfermedades letales?";}
+else{bollvidnclienteshmenfermedades=true;}
+
+
+
+
+
+
+if(vidnclienthmotrsprobl==""){bollvidnclienthmotrsprobl=false;  stcribeHISTORIAMÉDICOpanel=stcribeHISTORIAMÉDICOpanel+"  "+"¿Hay otros problemas médicos que debemos estar enterados de ellos? No ¿Si, Explique?";}
+else{bollvidnclienthmotrsprobl=true;}
+
+
+
+
+
+
+
+
+}
+
+
+function btdHISTORIAMÉDICOpanel(){
+	iniciiidHISTORIAMÉDICOpanel();
+	
+	getvaliidHISTORIAMÉDICOpanel();
+if(
+
+	bollvidnclientehmnombre&&bollvidnclientehmnumerocelumedico&&
+ bollvidnclienteshmDireccion/*bollvidnclienteshmunmeditrata&&bollvidnclienteshmustedmedicamento&&
+ bollvidnclientehmalergiamedimament&&bollvidnclientealegiametales&& bollvidnclientehmenferedadesseriasrecient&&
+ bollvidnclientesustedcirugiasimport&&bollvidnclienteshmenfermedades&& bollvidnclienthmotrsprobl
+
+*/
+
+){
+	escripiidHISTORIAMÉDICOpanel("Subio");
+
+}
+else{escripiidHISTORIAMÉDICOpanel(stcribeHISTORIAMÉDICOpanel);}
+
+
+console.log( bollvidnclientehmnombre+"     "+
+ bollvidnclientehmnumerocelumedico+"     "+
+ bollvidnclienteshmDireccion+"     "+
+ bollvidnclienteshmunmeditrata+"     "+
+ bollvidnclienteshmustedmedicamento+"     "+
+ bollvidnclientehmalergiamedimament+"     "+
+ bollvidnclientealegiametales+"     "+
+ bollvidnclientehmenferedadesseriasrecient+"     "+
+ bollvidnclientesustedcirugiasimport+"     "+
+ bollvidnclienteshmenfermedades+"     "+
+ bollvidnclienthmotrsprobl);
+
+
+ console.log( vidnclientehmnombre+"     "+
+ vidnclientehmnumerocelumedico+"     "+
+ vidnclienteshmDireccion+"     "+
+ vidnclienteshmunmeditrata+"     "+
+ vidnclienteshmustedmedicamento+"     "+
+ vidnclientehmalergiamedimament+"     "+
+ vidnclientealegiametales+"     "+
+ vidnclientehmenferedadesseriasrecient+"     "+
+ vidnclientesustedcirugiasimport+"     "+
+ vidnclienteshmenfermedades+"     "+
+ vidnclienthmotrsprobl
+ );
+
+
+
+
+}
+
+function  escripiidHISTORIAMÉDICOpanel(st){
+document.getElementById("idpHISTORIAMÉDICOfalta").innerHTML=st;
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
 		  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		  
-				  <button onclick="subeclientenuevo();" class="clsbutton" >Guardar</button>
+				  
 					 
 					</div>
 		  
