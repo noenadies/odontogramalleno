@@ -1271,6 +1271,28 @@ color: #ffffff;
 }
 
 
+#idh3sinespecialista{
+
+	position: absolute;
+top: 90%;
+left: 28%;
+width: 120px;
+height: 40px;
+font-size: 20px;
+margin: auto;
+padding: 2px;
+text-align: center;
+color: #03caac;
+
+}
+
+
+
+
+
+
+
+
 #idpanelbuscaespecialista{
 
 	position: absolute;
@@ -1351,7 +1373,7 @@ text-align: center;
 }
 
 #myTablebuscespnuecli tr.header, #myTablebuscespnuecli tr:hover {
-  background-color: #f1f1f1;
+  background-color: #1e1e27;
 }
 
 
@@ -1376,15 +1398,20 @@ overflow-y: scroll;
 #idh2buscespnuecli{
 
 color: #a64097;
+font-size: 10px;
+
+
+}
+
+.cltgmyTablebuscespnuecli:hover{
+	background-color: #1e1e27;
 
 }
 
 
 
 
-
-
-		</style>
+		</style></style><script src="jquery-3.3.1.min.js"></script>
 		</head>
 		<body>
 	
@@ -1770,54 +1797,36 @@ color: #a64097;
 
 			<button id="idbtbuscaodontologosf" onclick="fidbtbuscaodontologosf();" class="clsbutton" >Buscar Especialista</button>	
 
+			<h3 id="idh3sinespecialista">Sin especialista</h3>>
+
+
+
+
 <div id="idpanelbuscaespecialista">
 <button id="idbtcerrarbuscaespacialista"  onclick="fidbtbuscaodontologosfcerrar();">X</button>
 
 
 
 
-<h2 id="idh2buscespnuecli">My Customers</h2>
+<h2 id="idh2buscespnuecli">Especialistas</h2>
 
 <input type="text" id="myInputbuscespnuecli" onkeyup="myFunctionbuscespnuecli()" placeholder="Search for names.." title="Type in a name">
 <div id="idtablebuscespnuecli">
 
 		<table id="myTablebuscespnuecli">
 				<tr class="headerbuscespnuecli">
-				  <th style="width:60%;">Name</th>
-				  <th style="width:40%;">Country</th>
+				  <th style="width:60%;">Nombre</th>
+				  <th style="width:40%;">Especialista</th>
 				</tr>
 				<tr>
-				  <td>Alfreds Futterkiste</td>
-				  <td>Germany</td>
+				  <td id="yogiovanni" onclick="fonmyTablebuscespnuecli(this);">xxxx</td>
+				  <td>ffffff</td>
 				</tr>
-				<tr>
-				  <td>Berglunds snabbkop</td>
-				  <td>Sweden</td>
-				</tr>
-				<tr>
-				  <td>Island Trading</td>
-				  <td>UK</td>
-				</tr>
-				<tr>
-				  <td>Koniglich Essen</td>
-				  <td>Germany</td>
-				</tr>
-				<tr>
-				  <td>Laughing Bacchus Winecellars</td>
-				  <td>Canada</td>
-				</tr>
-				<tr>
-				  <td>Magazzini Alimentari Riuniti</td>
-				  <td>Italy</td>
-				</tr>
-				<tr>
-				  <td>North/South</td>
-				  <td>UK</td>
-				</tr>
-				<tr>
-				  <td>Paris specialites</td>
-				  <td>France</td>
-				</tr>
+				
+					
+		
+			
+			
 			  </table>
 
 
@@ -1827,6 +1836,65 @@ color: #a64097;
 
 
 <script>
+var tarrayidfireodontologoslista=[];
+var	tarrayidfireodontologoslista2=[];
+var  elemttagsarray=[];
+var  selecionesteprofecional="";
+
+function  addelemtalatabla(){
+	//tarrayidfireodontologoslista=[];
+	tarrayidfireodontologoslista2=[];
+	for(var i  in tarrayidfireodontologoslista){
+
+
+
+var strudetablebuscespnuecli="<tr class='cltgmyTablebuscespnuecli' ><td  id="+String(tarrayidfireodontologoslista[i].idfire)+ "   onclick='fonmyTablebuscespnuecli(this);'>"+
+String(tarrayidfireodontologoslista[i].nombre)+"</td><td  >"+
+String(tarrayidfireodontologoslista[i].profesion)+"</td></tr>";
+
+
+
+
+
+
+
+
+
+
+
+
+$("#myTablebuscespnuecli").append(strudetablebuscespnuecli);
+
+
+
+
+	}//document.getElementsByTagName("tr");
+	tarrayidfireodontologoslista2=	document.getElementsByClassName("cltgmyTablebuscespnuecli");
+//	tarrayidfireodontologoslista
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function fonmyTablebuscespnuecli(thiss){
+
+	selecionesteprofecional=thiss;
+	document.getElementById("idh2buscespnuecli").innerHTML="Especialista: "+document.getElementById(thiss.id).innerText;
+}
+
 function myFunctionbuscespnuecli() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInputbuscespnuecli");
@@ -9464,12 +9532,16 @@ fvidnclientehmnombre:vidnclientehmnombre     ,
 
 
 
-var iddoctorenfire="uno";
+var iddoctorenfire="";
 
 
 
 function  llamasubeafireenregistropacientetodo(){
 
+
+	iddoctorenfire=selecionesteprofecional.id
+if(iddoctorenfireid=""||iddoctorenfire==null){}
+else{
 	firebase.database().ref().child("odontologo").child(iddoctorenfire).child("pacientes").push({
 		
 		
@@ -9481,17 +9553,58 @@ function  llamasubeafireenregistropacientetodo(){
 	
 	
 	});
+
+
+}
+
 }
 
 
 function fidbtbuscaodontologosf(){
 
+
+
+
+firebase.database().ref().child("idfireodontologoslista").once("value", function(snapshot) { 
+    //console.log(snapshot.key + " was " + snapshot.val()+ " meters tall");
+
+	tarrayidfireodontologoslista=[];
+	tarrayidfireodontologoslista=snapshot.val();
 	document.getElementById("idpanelbuscaespecialista").style.display="block";
+	addelemtalatabla();
+
+
+  
+  });
+
+
+
+
+
+
 }
 
 function fidbtbuscaodontologosfcerrar(){
+	//$("#myTablebuscespnuecli").empty();
+
+
+//alert(selecionesteprofecional.id);
+	for(var i in tarrayidfireodontologoslista2){
+
+try {tarrayidfireodontologoslista2[i].remove();
+
+} catch (error) {
+	
+}
+
+
+
+}
 
 document.getElementById("idpanelbuscaespecialista").style.display="none";
+document.getElementById("idh3sinespecialista").innerHTML=selecionesteprofecional.innerText;
+
+
 }
 
 		
