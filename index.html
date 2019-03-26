@@ -1279,9 +1279,18 @@ left: 70%;
 width: 30%;
 height: 40%;
 transform: translate(-50%,-50%);
-background-color: #1e8bf8;
+background-color: #27293d;
 
 z-index: 40;
+
+
+-webkit-box-shadow: 5px 5px 15px 5px #2676f6;
+box-shadow: 5px 5px 15px 5px #2676f6,
+
+
+
+
+
 
 }
 
@@ -1304,6 +1313,73 @@ margin: auto;
 text-align: center;
 
 }
+
+
+
+
+
+
+#myInputbuscespnuecli {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+
+  color: #819db1;
+  background-color: #27293d;
+}
+
+#myTablebuscespnuecli {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTablebuscespnuecli th, #myTablebuscespnuecli td {
+  text-align: left;
+  padding: 12px;
+  color: #02cfaf;
+}
+
+#myTablebuscespnuecli tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTablebuscespnuecli tr.header, #myTablebuscespnuecli tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+
+#idtablebuscespnuecli{
+
+
+position: relative;
+top: 0%;
+left: 0%;
+width: 100%;
+height: 70%;
+overflow-y: scroll;
+
+}
+
+
+
+
+
+#idh2buscespnuecli{
+
+color: #a64097;
+
+}
+
+
 
 
 
@@ -1696,6 +1772,85 @@ text-align: center;
 
 <div id="idpanelbuscaespecialista">
 <button id="idbtcerrarbuscaespacialista"  onclick="fidbtbuscaodontologosfcerrar();">X</button>
+
+
+
+
+<h2 id="idh2buscespnuecli">My Customers</h2>
+
+<input type="text" id="myInputbuscespnuecli" onkeyup="myFunctionbuscespnuecli()" placeholder="Search for names.." title="Type in a name">
+<div id="idtablebuscespnuecli">
+
+		<table id="myTablebuscespnuecli">
+				<tr class="headerbuscespnuecli">
+				  <th style="width:60%;">Name</th>
+				  <th style="width:40%;">Country</th>
+				</tr>
+				<tr>
+				  <td>Alfreds Futterkiste</td>
+				  <td>Germany</td>
+				</tr>
+				<tr>
+				  <td>Berglunds snabbkop</td>
+				  <td>Sweden</td>
+				</tr>
+				<tr>
+				  <td>Island Trading</td>
+				  <td>UK</td>
+				</tr>
+				<tr>
+				  <td>Koniglich Essen</td>
+				  <td>Germany</td>
+				</tr>
+				<tr>
+				  <td>Laughing Bacchus Winecellars</td>
+				  <td>Canada</td>
+				</tr>
+				<tr>
+				  <td>Magazzini Alimentari Riuniti</td>
+				  <td>Italy</td>
+				</tr>
+				<tr>
+				  <td>North/South</td>
+				  <td>UK</td>
+				</tr>
+				<tr>
+				  <td>Paris specialites</td>
+				  <td>France</td>
+				</tr>
+			  </table>
+
+
+
+
+</div>
+
+
+<script>
+function myFunctionbuscespnuecli() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInputbuscespnuecli");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTablebuscespnuecli");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+
+
+
+
 
 </div>
 
