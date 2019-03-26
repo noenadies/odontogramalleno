@@ -1410,6 +1410,21 @@ font-size: 10px;
 
 
 
+#idpanelbuscadorpacientesporodontolo{
+	position: absolute;
+	top: 10%;
+	left: 15%;
+	height: 80%;
+	width: 70%;
+	background-color: #02cfaf;
+	z-index: 3;
+}
+
+
+
+
+
+
 
 		</style></style><script src="jquery-3.3.1.min.js"></script>
 		</head>
@@ -1429,6 +1444,573 @@ font-size: 10px;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+	  
+	<div id="idpanelnievcliente">
+	  
+	  
+
+		<button id="ididpanelnievclient" onclick="llamasubeafireenregistropacientetodo();" class="clsbutton" >Guarda ok</button>	
+				
+
+
+		<button id="idbtbuscaodontologosf" onclick="fidbtbuscaodontologosf();" class="clsbutton" >Buscar Especialista</button>	
+
+		<h3 id="idh3sinespecialista">Sin especialista</h3>>
+
+
+
+
+<div id="idpanelbuscaespecialista">
+<button id="idbtcerrarbuscaespacialista"  onclick="fidbtbuscaodontologosfcerrar();">X</button>
+
+
+
+
+<h2 id="idh2buscespnuecli">Especialistas</h2>
+
+<input type="text" id="myInputbuscespnuecli" onkeyup="myFunctionbuscespnuecli()" placeholder="Search for names.." title="Type in a name">
+<div id="idtablebuscespnuecli">
+
+	<table id="myTablebuscespnuecli">
+			<tr class="headerbuscespnuecli">
+			  <th style="width:60%;">Nombre</th>
+			  <th style="width:40%;">Especialista</th>
+			</tr>
+	
+			
+				
+	
+		
+		
+		  </table>
+
+
+
+
+</div>
+
+
+<script>
+var tarrayidfireodontologoslista=[];
+var	tarrayidfireodontologoslista2=[];
+var  elemttagsarray=[];
+var  selecionesteprofecional="";
+
+function  addelemtalatabla(){
+//tarrayidfireodontologoslista=[];
+tarrayidfireodontologoslista2=[];
+for(var i  in tarrayidfireodontologoslista){
+
+
+
+var strudetablebuscespnuecli="<tr class='cltgmyTablebuscespnuecli' ><td  id="+String(tarrayidfireodontologoslista[i].idfire)+ "   onclick='fonmyTablebuscespnuecli(this);'>"+
+String(tarrayidfireodontologoslista[i].nombre)+"</td><td  >"+
+String(tarrayidfireodontologoslista[i].profesion)+"</td></tr>";
+
+
+
+
+
+
+
+
+
+
+
+
+$("#myTablebuscespnuecli").append(strudetablebuscespnuecli);
+
+
+
+
+}//document.getElementsByTagName("tr");
+tarrayidfireodontologoslista2=	document.getElementsByClassName("cltgmyTablebuscespnuecli");
+//	tarrayidfireodontologoslista
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function fonmyTablebuscespnuecli(thiss){
+
+selecionesteprofecional=thiss;
+document.getElementById("idh2buscespnuecli").innerHTML="Especialista: "+document.getElementById(thiss.id).innerText;
+}
+
+function myFunctionbuscespnuecli() {
+var input, filter, table, tr, td, i, txtValue;
+input = document.getElementById("myInputbuscespnuecli");
+filter = input.value.toUpperCase();
+table = document.getElementById("myTablebuscespnuecli");
+tr = table.getElementsByTagName("tr");
+for (i = 0; i < tr.length; i++) {
+td = tr[i].getElementsByTagName("td")[0];
+if (td) {
+  txtValue = td.textContent || td.innerText;
+  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	tr[i].style.display = "";
+  } else {
+	tr[i].style.display = "none";
+  }
+}       
+}
+}
+</script>
+
+
+
+
+
+
+</div>
+
+
+
+  
+	   <p id="idh3registropaintefalta">Falta</p>
+		<p id="idh3registropainte">REGISTRO PACIENTE </p>
+	  <div class="clidregistrarnueoclientea" id="idregistrarnueoclientea">
+
+		  <div class="container">
+			  <label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
+			  <input  id="idnclientenombre"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
+	  
+			  <label  class="cllabel" for="uname"><b>TI o Cedula</b></label>
+			  <input  id="idnclientecedula"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>Fecha  de  nacimiento</b></label>
+			  <input  id="idnclientefechanacimiento" class="clinputmio" type="text" placeholder="Fecha de  nacimiento" name="RFC" required>
+	  
+			  <label class="cllabel" for="uname"><b>Sexo</b></label>
+			  <input  id="idnclientesexo" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>Direccion</b></label>
+			  <input  id="idnclienteDireccion" class="clinputmio" type="text" placeholder="Direccion" name="RFC" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
+			  <input   id="idnclienteemail"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
+	  
+			  <label class="cllabel" for="uname"><b>Celular paciente </b></label>
+			  <input  id="idnclientecelular" class="clinputmio" type="text" placeholder="Celular" name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>Contacto de  emergencia </b></label>
+			  <input  id="idnclienteContactodeemergencia" class="clinputmio" type="text" placeholder="Contacto de  emergencia" name="Telefono" required>
+	  
+			  <label class="cllabel" for="uname"><b>No Contacto de  emergencia </b></label>
+			  <input  id="idnclientenoContactodeemergencia" class="clinputmio" type="text" placeholder="No Contacto de  emergencia" name="Telefono" required>
+	  
+	  
+			  <button onclick="nuevoclietellamasi();" class="clsbutton" >Guardar</button>	
+				 
+				</div>
+
+
+
+
+	  
+	  </div>
+
+
+
+	  <p id="idhpINFORMACIÓNPADREOTUTORfalta">Falta</p>
+	  <p id="idhpINFORMACIÓNPADREOTUTOR">INFORMACIÓN PADRE O TUTOR </p>
+	  <div class="clidregistrarnueoclientea" id="idINFORMACIÓNPADREOTUTOR">
+
+		  <div class="container">
+			  <label  class="cllabel" for="uname"><b>Nombre </b></label>
+			  <input  id="idnclienteresponsabilidadfinanciera"  class="clinputmio" type="text" placeholder="Responsabilidadfinanciera" name="Nombre" required>
+	  
+		
+			  <label class="cllabel" for="uname"><b>Sexo</b></label>
+			  <input  id="idnclientesexot" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
+	  
+			  <label class="cllabel" for="uname"><b>Relación de paciente </b></label>
+			  <input  id="idnclienteRelacióndepaciente" class="clinputmio" type="text" placeholder="Relación de paciente" name="Telefono" required>
+	  
+	  
+
+
+			  <label class="cllabel" for="uname"><b>Direccion Empleo</b></label>
+			  <input  id="idnclienteDireccionE" class="clinputmio" type="text" placeholder="Direccion empleo" name="RFC" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>Direccion casa</b></label>
+			  <input  id="idnclienteDireccionC" class="clinputmio" type="text" placeholder="Direccion casa" name="RFC" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
+			  <input   id="idnclienteemailt"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
+	  
+			  <label class="cllabel" for="uname"><b>Celular del Tutor </b></label>
+			  <input  id="idnclientecelulartutor" class="clinputmio" type="text" placeholder="Celular Tutor" name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>Ocupacion </b></label>
+			  <input  id="idnclienteOcupaciontutor" class="clinputmio" type="text" placeholder="Ocupacion" name="Telefono" required>
+	  
+			  <button onclick="btidINFORMACIÓNPADREOTUTOR();" class="clsbutton" >Guardar</button>
+			
+
+
+
+				
+				 
+				</div>
+	  
+	  
+	  </div>
+
+
+
+
+
+	  
+
+
+	  <p id="idpHISTORIADENTALfalta">Falta</p>
+	  <p id="idpHISTORIADENTAL">HISTORIA DENTAL  </p>
+	  <div class="clidregistrarnueoclientea" id="idregistrarnueoclienteb">
+
+		  <div class="container">
+			  <label  class="cllabel" for="uname"><b>¿Tiene problemas dentales en este momento? </b></label>
+			  <input  id="idnclientepdentales"  class="clinputmio" type="text" placeholder="¿Tiene problemas dentales en este momento?" name="Nombre" required>
+	  
+			  <label class="cllabel" for="uname"><b>¿Cuándo fue su ultima visita al dentista?</b></label>
+			  <input  id="idnclientecvisidentista" class="clinputmio" type="text" placeholder="¿Cuándo fue su ultima visita al dentista?" name="RFC" required>
+	  
+			  <label class="cllabel" for="uname"><b>¿Cuándo fue la última limpieza de dientes? </b></label>
+			  <input  id="idnclientescfuelaultmlimp" class="clinputmio" type="text" placeholder="¿Cuándo fue la última limpieza de dientes? " name="DomicilioFiscal" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>¿Quién fue su último dentista?</b></label>
+			  <input  id="idnclientequiefuedetista" class="clinputmio" type="text" placeholder="¿Quién fue su último dentista?" name="RFC" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>¿Usted está satisfecho con su último dentista? </b></label>
+			  <input   id="idnclientesatisfechultimodent"   class="clinputmio" type="text" placeholder="¿Usted está satisfecho con su último dentista? " name="Correoelectronico" required>
+	  
+			  <label class="cllabel" for="uname"><b>¿Cuantas veces al día se cepilla los dientes? </b></label>
+			  <input  id="idnclientecepilladiencuantas" class="clinputmio" type="text" placeholder="¿Cuantas veces al día se cepilla los dientes? " name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>¿Usa hilo dental?</b></label>
+			  <input  id="idnclienteusahilodent" class="clinputmio" type="text" placeholder="¿Usa hilo dental?" name="Telefono" required>
+	  
+			  <label class="cllabel" for="uname"><b>¿Tiene miedo visitar el dentista?  </b></label>
+			  <input  id="idnclientetienemieddent" class="clinputmio" type="text" placeholder="¿Tiene miedo visitar el dentista?" name="Telefono" required>
+	  
+
+
+
+
+
+
+			  <label class="cllabel" for="uname"><b>¿Sus ansillas sangran o se irritan fácilmente?   </b></label>
+			  <input  id="idnclientesusancsangran" class="clinputmio" type="text" placeholder="¿Sus ansillas sangran o se irritan fácilmente?" name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>¿Tiene sensibilidad en los dientes al lo caliente, al frío o al dulce? </b></label>
+			  <input  id="idnclientesensibdienfrical" class="clinputmio" type="text" placeholder="¿Tiene sensibilidad en los dientes al lo caliente, al frío o al dulce?" name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>¿Su mandíbula se siente cansada? </b></label>
+			  <input  id="idnclientmandcanzada" class="clinputmio" type="text" placeholder="¿Su mandíbula se siente cansada? " name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>¿Usted tiene dolor de la cabeza, el cuello, los hombros o la espalda? </b></label>
+			  <input  id="idnclientedolorcabespalhom" class="clinputmio" type="text" placeholder="¿Usted tiene dolor de la cabeza, el cuello, los hombros o la espalda? " name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>¿Usted le truena la mandíbula al abrir o cerrar la boca? </b></label>
+			  <input  id="idnclientetruenmandibula" class="clinputmio" type="text" placeholder="¿Usted le truena la mandíbula al abrir o cerrar la boca? " name="Telefono" required>
+	  
+	  
+
+
+			  <label class="cllabel" for="uname"><b>¿Usted tiene tendencia de moler o de apretar sus dientes?</b></label>
+			  <input  id="idnclienteapredient" class="clinputmio" type="text" placeholder="¿Usted tiene tendencia de moler o de apretar sus dientes?" name="Telefono" required>
+	  
+	  
+
+
+
+			  <label class="cllabel" for="uname"><b> ¿Si es así usted usa un Protector de Dientes/Guardia de noche? </b></label>
+			  <input  id="idnclienteprotecdiente" class="clinputmio" type="text" placeholder=" ¿Si es así usted usa un Protector de Dientes/Guardia de noche?" name="Telefono" required>
+	  
+		
+			  <label class="cllabel" for="uname"><b>¿Le gustaría mantener sus dientes sanos y blancos? </b></label>
+			  <input  id="idnclientedienetesanosblancos" class="clinputmio" type="text" placeholder="¿Le gustaría mantener sus dientes sanos y blancos? " name="Telefono" required>
+	  
+	  
+
+
+			  <label class="cllabel" for="uname"><b>¿Usted tendría algún problema en usar el relajador de gas (óxido nitroso)?  </b></label>
+			  <input  id="idnclienterelajadorgas" class="clinputmio" type="text" placeholder="¿Usted tendría algún problema en usar el relajador de gas (óxido nitroso)? " name="Telefono" required>
+	  
+	  
+	  
+			  <button onclick="btgethistorialpaciente();" class="clsbutton" >Guardar</button>
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+				 
+				</div>
+	  
+	  
+	  </div> <!-- fin de  minipanel historialclinica -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  <p id="idpHISTORIAMÉDICOfalta">Falta </p>
+	  <p id="idpHISTORIAMÉDICO">HISTORIA MÉDICA </p>
+	  <div class="clidregistrarnueoclientea" id="iidHISTORIAMÉDICOpanel">
+
+		  <div class="container">
+			  <label  class="cllabel" for="uname"><b>Nombre Del Médico: </b></label>
+			  <input  id="idnclientehmnombre"  class="clinputmio" type="text" placeholder="Nombre Del Médico" name="Nombre" required>
+	  
+			  <label class="cllabel" for="uname"><b>Número del celular de médico</b></label>
+			  <input  id="idnclientehmnumerocelumedico" class="clinputmio" type="text" placeholder="Número De Teléfono De Médico" name="RFC" required>
+	  
+			  <label class="cllabel" for="uname"><b>Dirección</b></label>
+			  <input  id="idnclienteshmDirección" class="clinputmio" type="text" placeholder="Dirección" name="DomicilioFiscal" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>¿Un médico le está tratando?</b></label>
+			  <input  id="idnclienteshmunmeditrata" class="clinputmio" type="text" placeholder="¿Un médico le está tratando?" name="RFC" required>
+	  
+
+
+			  <label class="cllabel" for="uname"><b>¿Usted está tomando algún medicamento? </b></label>
+			  <input   id="idnclienteshmustedmedicamento"   class="clinputmio" type="text" placeholder="¿Usted está tomando algún medicamento?" name="Correoelectronico" required>
+	  
+			  <label class="cllabel" for="uname"><b>¿Alérgia a algún medicamento?</b></label>
+			  <input  id="idnclientehmalergiamedimament" class="clinputmio" type="text" placeholder="¿Alérgia a algún medicamento?" name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>¿Alérgia a los metales?</b></label>
+			  <input  id="idnclientealegiametales" class="clinputmio" type="text" placeholder="¿Alérgia a los metales?" name="Telefono" required>
+	  
+			  <label class="cllabel" for="uname"><b>¿Enfermedades serias recientes?</b></label>
+			  <input  id="idnclientehmenferedadesseriasrecient" class="clinputmio" type="text" placeholder="¿Enfermedades serias recientes?" name="Telefono" required>
+	  
+
+
+
+
+
+
+			  <label class="cllabel" for="uname"><b>¿Usted ha tenido cirugías importantes? </b></label>
+			  <input  id="idnclientesustedcirugiasimport" class="clinputmio" type="text" placeholder="¿Usted ha tenido cirugías importantes?" name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>Problemas Del Corazón Embolia Alta Presión Diabetes Fiebre Reumática Desórdenes Del Ojo Desorden De Riñones Tumores o Crecimientos Sangrado Frecuente Tuberculosis Asma Epilepsia Enfermedad Venéaria SIDA (VIH +) Convulsiones Glaucoma Soplo del corazón Artritis Actualmente Embarazada Úlceras Condición De la Tiroides Marcapasos Del Corazón Radioterapia Fumar/Tabaco Problemas Respiratorios Prótesis Alérgico a Anestesia Sensibilidad Del Látex Desmayos Frecuentes Válvula Artificial Del Corazón Píldororas Anti-Conceptivas Fuegos Labiales Problemas Del Estómago/ Intestino Cuidado Psiquiátrico/ Psicológico</b></label>
+			  <input  id="idnclienteshmenfermedades" class="clinputmio" type="text" placeholder="¿Tiene sensibilidad en los dientes al lo caliente, al frío o al dulce?" name="Telefono" required>
+	  
+	  
+			  <label class="cllabel" for="uname"><b>¿Hay otros problemas médicos que debemos estar enterados de ellos? No ¿Si, Explique?  </b></label>
+			  <input  id="idnclienthmotrsprobl" class="clinputmio" type="text" placeholder="¿Su mandíbula se siente cansada? " name="Telefono" required>
+	  
+			  <button onclick="btdHISTORIAMÉDICOpanel();" class="clsbutton" >Guardar</button>
+
+
+
+
+
+
+
+
+
+
+
+	  
+			  
+				 
+				</div>
+	  
+	  
+	  </div> <!-- fin HISTORIA MÉDICO -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</div>   <!-- idpanelnievcliente  -->
+	  
+	  
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--el buscador pasientes  por odontologos-->
+
+
+
+<div id="idpanelbuscadorpacientesporodontolo"></div>
 
 
 
@@ -1752,7 +2334,22 @@ font-size: 10px;
 		</div>
 	  
 	  
-		<a href="#contact">Search</a>
+		<a href="#" onclick="fidpanelbuscadorpacientesporodontolo();">Buscar Pacientes</a>
+		<script>
+		
+		function fidpanelbuscadorpacientesporodontolo(){
+
+			document.getElementById("idpanelnuevoodontologo").style.display="none";
+      document.getElementById("enviarcorreo").style.display="none";
+      document.getElementById("idmarketing").style.display="none";
+      document.getElementById("elpaneldeodontograma").style.display="none";
+	  document.getElementById("idpanelnievcliente").style.display="none";
+
+	 // document.getElementById("iddivsuperloginmenu").style.display="none";
+	  document.getElementById("elpaneldeodontograma").style.display="nonne";
+			document.getElementById("idpanelbuscadorpacientesporodontolo").style.display="block";
+		}
+		</script>
 	  
 		<a href="#about">About</a>
 		<a  onclick="odontogramair();">Odontograma</a>
@@ -1785,481 +2382,7 @@ font-size: 10px;
 	  
 	  
 	  
-	  
-	  
-	  <div id="idpanelnievcliente">
-	  
-	  
 
-			<button id="ididpanelnievclient" onclick="llamasubeafireenregistropacientetodo();" class="clsbutton" >Guarda ok</button>	
-					
-
-
-			<button id="idbtbuscaodontologosf" onclick="fidbtbuscaodontologosf();" class="clsbutton" >Buscar Especialista</button>	
-
-			<h3 id="idh3sinespecialista">Sin especialista</h3>>
-
-
-
-
-<div id="idpanelbuscaespecialista">
-<button id="idbtcerrarbuscaespacialista"  onclick="fidbtbuscaodontologosfcerrar();">X</button>
-
-
-
-
-<h2 id="idh2buscespnuecli">Especialistas</h2>
-
-<input type="text" id="myInputbuscespnuecli" onkeyup="myFunctionbuscespnuecli()" placeholder="Search for names.." title="Type in a name">
-<div id="idtablebuscespnuecli">
-
-		<table id="myTablebuscespnuecli">
-				<tr class="headerbuscespnuecli">
-				  <th style="width:60%;">Nombre</th>
-				  <th style="width:40%;">Especialista</th>
-				</tr>
-				<tr>
-				  <td id="yogiovanni" onclick="fonmyTablebuscespnuecli(this);">xxxx</td>
-				  <td>ffffff</td>
-				</tr>
-				
-					
-		
-			
-			
-			  </table>
-
-
-
-
-</div>
-
-
-<script>
-var tarrayidfireodontologoslista=[];
-var	tarrayidfireodontologoslista2=[];
-var  elemttagsarray=[];
-var  selecionesteprofecional="";
-
-function  addelemtalatabla(){
-	//tarrayidfireodontologoslista=[];
-	tarrayidfireodontologoslista2=[];
-	for(var i  in tarrayidfireodontologoslista){
-
-
-
-var strudetablebuscespnuecli="<tr class='cltgmyTablebuscespnuecli' ><td  id="+String(tarrayidfireodontologoslista[i].idfire)+ "   onclick='fonmyTablebuscespnuecli(this);'>"+
-String(tarrayidfireodontologoslista[i].nombre)+"</td><td  >"+
-String(tarrayidfireodontologoslista[i].profesion)+"</td></tr>";
-
-
-
-
-
-
-
-
-
-
-
-
-$("#myTablebuscespnuecli").append(strudetablebuscespnuecli);
-
-
-
-
-	}//document.getElementsByTagName("tr");
-	tarrayidfireodontologoslista2=	document.getElementsByClassName("cltgmyTablebuscespnuecli");
-//	tarrayidfireodontologoslista
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-function fonmyTablebuscespnuecli(thiss){
-
-	selecionesteprofecional=thiss;
-	document.getElementById("idh2buscespnuecli").innerHTML="Especialista: "+document.getElementById(thiss.id).innerText;
-}
-
-function myFunctionbuscespnuecli() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInputbuscespnuecli");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTablebuscespnuecli");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
-
-
-
-
-
-
-</div>
-
-
-
-	  
-		   <p id="idh3registropaintefalta">Falta</p>
-			<p id="idh3registropainte">REGISTRO PACIENTE </p>
-		  <div class="clidregistrarnueoclientea" id="idregistrarnueoclientea">
-
-			  <div class="container">
-				  <label  class="cllabel" for="uname"><b>Nombre Completo</b></label>
-				  <input  id="idnclientenombre"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
-		  
-				  <label  class="cllabel" for="uname"><b>TI o Cedula</b></label>
-				  <input  id="idnclientecedula"  class="clinputmio" type="text" placeholder="Nombre Completo" name="Nombre" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>Fecha  de  nacimiento</b></label>
-				  <input  id="idnclientefechanacimiento" class="clinputmio" type="text" placeholder="Fecha de  nacimiento" name="RFC" required>
-		  
-				  <label class="cllabel" for="uname"><b>Sexo</b></label>
-				  <input  id="idnclientesexo" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>Direccion</b></label>
-				  <input  id="idnclienteDireccion" class="clinputmio" type="text" placeholder="Direccion" name="RFC" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
-				  <input   id="idnclienteemail"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
-		  
-				  <label class="cllabel" for="uname"><b>Celular paciente </b></label>
-				  <input  id="idnclientecelular" class="clinputmio" type="text" placeholder="Celular" name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>Contacto de  emergencia </b></label>
-				  <input  id="idnclienteContactodeemergencia" class="clinputmio" type="text" placeholder="Contacto de  emergencia" name="Telefono" required>
-		  
-				  <label class="cllabel" for="uname"><b>No Contacto de  emergencia </b></label>
-				  <input  id="idnclientenoContactodeemergencia" class="clinputmio" type="text" placeholder="No Contacto de  emergencia" name="Telefono" required>
-		  
-		  
-				  <button onclick="nuevoclietellamasi();" class="clsbutton" >Guardar</button>	
-					 
-					</div>
-
-
-
-
-		  
-		  </div>
-
-
-
-          <p id="idhpINFORMACIÓNPADREOTUTORfalta">Falta</p>
-		  <p id="idhpINFORMACIÓNPADREOTUTOR">INFORMACIÓN PADRE O TUTOR </p>
-		  <div class="clidregistrarnueoclientea" id="idINFORMACIÓNPADREOTUTOR">
-
-			  <div class="container">
-				  <label  class="cllabel" for="uname"><b>Nombre </b></label>
-				  <input  id="idnclienteresponsabilidadfinanciera"  class="clinputmio" type="text" placeholder="Responsabilidadfinanciera" name="Nombre" required>
-		  
-			
-				  <label class="cllabel" for="uname"><b>Sexo</b></label>
-				  <input  id="idnclientesexot" class="clinputmio" type="text" placeholder="Sexo" name="DomicilioFiscal" required>
-		  
-				  <label class="cllabel" for="uname"><b>Relación de paciente </b></label>
-				  <input  id="idnclienteRelacióndepaciente" class="clinputmio" type="text" placeholder="Relación de paciente" name="Telefono" required>
-		  
-		  
-
-
-				  <label class="cllabel" for="uname"><b>Direccion Empleo</b></label>
-				  <input  id="idnclienteDireccionE" class="clinputmio" type="text" placeholder="Direccion empleo" name="RFC" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>Direccion casa</b></label>
-				  <input  id="idnclienteDireccionC" class="clinputmio" type="text" placeholder="Direccion casa" name="RFC" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>Correo electronico</b></label>
-				  <input   id="idnclienteemailt"   class="clinputmio" type="text" placeholder="email" name="Correoelectronico" required>
-		  
-				  <label class="cllabel" for="uname"><b>Celular del Tutor </b></label>
-				  <input  id="idnclientecelulartutor" class="clinputmio" type="text" placeholder="Celular Tutor" name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>Ocupacion </b></label>
-				  <input  id="idnclienteOcupaciontutor" class="clinputmio" type="text" placeholder="Ocupacion" name="Telefono" required>
-		  
-				  <button onclick="btidINFORMACIÓNPADREOTUTOR();" class="clsbutton" >Guardar</button>
-				
-
-
-
-					
-					 
-					</div>
-		  
-		  
-		  </div>
-
-
-
-
-
-		  
-
-
-          <p id="idpHISTORIADENTALfalta">Falta</p>
-		  <p id="idpHISTORIADENTAL">HISTORIA DENTAL  </p>
-		  <div class="clidregistrarnueoclientea" id="idregistrarnueoclienteb">
-
-			  <div class="container">
-				  <label  class="cllabel" for="uname"><b>¿Tiene problemas dentales en este momento? </b></label>
-				  <input  id="idnclientepdentales"  class="clinputmio" type="text" placeholder="¿Tiene problemas dentales en este momento?" name="Nombre" required>
-		  
-				  <label class="cllabel" for="uname"><b>¿Cuándo fue su ultima visita al dentista?</b></label>
-				  <input  id="idnclientecvisidentista" class="clinputmio" type="text" placeholder="¿Cuándo fue su ultima visita al dentista?" name="RFC" required>
-		  
-				  <label class="cllabel" for="uname"><b>¿Cuándo fue la última limpieza de dientes? </b></label>
-				  <input  id="idnclientescfuelaultmlimp" class="clinputmio" type="text" placeholder="¿Cuándo fue la última limpieza de dientes? " name="DomicilioFiscal" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>¿Quién fue su último dentista?</b></label>
-				  <input  id="idnclientequiefuedetista" class="clinputmio" type="text" placeholder="¿Quién fue su último dentista?" name="RFC" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>¿Usted está satisfecho con su último dentista? </b></label>
-				  <input   id="idnclientesatisfechultimodent"   class="clinputmio" type="text" placeholder="¿Usted está satisfecho con su último dentista? " name="Correoelectronico" required>
-		  
-				  <label class="cllabel" for="uname"><b>¿Cuantas veces al día se cepilla los dientes? </b></label>
-				  <input  id="idnclientecepilladiencuantas" class="clinputmio" type="text" placeholder="¿Cuantas veces al día se cepilla los dientes? " name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>¿Usa hilo dental?</b></label>
-				  <input  id="idnclienteusahilodent" class="clinputmio" type="text" placeholder="¿Usa hilo dental?" name="Telefono" required>
-		  
-				  <label class="cllabel" for="uname"><b>¿Tiene miedo visitar el dentista?  </b></label>
-				  <input  id="idnclientetienemieddent" class="clinputmio" type="text" placeholder="¿Tiene miedo visitar el dentista?" name="Telefono" required>
-		  
-
-
-
-
-
-
-				  <label class="cllabel" for="uname"><b>¿Sus ansillas sangran o se irritan fácilmente?   </b></label>
-				  <input  id="idnclientesusancsangran" class="clinputmio" type="text" placeholder="¿Sus ansillas sangran o se irritan fácilmente?" name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>¿Tiene sensibilidad en los dientes al lo caliente, al frío o al dulce? </b></label>
-				  <input  id="idnclientesensibdienfrical" class="clinputmio" type="text" placeholder="¿Tiene sensibilidad en los dientes al lo caliente, al frío o al dulce?" name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>¿Su mandíbula se siente cansada? </b></label>
-				  <input  id="idnclientmandcanzada" class="clinputmio" type="text" placeholder="¿Su mandíbula se siente cansada? " name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>¿Usted tiene dolor de la cabeza, el cuello, los hombros o la espalda? </b></label>
-				  <input  id="idnclientedolorcabespalhom" class="clinputmio" type="text" placeholder="¿Usted tiene dolor de la cabeza, el cuello, los hombros o la espalda? " name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>¿Usted le truena la mandíbula al abrir o cerrar la boca? </b></label>
-				  <input  id="idnclientetruenmandibula" class="clinputmio" type="text" placeholder="¿Usted le truena la mandíbula al abrir o cerrar la boca? " name="Telefono" required>
-		  
-		  
-
-  
-				  <label class="cllabel" for="uname"><b>¿Usted tiene tendencia de moler o de apretar sus dientes?</b></label>
-				  <input  id="idnclienteapredient" class="clinputmio" type="text" placeholder="¿Usted tiene tendencia de moler o de apretar sus dientes?" name="Telefono" required>
-		  
-		  
-
-
-  
-				  <label class="cllabel" for="uname"><b> ¿Si es así usted usa un Protector de Dientes/Guardia de noche? </b></label>
-				  <input  id="idnclienteprotecdiente" class="clinputmio" type="text" placeholder=" ¿Si es así usted usa un Protector de Dientes/Guardia de noche?" name="Telefono" required>
-		  
-		    
-				  <label class="cllabel" for="uname"><b>¿Le gustaría mantener sus dientes sanos y blancos? </b></label>
-				  <input  id="idnclientedienetesanosblancos" class="clinputmio" type="text" placeholder="¿Le gustaría mantener sus dientes sanos y blancos? " name="Telefono" required>
-		  
-		  
-
-  
-				  <label class="cllabel" for="uname"><b>¿Usted tendría algún problema en usar el relajador de gas (óxido nitroso)?  </b></label>
-				  <input  id="idnclienterelajadorgas" class="clinputmio" type="text" placeholder="¿Usted tendría algún problema en usar el relajador de gas (óxido nitroso)? " name="Telefono" required>
-		  
-		  
-		  
-				  <button onclick="btgethistorialpaciente();" class="clsbutton" >Guardar</button>
-
-
-
-
-
-
-		
-
-
-
-
-
-
-
-					 
-					</div>
-		  
-		  
-		  </div> <!-- fin de  minipanel historialclinica -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <p id="idpHISTORIAMÉDICOfalta">Falta </p>
-		  <p id="idpHISTORIAMÉDICO">HISTORIA MÉDICA </p>
-		  <div class="clidregistrarnueoclientea" id="iidHISTORIAMÉDICOpanel">
-
-			  <div class="container">
-				  <label  class="cllabel" for="uname"><b>Nombre Del Médico: </b></label>
-				  <input  id="idnclientehmnombre"  class="clinputmio" type="text" placeholder="Nombre Del Médico" name="Nombre" required>
-		  
-				  <label class="cllabel" for="uname"><b>Número del celular de médico</b></label>
-				  <input  id="idnclientehmnumerocelumedico" class="clinputmio" type="text" placeholder="Número De Teléfono De Médico" name="RFC" required>
-		  
-				  <label class="cllabel" for="uname"><b>Dirección</b></label>
-				  <input  id="idnclienteshmDirección" class="clinputmio" type="text" placeholder="Dirección" name="DomicilioFiscal" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>¿Un médico le está tratando?</b></label>
-				  <input  id="idnclienteshmunmeditrata" class="clinputmio" type="text" placeholder="¿Un médico le está tratando?" name="RFC" required>
-		  
-
-
-				  <label class="cllabel" for="uname"><b>¿Usted está tomando algún medicamento? </b></label>
-				  <input   id="idnclienteshmustedmedicamento"   class="clinputmio" type="text" placeholder="¿Usted está tomando algún medicamento?" name="Correoelectronico" required>
-		  
-				  <label class="cllabel" for="uname"><b>¿Alérgia a algún medicamento?</b></label>
-				  <input  id="idnclientehmalergiamedimament" class="clinputmio" type="text" placeholder="¿Alérgia a algún medicamento?" name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>¿Alérgia a los metales?</b></label>
-				  <input  id="idnclientealegiametales" class="clinputmio" type="text" placeholder="¿Alérgia a los metales?" name="Telefono" required>
-		  
-				  <label class="cllabel" for="uname"><b>¿Enfermedades serias recientes?</b></label>
-				  <input  id="idnclientehmenferedadesseriasrecient" class="clinputmio" type="text" placeholder="¿Enfermedades serias recientes?" name="Telefono" required>
-		  
-
-
-
-
-
-
-				  <label class="cllabel" for="uname"><b>¿Usted ha tenido cirugías importantes? </b></label>
-				  <input  id="idnclientesustedcirugiasimport" class="clinputmio" type="text" placeholder="¿Usted ha tenido cirugías importantes?" name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>Problemas Del Corazón Embolia Alta Presión Diabetes Fiebre Reumática Desórdenes Del Ojo Desorden De Riñones Tumores o Crecimientos Sangrado Frecuente Tuberculosis Asma Epilepsia Enfermedad Venéaria SIDA (VIH +) Convulsiones Glaucoma Soplo del corazón Artritis Actualmente Embarazada Úlceras Condición De la Tiroides Marcapasos Del Corazón Radioterapia Fumar/Tabaco Problemas Respiratorios Prótesis Alérgico a Anestesia Sensibilidad Del Látex Desmayos Frecuentes Válvula Artificial Del Corazón Píldororas Anti-Conceptivas Fuegos Labiales Problemas Del Estómago/ Intestino Cuidado Psiquiátrico/ Psicológico</b></label>
-				  <input  id="idnclienteshmenfermedades" class="clinputmio" type="text" placeholder="¿Tiene sensibilidad en los dientes al lo caliente, al frío o al dulce?" name="Telefono" required>
-		  
-		  
-				  <label class="cllabel" for="uname"><b>¿Hay otros problemas médicos que debemos estar enterados de ellos? No ¿Si, Explique?  </b></label>
-				  <input  id="idnclienthmotrsprobl" class="clinputmio" type="text" placeholder="¿Su mandíbula se siente cansada? " name="Telefono" required>
-		  
-				  <button onclick="btdHISTORIAMÉDICOpanel();" class="clsbutton" >Guardar</button>
-
-
-
-
-
-
-
-
-
-
-
-		  
-				  
-					 
-					</div>
-		  
-		  
-		  </div> <!-- fin HISTORIA MÉDICO -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					</div>   <!-- idpanelnievcliente  -->
-		  
-		  
-		  
 
 
 
@@ -7736,17 +7859,17 @@ var  soyloginadministrador=false;
   
   function todoiniciadenuevologin(){
   
-	  nodeuserodontologo=[];
+	 // nodeuserodontologo=[];
 	  vpassloginp="";
 	  vuserloginp="";
   }
   
   var nodeuserodontologo=[];
 	function traenodeuserodontologo(){
-	  firebase.database().ref().child("userodontologo").once("value", function(snapshot) {
+	  firebase.database().ref().child("idfireodontologoslista").once("value", function(snapshot) {
 		  todoiniciadenuevologin();
 		  nodeuserodontologo=snapshot.val();
-	   
+	
 		}, function (errorObject) {
 		  console.log("The read failed: " + errorObject.code);
 		});
@@ -7768,13 +7891,14 @@ var  soyloginadministrador=false;
 	}
 	traenodeuseradministrad();
   
-  
-  function onfloginp(){
-	  vpassloginp=document.getElementById("idpassloginp").value;
-	  vuserloginp=document.getElementById("iduserloginp").value;
-	  
+  var vobjlogeadouser;
+  function onfloginp(){ 
+	  vpassloginp=document.getElementById("idpassloginp").value.toUpperCase() ;
+	  vuserloginp=document.getElementById("iduserloginp").value.toUpperCase() ;
+alert(vpassloginp+"   "+vuserloginp);
 	  for(var i in nodeuserodontologo){
-  if(nodeuserodontologo[i].pass==vpassloginp&&nodeuserodontologo[i].user==vuserloginp){
+		
+  if(nodeuserodontologo[i].pass.toUpperCase()==vpassloginp&&nodeuserodontologo[i].user.toUpperCase()==vuserloginp){
 	soyloginadministrador=false;
 	  estoylogeado=true;
 	  soyloginodontologo=true;
@@ -7782,8 +7906,8 @@ var  soyloginadministrador=false;
   document.getElementById("idpanellogin").style.display="none";
   
   document.getElementById("idh1principalmenu").innerHTML="ODONTOLOGO";
-  
-		  
+  vobjlogeadouser=nodeuserodontologo[i];
+setTimeout(function(){console.log(vobjlogeadouser.idfire)},1000);
   }
   else{
 	
@@ -7792,7 +7916,7 @@ var  soyloginadministrador=false;
   
 	  
 	  for(var i in nodeuseruser){
-		  if(nodeuseruser[i].pass==vpassloginp&&nodeuseruser[i].user==vuserloginp){
+		  if(nodeuseruser[i].pass.toUpperCase()==vpassloginp&&nodeuseruser[i].user.toUpperCase()==vuserloginp){
 		  
 			  estoylogeado=true;
 			  soyunuseruser=true;
@@ -7811,7 +7935,7 @@ var  soyloginadministrador=false;
 			  }
   
 			  for(var i in nodeadministradores){
-		  if(nodeadministradores[i].pass==vpassloginp&&nodeadministradores[i].user==vuserloginp){
+		  if(nodeadministradores[i].pass.toUpperCase()==vpassloginp&&nodeadministradores[i].user.toUpperCase()==vuserloginp){
 		  
 			  estoylogeado=true;
 			  soyunuseruser=false;
@@ -7916,7 +8040,7 @@ var  soyloginadministrador=false;
   var vw=window.innerWidth;
   var vh= window.innerHeight;
   
-  console.log(vw +" "+vh);
+
   
   
   function  mostrardiv(st){
@@ -7936,7 +8060,14 @@ var  soyloginadministrador=false;
   function fcontactos(){
   
   
-  
+    document.getElementById("idpanelnuevoodontologo").style.display="none";
+      document.getElementById("enviarcorreo").style.display="none";
+      document.getElementById("idmarketing").style.display="none";
+      document.getElementById("elpaneldeodontograma").style.display="none";
+
+	// no tocar nuca  este   document.getElementById("iddivsuperloginmenu").style.display="none";
+	 document.getElementById("elpaneldeodontograma").style.display="none";
+	 document.getElementById("idpanelbuscadorpacientesporodontolo").style.display="none";
 	  ocultardiv("idpanelnievcliente");
 	  ocultardiv("idpaneldirectoriopacientes");
   
