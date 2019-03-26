@@ -8698,7 +8698,7 @@ if(vidnclientenoContactodeemergencia==""){bollvidnclientenoContactodeemergencia=
 	
 
 
-
+var bollsipnuevregistr=false;
 
 function  nuevoclietellamasi(){inicitodonuevocienteregistro();
 getregistroclientenuevosi();
@@ -8711,8 +8711,8 @@ bollvidnclienteemail&&bollvidnclientecelular&&bollvidnclienteContactodeemergenci
 
 //firebase.database().ref().child("AA").push(personanuevlcliente);
 escribefaltapnuevregistro("Subio");
-
-}else{	escribefaltapnuevregistro(escribenueclienteregistrisi);}
+bollsipnuevregistr=true;
+}else{	escribefaltapnuevregistro(escribenueclienteregistrisi);bollsipnuevregistr=false;}
 
 
 
@@ -8842,6 +8842,10 @@ document.getElementById("idh3registropaintefalta").innerHTML=st;
 	
 	
 	}
+
+var bollsiINFORMACIÓNPADREOTUTOR=false;
+
+
 	function btidINFORMACIÓNPADREOTUTOR(){
 
 
@@ -8856,9 +8860,10 @@ document.getElementById("idh3registropaintefalta").innerHTML=st;
 		
 		
 		){
-			fescribeidINFORMACIÓNPADREOTUTOR("subio");
-	
 
+			bollsiINFORMACIÓNPADREOTUTOR=true;
+			fescribeidINFORMACIÓNPADREOTUTOR("subio");
+	/*
 vperINFORMACIÓNPADREOTUTOR={
 
 
@@ -8881,11 +8886,11 @@ vperINFORMACIÓNPADREOTUTOR={
 	
 		firebase.database().ref().child("vperINFORMACIÓNPADREOTUTOR").push({fvperINFORMACIÓNPADREOTUTOR:vperINFORMACIÓNPADREOTUTOR});
 
-
+*/
 
 	
 		}
-		else{fescribeidINFORMACIÓNPADREOTUTOR(escribeidINFORMACIÓNPADREOTUTOR);}
+		else{fescribeidINFORMACIÓNPADREOTUTOR(escribeidINFORMACIÓNPADREOTUTOR);bollsiINFORMACIÓNPADREOTUTOR=false;}
 	
 
 	}
@@ -9181,7 +9186,7 @@ vperINFORMACIÓNPADREOTUTOR={
 		
 		
 		}
-		
+		var bollsiHISTORIAdental=false;
 		
 		function btgethistorialpaciente(){
 			iniciohistorailclinipaciente();
@@ -9196,12 +9201,12 @@ vperINFORMACIÓNPADREOTUTOR={
 
 		
 				escribeenphistorialclinicapaciente("subio");
-		
+				bollsiHISTORIAdental=true;
 			}
 			else{
 		
 				escribeenphistorialclinicapaciente(escribehistorialclinpaciente);
-		
+				bollsiHISTORIAdental=false;
 			}
 
 		
@@ -9386,6 +9391,7 @@ vperINFORMACIÓNPADREOTUTOR={
 		
 		}
 		
+		var bollsiHISTORIAMÉDICOpanel=false;
 		
 		function btdHISTORIAMÉDICOpanel(){
 			iniciiidHISTORIAMÉDICOpanel();
@@ -9397,14 +9403,14 @@ vperINFORMACIÓNPADREOTUTOR={
 		 bollvidnclienteshmDireccion/*bollvidnclienteshmunmeditrata&&bollvidnclienteshmustedmedicamento&&
 		 bollvidnclientehmalergiamedimament&&bollvidnclientealegiametales&& bollvidnclientehmenferedadesseriasrecient&&
 		 bollvidnclientesustedcirugiasimport&&bollvidnclienteshmenfermedades&& bollvidnclienthmotrsprobl
-		
+		bollsiHISTORIAMÉDICOpanel=false;
 		*/
 		
-		){
+		){bollsiHISTORIAMÉDICOpanel=true;
 			escripiidHISTORIAMÉDICOpanel("Subio");
 		
 		}
-		else{escripiidHISTORIAMÉDICOpanel(stcribeHISTORIAMÉDICOpanel);}
+		else{escripiidHISTORIAMÉDICOpanel(stcribeHISTORIAMÉDICOpanel);bollsiHISTORIAMÉDICOpanel=false;}
 		
 		
 
@@ -9450,7 +9456,7 @@ fvidnclientecedula:vidnclientecedula,
 
 
 
-		var FORMACIÓNPADREOTUTOR= {
+		var vFORMACIÓNPADREOTUTOR= {
 
 fvidnclienteresponsabilidadfinanciera:vidnclienteresponsabilidadfinanciera     ,
 fvidnclientesexot:vidnclientesexot     ,
@@ -9472,7 +9478,7 @@ fvidnclienteDireccionC:vidnclienteDireccionC     ,
 
 
 
-		var Hitoriadental={
+		var vHitoriadental={
 
 fvidnclientetienemieddent:vidnclientetienemieddent,		   
 fvidnclientepdentales:vidnclientepdentales,
@@ -9507,7 +9513,7 @@ fvidnclienterelajadorgas:vidnclienterelajadorgas
 
 
 
-		var HISTORIAMÉDICOpanel={
+		var vHISTORIAMÉDICOpanel={
 
 		
 fvidnclientehmnombre:vidnclientehmnombre     ,
@@ -9539,20 +9545,129 @@ var iddoctorenfire="";
 function  llamasubeafireenregistropacientetodo(){
 
 
+		
+	 btdHISTORIAMÉDICOpanel();
+
+
+
+	 personanuevlcliente={
+
+fvidnclientenombre:vidnclientenombre,
+fvidnclientefechanacimiento:vidnclientenombre,
+fvidnclientecedula:vidnclientecedula,
+		fvidnclientesexo:vidnclientesexo,
+		fvidnclienteDireccion:idnclienteDireccion,
+		fvidnclienteemail:vidnclienteemail,
+		fvidnclientecelular:vidnclientecelular,
+		fvidnclienteContactodeemergencia:vidnclienteContactodeemergencia,
+		fvidnclientenoContactodeemergencia:vidnclientenoContactodeemergencia
+
+
+};
+
+
+
+
+
+
+
+
+
+	 vFORMACIÓNPADREOTUTOR= {
+
+fvidnclienteresponsabilidadfinanciera:vidnclienteresponsabilidadfinanciera     ,
+fvidnclientesexot:vidnclientesexot     ,
+fvidnclienteRelacióndepaciente:vidnclienteRelacióndepaciente     ,
+fvidnclienteDireccionE: vidnclienteDireccionE    ,
+fvidnclienteemailt:vidnclienteemailt     ,
+fvidnclientecelulartutor:vidnclientecelulartutor     ,
+fvidnclienteOcupaciontutor:vidnclienteOcupaciontutor     ,
+fvidnclienteDireccionC:vidnclienteDireccionC     ,
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 vHitoriadental={
+
+fvidnclientetienemieddent:vidnclientetienemieddent,		   
+fvidnclientepdentales:vidnclientepdentales,
+fvidnclientecvisidentista:vidnclientecvisidentista,
+fvidnclientescfuelaultmlimp:vidnclientescfuelaultmlimp,
+fvidnclientequiefuedetista:vidnclientequiefuedetista,   
+fvidnclientesatisfechultimodent:vidnclientesatisfechultimodent,
+fvidnclientecepilladiencuantas:vidnclientecepilladiencuantas,
+fvidnclienteusahilodent:vidnclienteusahilodent,
+fvidnclientesusancsangran:vidnclientesusancsangran,
+fvidnclientesensibdienfrical:vidnclientesensibdienfrical,
+fvidnclientmandcanzada:vidnclientmandcanzada,
+fvidnclientedolorcabespalhom:vidnclientedolorcabespalhom,
+   fvidnclientetruenmandibula:vidnclientetruenmandibula,
+fvidnclienteapredient:vidnclienteapredient,
+fvidnclienteprotecdiente:vidnclienteprotecdiente,
+fvidnclientedienetesanosblancos:vidnclientedienetesanosblancos,   
+fvidnclienterelajadorgas:vidnclienterelajadorgas
+
+
+
+}
+
+
+	 vHISTORIAMÉDICOpanel={
+
+		
+fvidnclientehmnombre:vidnclientehmnombre     ,
+	 fvidnclientehmnumerocelumedico:vidnclientehmnumerocelumedico     ,
+	 fvidnclienteshmDireccion:vidnclienteshmDireccion     ,
+	 fvidnclienteshmunmeditrata:vidnclienteshmunmeditrata     ,
+	 fvidnclienteshmustedmedicamento:vidnclienteshmustedmedicamento     ,
+	 fvidnclientehmalergiamedimament:vidnclientehmalergiamedimament     ,
+	 fvidnclientealegiametales:vidnclientealegiametales     ,
+	 fvidnclientehmenferedadesseriasrecient:vidnclientehmenferedadesseriasrecient     ,
+	 fvidnclientesustedcirugiasimport:vidnclientesustedcirugiasimport     ,
+	 fvidnclienteshmenfermedades:vidnclienteshmenfermedades     ,
+	fvidnclienthmotrsprobl: vidnclienthmotrsprobl     ,
+
+
+
+}
+
+
+
 	iddoctorenfire=selecionesteprofecional.id
 if(iddoctorenfireid=""||iddoctorenfire==null){}
 else{
-	firebase.database().ref().child("odontologo").child(iddoctorenfire).child("pacientes").push({
+
+
+
+
+	if(bollsiHISTORIAMÉDICOpanel&&bollsiHISTORIAdental&&bollsiINFORMACIÓNPADREOTUTOR&&bollsipnuevregistr){
+		firebase.database().ref().child("odontologo").child(iddoctorenfire).child("pacientes").push({
 		
 		
 		contacto:personanuevlcliente,
-		historiaclinica:HISTORIAMÉDICOpanel,
-		historiadental:Hitoriadental,
+		historiaclinica:vHISTORIAMÉDICOpanel,
+		historiadental:vHitoriadental,
 		contabilidad:"contabilida",
-		infacudiente:FORMACIÓNPADREOTUTOR
+		infacudiente:vFORMACIÓNPADREOTUTOR
 	
 	
 	});
+
+	}
+	else{alert("falta registros")}
+	
 
 
 }
