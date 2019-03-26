@@ -8416,8 +8416,8 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 		
 		var  ab={nombre:"giovanni1",cedula:"12",idfire:"0"}
 		
-		function fllenaidfire(fidfire,fnombre,fcedula,fpass,fuser){
-		firebase.database().ref().child("odontologosid").push({idfire:fidfire,nombre:fnombre,cedula:fcedula,pass:fpass,user:fuser});
+		function fllenaidfire(fidfire,fnombre,fcedula,fpass,fuser){  //callbackodontologo key
+		firebase.database().ref().child("idfireodontologoslista").push({idfire:fidfire,nombre:fnombre,cedula:fcedula,pass:fpass,user:fuser,profesion:vidnodontoloprofesion});
 		}
 		
 		function setfire(id1,idfire,st){
@@ -8449,10 +8449,11 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 				
 				if(tempregfnodontologo[i].fvidnodontolocedula==vidnodontolocedula){bolltodonodontologoic=true;
 					escribenodotologo="Ya  esta  registrda esa   cedula";hayunacedulaigualnodonto=true;
+					console.log("1a");
 				}
 				else{
 					bolltodonodontologoic=false;
-				
+					console.log("1");
 				}
 		
 		
@@ -8475,8 +8476,8 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 		
 		
 		
-		function lalmadofnodontoloffirepassuser(){ 
-			firebase.database().ref().child("odontologosid"). once("value", function(snapshot) {
+		function lalmadofnodontoloffirepassuser(){ //node era  odontologosid
+			firebase.database().ref().child("idfireodontologoslista"). once("value", function(snapshot) {
 		
 			
 		
@@ -8490,7 +8491,7 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
        
                 if(tempregfodontologosid[i].user==vidnodontolouser){bolltodonodontologoiu=true;
                     escribenodotologo="YA tenemos ese user  registrado";hayunuserigualnodonto=true;
-                }
+					console.log("2a");      }
                 else{console.log("entra "+tempregfodontologosid[i].user);
 				bolltodonodontologoiu=false;
                 
