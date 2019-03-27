@@ -1543,7 +1543,8 @@ for(var i  in tarrayidfireodontologoslista){
 
 
 
-var strudetablebuscespnuecli="<tr class='cltgmyTablebuscespnuecli' ><td  id="+String(tarrayidfireodontologoslista[i].idfire)+ "   onclick='fonmyTablebuscespnuecli(this);'>"+
+var strudetablebuscespnuecli="<tr class='cltgmyTablebuscespnuecli' ><td  id="+
+String(tarrayidfireodontologoslista[i].idfire)+ "   onclick='fonmyTablebuscespnuecli(this);'>"+
 String(tarrayidfireodontologoslista[i].nombre)+"</td><td  >"+
 String(tarrayidfireodontologoslista[i].profesion)+"</td></tr>";
 
@@ -8264,7 +8265,7 @@ function fNuevoOdontologo(){
       document.getElementById("elpaneldeodontograma").style.display="none";
 	  document.getElementById("idpanelnievcliente").style.display="none";
 	  
- 
+	  document.getElementById("idpanelbuscadorpacientesporodontolo").style.display="none";
 }
 
 
@@ -8566,25 +8567,26 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 		
 		
 		function lalmadofnodontoloffire(){ 
+
 			firebase.database().ref().child("odontologo"). once("value", function(snapshot) {
 		
 			
-		
+				
 				tempregfnodontologo=snapshot.val();
 		
 
 		for(var i in tempregfnodontologo){
 		if(!hayunacedulaigualnodonto){
-		
+		console.log("a1");
 			try {
 				
 				if(tempregfnodontologo[i].fvidnodontolocedula==vidnodontolocedula){bolltodonodontologoic=true;
 					escribenodotologo="Ya  esta  registrda esa   cedula";hayunacedulaigualnodonto=true;
-					console.log("1a");
+					console.log("ifa1");
 				}
 				else{
 					bolltodonodontologoic=false;
-					console.log("1");
+					console.log("elsea1");
 				}
 		
 		
@@ -8610,10 +8612,10 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 		function lalmadofnodontoloffirepassuser(){ //node era  odontologosid
 			firebase.database().ref().child("idfireodontologoslista"). once("value", function(snapshot) {
 		
-			
+				console.log("a2");
 		
 				tempregfodontologosid=snapshot.val();
-
+if(tempregfodontologosid){
 	
         for(var i in tempregfodontologosid){
         if(!hayunuserigualnodonto){
@@ -8622,8 +8624,8 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
        
                 if(tempregfodontologosid[i].user==vidnodontolouser){bolltodonodontologoiu=true;
                     escribenodotologo="YA tenemos ese user  registrado";hayunuserigualnodonto=true;
-					console.log("2a");      }
-                else{console.log("entra "+tempregfodontologosid[i].user);
+					console.log("ifa2");      }
+                else{console.log("entra elsea2"+tempregfodontologosid[i].user);
 				bolltodonodontologoiu=false;
                 
                 }
@@ -8638,7 +8640,9 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
         }
         
             
-            }
+            }}
+
+			else{bolltodonodontologoiu=false;}
 		
 			subfnodontologo();
 		
@@ -8654,6 +8658,8 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 
 
 		function getvalnuevoodontolog(){
+
+		
 			nuevoclinuevoodontolog();
 		
 			escribenodotologo="";
@@ -8697,12 +8703,13 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 		
 		
 		function subfnodontologo(){
-			
+			console.log(!bolltodonodontologoiu+"  llama sebir  "+bolltodonodontologon+"     "+bolltodonodontologoc+"     "+bolltodonodontologod+"     "+bolltodonodontologoe+"     "+bolltodonodontologoce
+			+"     "+bolltodonodontologop+"     "+!bolltodonodontologoic+"     "+bolltodonodontologops+"     "+bolltodonodontologou+"     "+!bolltodonodontologoiu);
 			document.getElementById("idh4nodontologo").innerHTML=escribenodotologo;
 		
 			if(bolltodonodontologon&&bolltodonodontologoc&&bolltodonodontologod&&bolltodonodontologoe&&bolltodonodontologoce
 			&&bolltodonodontologop&&!bolltodonodontologoic&&bolltodonodontologops&&bolltodonodontologou&&!bolltodonodontologoiu){
-		
+				console.log("sube1");
 		vfnodontologo={fvidnodontolonombre:vidnodontolonombre,
 		fvidnodontolocedula:vidnodontolocedula,
 		fvidnodontolodireccion:vidnodontolodireccion,
@@ -8711,9 +8718,12 @@ if(vfodontocedula!=""&& vfodontonombre!=""){
 		fvidnodontoloprofesion:vidnodontoloprofesion,fvidnodontolouser:vidnodontolouser,
 		fvidnodontolopass:vidnodontolopass
 		};
+		console.log("sube2");
 		entracuanto=true;
+		console.log("sube3");
+		
 		firebase.database().ref().child("odontologo").push({contactoodontologo:vfnodontologo});
-	
+		console.log("sube");
 		document.getElementById("idnodontolonombre").value="";
 		document.getElementById("idnodontolocedula").value="";
 		document.getElementById("idnodontolodireccion").value="";
@@ -9796,9 +9806,60 @@ else{
 	
 	
 	});
+	vtemopnombrecliente=vidnclientecedula;
+
+
+
+firebase.database().ref().child("telefonos").push(vidnclientecelular);
+firebase.database().ref().child("nemail").push(vidnclienteemail);
+/*
+	firebase.database().ref().child("datosrapidospacientes").push({
+		fnombre:vidnclientenombre,
+		fidfirepaciente:id,
+		femailpaciente:vidnclienteemail,
+		fcelularpaciente:vidnclientecelular,
+		fiddoctor:selecionesteprofecional.id,
+		fnombreodont:selecionesteprofecional.innerText
+
+	});
+*/
+
+console.log("selecionesteprofecional.id   "+selecionesteprofecional.id);
+
+setTimeout(function(){
+
+	firebase.database().ref().child("odontologo").child(selecionesteprofecional.id).child("pacientes").once("value", function(snapshot1) {
+
+	for(var i in snapshot1.val()){
+
+		console.log(i+"    "+   vtemopnombrecliente+"     "+  snapshot1.val()[i].contacto.fvidnclientecedula);
+
+if(vtemopnombrecliente==snapshot1.val()[i].contacto.fvidnclientecedula){
+
+	firebase.database().ref().child("datosrapidospacientes").push({
+		fnombre:vidnclientenombre,
+		fidfirepaciente:i,
+		fcedula:vidnclientecedula,
+		femailpaciente:vidnclienteemail,
+		fcelularpaciente:vidnclientecelular,
+		fiddoctor:selecionesteprofecional.id,
+		fnombreodont:selecionesteprofecional.innerText
+
+	});
+
+}
 
 	}
-	else{alert("falta registros")}
+		
+		
+		  });
+	
+},5000);
+
+
+
+	}
+	else{}
 	
 
 
@@ -9806,7 +9867,7 @@ else{
 
 }
 
-
+var vtemopnombrecliente="";
 function fidbtbuscaodontologosf(){
 
 
@@ -9832,10 +9893,7 @@ firebase.database().ref().child("idfireodontologoslista").once("value", function
 }
 
 function fidbtbuscaodontologosfcerrar(){
-	//$("#myTablebuscespnuecli").empty();
 
-
-//alert(selecionesteprofecional.id);
 	for(var i in tarrayidfireodontologoslista2){
 
 try {tarrayidfireodontologoslista2[i].remove();
@@ -9854,7 +9912,8 @@ document.getElementById("idh3sinespecialista").innerHTML=selecionesteprofecional
 
 }
 
-		
+document.getElementById("idpanelbuscadorpacientesporodontolo").style.display="none";
+
 		</script>
 		
 		
