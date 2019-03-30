@@ -1001,7 +1001,7 @@ z-index: 7003;
 	left: 0%;
 	width: 100%;
 	height: 100%;
-	background-color: #000;
+	background-color: #1b1b27;
 	z-index: 701;
 }
 
@@ -1416,8 +1416,81 @@ font-size: 10px;
 	left: 15%;
 	height: 80%;
 	width: 70%;
-	background-color: #02cfaf;
+	background-color: #1b1b27;
+}
+
+
+
+
+
+
+
+
+#idpaneldatosrapidospacientesa{
+
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 35%;
+	background-color: #1e1e2e;
 	z-index: 3;
+}
+
+
+
+#myInputbusdatosrapidospacientes {
+ background-color: #27293d;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTablebusdatosrapidospacientes {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTablebusdatosrapidospacientes th, #myTablebusdatosrapidospacientes td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTablebusdatosrapidospacientes tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTablebusdatosrapidospacientes tr.headerbusdatosrapidospacientes, #myTablebusdatosrapidospacientes tr:hover {
+  background-color: #27293d;
+
+  color: #FFFFFF;
+}
+
+
+
+
+.tdcltgmyTablebusdatosrapidospacientes{
+
+
+	color: #d4d4d8;
+}
+
+
+.tdcltgmyTablebusdatosrapidospacientes:hover{
+
+
+color: #1d8cf8;
+}
+
+
+.clcolorh2{
+	color: #d650d6;
+
+
 }
 
 
@@ -1427,6 +1500,37 @@ font-size: 10px;
 
 
 		</style></style><script src="jquery-3.3.1.min.js"></script>
+
+
+<SCript>
+
+function iniciabody(){
+	
+	   
+	var config = {
+	apiKey: "AIzaSyDDeEsPxBYxzisg4GDOpmYbHBLvIw6L_IY",
+	authDomain: "mejorvargaslleras-4fd2e.firebaseapp.com",
+	databaseURL: "https://mejorvargaslleras-4fd2e.firebaseio.com",
+	projectId: "mejorvargaslleras-4fd2e",
+	storageBucket: "mejorvargaslleras-4fd2e.appspot.com",
+	messagingSenderId: "912759721594"
+	};
+	firebase.initializeApp(config);
+
+	
+	
+	   
+	
+	
+	
+	
+	}
+	
+	iniciabody();
+
+</SCript>
+
+
 		</head>
 		<body>
 	
@@ -1434,6 +1538,239 @@ font-size: 10px;
 
 
 <div id="iddivsuperloginmenu">
+
+
+
+
+
+
+
+
+
+
+
+<!-- inicio buscado  rapido de  pacientes -->
+
+
+
+
+<div id="idpanelbuscadorpacientesporodontolo">
+
+
+
+
+
+
+
+
+
+	<div id="idpaneldatosrapidospacientesa">
+		<button id="idbtcerrarbuscaespacialista"  onclick="fidbtbuscaodontologosfcerrar();">X</button>
+		
+		
+		
+		
+		<h2 class="clcolorh2" id="idh2busdatosrapidospacientes">PACIENTES</h2>
+		
+		<input type="text" id="myInputbusdatosrapidospacientes" onkeyup="myFunctionbusdatosrapidospacientes()" placeholder="Search for names.." title="Type in a name">
+		<div id="idtablebusdatosrapidospacientes">
+		
+			<table id="myTablebusdatosrapidospacientes">
+					<tr class="headerbusdatosrapidospacientes">
+					  <th style="width:60%;">NOMBRE</th>
+					  <th style="width:40%;">CEDULA</th>
+					  <th style="width:40%;">ESPECIALISTA</th>
+					</tr>
+			
+					
+						
+			
+				
+				
+				  </table>
+		
+		
+		
+		
+		</div>
+		
+		
+		<script>
+		var tarrayiddatosrapidospacientes=[];
+		var	tarrayiddatosrapidospacientes2=[];
+		var  elemttagsarray=[];
+		var  selecionestedatosrapidospacientes="";
+		
+		function  addelemtaladatosrapidospacientes(){
+		//tarrayiddatosrapidospacientes=[];
+		tarrayiddatosrapidospacientes2=[];
+
+
+
+		for(var i  in tarrayiddatosrapidospacientes){
+		
+		
+		
+		var strudetablebusdatosrapidospacientes="<tr class='cltgmyTablebusdatosrapidospacientes' ><td class='tdcltgmyTablebusdatosrapidospacientes'    id="+
+		String(tarrayiddatosrapidospacientes[i].fidfirepaciente)+ "   onclick='fonmyTablebusdatosrapidospacientes(this);'>"+
+		String(tarrayiddatosrapidospacientes[i].fnombre)+"</td><td class='tdcltgmyTablebusdatosrapidospacientes'  >"+
+		String(tarrayiddatosrapidospacientes[i].fcedula)+"</td> "+
+		"<td class='tdcltgmyTablebusdatosrapidospacientes'  >"+
+		String(tarrayiddatosrapidospacientes[i].fnombreodont)+"</td>"
+		
+		+"</tr>";
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		$("#myTablebusdatosrapidospacientes").append(strudetablebusdatosrapidospacientes);
+		
+		
+		
+		
+		}//document.getElementsByTagName("tr");
+		tarrayiddatosrapidospacientes2=	document.getElementsByClassName("cltgmyTablebusdatosrapidospacientes");
+		//	tarrayiddatosrapidospacientes
+		
+		
+		
+		
+		
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		function fonmyTablebusdatosrapidospacientes(thiss){
+		
+		selecionestedatosrapidospacientes=thiss;
+		document.getElementById("idh2busdatosrapidospacientes").innerHTML="Selecciono: "+document.getElementById(thiss.id).innerText;
+		}
+		
+		function myFunctionbusdatosrapidospacientes() {
+		var input, filter, table, tr, td, i, txtValue;
+		input = document.getElementById("myInputbusdatosrapidospacientes");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("myTablebusdatosrapidospacientes");
+		tr = table.getElementsByTagName("tr");
+		for (i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[0];
+		if (td) {
+		  txtValue = td.textContent || td.innerText;
+		  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			tr[i].style.display = "";
+		  } else {
+			tr[i].style.display = "none";
+		  }
+		}       
+		}
+		}
+
+
+
+
+function traedatosrapidospacientes(){
+
+	firebase.database().ref().child("datosrapidospacientes").once("value", function(snapshot) {
+	
+		tarrayiddatosrapidospacientes=[];
+
+
+   tarrayiddatosrapidospacientes=snapshot.val();
+   document.getElementById("idpanelbuscadorpacientesporodontolo").style.display="block";
+   addelemtaladatosrapidospacientes();
+
+
+   }, function (errorObject) {
+	 console.log("The read failed: " + errorObject.code);
+   });
+
+
+
+}
+
+
+
+
+
+
+
+
+
+		</script>
+		
+		
+		
+		
+		
+		
+		</div>
+		
+
+
+
+
+
+
+	
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- fin buscado  rapido de  pacientes -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2011,8 +2348,6 @@ if (td) {
 
 
 
-<div id="idpanelbuscadorpacientesporodontolo"></div>
-
 
 
 
@@ -2348,7 +2683,11 @@ if (td) {
 
 	 // document.getElementById("iddivsuperloginmenu").style.display="none";
 	  document.getElementById("elpaneldeodontograma").style.display="nonne";
-			document.getElementById("idpanelbuscadorpacientesporodontolo").style.display="block";
+			
+
+			traedatosrapidospacientes();
+
+
 		}
 		</script>
 	  
@@ -2369,6 +2708,7 @@ if (td) {
 
 		<a onclick="abreidsendemail();" >Send Email</a>
 		<a onclick="fCerrarapp();" >Cerrarapp</a> 
+		<a onclick="fHoypacientes();" >Hoy Pacientes</a> 
 	  
 	  
 	  
@@ -3910,28 +4250,7 @@ if (td) {
 	
 	
 	
-	function iniciabody(){
-	
-	   
-	var config = {
-	apiKey: "AIzaSyDDeEsPxBYxzisg4GDOpmYbHBLvIw6L_IY",
-	authDomain: "mejorvargaslleras-4fd2e.firebaseapp.com",
-	databaseURL: "https://mejorvargaslleras-4fd2e.firebaseio.com",
-	projectId: "mejorvargaslleras-4fd2e",
-	storageBucket: "mejorvargaslleras-4fd2e.appspot.com",
-	messagingSenderId: "912759721594"
-	};
-	firebase.initializeApp(config);
 
-	
-	
-	   
-	
-	
-	
-	
-	}
-	
 	
 	
 	
@@ -7425,7 +7744,7 @@ function fobjEscribir(){
 
 
 //document.getElementById("idinputextophaser").display.style="block";
-	iniciabody();
+	//iniciabody();
 	
 	document.getElementById("idpaneleliminar").style.display="none";
 	
