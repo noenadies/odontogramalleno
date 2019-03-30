@@ -1341,6 +1341,13 @@ text-align: center;
 
 
 
+
+
+
+
+
+
+
 #myInputbuscespnuecli {
   background-image: url('/css/searchicon.png');
   background-position: 10px 10px;
@@ -1528,7 +1535,7 @@ color: #1d8cf8;
 	width: 35%;
 	height: 100%;
 
-	background-color: #00aeff;
+	background-color: #1e1e2e;
 
 }
 .cladropdowndatosrapidospacientes{
@@ -1546,6 +1553,41 @@ font-size: 17px;
 	border: 5px outset #1d8cf8;
 
 }
+
+
+
+
+
+
+
+
+#idbtcerrarbdatosrapidospacientesa{
+	position: absolute;
+left: 90%;
+top: 5%;
+width: 25px;
+height: 25px;
+
+background-color: #d550d8;
+color: #ffffff;
+z-index: 4;
+font-size: 19px;
+padding: 2px;
+margin: auto;
+text-align: center;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 		</style></style><script src="jquery-3.3.1.min.js"></script>
 
 
@@ -1608,7 +1650,7 @@ function iniciabody(){
 
 	
 	<div id="iddropdowndatosrapidospacientes" class="dropdowndatosrapidospacientes">
-		<span>Mouse over me</span>
+	<button id="buscapacientesmenusspan">	<span>Opciones</span></button>
 		<div class="dropdowndatosrapidospacientes-content">
 			<a class="cladropdowndatosrapidospacientes" onclick="fTurno();" >Turno</a>
 			<a class="cladropdowndatosrapidospacientes" onclick="abreidsendemail();" >Send Email</a>
@@ -1632,10 +1674,12 @@ firebase.database().ref().child("pasientesdeldia").child("queturnova").once("val
 
 
 fturnospasientes=snapshot.val()+1;
-firebase.database().ref().child("pasientesdeldia").child("listapacientes").push({nombre:document.getElementById(selecionestedatosrapidospacientes.id).innerText
+firebase.database().ref().child("pasientesdeldia").child("listapacientes").push({nombre:objetopacientefirebase.contacto.fvidnclientenombre
 		
 		,turno:fturnospasientes
 		});
+		firebase.database().ref().child("pasientesdeldia").child("queturnova").set(fturnospasientes);
+console.log("turo s "+fturnospasientes);		
 
 
 }, function (errorObject) {
@@ -1659,7 +1703,7 @@ firebase.database().ref().child("pasientesdeldia").child("listapacientes").push(
 
 
 	<div id="idpaneldatosrapidospacientesa">
-		<button id="idbtcerrarbuscaespacialista"  onclick="fidbtbuscaodontologosfcerrar();">X</button>
+		<button id="idbtcerrarbdatosrapidospacientesa"  onclick="fcerraridbtcerrarbdatosrapidospacientesa();">X</button>
 		
 		
 		
@@ -1694,7 +1738,8 @@ firebase.database().ref().child("pasientesdeldia").child("listapacientes").push(
 		var	tarrayiddatosrapidospacientes2=[];
 		var  elemttagsarray=[];
 		var  selecionestedatosrapidospacientes="";
-		
+		var arraythisdatosrapidospacientes=[];
+		var  objetopacientefirebase=[];
 		function  addelemtaladatosrapidospacientes(){
 		//tarrayiddatosrapidospacientes=[];
 		tarrayiddatosrapidospacientes2=[];
@@ -1704,9 +1749,9 @@ firebase.database().ref().child("pasientesdeldia").child("listapacientes").push(
 		for(var i  in tarrayiddatosrapidospacientes){
 		
 		
-		
+		//	arraythisdatosrapidospacientes.push({id:tarrayiddatosrapidospacientes[i].fidfirepaciente,objfirebase:});
 		var strudetablebusdatosrapidospacientes="<tr class='cltgmyTablebusdatosrapidospacientes' ><td class='tdcltgmyTablebusdatosrapidospacientes'    id="+
-		String(tarrayiddatosrapidospacientes[i].fidfirepaciente)+ "   onclick='fonmyTablebusdatosrapidospacientes(this);' name="+String(tarrayiddatosrapidospacientes[i].fnombre)+ ">"+
+		String(tarrayiddatosrapidospacientes[i].fidfirepaciente)+ "   onclick='fonmyTablebusdatosrapidospacientes(this);' title="+String(tarrayiddatosrapidospacientes[i].fiddoctor)+ ">"+
 		String(tarrayiddatosrapidospacientes[i].fnombre)+"</td><td class='tdcltgmyTablebusdatosrapidospacientes'  >"+
 		String(tarrayiddatosrapidospacientes[i].fcedula)+"</td> "+
 		"<td class='tdcltgmyTablebusdatosrapidospacientes'  >"+
@@ -1751,8 +1796,27 @@ firebase.database().ref().child("pasientesdeldia").child("listapacientes").push(
 		
 		
 		function fonmyTablebusdatosrapidospacientes(thiss){
-		
+	
 		selecionestedatosrapidospacientes=thiss;
+
+
+		firebase.database().ref().child("odontologo").child(thiss.title).child("pacientes").child(thiss.id).once("value", function(snapshot) {
+	
+			objetopacientefirebase=[];
+
+
+			objetopacientefirebase=snapshot.val();
+
+
+
+}, function (errorObject) {
+ console.log("The read failed: " + errorObject.code);
+});
+
+
+
+
+
 		document.getElementById("idh2busdatosrapidospacientes").innerHTML="Selecciono: "+document.getElementById(thiss.id).innerText;
 		}
 		
@@ -1800,7 +1864,25 @@ function traedatosrapidospacientes(){
 
 
 
+function fcerraridbtcerrarbdatosrapidospacientesa(){
 
+for(var i in tarrayiddatosrapidospacientes2){
+
+try {tarrayiddatosrapidospacientes2[i].remove();
+
+} catch (error) {
+
+}
+
+
+
+}
+
+document.getElementById("idpanelbuscadorpacientesporodontolo").style.display="none";
+//document.getElementById("idh3sinespecialista").innerHTML=selecionesteprofecional.innerText;
+
+
+}
 
 
 
